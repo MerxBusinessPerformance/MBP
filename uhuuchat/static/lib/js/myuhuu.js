@@ -5,7 +5,7 @@ odoo.define('myuhuu.widget', function (require) {
     const env = require('web.env');
     const session = require("web.session");
     const ajax = require('web.ajax');
-
+    console.log(session)
     if(!session.username)
         return true;
     if(session.username.toLowerCase() == 'Demo'.toLowerCase())
