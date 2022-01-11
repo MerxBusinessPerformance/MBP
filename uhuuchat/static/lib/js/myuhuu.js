@@ -10,7 +10,7 @@ odoo.define('myuhuu.widget', function (require) {
     console.log("env: ",env)
     if(!session.username)
         return true;
-    if(session.username.toLowerCase() == 'Demo'.toLowerCase())
+    if(session.username.toLowerCase() == 'Demo'.toLowerCase() || session.username.toLowerCase() == 'temp_crm_user'.toLowerCase())
         return true;        
     
     if( !window.UHUUWidget ){
