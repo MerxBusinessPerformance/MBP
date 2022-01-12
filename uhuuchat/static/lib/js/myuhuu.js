@@ -27,7 +27,7 @@ odoo.define('myuhuu.widget', function (require) {
             j.addEventListener('load', () => {
                 console.log("Hemos cargado uhuuWidgets.js")
                 if( !window.UhuuChat ){
-                    setTimeout(function(){ 
+                    //setTimeout(function(){ 
                         window.UhuuChatUrl = "https://omnichanneldev.myuhuu.com";
                         console.log("handleUhuuBtn -- uhuuchat : afterload script - window.UHUUWidget = ",window.UHUUWidget)
                         //window.UHUUWidget.setUhuuWidgetOption( option.name, option.urlApp, option.params )
@@ -39,7 +39,7 @@ odoo.define('myuhuu.widget', function (require) {
                             console.log("handleUhuuChatBtn -- UHUUWidget.options 1:: ", window.UHUUWidget.options)
                             console.log("Hemos cargado uhuuchatmini.min.js")
                         })
-                    },100)
+                    //},100)
                 }
                 /*if( !window.UHUUVoIp ){
                     var h2 = document.getElementsByTagName('script')[0], j2 = document.createElement('script');
