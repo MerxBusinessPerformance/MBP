@@ -11,7 +11,6 @@
             <xpath expr="//field[@name='l10n_mx_edi_pac_password']" 
                 position="after">
                 <!-- Add your fields here -->
-                <div class="row">
                     <label string="Contrato Prodigia" 
                         for="l10n_mx_edi_pac_contract" 
                         class="col-md-3 o_light_label" 
@@ -19,7 +18,6 @@
                     <field name="l10n_mx_edi_pac_contract" 
                         readonly="0" 
                         attrs="{'invisible':[('l10n_mx_edi_pac', '!=', 'prodigia')]}" />
-                </div>
             </xpath>
         </field>
     </record>
