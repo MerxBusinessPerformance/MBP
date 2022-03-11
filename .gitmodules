@@ -2,3 +2,8 @@
 	path = angel-adriano/merx
 	url = git@github.com:angel-adriano/merx.git
 	branch = 14.0
+
+[submodule "angel-adriano/merx/custom_crm"]
+	path = angel-adriano/merx/custom_crm
+	url = git@github.com:angel-adriano/merx.git
+	branch = 14.0
