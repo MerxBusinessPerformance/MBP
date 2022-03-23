@@ -5,7 +5,7 @@ _logger = logging.getLogger(__name__)
 
 class Myuhuu(http.Controller):
         
-    @http.route('/uhuuchat', auth='user', methods=['POST'], type='json')
+    @http.route('/myuhuu', auth='user', methods=['POST'], type='json')
     def index(self, **kw):    
         return {'status':'Ok','msg':'Hello, world - Uhuu', 'data':http.request.session.sid}
     
@@ -14,7 +14,7 @@ class Myuhuu(http.Controller):
     # CONTACTS - Custom API - C,R,U
     # -------------------------------------
     #
-    @http.route('/uhuuchat/contacts', auth='user', methods=['GET'], type='json')
+    @http.route('/myuhuu/contacts', auth='user', methods=['GET'], type='json')
     def getContacts(self, **kw):
         ## Validar con try/catch para evitar problemas, o gestionar las respuestas del api
         json_data = http.request.jsonrequest
@@ -47,7 +47,7 @@ class Myuhuu(http.Controller):
         }
         return data
     
-    @http.route('/uhuuchat/contacts', auth='user', methods=['POST'], type='json')
+    @http.route('/myuhuu/contacts', auth='user', methods=['POST'], type='json')
     def createContacts(self, **kw):
         json_data = http.request.jsonrequest
         record, contact_db, statusCode, message = {}, {}, 200, "Ok"
@@ -75,7 +75,7 @@ class Myuhuu(http.Controller):
         }
         return data
     
-    @http.route('/uhuuchat/contacts/<int:contactId>', auth='user', methods=['PUT'], type='json')
+    @http.route('/myuhuu/contacts/<int:contactId>', auth='user', methods=['PUT'], type='json')
     def updateContacts(self, contactId, **kw):
         json_data = http.request.jsonrequest
         record, contact_db, statusCode, message = {}, {}, 200, "Ok"
@@ -107,7 +107,7 @@ class Myuhuu(http.Controller):
     # LEADS - Custom API - C,R,U
     # -------------------------------------
     #
-    @http.route('/uhuuchat/leads', auth='user', methods=['GET'], type='json')
+    @http.route('/myuhuu/leads', auth='user', methods=['GET'], type='json')
     def getLeads(self, **kw):
         json_data = http.request.jsonrequest
         query, statusCode, message, leads, fields, limit = [], 200, "Ok", [], ['id','name'], 5
@@ -140,7 +140,7 @@ class Myuhuu(http.Controller):
         
         return data
     
-    @http.route('/uhuuchat/leads', auth='user', methods=['POST'], type='json')
+    @http.route('/myuhuu/leads', auth='user', methods=['POST'], type='json')
     def createLeads(self, **kw):
         json_data = http.request.jsonrequest
         record, lead_db, statusCode, message = {}, {}, 200, "Ok"
@@ -168,7 +168,7 @@ class Myuhuu(http.Controller):
         return data
     
     
-    @http.route('/uhuuchat/leads/<int:leadId>', auth='user', methods=['PUT'], type='json')
+    @http.route('/myuhuu/leads/<int:leadId>', auth='user', methods=['PUT'], type='json')
     def updateLeads(self, leadId, **kw):
         json_data = http.request.jsonrequest
         record, lead_db, statusCode, message = {}, {}, 200, "Ok"
@@ -201,7 +201,7 @@ class Myuhuu(http.Controller):
     # NOTES - Custom API - C,R,U
     # -------------------------------------
     #
-    @http.route('/uhuuchat/notes', auth='user', methods=['GET'], type='json')
+    @http.route('/myuhuu/notes', auth='user', methods=['GET'], type='json')
     def getNotes(self, **kw):
         json_data = http.request.jsonrequest
         query, notes, statusCode, message, fields, limit  = [], [], 200, "Ok", ['id','name'], 5
@@ -233,7 +233,7 @@ class Myuhuu(http.Controller):
         
         return data
     
-    @http.route('/uhuuchat/notes', auth='user', methods=['POST'], type='json')
+    @http.route('/myuhuu/notes', auth='user', methods=['POST'], type='json')
     def createNotes(self, **kw):
         json_data = http.request.jsonrequest
         parentId, parentModel, record, statusCode, message, response = '', '', {}, 200, "Record created successfully", ""
