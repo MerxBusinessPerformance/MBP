@@ -48,18 +48,19 @@ odoo.define('myuhuu.widget', function (require) {
                         console.log("handleUhuuVoIpBtn -- UHUUWidget.options 2:: ", window.UHUUWidget.options)
                         console.log("handleUhuuVoIpBtn -- Hemos cargado los 2 scripts")
                     })
-                }
-
-                if( !window.UHUUVideo ){
-                    var h2 = document.getElementsByTagName('script')[0], j2 = document.createElement('script');
-                    j2.async = false; 
-                    j2.src = 'https://uhuuvoipfiles.s3.us-west-1.amazonaws.com/uhuuvideo.js';
+                }*/
+                if (!window.UHUUVideo) {
+                    var h2 = document.getElementsByTagName('script')[0]
+                      , j2 = document.createElement('script');
+                    j2.async = false;
+                    j2.src = 'https://uhuuvoipfiles.s3.us-west-1.amazonaws.com/static/uhuuvideo.js';
                     h2.parentNode.insertBefore(j2, h2);
-                    j2.addEventListener('load', () => {
+                    j2.addEventListener('load', ()=>{
                         console.log("handleUhuuVideoBtn -- UHUUWidget.options 2:: ", window.UHUUWidget.options)
                         console.log("handleUhuuVideoBtn -- Hemos cargado los 2 scripts")
-                    })
-                }*/
+                    }
+                    )
+                }
             })
         //},500);
     }
