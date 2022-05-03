@@ -13,5 +13,5 @@ class ProductTemplate(models.Model):
            if product.costo_usd > 0:
                product.standard_price = product.costo_usd * (1 / self.env.ref('base.USD').rate)
        	   if product.precio_usd > 0:
-               product.lst_price = product.precio_usd * (1 / self.env.ref('base.USD').rate)
+               product.list_price = product.precio_usd * (1 / self.env.ref('base.USD').rate)
        	   	
