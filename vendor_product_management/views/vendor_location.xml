@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="vendor_location_view_search" model="ir.ui.view">
+        <field name="name">vendor.location.search</field>
+        <field name="model">vendor.location</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="address"/>
+                <filter string="Archived" name="inactive" domain="[('active','=',False)]"/>
+                <group  expand='0' string='Group by...'>
+                    <filter name="supplier_group" string="Vendor" context="{'group_by' : 'partner_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+    <record id="vendor_location_view_form" model="ir.ui.view">
+        <field name="name">vendor.location.form</field>
+        <field name="model">vendor.location</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="%(vendor_product_management.vendor_quant_action)d"
+                                type="action"
+                                icon="fa-cubes"
+                                context="{'default_vendor_location_id': id, 'search_default_vendor_location_id': id}"
+                        >
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_text">Stocks</span>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder="location name" class="oe_inline"/></h1>
+                    </div>
+                    <group>
+                        <field name="partner_id"/>
+                        <label for="delivery_time"/>
+                        <div>
+                            <field name="delivery_time" class="oe_inline"/> days
+                        </div>
+                        <field name="address"/>
+                        <field name="company_id" groups="base.group_multi_company"/>
+                        <field name="active" invisible="1"/>
+                    </group>
+                    <notebook>
+                        <page string="Notes">
+                            <field name="description"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="vendor_location_view_tree" model="ir.ui.view">
+        <field name="name">vendor.location.tree</field>
+        <field name="model">vendor.location</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name='name'/>
+                <field name="partner_id"/>
+                <field name="delivery_time"/>
+            </tree>
+        </field>
+    </record>
+    <record id="vendor_location_action" model="ir.actions.act_window">
+         <field name="name">Locations</field>
+         <field name="type">ir.actions.act_window</field>
+         <field name="res_model">vendor.location</field>
+         <field name="view_mode">tree,form</field>
+         <field name="search_view_id" eval="vendor_location_view_search"/>
+         <field name="help" type="html">
+              <p class="oe_view_nocontent_create">Click to add a new vendor location</p>
+         </field>
+    </record>
+
+</odoo>

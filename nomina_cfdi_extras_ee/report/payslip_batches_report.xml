@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <report
+            string="Nóminas procesadas"
+            id="action_report_payslip_batches"
+            model="hr.payslip.run"
+            report_type="qweb-pdf"
+            name="nomina_cfdi_extras_ee.report_payslip_batches"
+            file="nomina_cfdi_extras_ee.report_payslip_batches"
+            paperformat="nomina_cfdi_ee.paperformat_a4_landscape"
+        />
+    </data>
+    <template id="report_payslip_batches">
+    	<t t-set="docs" t-value="docs.slip_ids.filtered(lambda x: x.state!='cancel')"/>
+    	<t t-call="nomina_cfdi_ee.report_payslip"/>
+    </template>
+</odoo>

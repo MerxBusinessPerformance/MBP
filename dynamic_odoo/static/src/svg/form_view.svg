@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="324px" height="75px" viewBox="0 0 324 75" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>Form view 02</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Form-view-02" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle-8" fill="#24155B" x="0" y="0" width="324" height="75"></rect>
+        <g id="Q-small" opacity="0.7" transform="translate(-39.000000, 2.000000)" fill="#42377B" fill-rule="nonzero" stroke-width="2">
+            <rect id="Rectangle-Copy" stroke="#A358DF" opacity="0.6" x="97" y="62" width="107.333333" height="12" rx="2"></rect>
+            <rect id="Rectangle-Copy" stroke="#FFCC00" opacity="0.5" x="253" y="53" width="48" height="8" rx="2"></rect>
+        </g>
+        <g id="Q-large" transform="translate(73.000000, 3.000000)">
+            <rect id="Rectangle-Copy" stroke="#00A9FF" stroke-width="2" fill="#42377B" fill-rule="nonzero" x="37" y="19" width="128" height="16" rx="2"></rect>
+            <path d="M28.514,25.152 C27.226,25.152 26.162,24.228 26.162,22.912 C26.162,21.596 27.226,20.644 28.514,20.644 C29.774,20.644 30.838,21.596 30.838,22.912 C30.838,24.228 29.774,25.152 28.514,25.152 Z M28.514,34.252 C27.226,34.252 26.162,33.3 26.162,31.984 C26.162,30.696 27.226,29.744 28.514,29.744 C29.774,29.744 30.838,30.696 30.838,31.984 C30.838,33.3 29.774,34.252 28.514,34.252 Z" id=":" fill="#FFFFFF"></path>
+            <path d="M20.314,26.368 C20.314,29.728 18.662,32.724 16.114,34.516 L17.99,37.596 L15.218,39.276 L13.174,35.916 C12.306,36.14 11.41,36.28 10.486,36.28 C4.998,36.28 0.686,31.828 0.686,26.368 C0.686,20.908 4.998,16.484 10.486,16.484 C15.946,16.484 20.314,20.908 20.314,26.368 Z M10.486,32.612 C10.71,32.612 10.934,32.612 11.13,32.584 L9.478,29.84 L12.222,28.16 L14.154,31.324 C15.554,30.204 16.394,28.412 16.394,26.368 C16.394,22.924 13.93,20.152 10.486,20.152 C7.014,20.152 4.578,22.924 4.578,26.368 C4.578,29.84 7.014,32.612 10.486,32.612 Z" id="Q" fill="#FFFFFF"></path>
+        </g>
+    </g>
+</svg>

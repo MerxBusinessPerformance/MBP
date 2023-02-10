@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="ir_actions_report_kanban" model="ir.ui.view">
+            <field name="name">ir.actions.report.kanban</field>
+            <field name="model">ir.actions.report</field>
+            <field name="arch" type="xml">
+                <kanban class="o_kanban_mobile">
+                    <field name="name"/>
+                    <field name="report_name"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click o_kanban_record">
+                                <div class="o_dropdown_kanban dropdown stAc" tabindex="-1">
+                                    <a class="dropdown-toggle o-no-caret btn" data-toggle="dropdown"
+                                       data-display="static" href="#" role="button" aria-label="Dropdown menu"
+                                       title="Dropdown menu">
+                                        <span class="fa fa-ellipsis-v"/>
+                                    </a>
+                                    <div class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                        <!--<a type="edit" class="dropdown-item">Module Info</a>-->
+                                        <!--<a t-if="record.website.raw_value" role="menuitem" class="dropdown-item"-->
+                                           <!--t-att-href="record.website.raw_value" target="_blank">Learn More-->
+                                        <!--</a>-->
+                                        <!--<a t-if="installed" name="button_immediate_upgrade" type="object"-->
+                                           <!--role="menuitem" class="dropdown-item">Upgrade-->
+                                        <!--</a>-->
+                                        <!--<a t-if="installed" name="button_uninstall_wizard" type="object" role="menuitem"-->
+                                           <!--class="dropdown-item">Uninstall-->
+                                        <!--</a>-->
+                                        <a role="menuitem" type="delete" class="dropdown-item">Delete</a>
+                                        <a role="menuitem" type="object" name="copy_report" class="dropdown-item">Duplicate</a>
+                                    </div>
+                                </div>
+                                <div class="o_kanban_image">
+                                    <div class="o_image" data-mimetype="application/pdf" role="img"
+                                         aria-label="PDF file" title="PDF file"></div>
+                                </div>
+                                <div class="oe_kanban_details">
+                                    <strong>
+                                        <span>
+                                            <t t-esc="record.name.value"/>
+                                        </span>
+                                    </strong>
+                                    <small>
+                                        <span>
+                                            <t t-esc="record.report_name.value"/>
+                                        </span>
+                                    </small>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record id="ir_actions_report_kanban_view" model="ir.actions.act_window.view">
+            <field name="sequence" eval="5"/>
+            <field name="view_mode">kanban</field>
+            <field name="view_id" ref="dynamic_odoo.ir_actions_report_kanban"/>
+            <field name="act_window_id" ref="base.ir_action_report"/>
+        </record>
+    </data>
+</odoo>

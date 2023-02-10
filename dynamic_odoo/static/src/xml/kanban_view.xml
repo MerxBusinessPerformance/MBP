@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="KanBan.Template1">
+        <templates>
+            <t t-name="kanban-box">
+                <div class="oe_kanban_global_click o_kanban_record_has_image_fill o_hr_kanban_record">
+                    <div class="o_kanban_image_fill_left d-none d-md-block" t-attf-style="background-image: url('/web/static/src/img/placeholder.png')" role="img"/>
+                    <div class="oe_kanban_details">
+                        <div class="o_kanban_record_top">
+                            <div class="o_kanban_record_headings">
+                                <a class="_addView" add-id="addId-01" replace-type="title">Add title</a>
+                                <a class="_addView" add-id="addId-02" replace-type="subtitle">Add subtitle</a>
+                            </div>
+                        </div>
+                        <a class="_addView" add-id="addId-03" replace-type="field">
+                            Add tags
+                        </a>
+                        <ul>
+                            <li><a class="_addView" add-id="addId-04" replace-type="esc">Add property</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </t>
+        </templates>
+    </t>
+    <t t-name="KanBan.Template2">
+        <templates>
+            <t t-name="kanban-box">
+                <div t-attf-class="oe_kanban_card oe_kanban_global_click">
+                    <div class="o_kanban_record_top mb16">
+                        <div class="o_kanban_record_headings mt4">
+                            <a class="_addView" add-id="addId-01" replace-type="title">Add title</a>
+                        </div>
+                        <strong>
+                            <a class="_addView" add-id="addId-02" replace-type="field">
+                                Add here
+                            </a>
+                        </strong>
+                    </div>
+                    <div class="o_kanban_record_bottom">
+                        <div class="oe_kanban_bottom_left text-muted">
+                            <span>
+                                <a class="_addView" add-id="addId-03" replace-type="esc">
+                                    Add here
+                                </a>
+                            </span>
+                        </div>
+                        <div class="oe_kanban_bottom_right">
+                            <a class="_addView" add-id="addId-04" replace-type="field">
+                                Add here
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </templates>
+    </t>
+    <t t-name="KanBan.AddView">
+        <a class="_addView" t-att-add-id="addId" t-att-replace-type="type"><t t-esc="label" /></a>
+    </t>
+    <t t-name="KanBan.RecordBlank">
+        <div class="oe_kanban_card oe_kanban_global_click o_kanban_record _recordVisible"></div>
+    </t>
+    <t t-name="ViewEdit.KanbanDefault">
+        <kanban>
+            <field name="id" />
+            <templates>
+                <t t-name="kanban-box">
+                    <div t-attf-class="oe_kanban_card oe_kanban_global_click">
+                    </div>
+                </t>
+            </templates>
+        </kanban>
+    </t>
+    <t t-name="KanBan.Template.activity">
+        <div class="o_kanban_inline_block">
+            <field name="activity_ids" widget="kanban_activity"/>
+        </div>
+    </t>
+    <t t-name="KanBan.Template.img">
+        <div class="oe_kanban_bottom_right float-right">
+            <img t-att-src="kanban_image('#model', 'image_1920', record.#fieldName.raw_value)" t-att-title="record.#fieldName.value" t-att-alt="record.#fieldName.value" width="24" height="24" class="oe_kanban_avatar float-right"/>
+        </div>
+    </t>
+
+    <t t-name="KanBan.Template.priority">
+        <div class="oe_kanban_bottom_left float-left _wPriority">
+            <field name="#fieldName" widget="priority" />
+        </div>
+    </t>
+
+    <t t-name="KanBan.Template.tags">
+        <field name="#fieldName" widget="many2many_tags" />
+    </t>
+
+    <t t-name="KanBan.Template.title">
+        <div>
+            <strong class="o_kanban_record_title _fEditKan">
+                <span>
+                    <field name="#fieldName" />
+                </span>
+            </strong>
+        </div>
+    </t>
+    <t t-name="KanBan.Template.subtitle">
+        <div>
+            <strong class="o_kanban_record_subtitle _fEditKan">
+                <span>
+                    <field name="#fieldName" />
+                </span>
+            </strong>
+        </div>
+    </t>
+    <t t-name="KanBan.Template.esc">
+        <span>
+            <t t-if="#check">
+                <t t-esc="#value" />
+            </t>
+        </span>
+    </t>
+    <t t-name="KanBan.Template.field">
+        <span>
+            <field name="#fieldName" widget="widget" />
+        </span>
+    </t>
+
+
+    <t t-name="KanBan.Template.color">
+        <div class="o_dropdown_kanban dropdown">
+            <a role="button" class="dropdown-toggle o-no-caret btn" data-toggle="dropdown" data-display="static" href="#" aria-label="Dropdown menu" title="Dropdown menu">
+                <span class="fa fa-ellipsis-v"/>
+            </a>
+            <div class="dropdown-menu" role="menu">
+                <ul class="oe_kanban_colorpicker" data-field="#fieldName"/>
+            </div>
+        </div>
+    </t>
+
+</templates>

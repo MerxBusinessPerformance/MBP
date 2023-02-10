@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="vendor_locations" name="My Locations">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">My locations</t>
+            </t>
+            <div class="pull-right vendor_product_widget">
+                <a role="button" class="btn btn-primary btn-sm mb8 create_location_vp" href="#">
+                    <i class="fa fa-plus-square-o"/> Add new location
+                </a>
+            </div>
+            <t t-if="not location_ids">
+                <p>There are currently no locations found by your criteria.</p>
+            </t>
+            <t t-if="location_ids" t-call="portal.portal_table">
+                <thead>
+                    <tr class="active">
+                        <th>Location</th>
+                        <th>Address</th>
+                        <th>Delivery time</th>
+                    </tr>
+                </thead>
+                <t t-foreach="location_ids" t-as="vlocation">
+                    <tr t-att-class="'inactive_row' if not vlocation.active else ''">
+                        <td>
+                            <a t-attf-href="/my/locations/#{vlocation.id}?#{keep_query()}">
+                                <t t-esc="vlocation.name"/>
+                            </a>
+                        </td>
+                        <td>
+                            <a t-attf-href="/my/products/#{vlocation.id}?#{keep_query()}">
+                                <t t-esc="vlocation.address"/>
+                            </a>
+                        </td>
+                        <td>
+                            <a>
+                                <t t-esc="vlocation.delivery_time"/> days
+                            </a>
+                        </td>
+                    </tr>
+                </t>
+            </t>
+        </t>
+    </template>
+    <template id="vendor_location" name="My location" inherit_id="portal.portal_sidebar" primary="True">
+        <xpath expr="//div[hasclass('o_portal_sidebar')]" position="inside">
+            <div class="row mt16 vendor_product_widget">
+                <t t-call="portal.portal_record_sidebar">
+                    <t t-set="classes" t-value="'col-12 col-lg flex-lg-grow-0'"/>
+                    <t t-set="entries">
+                        <ul class="list-group list-group-flush flex-wrap flex-row flex-lg-column">
+                            <li class="list-group-item flex-grow-1">
+                                <a role="button"
+                                   class="btn btn-primary btn-block mb8 edit_location_vp no_wrap_vendor"
+                                   t-att-id="vendor_location.id"
+                                   href="#"
+                                >
+                                    <i class="fa fa-edit"/> Update this locaiton
+                                </a>
+                                <a role="button"
+                                   class="btn btn-primary btn-block mb8 create_location_vp no_wrap_vendor"
+                                   href="#"
+                                >
+                                    <i class="fa fa-plus-square-o"/> Add new location
+                                </a>
+                                <a role="button"
+                                   class="btn btn-secondary btn-block mb8 toggle_active_location_vp no_wrap_vendor"
+                                   t-att-id="vendor_location.id"
+                                   href="#"
+                                >
+                                    <i class="fa fa-archive"/>
+                                    <t t-if="vendor_location.active">
+                                        Archive
+                                    </t>
+                                    <t t-if="not vendor_location.active">
+                                        Restore
+                                    </t>
+                                </a>
+                            </li>
+                            <li class="list-group-item flex-grow-1" t-if="responsible_user">
+                                <div class="small mb-1"><strong class="text-muted">Your Contact</strong></div>
+                                <div class="row flex-nowrap">
+                                    <div class="col flex-grow-0 pr-2">
+                                        <img class="rounded-circle mr4 float-left o_portal_contact_img"
+                                             t-if="responsible_user.image_1024"
+                                             t-att-src="image_data_uri(responsible_user.image_1024)"
+                                             alt="Contact"
+                                        />
+                                        <img class="rounded-circle mr4 float-left o_portal_contact_img"
+                                             t-if="not responsible_user.image_1024"
+                                             src="/web/static/src/img/placeholder.png"
+                                             alt="Contact"
+                                        />
+                                    </div>
+                                    <div class="col pl-0" style="min-width: 150px">
+                                        <span t-esc="responsible_user"
+                                              t-options='{"widget": "contact", "fields": ["name", "phone"], "no_marker": True}'
+                                        />
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </t>
+                </t>
+                <div id="quote_content" class="col-12 col-lg justify-content-end">
+                    <div t-attf-class="card #{'pb-5' if report_type == 'html' else ''}">
+                        <div t-if="success"
+                             class="alert alert-success alert-dismissable d-print-none"
+                             role="status"
+                        >
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">&amp;times;</button>
+                            <strong>Thank You!</strong><br/>
+                            <span t-esc="success"/>
+                         </div>
+                        <div t-if="error"
+                             class="alert alert-danger alert-dismissable d-print-none"
+                             role="alert"
+                        >
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">&amp;times;</button>
+                            <span t-esc="error"/>
+                        </div>
+                        <div id="introduction" class="pb-2 pt-3 card-header bg-white}">
+                            <h2 class="my-0">
+                                <span t-field="vendor_location.name"></span>
+                                <t t-if="not vendor_location.active">
+                                    <span class="text-beta">Archived</span>
+                                </t>
+                            </h2>
+                        </div>
+                        <div class="card-body">
+                            <div t-if="vendor_location.description" id="informations">
+                                <t t-esc="vendor_location.description"/>
+                            </div>
+                            <section t-if="vendor_location.address"
+                                     id="address"
+                                     style="page-break-inside: auto;"
+                                     class="mt32"
+                            >
+                                <h3 id="details">Address</h3>
+                                <t t-esc="vendor_location.address"/>
+                            </section>
+                            <section t-if="vendor_location.delivery_time"
+                                     id="delivery"
+                                     style="page-break-inside: auto;"
+                                     class="mt32"
+                            >
+                                <h3 id="details">Delivery time</h3>
+                                <t t-esc="vendor_location.delivery_time"/> days
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+    </template>
+
+</odoo>

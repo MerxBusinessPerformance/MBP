@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <div t-name="Dashboard" class="o_dashboard">
+
+    </div>
+    <t t-name="Dashboard.Grid">
+        <div class="grid-stack"></div>
+    </t>
+    <t t-name="Dashboard.buttons">
+        <div class="btn-group" role="toolbar" aria-label="Main actions">
+            <button class="btn create_dashboard">
+                <i class="fa fa-plus" /> Add Widget
+            </button>
+        </div>
+        <div class="btn-group btnEditMode" role="toolbar" aria-label="Main actions">
+            <button class="btn modeView">
+                <i class="fa fa-television" /> View
+            </button>
+            <button class="btn modeEdit">
+                <i class="fa fa-edit" /> Edit
+            </button>
+        </div>
+    </t>
+    <t t-name="Dashboard.GridItem">
+        <div class="grid-stack-item">
+            <div class="grid-stack-item-content">
+                <div class="wWidget"></div>
+            </div>
+        </div>
+    </t>
+    <t t-name="Dashboard.ChooseWidget">
+        <div class="selectDBWidget">
+            <div class="bgCheck"></div>
+            <div>
+                <t t-foreach="Object.keys(widget.components)" t-as="comName">
+                    <t t-set="component" t-value="widget.components[comName]" />
+                    <div class="wItems" t-attr-name="comName">
+                        <div class="sectionItem" t-att-name="comName">
+                            <div class="preview">
+                                <img t-att-src="component.img" />
+                            </div>
+                            <div class="titleWrapper">
+                                <div>
+                                    <span class="title"><t t-esc="component.label" /></span>
+                                </div>
+                                <div class="description">
+                                    <div class="multiline-ellipsis-component"><t t-esc="component.description" /></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </div>
+        </div>
+    </t>
+    <t t-name="Dashboard.WidgetItem.title">
+        <div class="wTitle">
+            <t t-if="!edit">
+                <h3><t t-esc="title" /></h3>
+            </t>
+            <t t-else="">
+                <input class="inputRename" t-att-value="title" />
+            </t>
+        </div>
+    </t>
+    <t t-name="Dashboard.WidgetItem">
+        <div class="dBWItem">
+            <div class="wiHead">
+                <div class="wDrag"></div>
+
+            </div>
+            <div class="wiContent">
+
+            </div>
+        </div>
+    </t>
+    <t t-name="Dashboard.WidgetItem.Actions">
+        <div class="wSettings">
+            <t t-foreach="widget.actionView" t-as="actionName">
+                <t t-set="action" t-value="widget.action[actionName]" />
+                <a class="acTn" t-att-name="actionName">
+                    <i t-att-class="'fa ' + action.icon" />
+                </a>
+            </t>
+        </div>
+    </t>
+    <t t-name="ViewCenter.MenuDialog">
+        <div class="wMenuDialog">
+            <div class="bgCk"></div>
+            <div class="menuContent">
+                <t t-foreach="widget.views" t-as="menus">
+                    <div class="menuSection">
+                        <t t-foreach="menus" t-as="menuName">
+                            <t t-set="menu" t-value="widget.menus[menuName]" />
+                            <a class="menuItem" t-att-name="menuName">
+                                <i t-att-class="'icMN fa ' + menu.icon" /> <t t-esc="menu.label" />
+                                <t t-if="menu.children">
+                                    <i class="icSubMN fa fa-angle-right" />
+                                    <ul class="subMenu">
+                                        <t t-foreach="menu.children" t-as="child">
+                                            <li class="subItem" t-att-parent="menuName" t-att-name="child.name">
+                                                <span><t t-esc="child.label" /></span>
+                                            </li>
+                                        </t>
+                                    </ul>
+                                </t>
+                            </a>
+                        </t>
+                    </div>
+                </t>
+            </div>
+        </div>
+    </t>
+    <t t-name="Dashboard.Actions.More">
+        <div class="wMore">
+            <div class="dialogCon">
+                <div class="bgCheck"></div>
+                <t t-foreach="widget.moreView" t-as="section">
+                    <div class="section">
+                        <t t-foreach="section" t-as="actionName">
+                            <t t-set="action" t-value="widget.action[actionName]" />
+                            <a class="acTn" t-att-name="actionName">
+                                <i t-att-class="'fa ' + action.icon" /> <t t-esc="action.label" />
+                            </a>
+                        </t>
+                    </div>
+                </t>
+            </div>
+        </div>
+    </t>
+    <t t-name="Dashboard.ExportExcel">
+        <table id="tblData">
+            <thead>
+                <tr>
+                    <th>Demo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Test</td>
+                </tr>
+                <tr>
+                    <td>Test1</td>
+                </tr>
+            </tbody>
+        </table>
+    </t>
+    <t t-name="Dashboard.Widget.Youtube">
+        <div class="dbWidgetYoutube">
+            <!--<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/950569009&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>-->
+            <!--<div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/den1305" title="denvau" target="_blank" style="color: #cccccc; text-decoration: none;">denvau</a> · <a href="https://soundcloud.com/den1305/den-x-justatee-di-ve-nha" title="Đen x JustaTee - Đi Về Nhà" target="_blank" style="color: #cccccc; text-decoration: none;">Đen x JustaTee - Đi Về Nhà</a></div>-->
+            <!--<embed src="https://soundcloud.com/den1305/den-x-justatee-di-ve-nha" />-->
+            <iframe width="560" height="315" t-att-src="widget.state.link" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+            <!--<iframe width="560" height="315" src="https://www.youtube.com/embed/JBj-4at3QwQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>-->
+        </div>
+    </t>
+    <t t-name="Dashboard.Widget.Title">
+        <div class="dbWidgetTitle">
+            <div class="wWTitleCon">
+                <!--<t t-set="state" t-value="widget.state" />-->
+                <div class="wIcon" t-att-style="'background-color:' + widget.state.iconBg">
+                    <div>
+                        <i t-att-class="'fa fa-'+widget.state.icon" t-att-style="'color:' + widget.state.iconColor" />
+                    </div>
+                </div>
+                <div class="wDetails" t-att-style="'color:' + widget.state.fontColor">
+                    <div class="wTotal"><h3><t t-esc="widget.state.data.label" /></h3></div>
+                    <div class="wTitle">
+                        <a><t t-esc="widget.data.title" /></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+    <t t-name="Dashboard.Widget.Battery.legendItem">
+        <div class="wItem">
+            <div class="lgItem">
+                <div class="lgBgColor" t-att-style="'background-color:' + group.bgColor"></div>
+                <div class="lgLabel"><t t-esc="group.label" /></div>
+            </div>
+        </div>
+    </t>
+    <t t-name="Dashboard.Widget.Battery.statusItem">
+        <div class="statusBar" t-att-style="'width: ' + group.percentage + '%'">
+            <div class="statusBgColor" t-att-style="'background:' + group.bgColor"></div>
+        </div>
+    </t>
+    <t t-name="Dashboard.Widget.Battery.statusLabel">
+        <div class="statusText">
+            <h3><t t-esc="label" /></h3>
+        </div>
+    </t>
+    <t t-name="Dashboard.Widget.Battery">
+        <div class="dbProgressTracking">
+            <div class="wTKCon">
+                <div class="row">
+                    <div class="wMeter">
+                        <div class="meterCon">
+                            <div class="wStatusBar">
+                            </div>
+                            <div class="stCharge"></div>
+                        </div>
+                    </div>
+                    <div class="wText">
+
+                    </div>
+                </div>
+            </div>
+            <div class="wTKLegend">
+                <div class="legendCon">
+                </div>
+            </div>
+        </div>
+    </t>
+    <t t-name="Dashboard.Widget.Todo.item">
+        <div t-att-data_id="task.id" t-att-class="task.state == 'todo' ? 'item todo' : 'item taskCp'">
+            <div class="itemLeft">
+                <div class="cbCheck">
+                </div>
+            </div>
+            <div class="itemCon">
+                <a>
+                    <t t-esc="task.name" />
+                </a>
+            </div>
+            <i class="fa fa-trash rmTask" />
+        </div>
+    </t>
+    <t t-name="Dashboard.Widget.Bookmark.item">
+        <div t-att-data_id="item.id" class="item">
+            <div class="itemLeft">
+                <div class="wIcon">
+                    <img t-att-src="'https://favicons.githubusercontent.com/'+item.link_icon" />
+                </div>
+            </div>
+            <div class="itemCon">
+                <div>
+                    <a t-att-href="item.name" target="_blank"><t t-esc="item.link_icon" /></a>
+                </div>
+                <div>
+                    <a t-att-href="item.name" target="_blank"><t t-esc="item.name" /></a>
+                </div>
+            </div>
+            <i class="fa fa-trash rmTask" />
+        </div>
+    </t>
+    <t t-name="Dashboard.Widget.Bookmark.list">
+        <div class="wBookMark">
+            <t t-foreach="list" t-as="item">
+                <t t-call="Dashboard.Widget.Bookmark.item" />
+            </t>
+        </div>
+    </t>
+    <t t-name="Dashboard.Widget.Todo.list">
+        <t t-set="todo" t-value="data.todo" />
+        <t t-if="todo.length">
+            <div class="wTaskTodo">
+                <div class="taskTodoList">
+                    <t t-foreach="todo" t-as="task">
+                        <t t-call="Dashboard.Widget.Todo.item" />
+                    </t>
+                </div>
+            </div>
+        </t>
+        <t t-set="completed" t-value="data.completed" />
+        <t t-if="completed.length">
+            <div class="wTaskCompleted">
+                <div class="wGroupCp">
+                    <div class="wGHead">
+                        <div>Completed (<t t-esc="completed.length" />) <i class="fa fa-angle-down" /></div>
+                    </div>
+                    <div class="wGCon">
+                        <div class="taskCompletedList">
+                            <t t-foreach="completed" t-as="task">
+                                <t t-call="Dashboard.Widget.Todo.item" />
+                            </t>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </t>
+    <t t-name="Dashboard.Widget.Todo.empty">
+        <div class="dataEmpty">
+            <div class="wImg">
+                <img t-att-src="img" />
+            </div>
+            <div class="emptyLbl">
+                <h3><t t-esc="label" /></h3>
+            </div>
+        </div>
+    </t>
+    <t t-name="Dashboard.Widget.Todo">
+        <div class="listWidget">
+            <div class="wTodoCon">
+                <div class="todoCon">
+                    <div class="wEmpty"></div>
+                    <div class="wContent"></div>
+                    <div class="wCreate">
+                        <div class="item">
+                            <div class="itemLeft">
+                                <img src="/dashboard_studio/static/src/svg/ic_new_todo.svg" />
+                            </div>
+                            <div class="itemCon">
+                                <input t-att-value="widget.state.value" class="inputAdd" t-att-placeholder="widget.info.create.label" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+    <t t-name="Dashboard.Widget.CountDown">
+        <div class="countdownWidget">
+            <div class="units-row">
+                <div class="unit-wrapper">
+                    <div class="unit-value days">1</div>
+                    <div class="unit-name">Days</div>
+                </div>
+                <div class="unit-wrapper">
+                    <div class="unit-value hours">22</div>
+                    <div class="unit-name">Hours</div>
+                </div>
+                <div class="unit-wrapper">
+                    <div class="unit-value minutes">40</div>
+                    <div class="unit-name">Minutes</div>
+                </div>
+                <div class="unit-wrapper">
+                    <div class="unit-value seconds">45</div>
+                    <div class="unit-name">seconds</div>
+                </div>
+            </div>
+        </div>
+    </t>
+    <t t-name="Dashboard.Widget.Text">
+        <div class="textWidget">
+            <div class="wTextCon"></div>
+        </div>
+    </t>
+    <t t-name="Dashboard.Widget.TableSQl">
+        <div>
+            <t t-call="DashboardStudio.ListSQL.table" />
+        </div>
+    </t>
+</templates>

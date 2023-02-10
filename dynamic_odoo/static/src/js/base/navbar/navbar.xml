@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+
+    <t t-name="studio.ControlPanel" t-inherit="web.NavBar.SectionsMenu" t-inherit-mode="extension">
+         <xpath expr="//div[@class='o_menu_sections']" position="inside">
+             <NarBarEdit />
+        </xpath>
+    </t>
+
+</templates>

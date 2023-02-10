@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="ViewStudio.Widget.Map">
+        <div class="wMapView">
+        </div>
+    </t>
+    <t t-name="ViewStudio.Widget.calendar">
+        <calendar date_start="create_date">
+        </calendar>
+    </t>
+    <t t-name="ViewStudio.Widget.graph">
+        <graph></graph>
+    </t>
+    <t t-name="ViewStudio.Widget.todo">
+        <todo></todo>
+    </t>
+    <t t-name="ViewStudio.Widget.bookmark">
+        <bookmark></bookmark>
+    </t>
+    <t t-name="ViewStudio.Widget.countdown">
+        <countdown></countdown>
+    </t>
+    <t t-name="ViewStudio.Widget.list">
+        <tree>
+            <field name="id" />
+        </tree>
+    </t>
+    <t t-name="ViewStudio.Widget.chart">
+        <graph></graph>
+    </t>
+    <t t-name="ViewStudio.Widget.pivot">
+        <pivot></pivot>
+    </t>
+    <t t-name="ViewStudio.Widget.text">
+        <text></text>
+    </t>
+    <t t-name="ViewStudio.Widget.plan">
+        <kanban date_start="create_date" date_end="write_date" default_group="create_uid">
+        </kanban>
+    </t>
+    <t t-name="ViewStudio.Widget.kanban">
+        <kanban>
+            <field name="id" />
+            <templates>
+                <t t-name="kanban-box">
+                    <div t-attf-class="oe_kanban_card oe_kanban_global_click">
+                    </div>
+                </t>
+            </templates>
+        </kanban>
+    </t>
+    <t t-name="ViewStudio.Widget.gantt">
+        <kanban start_date="create_date" stop_date="write_date">
+        </kanban>
+    </t>
+    <t t-name="ViewStudio.Widget.dashboard">
+        <kanban>
+        </kanban>
+    </t>
+    <t t-name="ViewStudio.Widget.title">
+        <title>
+        </title>
+    </t>
+    <t t-name="ViewStudio.Widget.youtube">
+        <youtube>
+        </youtube>
+    </t>
+    <t t-name="ViewStudio.Widget.battery">
+        <battery>
+        </battery>
+    </t>
+    <t t-name="ViewStudio.Widget.activity">
+        <activity string="View Activity">
+            <templates>
+                <div t-name="activity-box">
+                    <div>
+                        <field name="display_name" display="full"/>
+                    </div>
+                </div>
+            </templates>
+        </activity>
+    </t>
+</templates>

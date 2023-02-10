@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linejoin="round">
+        <g id="todo-list" transform="translate(-256.000000, -611.000000)" stroke="#808080">
+            <g id="Group" transform="translate(256.000000, 611.000000)">
+                <circle id="Oval" cx="10" cy="10" r="9.23076923"></circle>
+                <path d="M6.15384615,10 L13.8461538,10" id="Path" stroke-linecap="round"></path>
+                <path d="M10,13.8461538 L10,6.15384615" id="Path" stroke-linecap="round"></path>
+            </g>
+        </g>
+    </g>
+</svg>

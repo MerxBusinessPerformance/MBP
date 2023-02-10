@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="biometric_attnd_log_view_tree" model="ir.ui.view">
+        <field name="name">biometric.attnd.log.tree</field>
+        <field name="model">attendance.log</field>
+        <field name="arch" type="xml">
+            <tree string="Biometric Device" create="false">
+                <field name="employee_id"/>
+                <field name="punching_time"/>
+                <field name="status"/>
+                <field name="device"/>
+                <field name="company_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="biometric_attnd_log_filter" model="ir.ui.view">
+        <field name="name">biometric.attnd.log.filter</field>
+        <field name="model">attendance.log</field>
+        <field name="arch" type="xml">
+            <search string="Biometric Attendance Search">
+                <field name="employee_id"/>
+                <field name="device"/>
+                <filter name="today" string="Today"
+                        domain="[('punching_time', '&gt;=', datetime.datetime.now().replace(hour=0, minute=0, second=0)),('punching_time', '&lt;=', datetime.datetime.now().replace(hour=23, minute=59, second=59))]"/>
+                <filter name="current_month" string="Current Month"
+                        domain="[('punching_time', '&gt;=', datetime.datetime.now().strftime('%Y-%m-01'))]"/>
+                <separator/>
+                <filter name="my_attendances" string="My Attendances" domain="[('employee_id.user_id.id', '=', uid)]"/>
+                <group expand="0" string="Group By">
+                    <filter name="employee" string="Employee" context="{'group_by':'employee_id'}"/>
+                    <separator/>
+                    <filter name="groupby_name" string="Month" context="{'group_by':'punching_time'}"/>
+                    <filter name="device" string="Biometric Device" context="{'group_by':'device'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_biometric_attnd_log_view" model="ir.actions.act_window">
+        <field name="name">Biometric Attendance Log</field>
+        <field name="res_model">attendance.log</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{"search_default_today":1}</field>
+        <field name="search_view_id" ref="biometric_attnd_log_filter"/>
+    </record>
+
+    <menuitem action="action_biometric_attnd_log_view"
+              id="menu_biometric_attnd_log"
+              parent="hr_attendance.menu_hr_attendance_root"
+              sequence="2"
+              groups="hr_attendance.group_hr_attendance_manager"/>
+
+</odoo>

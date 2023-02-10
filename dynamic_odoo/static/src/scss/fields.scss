@@ -1,0 +1,238 @@
+//Field Checkbox and Radio
+.wFieldCheckbox, .wFieldRadio {
+  cursor: pointer;
+  display: block;
+  .splBl {
+    vertical-align: super;
+    margin-left: 2px;
+    display: inline-block;
+  }
+}
+
+.wFieldRadio {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap-reverse;
+  &.checked {
+    ._wCb {
+      ._wCcB {
+        background: #9496e0;
+      }
+    }
+  }
+  ._wCb {
+    margin-right: 7px;
+    display: inline-block;
+    padding: 8px;
+    background: #e8f4fc;
+    border-radius: 100%;
+    border: 1px solid #dbe1e7;
+    ._wCcB {
+      padding: 4px;
+      background: transparent;
+      border-radius: 100%;
+    }
+  }
+}
+
+// Many2one, Many2many
+.wMany2many {
+  .o_field_many2manytags {
+    border: 1px solid #dbe1e7;
+    border-radius: 3px;
+    padding: 0px 5px 0px 5px;
+    width: 100%;
+    overflow: hidden;
+    .o_field_many2one {
+      flex: none;
+      .o_input_dropdown {
+        margin: 0px -5px 0px -5px;
+        .o_input {
+          border-radius: 0px;
+          border: 0px;
+        }
+      }
+    }
+  }
+  .o_field_many2one {
+    flex: auto;
+    width: 100%;
+    .o_dropdown_button {
+      top: 9px;
+      right: 3px;
+      color: #4c4c4c;
+      display: inline-block;
+      font: normal normal normal 14px/1 FontAwesome;
+      font-size: inherit;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+      &:after {
+        content: "\f078";
+        border: 0px;
+        width: auto;
+        font-size: 10px;
+        height: auto;
+        margin-right: 1px;
+      }
+    }
+  }
+  .o_field_widget.o_field_many2manytags .badge {
+    color: #bbbbbb;
+    border: 1px solid #737980;
+    background: #525b69;
+    box-shadow: none;
+  }
+  .badge {
+    &:first-child {
+      margin-top: 4px !important;
+    }
+    padding: 4px;
+    margin-bottom: 4px;
+    .o_badge_text {
+      padding-left: 5px;
+    }
+  }
+  .o_input_dropdown {
+    .o_input {
+      padding-left: 10px;
+    }
+  }
+}
+
+// Field Input
+.wFieldInput {
+  &.valDiff input {
+    color: #03a9f4 !important;
+  }
+}
+
+// Radio Condition
+.rdCondition {
+  position: relative;
+  .aSCon {
+    position: absolute;
+    right: 0px;
+    top: 5px;
+    text-decoration: underline !important;
+    color: #2e97de !important;
+    cursor: pointer;
+    &:hover {
+      cursor: pointer;
+      color: #0d72b7;
+    }
+  }
+}
+
+// Groups
+.wWidgetGroup {
+  .wContent {
+    min-height: 37px;
+  }
+}
+
+// M2mRaw
+.wM2mRaw {
+  .wContent {
+    border: 1px solid #dbe1e8;
+    border-radius: 7px;
+    .wValue {
+      //padding: 5px 5px 2px 5px;
+      a {
+        display: inline-block;
+        padding: 2px 5px 2px 8px;
+        //margin: 2px 4px;
+        border: 1px solid #737578;
+        box-shadow: none;
+        font-size: 12px;
+        border-radius: 25px;
+        background-color: white;
+        color: #777777;
+        margin-bottom: 4px;
+        margin-left: 4px;
+        i {
+          margin-left: 4px;
+        }
+        &:first-child {
+          margin-top: 4px;
+        }
+        &:last-child {
+          margin-bottom: 4px;
+        }
+      }
+    }
+    .wSelect {
+      input, select {
+        width: 100%;
+        border: 0px;
+        border-radius: 0px;
+      }
+    }
+  }
+}
+
+// FieldDatetime
+// Toggle Switch
+.wToggleSwitch {
+  display: flex;
+  .lblField {
+    margin-left: 10px;
+  }
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 25px;
+    margin: 0px;
+  }
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 1px solid #dbe1e7;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 15px;
+    width: 15px;
+    left: 6px;
+    bottom: 4px;
+    background-color: #cbc9d6;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  input:checked + .slider {
+    background-color: white;
+    &:before {
+      background-color: #9496e0;
+    }
+    //border: 1px solid #7bc4ff;
+  }
+  input:focus + .slider {
+    //box-shadow: 0 0 1px #2196F3;
+  }
+  input:checked + .slider:before {
+    -webkit-transform: translateX(21px);
+    -ms-transform: translateX(21px);
+    transform: translateX(21px);
+  }
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  .slider.round:before {
+    border-radius: 50%;
+  }
+}

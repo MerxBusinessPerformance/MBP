@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+   <record id="view_employee_form_inherit" model="ir.ui.view">
+        <field name="name">hr.employee.nomina</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+           <xpath expr="//notebook" position="inside">
+            <page name="info_idse" string="SUA / IDSE">
+                <group cols="4">
+                    <group string="Información IDSE">
+                        <field name="tipoDeTrabajador"/>
+                        <field name="tipoDeSalario"/>
+                        <field name="tipoDeJornada"/>
+                        <field name="unidadMedicina"/>
+                        <field name="no_guia"/>
+                    </group>
+                    <group string="Información SUA">
+                        <field name="codigo_postal"/>
+                    </group>
+                </group>
+            </page>
+           </xpath>
+        </field>
+    </record>
+</odoo>

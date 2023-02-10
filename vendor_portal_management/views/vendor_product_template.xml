@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="vendor_products" name="My Products">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">My Products</t>
+            </t>
+            <div class="pull-right vendor_product_widget">
+                <a role="button" class="btn btn-primary btn-sm mb8 create_product_vp" href="#">
+                    <i class="fa fa-plus-square-o"/> Register new product
+                </a>
+                <a role="button" class="btn btn-success btn-sm mb8 import_prices_vp" href="#">
+                    <i class="fa fa-upload"/> Import products and prices
+                </a>
+                <a role="button" class="btn btn-success btn-sm mb8 import_stocks_vp" href="#" t-if="vendor_portal_stocks">
+                    <i class="fa fa-upload"/> Import products and stocks
+                </a>
+            </div>
+            <t t-if="not product_ids">
+                <p>There are currently no products found by your criteria.</p>
+            </t>
+            <t t-if="product_ids" t-call="portal.portal_table">
+                <thead>
+                    <tr class="active">
+                        <th>Code</th>
+                        <th>Product</th>
+                        <th>Prices</th>
+                        <th t-if="vendor_portal_stocks">Stocks</th>
+                    </tr>
+                </thead>
+                <t t-foreach="product_ids" t-as="vproduct">
+                    <tr t-att-class="'inactive_row' if not vproduct.active else ''">
+                        <td>
+                            <a t-attf-href="/my/products/#{vproduct.id}?#{keep_query()}">
+                                <t t-esc="vproduct.product_code"/>
+                            </a>
+                        </td>
+                        <td>
+                            <a t-attf-href="/my/products/#{vproduct.id}?#{keep_query()}">
+                                <t t-esc="vproduct.product_name"/>
+                            </a>
+                        </td>
+                        <td>
+                            <t t-foreach="vproduct.price_ids" t-as="price">
+                                <div t-if="not price.check_not_valid()">
+                                    <span class="badge badge-pill badge-info">
+                                        <span t-field="price.price"
+                                              t-options='{"widget": "monetary", "display_currency": price.currency_id}'
+                                        />
+                                        <t t-if="price.min_qty">
+                                            (from <span t-field="price.min_qty"/>
+                                             <span t-field="price.product_uom" groups="uom.group_uom"/>)
+                                        </t>
+                                    </span>
+                                </div>
+                            </t>
+                        </td>
+                        <td t-if="vendor_portal_stocks">
+                            <div>
+                                <t t-foreach="vproduct.quant_ids" t-as="quant">
+                                    <div t-if="quant.supplier_quantity &gt; 0">
+                                        <span class="badge badge-pill badge-success">
+                                            <span t-field="quant.vendor_location_id"/>:
+                                            <span t-field="quant.supplier_quantity"/>
+                                            <span t-field="quant.supplier_product_uom_id" groups="uom.group_uom"/>
+                                        </span>
+                                    </div>
+                                </t>
+                            </div>
+                        </td>
+                    </tr>
+                </t>
+            </t>
+        </t>
+    </template>
+    <template id="vendor_product" name="My Product" inherit_id="portal.portal_sidebar" primary="True">
+        <xpath expr="//div[hasclass('o_portal_sidebar')]" position="inside">
+            <div class="row mt16 vendor_product_widget">
+                <t t-call="portal.portal_record_sidebar">
+                    <t t-set="classes" t-value="'col-12 col-lg flex-lg-grow-0'"/>
+                    <t t-set="entries">
+                        <ul class="list-group list-group-flush flex-wrap flex-row flex-lg-column">
+                            <li class="list-group-item flex-grow-1">
+                                <a role="button"
+                                   class="btn btn-primary btn-block mb8 edit_product_vp no_wrap_vendor"
+                                   t-att-id="vendor_product.id"
+                                   href="#"
+                                >
+                                    <i class="fa fa-edit"/> Update name, code or description
+                                </a>
+                                <a role="button"
+                                   class="btn btn-primary btn-block mb8 create_product_vp no_wrap_vendor"
+                                   href="#"
+                                >
+                                    <i class="fa fa-plus-square-o"/> Register new product
+                                </a>
+                                <a role="button"
+                                   class="btn btn-secondary btn-block mb8 toggle_active_product_vp no_wrap_vendor"
+                                   t-att-id="vendor_product.id"
+                                   href="#"
+                                >
+                                    <i class="fa fa-archive"/>
+                                    <t t-if="vendor_product.active">
+                                        Archive
+                                    </t>
+                                    <t t-if="not vendor_product.active">
+                                        Restore
+                                    </t>
+                                </a>
+                                <a role="button"
+                                   class="btn btn-success btn-block mb8 import_prices_vp no_wrap_vendor"
+                                   href="#"
+                                >
+                                    <i class="fa fa-upload"/> Import products and prices
+                                </a>
+                                <a role="button"
+                                   class="btn btn-success btn-block mb8 import_stocks_vp no_wrap_vendor"
+                                   href="#"
+                                   t-if="vendor_portal_stocks"
+                                >
+                                    <i class="fa fa-upload"/> Import products and stocks
+                                </a>
+                            </li>
+                            <li class="list-group-item flex-grow-1" t-if="responsible_user">
+                                <div class="small mb-1"><strong class="text-muted">Your Contact</strong></div>
+                                <div class="row flex-nowrap">
+                                    <div class="col flex-grow-0 pr-2">
+                                        <img class="rounded-circle mr4 float-left o_portal_contact_img"
+                                             t-if="responsible_user.image_1024"
+                                             t-att-src="image_data_uri(responsible_user.image_1024)" alt="Contact"
+                                        />
+                                        <img class="rounded-circle mr4 float-left o_portal_contact_img"
+                                             t-if="not responsible_user.image_1024"
+                                             src="/web/static/src/img/placeholder.png"
+                                             alt="Contact"
+                                        />
+                                    </div>
+                                    <div class="col pl-0" style="min-width: 150px">
+                                        <span t-esc="responsible_user"
+                                              t-options='{"widget": "contact", "fields": ["name", "phone"], "no_marker": True}'
+                                        />
+                                        <a href="#discussion" class="small">
+                                            <i class="fa fa-comment"></i> Send message
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </t>
+                </t>
+                <div id="quote_content" class="col-12 col-lg justify-content-end">
+                    <div t-attf-class="card #{'pb-5' if report_type == 'html' else ''}">
+                        <div t-if="success"
+                             class="alert alert-success alert-dismissable d-print-none"
+                             role="status"
+                        >
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">&amp;times;</button>
+                            <strong>Thank You!</strong><br/>
+                            <span t-esc="success"/>
+                         </div>
+                        <div t-if="error"
+                             class="alert alert-danger alert-dismissable d-print-none"
+                             role="alert"
+                        >
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">&amp;times;</button>
+                            <span t-esc="error"/>
+                        </div>
+                        <div id="introduction" class="pb-2 pt-3 card-header bg-white}">
+                            <h2 class="my-0">
+                                [<span t-field="vendor_product.product_code"></span>]
+                                <span t-field="vendor_product.product_name"></span>
+                                <t t-if="not vendor_product.active">
+                                    <span class="text-beta">Archived</span>
+                                </t>
+                            </h2>
+                        </div>
+                        <div class="card-body">
+                            <div id="informations">
+                                <t t-esc="vendor_product.description"/>
+                            </div>
+                            <section id="prices" style="page-break-inside: auto;" class="mt32">
+                                <h3 id="details">Prices</h3>
+                                <table class="table table-sm" id="prices_table">
+                                    <thead class="bg-100">
+                                        <tr>
+                                            <t t-set="colspan" t-value="5"/>
+                                            <th class="text-left">Price</th>
+                                            <th class="text-right">Minimal Quantity</th>
+                                            <th class="text-right d-none d-sm-table-cell">Validity</th>
+                                            <th/>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="prices_tbody">
+                                        <t t-foreach="vendor_product.price_ids" t-as="line">
+                                            <tr t-att-class="'text-muted' if line.check_not_valid() else ''">
+                                                <td id="price_col">
+                                                    <div t-field="line.price"
+                                                         t-options='{"widget": "monetary", "display_currency": line.currency_id}'
+                                                         class="text-left"
+                                                    />
+                                                </td>
+                                                <td class="text-right">
+                                                    <div id="min_qty">
+                                                        <span t-field="line.min_qty"/>
+                                                        <span t-field="line.product_uom" groups="uom.group_uom"/>
+                                                    </div>
+                                                </td>
+                                                <td class="text-right">
+                                                    <div id="validity">
+                                                        <span t-field="line.date_start"
+                                                              t-options='{"widget": "date"}'
+                                                        /> -
+                                                        <span t-field="line.date_end"
+                                                              t-options='{"widget": "date"}'
+                                                        />
+                                                    </div>
+                                                </td>
+                                                <td class="text-right">
+                                                    <a href="#"
+                                                       class="edit_price"
+                                                       t-att-id="line.id"
+                                                    >
+                                                        <i class="fa fa-1x fa-fw fa-edit"/>
+                                                    </a>
+                                                    <a href="#"
+                                                       class="remove_price"
+                                                       t-att-id="line.id"
+                                                    >
+                                                        <i class="fa fa-1x fa-fw fa-times"/>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </t>
+                                        <tr>
+                                            <td/>
+                                            <td/>
+                                            <td/>
+                                            <td class="text-right">
+                                                <a href="#"
+                                                   class="add_price"
+                                                   t-att-id="vendor_product.id"
+                                                >
+                                                    add
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </section>
+                            <section id="stocks"
+                                     style="page-break-inside: auto;"
+                                     class="mt32"
+                                     t-if="vendor_portal_stocks"
+                            >
+                                <h3 id="details">Stocks</h3>
+                                <table class="table table-sm" id="quants_table">
+                                    <thead class="bg-100">
+                                        <tr>
+                                            <t t-set="colspan" t-value="2"/>
+                                            <th class="text-left">Location</th>
+                                            <th class="text-right">Quantity</th>
+                                            <th/>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="prices_tbody">
+                                        <t t-foreach="vendor_product.quant_ids" t-as="line">
+                                            <tr>
+                                                <td class="text-left">
+                                                    <div id="loc">
+                                                        <span t-field="line.vendor_location_id"/>
+                                                    </div>
+                                                </td>
+                                                <td class="text-right">
+                                                    <div id="supplier_qty">
+                                                        <span t-field="line.supplier_quantity"/>
+                                                        <span t-field="line.supplier_product_uom_id"/>
+                                                    </div>
+                                                </td>
+                                                <td class="text-right">
+                                                    <a href="#"
+                                                       class="edit_quant"
+                                                       t-att-id="line.id"
+                                                    >
+                                                        <i class="fa fa-1x fa-fw fa-edit"/>
+                                                    </a>
+                                                    <a href="#"
+                                                       class="remove_quant"
+                                                       t-att-id="line.id"
+                                                    >
+                                                        <i class="fa fa-1x fa-fw fa-times"/>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </t>
+                                        <tr>
+                                            <td/>
+                                            <td/>
+                                            <td class="text-right">
+                                                <a href="#"
+                                                   class="add_quant"
+                                                   t-att-id="vendor_product.id"
+                                                >
+                                                    add
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </section>
+                        </div>
+                    </div>
+                    <div id="sale_order_communication" class="mt-4">
+                        <h2>Communication</h2>
+                        <t t-call="portal.message_thread">
+                            <t t-set="object" t-value="vendor_product"/>
+                        </t>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+    </template>
+
+</odoo>

@@ -1,0 +1,662 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="Studio.Icon">
+        <div class="o_mail_systray_item">
+            <a class="aShowST">
+                <img width="12px" height="12px" src="/dynamic_odoo/static/src/img/studio_icon_mode.png" alt="Odoo Studio Icon" title="Toggle Studio" aria-label="Toggle Studio" />
+            </a>
+        </div>
+    </t>
+
+    <t t-name="ViewStudio.iconEdit">
+        <div class="wViewStudio">
+            <button class='btn btn-secondary fa fa-ellipsis-h _icVs' />
+        </div>
+    </t>
+    <t t-name="menu.edit">
+        <li class="_liEdit">
+            <a class="_menuEdit">
+                <i class="fa fa-pencil" />Edit
+            </a>
+        </li>
+    </t>
+    <t t-name="ViewStudio.AppCreator">
+        <div class="wAppCreator">
+            <div class="wHead"></div>
+            <div class="wCon"></div>
+            <div class="wFoot"></div>
+        </div>
+    </t>
+    <t t-name="ViewStudio.IconCreator">
+        <div class="wIconCreator">
+            <div class="wIC">
+                <div class="IC">
+                    <i class="fa fa-home" />
+                </div>
+                <t t-if="widget.state.editable">
+                    <div class="IcL">
+                        <div class="cBgCl" type="icon_bg"></div>
+                        <div class="cICl" type="icon_color"></div>
+                        <div class="cIc" type="choose_icon">
+                            <i class="fa fa-home" />
+                        </div>
+                    </div>
+                </t>
+            </div>
+            <div class="wUL">
+            </div>
+        </div>
+    </t>
+
+    <t t-name="menu.Ul">
+        <ul class="_wrapUlEdit" t-att-data-menu-id="menuId">
+            <t t-foreach="widget.menus" t-as="menu">
+                <t t-set="widget.menuObj[menu.id]" t-value="menu" />
+                <t t-call="menu.li">
+                    <t t-set="menu" t-value="menu" />
+                </t>
+
+
+            </t>
+        </ul>
+    </t>
+
+    <t t-name="menu.SortEdit">
+        <div class="_bgEdit">
+            <div class="wrapMenuEdit">
+                <div class="_head">
+                    <div>
+                        <a>Edit Menu</a>
+                    </div>
+                    <div>
+                        <a class="_aClose"><i class="fa fa-close" /></a>
+                    </div>
+                </div>
+                <div class="_con _divSB">
+                    <t t-call="menu.Ul" />
+                </div>
+                <div class="_bot">
+                    <a class="btn btn-info _btnConfirm">Save</a>
+                </div>
+            </div>
+        </div>
+    </t>
+    <t t-name="menu.li">
+        <li class="_liSub" t-att-data-menu-id="menu.id">
+            <div class="_wInfo">
+                <div class="_wAdd">
+                    <i class="fa fa-plus" />
+                </div>
+                <div class="_wName">
+                    <a><t t-esc="menu.name" /></a>
+                    <input class="form-control" t-att-value="menu.name" />
+                </div>
+                <div class="_wEdit _wIcon">
+                    <i class="fa fa-pencil faEdit" />
+                    <i class="fa fa-trash faRemove" />
+                </div>
+            </div>
+            <t t-if="menu.childrenTree &amp;&amp; menu.childrenTree.length">
+                <t t-call="menu.Ul">
+                    <t t-set="menuId" t-value="menu.id" />
+                    <t t-set="widget.menus" t-value="menu.childrenTree" />
+                </t>
+            </t>
+            <t t-else="">
+                <ul class="_wrapUlEdit" t-att-data-menu="menu.id"></ul>
+            </t>
+        </li>
+    </t>
+    <t t-name="ViewStudio.NewApp.Info">
+        <div class="wInfo">
+            <div class="wTitle">
+                <h3>
+                    <t t-esc="title" />
+                </h3>
+            </div>
+            <div class="wField">
+
+            </div>
+            <div class="wCtrlStep">
+                <button class="btn fa fa-chevron-left" type="prev"></button>
+                <t t-if="finish">
+                    <button class="btn active nFinish">Finish</button>
+                </t>
+                <t t-else="">
+                    <button t-att-class="'btn fa fa-chevron-right ' + (complete ? 'active' : '')" type="next"></button>
+                </t>
+            </div>
+        </div>
+    </t>
+    <t t-name="ViewStudio.NewApp">
+        <div class="wNewApp">
+            <div class="row">
+                <div class="col clInfo">
+
+                </div>
+                <div class="col colIcon">
+
+                </div>
+            </div>
+        </div>
+    </t>
+    <t t-name="ViewStudio.ActiveDashboard">
+        <div class="wAdBoard">
+            <div class="aDBoardCon">
+                <div class="activeModal">
+                    <div class="modalCon">
+                        <div class="aDBHead">
+                            <h2>Create Dashboard</h2>
+                            <i class="fa fa-close iClose" />
+                        </div>
+                        <div class="aDBCon">
+                            <div class="ipName">
+                                <input placeholder="New Dashboard" />
+                            </div>
+                            <div>
+                                <div></div>
+                                <div></div>
+                            </div>
+                        </div>
+                        <div class="aDBFoot">
+                            <div class="wButton">
+                                <button class="btn btnCancel">Cancel</button>
+                                <button class="btn btnCreate">Create Dashboard</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+    <t t-name="ViewStudio.Edit.Options">
+        <div class="wOpDialog">
+             <div class="wConDialog">
+                <t t-foreach="options" t-as="option">
+                    <div class="opsItem" t-att-name="option.name">
+                        <div class="itIcon">
+                            <i t-att-class="'fa ' + icon" />
+                        </div>
+                        <span class="itTitle">
+                            <t t-esc="option.label" />
+                        </span>
+                    </div>
+                </t>
+             </div>
+        </div>
+    </t>
+    <t t-name="ViewStudio.Edit.ChooseView">
+        <div class="container">
+            <div class="row">
+                <t t-foreach="views" t-as="view">
+                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 iCard" t-att-name="view.name">
+                        <div class="card">
+                            <div class="thumbnail">
+                                <img t-att-src="view.img" />
+                            </div>
+                            <div class="card-info">
+                                <a>
+                                    <h3><t t-esc="view.label" /></h3>
+                                    <p><t t-esc="view.des" /></p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="ViewStudio.Edit.categoryItem">
+        <div t-att-class="active ? 'categoryItem active' : 'categoryItem'">
+            <a><t t-esc="category.label" /></a>
+        </div>
+    </t>
+    <t t-name="ViewStudio.Edit.categoryWidgets">
+        <div class="container">
+            <div class="row">
+                <t t-foreach="views" t-as="view">
+                    <div class="col-lg-3 iCard" t-att-name="view.name">
+                        <div class="card">
+                            <div class="thumbnail">
+                                <img t-att-src="view.img" />
+                            </div>
+                            <div class="card-info">
+                                <a>
+                                    <h3><t t-esc="view.label" /></h3>
+                                    <p><t t-esc="view.description" /></p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </div>
+        </div>
+    </t>
+    <t t-name="ViewStudio.ViewsCenter.Title">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="landing-title">
+                    <t t-if="back">
+                        <i class="fa fa-long-arrow-left faBack" />
+                    </t>
+                    <span class="title" t-if="!editTitle &amp;&amp;label"><t t-esc="label" /></span>
+                    <!--<input class="title" t-if="editTitle &amp;&amp; label" t-att-value="label"></input>-->
+                </div>
+            </div>
+            <div t-if="editTypes" class="wEditTypes">
+                <t t-foreach="Object.keys(editTypes)" t-as="typeName">
+                    <t t-set="type" t-value="editTypes[typeName]" />
+                    <a t-att-name="typeName" t-att-class="typeEdit == typeName ? 'active' : ''"><t t-esc="type.label" /></a>
+                </t>
+            </div>
+            <div t-if="showViewSupport" class="wHasViews">
+                <t t-foreach="viewSupport" t-as="viewSp">
+                    <t t-set="view" t-value="views[viewSp.type]" />
+                    <a t-att-name="view.name" t-att-class="view.icon + (viewType == view.name ? ' active' : '') + (!viewSp.has ? ' disable' : '')"></a>
+                </t>
+            </div>
+        </div>
+    </t>
+    <t t-name="ViewStudio.Edit.ViewsCenter">
+        <div class="wMoreView">
+            <t t-if="widget.state.step == 'setup'">
+                <div class="wBtn stHead">
+                    <a class="aSave">
+                        <i class="fa fa-save" />
+                    </a>
+                    <a class="aReset">
+                        <i class="fa fa-refresh" />
+                    </a>
+                </div>
+            </t>
+            <div class="wClose">
+                <a class="faClose">CLOSE</a>
+            </div>
+            <div t-att-class="widget.state.step == 'setup' ? 'wWidgets editView' : 'wWidgets'">
+                <t t-set="label" t-value="widget.steps[widget.state.step].label" />
+                <div class="wgHead container">
+                    <!--<div class="row">-->
+                    <!--<div class="col-md-12">-->
+                    <!--<t t-set="label" t-value="widget.steps[widget.state.step].label" />-->
+                            <t t-call="ViewStudio.ViewsCenter.Title" />
+                    <!--</div>-->
+                    <!--</div>-->
+                </div>
+                <div class="wgCon _divSB">
+                    <t t-if="!widget.state.hideLeft">
+                        <div class="vclEft">
+                            <div class="listCategory">
+                            </div>
+                        </div>
+                    </t>
+                    <div class="vcrIGht">
+                        <div class="cateWidgets">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="stFoot">
+                    <div class="footCon">
+                        <div class="wIcons">
+                            <a type="choose"><i class="fa fa fa-th" /></a>
+                            <a type="app"><i class="fa fa fa-plus stApp" /></a>
+                            <a type="more"><i class="fa fa fa fa-medium stMore" /></a>
+                        </div>
+                        <div class="wGAC">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+    <t t-name="ViewStudio.GroupsAction">
+        <div class="wIcons wAC">
+            <t t-if="save">
+                <a type="save"><i class="fa fa fa-save fSave"></i></a>
+            </t>
+            <t t-if="reset">
+                <a type="reset"><i class="fa fa-refresh fReset"></i></a>
+            </t>
+        </div>
+    </t>
+    <t t-name="ViewStudio.PropsView">
+        <div class="wPropsView">
+            <div class="wPViewHead _divSB"></div>
+            <div class="wPViewCon">
+
+            </div>
+            <div class="wPViewBot">
+            </div>
+        </div>
+    </t>
+    <t t-name="ViewStudio.View.View">
+        <div class="wView">
+            <div></div>
+            <div class="viewCon">
+                <div class="viewProps"></div>
+                <div class="viewView _divSB ovX">
+                    <div class="noEdit"></div>
+                </div>
+
+            </div>
+        </div>
+    </t>
+    <t t-name="ViewStudio.View.Calendar">
+        <div class="wView wCalendar">
+            <div></div>
+            <div class="viewCon caCon">
+                <div class="viewProps caProps"></div>
+                <div class="viewView caView _divSB ovX"></div>
+            </div>
+        </div>
+    </t>
+    <t t-name="ViewStudio.View.Pivot">
+        <div class="wView wPivot">
+            <div></div>
+            <div class="viewCon piCon">
+                <div class="viewProps piProps"></div>
+                <div class="viewView piView _divSB ovX">
+                    <div class="noEdit"></div>
+                </div>
+            </div>
+        </div>
+    </t>
+    <t t-name="ViewStudio.View.Graph">
+        <div class="wView wGraph">
+            <div></div>
+            <div class="viewCon graphCon">
+                <div class="viewProps graphProps"></div>
+                <div class="viewView graphView _divSB ovX">
+                    <div class="noEdit"></div>
+                </div>
+            </div>
+        </div>
+    </t>
+    <t t-name="ViewStudio.View.activity">
+        <div class="wView wActivity">
+            <div></div>
+            <div class="viewCon activityCon">
+                <div class="viewProps activityProps"></div>
+                <div class="viewView activityView _divSB ovX">
+                    <div class="noEdit"></div>
+                </div>
+            </div>
+        </div>
+    </t>
+    <t t-name="ViewStudio.View.Kanban">
+        <div class="wView wKanBan">
+            <div></div>
+            <div class="viewCon kanbanCon">
+                <div class="viewProps kanbanProps"></div>
+                <div class="viewView kanbanView _divSB ovX">
+                    <div class="noEdit"></div>
+                </div>
+            </div>
+        </div>
+    </t>
+    <t t-name="ViewStudio.View.Planning">
+        <div class="wView wPlanning">
+            <div></div>
+            <div class="viewCon planningCon">
+                <div class="viewProps planningProps"></div>
+                <div class="viewView planningView _divSB ovX">
+                    <div class="noEdit"></div>
+                </div>
+            </div>
+        </div>
+    </t>
+    <t t-name="ViewStudio.View.Form">
+        <div class="wView wForm">
+            <div></div>
+            <div class="viewCon formCon">
+                <div class="viewProps formProps"></div>
+                <div class="viewView formView _divSB ovX">
+                    <div class="noEdit"></div>
+                </div>
+                <div class="areaSubView"></div>
+            </div>
+        </div>
+    </t>
+    <t t-name="ViewStudio.View.Tree">
+        <div class="wView wTree">
+            <div></div>
+            <div class="viewCon treeCon">
+                <div class="viewProps treeProps"></div>
+                <div class="viewView treeView _divSB ovX">
+                    <div class="noEdit"></div>
+                </div>
+            </div>
+        </div>
+    </t>
+    <t t-name="ViewStudio.View.TabFields">
+        <div class="wTabFields">
+            <div class="wSearch">
+                <input type="text" class="_ipSearch" placeholder="search field..." />
+            </div>
+            <div class="wFields _wSortable _divSB">
+                <t t-foreach="fields" t-as="fieldName">
+                    <t t-set="field" t-value="fields[fieldName]" />
+                    <t t-call="ViewStudio.View.TabFields.item"/>
+                </t>
+            </div>
+        </div>
+    </t>
+    <t t-name="ViewStudio.View.TabFields.item">
+        <div class="item itSort" type="field" t-att-name="fieldName">
+            <a t-att-name="fieldName"><t t-esc="field.string" /></a>
+        </div>
+    </t>
+    <t t-name="ViewStudio.View.CellVirtual">
+        <div class="o_td_label">
+            <label class='o_form_label'><t t-esc="label" /></label>
+        </div>
+        <div>
+        </div>
+    </t>
+    <t t-name="ViewStudio.View.GroupVirtual">
+        <t t-foreach="cols || [1]" t-as="col">
+            <div class="vtGroup"></div>
+        </t>
+        <!--<div class="vtGroup"></div>-->
+    </t>
+    <t t-name="ViewStudio.View.NotebookVirtual">
+        <div class="wTabHead">
+            <a class="tabItem">Notebook</a>
+            <a class="tabItem" name="add">
+                <i class="fa fa-plus"></i>
+            </a>
+        </div>
+    </t>
+    <t t-name="ViewStudio.View.GridVirtual">
+        <div class="wGridVirtual wGrid">
+            <div class="row">
+                <div class="col gridCol"></div>
+                <div class="col gridCol"></div>
+                <div class="col gridCol"></div>
+            </div>
+        </div>
+    </t>
+    <t t-name="ViewStudio.View.TField">
+        <span>New Field</span>
+    </t>
+    <t t-name="Studio.virtual.column">
+        <span>New Column</span>
+    </t>
+    <t t-name="Studio.virtual.field">
+        <span>New Field</span>
+    </t>
+    <t t-name="ViewStudio.View.TextVirtual">
+        <div class="wTextVirtual">
+            <p>Text</p>
+        </div>
+    </t>
+    <t t-name="ViewStudio.View.OtherVirtual">
+        <div class="wOtherVirtual">
+            <p><t t-esc="label" /></p>
+        </div>
+    </t>
+    <t t-name="ViewStudio.View.ImageVirtual">
+        <div class="wImageVirtual">
+            <i class="fa fa-image"></i>
+            <a>Image</a>
+        </div>
+    </t>
+    <t t-name="ViewStudio.View.TabComponent">
+        <div class="wComponent">
+            <div class="_wComCon">
+            </div>
+        </div>
+    </t>
+    <t t-name="ViewStudio.View.TabComponent.Com">
+        <div t-att-class="class">
+            <div class="_cTagHead" >
+                <h4><t t-esc="label" /></h4>
+            </div>
+            <div class="_cTagCon">
+                <t t-foreach="Object.values(child)" t-as="component">
+                    <div class="_wComItem _wSortable" t-att-type="type" t-att-name="component.name">
+                        <div t-att-type="type" class="itSort" t-att-name="component.name"><i t-if="component.icon" t-att-class="'fa fa-'+component.icon" /><a><t t-esc="component.label"/></a></div>
+                    </div>
+                </t>
+            </div>
+        </div>
+    </t>
+    <t t-name="ViewStudio.Tree.TabView">
+        <div class="wTabView _divSB">
+        </div>
+    </t>
+    <t t-name="ViewStudio.Buttons">
+        <div class="wRemoveNode">
+            <a>Remove Field</a>
+        </div>
+    </t>
+    <t t-name="ViewStudio.SearchView.tabComponent">
+        <div class="wTabCom">
+            <div class="wCom">
+                <t t-foreach="components" t-as="component">
+                    <div class="wItem _wSortable" t-att-name="component.name">
+                        <div class="item itSort" t-att-tag="component.tag" t-att-name="component.name">
+                            <a t-att-name="component.name" t-att-tag="component.tag">
+                                <i t-att-class="component.icon" />
+                                <t t-esc="component.label" />
+                            </a>
+                        </div>
+                    </div>
+                </t>
+            </div>
+        </div>
+    </t>
+    <t t-name="ViewStudio.SearchView.items">
+        <div class="wGIt">
+            <div class="wIt" t-att-node-id="parentId" t-att-lc-idx="lastIndex">
+                <t t-foreach="items" t-as="item">
+                    <t t-if="item.tag != 'separator'">
+                        <div t-att-node-id="item.nodeId" class="item">
+                            <t t-esc="item.attrs.string" />
+                        </div>
+                    </t>
+                    <t t-else="">
+                        <div t-att-node-id="item.nodeId" class="itSPTor"></div>
+                    </t>
+                </t>
+            </div>
+            <!--<t t-foreach="groups" t-as="group">-->
+            <!--<div class="wGIt" t-att-node-id="group[0].parentNodeId" t-att-lc-idx="group[group.length-1].index">-->
+            <!--<div class="wIt">-->
+            <!--<t t-foreach="group" t-as="item">-->
+            <!--<div t-att-node-id="item.nodeId" t-if="!item.invisible" class="item">-->
+            <!--<t t-esc="item.string" />-->
+            <!--</div>-->
+            <!--</t>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</t>-->
+        </div>
+    </t>
+    <t t-name="ViewStudio.SearchView">
+        <div class="wSearchView">
+            <div class="wSVCon">
+                <div class="wAuto" name="automation">
+                    <div class="wH"><i class="fa fa-magic" />Automation Fields</div>
+                    <div class="wACon"></div>
+                </div>
+                <div class="wFilter" name="filters">
+                    <div class="wH"><i class="fa fa-filter" />Filters</div>
+                    <div class="wFCon"></div>
+                </div>
+                <div class="wGroup" name="groups">
+                    <div class="wH"><i class="fa fa-bars" />Groups</div>
+                    <div class="wGCon"></div>
+                </div>
+            </div>
+        </div>
+    </t>
+    <!--form Edit-->
+    <t t-name="Edit.wrapAb">
+        <div class="_wrapAb">
+            <t t-foreach="views" t-as="view">
+                <button class="_subEditList" t-att-for="name" t-att-view-type="view.type">
+                    <i class="fa fa-edit" /><t t-esc="view.label" />
+                </button>
+            </t>
+        </div>
+    </t>
+    <t t-name="Form.TagPage">
+        <div class="_wPage"></div>
+    </t>
+    <t t-name="Form.AddButtonBox">
+        <button type="button" class="btn oe_stat_button addBtnBox">
+            <i class="fa fa-fw o_button_icon fa-plus icon"></i>
+        </button>
+    </t>
+    <t t-name="Studio.Approval">
+        <div class="wrapApproval">
+            <i class="fa fa-user-circle iAP" />
+        </div>
+    </t>
+    <t t-name="Studio.Approval.details">
+        <div class="wDiApproval">
+            <h3>Approval</h3>
+            <div class="apItems">
+                <t t-foreach="approval" t-as="ap">
+                    <div class="apItem" t-att-data="ap.id" t-att-disable="ap.disable" t-att-state="ap.state">
+                        <t t-if="ap.state == 'wait'">
+                            <div class="wIC">
+                                <i class="fa fa-user-circle" />
+                            </div>
+                            <div class="wCT"><span><t t-esc="ap.group_name" /></span></div>
+                            <div class="wBT">
+                                <button class="btn btn-primary btn-sm aAccept"><i class="fa fa-check" /></button>
+                                <button class="btn btn-danger btn-sm aDecline"><i class="fa fa-close" /></button>
+                            </div>
+                        </t>
+                        <t t-else="">
+                            <div class="wIC">
+                                <img t-att-src="'/web/image/res.users/'+ap.user_id+'/image_128'" />
+                            </div>
+                            <div class="wCT">
+                                <span><t t-esc="ap.user_accepted" /></span>
+                                <span>
+                                    <t t-if="ap.state == 'accept'">
+                                        Approved on
+                                    </t>
+                                    <t t-else="">
+                                        Declined on
+                                    </t>
+                                    <t t-esc="moment(ap.data_accepted).format('MMMM DD, YYYY')" />
+                                </span>
+                            </div>
+                            <div class="wBT">
+                                <button class="btn btn-secondary btn-sm aReset"><i class="fa fa-undo" /></button>
+                            </div>
+                        </t>
+                    </div>
+                </t>
+            </div>
+        </div>
+    </t>
+
+
+</templates>

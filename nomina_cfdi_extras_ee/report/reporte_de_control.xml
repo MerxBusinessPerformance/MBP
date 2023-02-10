@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<report id="action_report_de_control_payslip_batch" 
+			model="hr.payslip.run" 
+			string="Reporte de Control" 
+			report_type="xlsx" 
+			name="nomina_cfdi_extras_ee.report_de_control_payslip_batch" 
+			file="nomina_cfdi_extras_ee.report_de_control_payslip_batch"
+	        attachment_use="False"/>
+	
+	<report id="action_report_imss_payslip_batch" 
+			model="hr.payslip.run" 
+			string="Reporte IMSS" 
+			report_type="xlsx" 
+			name="nomina_cfdi_extras_ee.report_imss_payslip_batch" 
+			file="nomina_cfdi_extras_ee.report_imss_payslip_batch"
+	        attachment_use="False"/>
+	        		
+</odoo>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="DashboardStudio.Widget.Map">
+        <div class="wMapView">
+        </div>
+    </t>
+    <t t-name="DashboardStudio.Widget.calendar">
+        <calendar date_start="create_date">
+        </calendar>
+    </t>
+    <t t-name="DashboardStudio.Widget.graph">
+        <graph js_class="dashboard_graph"></graph>
+    </t>
+    <t t-name="DashboardStudio.Widget.todo">
+        <todo></todo>
+    </t>
+    <t t-name="DashboardStudio.Widget.bookmark">
+        <bookmark></bookmark>
+    </t>
+    <t t-name="DashboardStudio.Widget.countdown">
+        <countdown></countdown>
+    </t>
+    <t t-name="DashboardStudio.Widget.list">
+        <tree>
+            <field name="id" />
+        </tree>
+    </t>
+    <t t-name="DashboardStudio.Widget.chart">
+        <graph js_class="dashboard_graph"></graph>
+    </t>
+    <t t-name="DashboardStudio.Widget.pivot">
+        <pivot></pivot>
+    </t>
+    <t t-name="DashboardStudio.Widget.text">
+        <text></text>
+    </t>
+    <t t-name="DashboardStudio.Widget.plan">
+        <kanban date_start="create_date" date_end="write_date" default_group="create_uid">
+        </kanban>
+    </t>
+    <t t-name="DashboardStudio.Widget.gantt">
+        <kanban start_date="create_date" stop_date="write_date">
+        </kanban>
+    </t>
+    <t t-name="DashboardStudio.Widget.dashboard">
+        <kanban>
+        </kanban>
+    </t>
+    <t t-name="DashboardStudio.Widget.title">
+        <title>
+        </title>
+    </t>
+    <t t-name="DashboardStudio.Widget.youtube">
+        <youtube>
+        </youtube>
+    </t>
+    <t t-name="DashboardStudio.Widget.battery">
+        <battery>
+        </battery>
+    </t>
+    <t t-name="DashboardStudio.Widget.activity">
+        <activity string="View Activity">
+            <templates>
+                <div t-name="activity-box">
+                    <div>
+                        <field name="display_name" display="full"/>
+                    </div>
+                </div>
+            </templates>
+        </activity>
+    </t>
+</templates>

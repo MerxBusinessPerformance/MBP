@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+	    <record id="model_action_confirmar_nomina" model="ir.actions.server">
+	        <field name="name">Confirmar Nomina</field>
+	        <field name="model_id" ref="om_hr_payroll.model_hr_payslip_run"/>
+	        <field name="binding_model_id" ref="om_hr_payroll.model_hr_payslip_run"/>
+	        <field name="state">code</field>
+	        <field name="code">action = records.action_confirmar_nomina()</field>
+	    </record>
+	    
+	    <record id="model_action_cancelar_nomina" model="ir.actions.server">
+	        <field name="name">Cancelar Nomina</field>
+	        <field name="model_id" ref="om_hr_payroll.model_hr_payslip_run"/>
+	        <field name="binding_model_id" ref="om_hr_payroll.model_hr_payslip_run"/>
+	        <field name="state">code</field>
+	        <field name="code">action = records.action_cancelar_nomina()</field>
+	    </record>
+    </data>
+</odoo>

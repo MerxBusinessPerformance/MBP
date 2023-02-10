@@ -1,0 +1,2056 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gantt View Base</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <main class="main-container py-md-5 py-2" style="background-color:#ffffff;">
+        <div class="container" style="border-radius: 20px;">
+            <div class="shadow main-desc-container px-lg-5 p-4 bg-white" style="border-radius: 20px; font-family: 'Inter', sans-serif;">
+                <div class="ks-top-logos pb-3">
+                    <div class="text-center mb-md-4 mb-3">
+                        <img src="./img/top-logo/logo1.png" class="img-fluid" alt="ks-logo" height="60" loading="lazy">
+                    </div>
+                    <div class="d-flex align-items-center justify-content-sm-between flex-column flex-sm-row">
+                        <div class="odoo-logos d-flex align-items-center mb-sm-0 mb-3">
+                            <img src="./img/top-logo/logo2.png" class="img-fluid" alt="logo" height="48" loading="lazy">
+                        </div>
+                        <div class="odoo-logos d-flex align-items-center">
+                            <img src="./img/top-logo/logo3.png" class="img-fluid" alt="odoo-logo" height="32" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+                <div class="ks-content-1">
+                    <div class="ks-bg-blue position-relative pt-lg-5 pt-4"  style="background-color: #004d7a; z-index: 1; padding-bottom: 111px; padding-bottom: 6vw; border-radius: 40px 40px 80px 80px;">
+                        <img src="./img/header-bg.png" alt="bg-img" class="w-100 h-100 position-absolute img-fluid d-none d-lg-block" loading="lazy" style="margin-top:-46px; border-radius: 10px 10px 20px 20px;">
+                        <div class="position-relative text-center px-3" style="color: #FFFFFF; font-family: 'Inter', sans-serif;">
+                            <img src="./img/header-img.png" alt="header-img"  class="img-fluid mb-2">
+                            <h6 class="pt-2" style="font-weight: 600; font-size: 24px; line-height: 160%; text-align: center; text-indent: 2px; color: #FFFFFF; font-size: calc(0.56rem + 0.81vw);">
+                                Build powerful project plans with Gantt Chart
+                            </h6>
+                            <p class="mx-xl-3 px-xl-5 px-0 px-md-4 mb-xl-2 mt-3" style="font-weight: 400; font-size: 16px; line-height: 26px; letter-spacing: 0.02em; text-indent: 2px; color: #FFFFFF;">
+                                Gantt View Base is the fundamental framework that creates the groundwork for using Gantt View. It works as a prerequisite for using Gantt View features to manage your projects like an Expert. It enables you to create a timeline as well as update and schedule tasks/orders to manage your projects in the Gantt View.
+                            </p>
+                        </div>
+                        
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <div class="col-11 d-flex justify-content-center position-relative" style="margin-top: -8%; z-index:10;">
+                            <div style="background-color:#ffffff; border-radius: 10px;" class="py-xl-4 px-xl-4 p-3 shadow">
+                                <img src="./img/gif-file/Main.gif" alt="gif" class="img-fluid p-2 w-100" >
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="ks-content-1b p-md-5 p-3 mt-lg-5 mt-3 mx-lg-5" style="background-color:#202738; border-radius: 20px;">
+                    <h5 class="text-center d-md-none px-lg-4 pt-4" 
+                        style="color:#ffffff; font-size: 26px; font-weight: 700; line-height: 30px; font-family: 'Inter', sans-serif;">Ksolves-Your One-Stop Solution
+                    </h5>
+                    <div class="text-center mb-2 d-md-block d-none">
+                        <img src="./img/headding-img.png" alt="heading-img" loading="lazy" class="img-fluid">
+                    </div>
+                    <p class="text-center" style="color: #ffffff; font-weight: 400; font-size: 16px; line-height: 26px; margin-bottom: 28px;">
+                        We are available 24/7 for your service. Contact us today!
+                    </p>
+                    <div class=" mt-4 "> 
+                        <div class="row">
+                                <div class="col-lg-6 col-12">
+                                        <div class="mt-n2 d-flex align-items-center justify-content-lg-end justify-content-center mr-lg-5">
+                                            <img src="./img/contact-man-icon.png" alt=" contact-man-icon" class="img-fluid" style="width: 140px;" loading="lazy">
+                                        </div>
+                                </div>
+                                <div class="col-lg-6 col-12 d-flex align-items-center justify-content-lg-start justify-content-center mt-n4 mt-lg-0 ml-lg-n4">
+                                        <div class="row d-flex align-items-center justify-content-lg-start justify-content-center">
+                                            <div class="col-sm-7 px-3 px-sm-0">
+                                                <a class="d-flex align-items-center px-2 py-3" href="mailto:sales@ksolves.com"
+                                                    style="background-color: #6C91F1; text-decoration: none; border-radius: 5px;font-style: normal; font-weight: 400; font-size: 14px; color: #FFFFFF; height:40px;">
+                                                    <img alt="mail-icon" class="img-fluid pr-2 pl-2 mr-xl-2 mr-lg-0 mr-2" loading="lazy" src="./img/email.png">sales@ksolves.com</a>
+                                            </div>
+                                            <div class="col-sm-7 px-3 px-sm-0" style="margin-top: 5px;">
+                                                <a class=" d-flex align-items-center  px-2 py-3" href="tel:+91-7498170227"
+                                                    style="background-color: #6C91F1; text-decoration: none; border-radius: 5px;font-style: normal; font-weight: 400; font-size: 14px; color: #FFFFFF; height:40px;">
+                                                    <img alt="phone" class="img-fluid pr-2 pl-2 mr-xl-2 mr-lg-0 mr-2" loading="lazy" src="./img/phone-2.png">+91-7498170227</a>
+                                            </div>
+                                        </div>
+                                </div>       
+                        </div>
+                    </div> 
+                </div>
+                <div class="ks-content-1c pb-3" style="margin-top:52px">
+                    <div class="d-flex align-items-center flex-column justify-content-center">
+                        <h5 style="font-family: 'Inter', sans-serif; font-weight: 600; font-size: 40px; line-height: 124%; text-align: center; font-size: calc(1.54rem + 1vw); letter-spacing: -0.02em; color: #323467;">
+                            USPs
+                        </h5>
+                        <div class="pb-lg-2 mt-md-4 mt-2">
+                            <img src="./img/usp.png" alt="usp-img" class="img-fluid" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+                <div class="note-point">
+                    <div class="row d-flex align-items-center justify-content-center pb-4 mb-2">
+                        <div class="col-lg-8 ">
+                            <p style="font-style: italic; font-weight: 400; font-size: 13px; line-height: 21px; text-align: center; letter-spacing: 0.02em; color: #333333;">
+                                (Note- Gantt View Base has all these features and available according to the specific Gantt View Module (Gantt View for Manufacturing, Time-Off and Project)).
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="ks-content-1d">
+                    <div class="ks-bg-blue position-relative overflow-hidden pt-lg-5 pt-4 mb-4 px-md-5 px-0"  style=" background-color: #383b6a; padding:65px 75px; border-radius: 20px;">
+                        <img src="./img/cut-off-bg.png" alt="bg-img" class="w-100 h-100 position-absolute img-fluid ml-md-auto ml-sm-0" loading="lazy" style="top:-45px; margin-left: -3rem !important; border-radius: 20px;">
+                        <div class="position-relative">
+                            <div class="row mb-4 mb-lg-5">
+                                <div class="col-xl-12 pr-xl-0">
+                                    <h5 class="text-center px-4 mb-1" 
+                                        style="color:#8EF2FF; font-weight: 700; font-size: 40px; font-size: calc(1.315rem + 1vw); letter-spacing: -0.02em; font-family: 'Inter', sans-serif;">
+                                        Powerful. Interactive. Efficient.
+                                    </h5>
+                                    <p class="text-center m-0"
+                                        style="color: #ffffff; font-weight: 400; font-size: 38px; font-size: calc(1.2rem + 1vw);">
+                                        Gantt Chart for your business!
+                                    </p>
+                                </div>
+                            </div>
+                                <div class="row mb-4 mb-lg-5 mx-0">
+                                    <div class="col-xl-8 pr-xl-0">
+                                        <div class="d-flex align-items-center justify-content-center">
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <a href="https://apps.odoo.com/apps/modules/15.0/ks_gantt_view_base/">
+                                                                <img src="./img/g1.png" alt="img" loading="lazy" class="img-fluid">
+                                                            </a>
+                                                        </td>
+                                                        <td class="px-4">
+                                                            <img src="./img/plus.png" alt="img" loading="lazy" class="img-fluid">
+                                                        </td>
+                                                        <td>
+                                                            <a href="https://apps.odoo.com/apps/modules/15.0/ks_gantt_view_project/">
+                                                                <img src="./img/g2.png" alt="img" loading="lazy" class="img-fluid">
+                                                            </a>
+                                                        </td>
+                                                        
+                                                    </tr>
+                                                    <tr >
+                                                        <td class="text-center" style="height:60px">
+                                                            <img src="./img/plus.png" alt="img" loading="lazy" class="img-fluid">
+                                                        </td>
+                                                        <td style="height:60px" class="px-4">
+    
+                                                        </td>
+                                                        <td class="text-center" style="height:60px">
+                                                            <img src="./img/plus.png" alt="img" loading="lazy" class="img-fluid">
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <a href="https://apps.odoo.com/apps/modules/15.0/ks_gantt_view_mrp/">
+                                                                <img src="./img/g3.png" alt="img" loading="lazy" class="img-fluid">
+                                                            </a>
+                                                        </td>
+                                                        <td class="px-4">
+                                                            <img src="./img/plus.png" alt="img" loading="lazy" class="img-fluid">
+                                                        </td>
+                                                        <td>
+                                                            <a href="https://apps.odoo.com/apps/modules/15.0/ks_gantt_view_hr_holidays/">
+                                                                <img src="./img/g4.png" alt="img" loading="lazy" class="img-fluid">
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-4 mt-xl-0 mt-3 pl-xl-0">
+                                        <div class="d-flex align-items-center justify-content-center h-100">
+                                            <div style="width:180px">
+                                                <div class="d-flex align-items-center justify-content-center">
+                                                     <img src="./img/equal.png" alt="img" loading="lazy" class="img-fluid">
+                                                </div>
+                                            </div>
+                                            <div class="d-flex align-items-start justify-content-center flex-column h-100">
+                                                <img src="./img/60-img.png" alt="img" class="img-fluid" loading="lazy">
+                                                <div style="background-color: #EFF0FF; padding: 2px 12px; border-radius: 2px; margin-top: 15px; margin-bottom: 17px;" class="text-center">
+                                                    <p class="mb-0" style="font-weight: 500; font-size: 30px; line-height: 155.19%; letter-spacing: 0.08em; text-indent: 2px; color: #383B6A; font-size: calc(0.9rem + 1vw);">CUT-OFF</p>
+                                                </div>
+                                                <p class="mb-0" style="font-weight: 400; font-size: 18px; line-height: 26px; letter-spacing: 0.02em; text-indent: 2px; color: #FFFFFF;">
+                                                    On Total Time Spent In Managing Business Processes 
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row d-flex align-items-center justify-content-center">
+                                    <div class="col-lg-9 col-11">
+                                        <div class="text-center py-2" style="background-color: #8EF2FF; border-radius: 5px; font-size: 32px; letter-spacing: -0.02em; text-indent: 2px; color: #383B6A; font-size: calc(1.5rem + 0.4vw);">
+                                            <span style="font-weight: 300;">
+                                                Don't Miss To Add The
+                                            </span> 
+                                            <span style="font-weight: 500;">
+                                                Bundle In Your Cart!
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ks-content-1e mt-lg-5 mt-3">
+                    <div class="px-4" style="background-color: #F8F8F8; border-radius: 10px; padding-top: 35px; padding-bottom: 55px;">
+                        <h6 class="text-center" style="font-weight: 600; font-size: 28px; line-height: 160%; letter-spacing: 0.02em; color: #323C66; margin-bottom: 60px;">
+                            At Ksolves we bring the Gantt View solutions that includes :-
+                        </h6>
+                        <div class="row mb-lg-5 mb-3">
+                            <div class="col-lg-6">
+                                <div class="d-flex flex-column align-items-start justify-content-start">
+                                    <h6 style="font-weight: 600; font-size: 28px; line-height: 160%; letter-spacing: 0.02em; color: #3E3F68; font-size: calc(.80rem + 0.8vw);">
+                                        1- Gantt View Time Off
+                                    </h6>
+                                    <p style="font-weight: 400; font-size: 16px; line-height: 26px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                        Gantt View Base is the fundamental framework that creates the groundwork for using Gantt View. It works as a prerequisite for using Gantt View features to manage your projects like an Expert. It enables you to create a timeline as well as update and schedule tasks/orders to manage your projects in the Gantt View. 
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="d-flex h-100 align-items-center justify-content-center">
+                                    <img src="./img/top1.png" alt="img" class="w-100 ing-fluid" loading="lazy">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-lg-5 mb-3">
+                            <div class="col-lg-6 order-lg-1 order-2">
+                                <div class="d-flex h-100 align-items-center justify-content-center">
+                                    <img src="./img/top2.png" alt="img" class="w-100 ing-fluid" loading="lazy">
+                                </div>
+                            </div>
+                            <div class="col-lg-6 order-lg-2 order-1">
+                                <div class="d-flex flex-column align-items-start justify-content-start">
+                                    <h6 style="font-weight: 600; font-size: 28px; line-height: 160%; letter-spacing: 0.02em; color: #3E3F68; font-size: calc(.80rem + 0.8vw);">
+                                        2- Gantt View Manufacturing
+                                    </h6>
+                                    <p style="font-weight: 400; font-size: 16px; line-height: 26px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                        Help to manage and optimize your production schedules to meet the set timelines! The Gantt View gives a clear visualization of operations flow to track dependent tasks and manufacturing processes while making adjustments to any deviations. Gantt View for manufacturing is divided into Manufacturing View and Work Order View 
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="d-flex flex-column align-items-start justify-content-start">
+                                    <h6 style="font-weight: 600; font-size: 28px; line-height: 160%; letter-spacing: 0.02em; color: #3E3F68; font-size: calc(.80rem + 0.8vw);">
+                                        3- Gantt View Project
+                                    </h6>
+                                    <p style="font-weight: 400; font-size: 16px; line-height: 26px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                        Create plans in Gantt View to stay updated with project progress and remain on track to meet deadlines! With our Gantt View you can schedule tasks in a timeline, track projects and tasks as well as check dependency lines to ensure all deadlines are met. 
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="d-flex h-100 align-items-center justify-content-center">
+                                    <img src="./img/top3.png" alt="img" class="w-100 ing-fluid" loading="lazy">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <section class=" mt-4 pt-2" style="font-family: 'Inter', sans-serif;">
+                <div class="shadow py-3 bg-white" style="border-radius: 20px; ">
+                    <ul class="nav nav-tabs justify-content-center bg-white" id="myTab" role="tablist" style="border-bottom:1px solid #dee2e6;">
+                        <li class="nav-item">
+                          <a class="nav-link active" id="overview-tab" data-toggle="tab" href="#overview" role="tab" aria-controls="overview" aria-selected="true" style="color: #283071;font-weight: 400; font-size: 14px;"> Overview</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="why-ks-tab" data-toggle="tab" href="#why-ks" role="tab" aria-controls="why-ks" aria-selected="false" style="color: #283071;font-weight: 400; font-size: 14px;">Why Ksolves</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="support-tab" data-toggle="tab" href="#support" role="tab" aria-controls="s_c" aria-selected="false" style="color: #283071;font-weight: 400; font-size: 14px;">Support</a>
+                        </li>
+                        <!-- <li class="nav-item">
+                            <a class="nav-link" id="faq-tab" data-toggle="tab" href="#faq" role="tab" aria-controls="faq" aria-selected="false" style="color: #283071;font-weight: 400; font-size: 14px;"> FAQS</a>
+                        </li> -->
+                        <li class="nav-item">
+                            <a class="nav-link" id="releases-tab" data-toggle="tab" href="#releases" role="tab" aria-controls="releases" aria-selected="false" style="color: #283071;font-weight: 400; font-size: 14px;">Releases</a>
+                        </li>
+                    </ul>
+                    <div class="px-3 px-lg-4">
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview-tab">
+                                
+                                <div class="text-center mt-lg-5 mt-5 mb-4">
+                                    <p style="margin-bottom: 10px; font-weight: 500; font-size: 18px; line-height: 23px; text-align: center; letter-spacing: 0.04em; text-indent: 2px; color: #535456;">
+                                        HIGHLIGHTING FEATURES OF
+                                    </p>
+                                    <h5 style="font-weight: 700; font-size: 42px; line-height: 127.5%; text-align: center; letter-spacing: -0.02em; text-indent: 2px; color: #1D567E; font-size: calc(1.63rem + 1vw);">
+                                        Gantt View 
+                                    </h5>
+                                    <p class="col-10 mx-auto px-0 pb-4" style="font-weight: 500; font-size: 18px; line-height: 27px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                        Packed with amazing features for an enhanced Gantt View presentation of your project
+                                    </p>
+                                </div>
+
+                                <!-- part1  -->
+                                <div class="px-4" style="background-color:#F8F8F8; border-radius:10px; padding-top:57px; padding-bottom: 56px; margin-bottom: 47px;">
+                                    <h5 class="mb-lg-4 mb-3 pb-lg-2" style="font-weight: 600; font-size: 36px; line-height: 150%; text-align: center; text-indent: 2px; color: #3C3C3C; font-size: calc(1.88rem + 0.4vw);">
+                                        Action Bar
+                                    </h5>
+                                    <!-- 1 -->
+                                    <div class="position-relative overflow-hidden" style="border-radius: 5px; padding: 20px; margin-bottom: 27px;">
+                                        <img src="./img/overview/gantt-view-base/1-bg.png" alt="bg-img" loading="lazy" style="margin-top:-20px; margin-left: -20px; object-fit: cover;" class="h-100 w-100 position-absolute fix-bottom img-fluid">
+                                        <div class="position-relative">
+                                            <div class="row mb-3">
+                                                <div class="col-xl-3 d-flex align-items-center justify-content-start  ">
+                                                    <div class="pr-3  pt-xl-0 pt-3">
+                                                        <h5 style="font-weight: 600; font-size: 28px; line-height: 42px; letter-spacing: 0.02em; text-indent: 2px; color: #1D567E;">
+                                                            Duration
+                                                        </h5>
+                                                        <p style="font-weight: 500; font-size: 16px; line-height: 26px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                            The feature helps you to view the days or time duration according to the project in the Timeline.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-9 d-flex align-items-center justify-content-center ">
+                                                    <div style="background-color:#F8F8F8; border-radius:2px; width: 100%; padding: 14px;">
+                                                        <img style="border-radius: 5px;" src="./img/overview/gantt-view-base/1.png" alt="img" class="w-100 img-fluid" loading="lazy">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row d-flex align-items-center justify-content-center">
+                                                <div class="col-lg-9 col-12">
+                                                    <div class="note-point" style="background-color: #ffffff; opacity: 0.8; border-radius:5px;">
+                                                        <p class="mb-0 text-center" style="font-weight: 400; font-size: 12px; font-style: italic; line-height: 19px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C; padding: 6px 2px;">
+                                                            Available in Gantt View Time Off, Gantt View Manufacturing and Gantt View Project 
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- 2 -->
+                                    <div class="position-relative overflow-hidden" style="border-radius: 5px; padding: 20px; margin-bottom: 30px;">
+                                        <img src="./img/overview/gantt-view-base/2-bg.png" alt="bg-img" loading="lazy" style="margin-top:-20px; margin-left: -20px; object-fit: cover;" class="h-100 w-100 position-absolute fix-bottom img-fluid">
+                                        <div class="position-relative">
+                                            <div class="row mb-3">
+                                                <div class="col-xl-9 d-flex align-items-center justify-content-center ">
+                                                    <div style="background-color:#F8F8F8; border-radius:2px; width: 100%; padding: 14px;">
+                                                        <img style="border-radius: 5px;" src="./img/overview/gantt-view-base/2.png" alt="img" class="w-100 img-fluid" loading="lazy">
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-3 d-flex align-items-center justify-content-start  ">
+                                                    <div class="pr-3  pt-xl-0 pt-3">
+                                                        <h5 style="font-weight: 600; font-size: 28px;line-height: 42px; letter-spacing: 0.02em; text-indent: 2px; color: #1D567E;">
+                                                            Grid
+                                                        </h5>
+                                                        <p style="font-weight: 500; font-size: 16px; line-height: 26px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                            Grid hides the left panel that contains project details  and displays the complete Gantt View on the screen.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row d-flex align-items-center justify-content-center">
+                                                <div class="col-lg-9 col-12">
+                                                    <div class="note-point" style="background-color: #ffffff; opacity: 0.8; border-radius:5px;">
+                                                        <p class="mb-0 text-center" style="font-weight: 400; font-size: 12px; font-style: italic; line-height: 19px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C; padding: 6px 2px;">
+                                                            Available in Gantt View Time Off, Gantt View Manufacturing and  Gantt View Project
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- 3 -->
+                                    <div class="position-relative overflow-hidden" style="border-radius: 5px; padding: 20px; margin-bottom: 27px;">
+                                        <img src="./img/overview/gantt-view-base/1-bg.png" alt="bg-img" loading="lazy" style="margin-top:-20px; margin-left: -20px; object-fit: cover;" class="h-100 w-100 position-absolute fix-bottom img-fluid">
+                                        <div class="position-relative">
+                                            <div class="row mb-3">
+                                                <div class="col-xl-3 d-flex align-items-center justify-content-start ">
+                                                    <div>
+                                                        <h5 style="font-weight: 600; font-size: 28px;line-height: 42px; letter-spacing: 0.02em; text-indent: 2px; color: #1D567E;">
+                                                            Resource Panel
+                                                        </h5>
+                                                        <p style="font-weight: 500; font-size: 16px; line-height: 26px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                            It helps you to keep informed with working hours and numbers of tasks assigned to the resources.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-9 d-flex align-items-center justify-content-center ">
+                                                    <div>
+                                                        <img style="border-radius: 5px;" src="./img/overview/gantt-view-base/3.png" alt="img" class="w-100 img-fluid" loading="lazy">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row d-flex align-items-center justify-content-center">
+                                                <div class="col-lg-9 col-12">
+                                                    <div class="note-point" style="background-color: #ffffff; opacity: 0.8; border-radius:5px;">
+                                                        <p class="mb-0 text-center" style="font-weight: 400; font-size: 12px; font-style: italic; line-height: 19px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C; padding: 6px 2px;">
+                                                            Available in Gantt View Time Off, Gantt View Manufacturing and  Gantt View Project 
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- 4 -->
+                                    <div class="position-relative overflow-hidden" style="border-radius: 5px; padding: 20px; margin-bottom: 39px;">
+                                        <img src="./img/overview/gantt-view-base/2-bg.png" alt="bg-img" loading="lazy" style="margin-top:-20px; margin-left: -20px; object-fit: cover;" class="h-100 w-100 position-absolute fix-bottom img-fluid">
+                                        <div class="position-relative">
+                                            <div class="row mb-3">
+                                                <div class="col-xl-9 d-flex align-items-center justify-content-center ">
+                                                    <div style="background-color:#F8F8F8; border-radius:2px; padding:14px; width: 100%;">
+                                                        <img style="border-radius: 5px;" src="./img/overview/gantt-view-base/4.png" alt="img" class="w-100 img-fluid" loading="lazy">
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-3 d-flex align-items-center justify-content-start pl-lg-0 pr-0">
+                                                    <div class="pr-lg-3  pt-xl-0 pt-3 ">
+                                                        <h5 style="font-weight: 600; font-size: 28px;line-height: 42px; letter-spacing: 0.02em; text-indent: 2px; color: #1D567E;">
+                                                            Zoom to Fit
+                                                        </h5>
+                                                        <p style="font-weight: 500; font-size: 16px; line-height: 26px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                            This feature adjusts the Gantt View according to the size of the user's screen to ensure better visibility. 
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row d-flex align-items-center justify-content-center">
+                                                <div class="col-lg-9 col-12">
+                                                    <div class="note-point" style="background-color: #ffffff; opacity: 0.8; border-radius:5px;">
+                                                        <p class="mb-0 text-center" style="font-weight: 400; font-size: 12px; font-style: italic; line-height: 19px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C; padding: 6px 2px;">
+                                                            Available in Gantt View Time Off, Gantt View Manufacturing and  Gantt View Project  
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- 5 -->
+                                    <div class="position-relative overflow-hidden" style="border-radius: 5px; padding: 20px; margin-bottom: 27px;">
+                                        <img src="./img/overview/gantt-view-base/1-bg.png" alt="bg-img" loading="lazy" style="margin-top:-20px; margin-left: -20px; object-fit: cover;" class="h-100 w-100 position-absolute fix-bottom img-fluid">
+                                        <div class="position-relative">
+                                            <div class="row mb-3">
+                                                <div class="col-xl-3 d-flex align-items-center justify-content-start  ">
+                                                    <div>
+                                                        <h5 style="font-weight: 600; font-size: 28px;line-height: 42px; letter-spacing: 0.02em; text-indent: 2px; color: #1D567E;">
+                                                            Critical Path
+                                                        </h5>
+                                                        <p style="font-weight: 500; font-size: 16px; line-height: 26px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                            It enables you to highlight the dependency of tasks on the timeline by creating a critical path.  
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-9 d-flex align-items-center justify-content-center ">
+                                                    <div style="background-color:#F8F8F8; border-radius:2px; padding:14px; width: 100%;">
+                                                        <img style="border-radius: 5px;" src="./img/overview/gantt-view-base/5.png" alt="img" class="w-100 img-fluid" loading="lazy">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row d-flex align-items-center justify-content-center">
+                                                <div class="col-lg-9 col-12">
+                                                    <div class="note-point" style="background-color: #ffffff; opacity: 0.8; border-radius:5px;">
+                                                        <p class="mb-0 text-center" style="font-weight: 400; font-size: 12px; font-style: italic; line-height: 19px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C; padding: 6px 2px;">
+                                                            Available in Gantt View Time Off, Gantt View Manufacturing and  Gantt View Project 
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- 6 -->
+                                    <div class="position-relative overflow-hidden" style="border-radius: 5px; padding: 20px; margin-bottom: 30px;">
+                                        <img src="./img/overview/gantt-view-base/2-bg.png" alt="bg-img" loading="lazy" style="margin-top:-20px; margin-left: -20px; object-fit: cover;" class="h-100 w-100 position-absolute fix-bottom img-fluid">
+                                        <div class="position-relative">
+                                            <div class="row mb-3">
+                                                <div class="col-xl-9 d-flex align-items-center justify-content-center ">
+                                                    <div style="background-color:#F8F8F8; border-radius:2px; padding:14px; width: 100%;">
+                                                        <img style="border-radius: 5px;" src="./img/overview/gantt-view-base/6.png" alt="img" class="w-100 img-fluid" loading="lazy">
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-3 d-flex align-items-center justify-content-start pl-lg-0 pr-0">
+                                                    <div class="pr-lg-3 pt-xl-0 pt-3">
+                                                        <h5 style="font-weight: 600; font-size: 28px;line-height: 42px; letter-spacing: 0.02em; text-indent: 2px; color: #1D567E;">
+                                                            Days Off
+                                                        </h5>
+                                                        <p style="font-weight: 500; font-size: 16px; line-height: 26px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                            With this feature you can check the unproductive days or days off directly in the Gantt View. 
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row d-flex align-items-center justify-content-center">
+                                                <div class="col-lg-9 col-12">
+                                                    <div class="note-point" style="background-color: #ffffff; opacity: 0.8; border-radius:5px;">
+                                                        <p class="mb-0 text-center" style="font-weight: 400; font-size: 12px; font-style: italic; line-height: 19px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C; padding: 6px 2px;">
+                                                            Available in Gantt View Time Off, Gantt View Manufacturing and  Gantt View Project  
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- 7 -->
+                                    <div class="position-relative overflow-hidden" style="border-radius: 5px; padding: 20px; margin-bottom: 27px;">
+                                        <img src="./img/overview/gantt-view-base/1-bg.png" alt="bg-img" loading="lazy" style="margin-top:-20px; margin-left: -20px; object-fit: cover;" class="h-100 w-100 position-absolute fix-bottom img-fluid">
+                                        <div class="position-relative">
+                                            <div class="row mb-3">
+                                                <div class="col-xl-3 d-flex align-items-center justify-content-start  ">
+                                                    <div>
+                                                        <h5 style="font-weight: 600; font-size: 28px;line-height: 42px; letter-spacing: 0.02em; text-indent: 2px; color: #1D567E;">
+                                                            Today
+                                                        </h5>
+                                                        <p style="font-weight: 500; font-size: 16px; line-height: 26px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                            When you click on the Today button it scrolls you to the current date in the Timeline. 
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-9 d-flex align-items-center justify-content-center ">
+                                                    <div style="background-color:#F8F8F8; border-radius:2px; padding:14px; width: 100%;">
+                                                        <img style="border-radius: 5px;" src="./img/overview/gantt-view-base/7.png" alt="img" class="w-100 img-fluid" loading="lazy">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row d-flex align-items-center justify-content-center">
+                                                <div class="col-lg-9 col-12">
+                                                    <div class="note-point" style="background-color: #ffffff; opacity: 0.8; border-radius:5px;">
+                                                        <p class="mb-0 text-center" style="font-weight: 400; font-size: 12px; font-style: italic; line-height: 19px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C; padding: 6px 2px;">
+                                                            Available in Gantt View Time Off, Gantt View Manufacturing and  Gantt View Project
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- 8 -->
+                                    <div class="position-relative overflow-hidden" style="border-radius: 5px; padding: 20px; margin-bottom: 30px;">
+                                        <img src="./img/overview/gantt-view-base/2-bg.png" alt="bg-img" loading="lazy" style="margin-top:-20px; margin-left: -20px; object-fit: cover;" class="h-100 w-100 position-absolute fix-bottom img-fluid">
+                                        <div class="position-relative">
+                                            <div class="row mb-3">
+                                                <div class="col-xl-9 d-flex align-items-center justify-content-center ">
+                                                    <div style="background-color:#F8F8F8; border-radius:2px; padding:14px; width: 100%;">
+                                                        <img style="border-radius: 5px;" src="./img/overview/gantt-view-base/8.png" alt="img" class="w-100 img-fluid" loading="lazy">
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-3 d-flex align-items-center justify-content-start  ">
+                                                    <div class="pr-lg-3  pt-xl-0 pt-3">
+                                                        <h5 style="font-weight: 600; font-size: 28px;line-height: 42px; letter-spacing: 0.02em; text-indent: 2px; color: #1D567E;">
+                                                            Scaling
+                                                        </h5>
+                                                        <p style="font-weight: 500; font-size: 16px; line-height: 26px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                            You can customize your data presentation in the Gantt View by setting its scaling in different time patterns such as hours, day, month, quarter or year.  
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row d-flex align-items-center justify-content-center">
+                                                <div class="col-lg-9 col-12">
+                                                    <div class="note-point" style="background-color: #ffffff; opacity: 0.8; border-radius:5px;">
+                                                        <p class="mb-0 text-center" style="font-weight: 400; font-size: 12px; font-style: italic; line-height: 19px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C; padding: 6px 2px;">
+                                                            Available in Gantt View Time Off, Gantt View Manufacturing and  Gantt View Project
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- 9 -->
+                                    <div class="position-relative overflow-hidden" style="border-radius: 5px; padding: 20px; margin-bottom: 28px;">
+                                        <img src="./img/overview/gantt-view-base/1-bg.png" alt="bg-img" loading="lazy" style="margin-top:-20px; margin-left: -20px; object-fit: cover;" class="h-100 w-100 position-absolute fix-bottom img-fluid">
+                                        <div class="position-relative">
+                                            <div class="row mb-3">
+                                                <div class="col-xl-3 d-flex align-items-center justify-content-start  ">
+                                                    <div>
+                                                        <h5 style="font-weight: 600; font-size: 28px;line-height: 42px; letter-spacing: 0.02em; text-indent: 2px; color: #1D567E;">
+                                                            Sort
+                                                        </h5>
+                                                        <p style="font-weight: 500; font-size: 16px; line-height: 26px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                            You have an option to sort your data presentation in the Gantt View such as Name Desc, Name Asc, Old to New, and more.  
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-9 d-flex align-items-center justify-content-center ">
+                                                    <div style="background-color:#F8F8F8; border-radius:2px; padding:14px; width: 100%;">
+                                                        <img src="./img/overview/gantt-view-base/9.png" alt="img" class="w-100 img-fluid" loading="lazy" style="border-radius: 5px;">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row d-flex align-items-center justify-content-center">
+                                                <div class="col-lg-9 col-12">
+                                                    <div class="note-point" style="background-color: #ffffff; opacity: 0.8; border-radius:5px;">
+                                                        <p class="mb-0 text-center" style="font-weight: 400; font-size: 12px; font-style: italic; line-height: 19px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C; padding: 6px 2px;">
+                                                            Available in Gantt View Time Off, Gantt View Manufacturing and  Gantt View Project 
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- 10 -->
+                                    <div class="position-relative overflow-hidden" style="border-radius: 5px; padding: 20px; margin-bottom: 39px;">
+                                        <img src="./img/overview/gantt-view-base/2-bg.png" alt="bg-img" loading="lazy" style="margin-top:-20px; margin-left: -20px; object-fit: cover;" class="h-100 w-100 position-absolute fix-bottom img-fluid">
+                                        <div class="position-relative">
+                                            <div class="row mb-3">
+                                                <div class="col-xl-9 d-flex align-items-center justify-content-center ">
+                                                    <div style="background-color:#F8F8F8; border-radius:2px; padding:14px; width: 100%;">
+                                                        <img src="./img/gif-file/Full_Screen.gif" alt="gif" class="w-100 img-fluid" loading="lazy" style="border-radius: 5px;">
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-3 d-flex align-items-center justify-content-start  ">
+                                                    <div class="pr-lg-3  pt-xl-0 pt-3">
+                                                        <h5 style="font-weight: 600; font-size: 28px;line-height: 120%; letter-spacing: 0.02em; text-indent: 2px; color: #1D567E;">
+                                                            Full Screen Mode
+                                                        </h5>
+                                                        <p style="font-weight: 500; font-size: 16px; line-height: 26px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                            With Time scaling you can sort the Gantt View in different time formats as per your choice like month, week, day, etc.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row d-flex align-items-center justify-content-center">
+                                                <div class="col-lg-9 col-12">
+                                                    <div class="note-point" style="background-color: #ffffff; opacity: 0.8; border-radius:5px;">
+                                                        <p class="mb-0 text-center" style="font-weight: 400; font-size: 12px; font-style: italic; line-height: 19px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C; padding: 6px 2px;">
+                                                            Available in Gantt View Time Off, Gantt View Manufacturing and  Gantt View Project
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- 11 -->
+                                    <div class="position-relative overflow-hidden" style="border-radius: 5px; padding: 20px; margin-bottom: 27px;">
+                                        <img src="./img/overview/gantt-view-base/1-bg.png" alt="bg-img" loading="lazy" style="margin-top:-20px; margin-left: -20px; object-fit: cover;" class="h-100 w-100 position-absolute fix-bottom img-fluid">
+                                        <div class="position-relative">
+                                            <div class="row mb-3">
+                                                <div class="col-xl-3 d-flex align-items-center justify-content-start  ">
+                                                    <div>
+                                                        <h5 style="font-weight: 600; font-size: 28px;line-height: 42px; letter-spacing: 0.02em; text-indent: 2px; color: #1D567E;">
+                                                            Graph Overlay
+                                                        </h5>
+                                                        <p style="font-weight: 500; font-size: 16px; line-height: 26px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                            It enables you to check the project progress by displaying the two lines blue and red in the timeline. The blue denotes the planned progress whereas the red line indicates the actual real time progress in the form of percentage.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-9 d-flex align-items-center justify-content-center ">
+                                                    <div style="background-color:#F8F8F8; border-radius:2px; padding:14px; width: 100%;">
+                                                        <img src="./img/overview/gantt-view-base/11.png" alt="img" class="w-100 img-fluid" loading="lazy" style="border-radius: 5px;">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row d-flex align-items-center justify-content-center">
+                                                <div class="col-lg-9 col-12">
+                                                    <div class="note-point" style="background-color: #ffffff; opacity: 0.8; border-radius:5px;">
+                                                        <p class="mb-0 text-center" style="font-weight: 400; font-size: 12px; font-style: italic; line-height: 19px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C; padding: 6px 2px;">
+                                                            Available in Gantt View Project
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- 12 -->
+                                    <div class="position-relative overflow-hidden" style="border-radius: 5px; padding: 20px;">
+                                        <img src="./img/overview/gantt-view-base/2-bg.png" alt="bg-img" loading="lazy" style="margin-top:-20px; margin-left: -20px; object-fit: cover;" class="h-100 w-100 position-absolute fix-bottom img-fluid">
+                                        <div class="position-relative">
+                                            <div class="row mb-3">
+                                                <div class="col-xl-9 d-flex align-items-center justify-content-center ">
+                                                    <div style="background-color:#F8F8F8; border-radius:2px; padding:14px; width: 100%;">
+                                                        <img src="./img/overview/gantt-view-base/12.png" alt="img" class="w-100 img-fluid" loading="lazy" style="border-radius: 5px;">
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-3 d-flex align-items-center justify-content-start  ">
+                                                    <div class="pr-lg-3  pt-xl-0 pt-3">
+                                                        <h5 style="font-weight: 600; font-size: 28px;line-height: 120%; letter-spacing: 0.02em; text-indent: 2px; color: #1D567E;">
+                                                            Deadlines
+                                                        </h5>
+                                                        <p style="font-weight: 500; font-size: 16px; line-height: 26px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                            Highlight the task deadlines on the Gantt View to keep your project on track. It helps you to focus on priority work and make better scheduling decisions. 
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row d-flex align-items-center justify-content-center">
+                                                <div class="col-lg-9 col-12">
+                                                    <div class="note-point" style="background-color: #ffffff; opacity: 0.8; border-radius:5px;">
+                                                        <p class="mb-0 text-center" style="font-weight: 400; font-size: 12px; font-style: italic; line-height: 19px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C; padding: 6px 2px;">
+                                                            Available in Gantt View Project
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <!-- part2 -->
+                                <div class="px-4" style="background-color:#F8F8F8; border-radius:10px; padding-top:34px; padding-bottom: 37px; margin-bottom: 39px;">
+                                    <h6 class="text-center mb-2 mt-lg-2" style="font-weight: 600; font-size: 36px; line-height: 150%; text-align: center; text-indent: 2px; color: #3C3C3C; font-size: calc(1.88rem + 0.4vw); text-indent: 2px;">
+                                        Gantt View Grid
+                                    </h6>
+                                    <div class="row d-flex align-items-center justify-content-center mb-2">
+                                        <p class="text-center col-lg-9" style="font-weight: 400; font-size: 16px; line-height: 24px; text-align: center; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                            The GridView is divided into Left Grid and Right Grid
+                                        </p>
+                                    </div>
+
+                                    <!-- 1 -->
+                                    <div class="position-relative overflow-hidden" style="border-radius: 5px; padding: 35px 32px; margin-bottom: 31px;">
+                                        <img src="./img/overview/gantt-view-base/left-bg.png" alt="bg-img" loading="lazy" style="margin-top:-35px; margin-left: -32px; object-fit: cover;" class="h-100 w-100 position-absolute fix-bottom img-fluid">
+                                        <div class="position-relative">
+                                                <!-- left grid  -->
+                                                <h5 style="font-weight: 600; font-size: 28px; line-height: 42px; text-align: center; letter-spacing: 0.02em; text-indent: 2px; color: #1D567E;">
+                                                    Left Grid
+                                                </h5>
+                                                <div class="row d-flex align-items-center justify-content-center mb-5">
+                                                    <div class="col-lg-9 col-11">
+                                                        <p style="font-weight: 500; font-size: 16px; line-height: 26px; text-align: center; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                            The Left Grid contains different columns to display the information. You also have add, edit and delete buttons in the grid.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <!-- add  -->
+                                                <div class="row" style="margin-bottom:42px">
+                                                    <div class="col-12 col-lg-4 d-flex align-items-center justify-content-start  ">
+                                                        <div class="pl-4 pr-5 d-flex align-items-center justify-content-start">
+                                                            <div>
+                                                                <h5 style="font-weight: 500; font-size: 24px; line-height: 160%; letter-spacing: 0.02em; text-indent: 2px; color: #14608A;">
+                                                                    Add Button
+                                                                </h5>
+                                                                <p style="font-weight: 500; font-size: 16px; line-height: 26px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                                    With the add button you can create a new task, project or order in the form. 
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-lg-8">
+                                                        <div style="padding:17px; background-color:#FFFFFF; border-radius:9px">
+                                                            <img src="./img/overview/gantt-view-base/add.png" alt="img" class="w-100 img-fluid" loading="lazy">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <!-- sub-task  -->
+                                                <div class="row" style="margin-bottom:54px">
+                                                    <div class="col-12 col-lg-8">
+                                                        <div style="padding:17px; background-color:#FFFFFF; border-radius:9px">
+                                                            <img loading="lazy" src="./img/overview/gantt-view-base/task.png" alt="img" class="w-100 img-fluid">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-lg-4 d-flex align-items-center justify-content-start  ">
+                                                        <div class="pl-4 pr-5 d-flex align-items-center justify-content-start">
+                                                            <div class="mt-lg-0 mt-3">
+                                                                <h5 style="font-weight: 500; font-size: 24px; line-height: 160%; letter-spacing: 0.02em; text-indent: 2px; color: #14608A;">
+                                                                    Sub-task
+                                                                </h5>
+                                                                <p class="mb-3" style="font-weight: 500; font-size: 16px; line-height: 26px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                                    Enable to create a subtask for the parent task in the left grid. 
+                                                                </p>
+                                                                <p style="font-weight: 400; font-size: 12px; line-height: 160%; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C; font-style: italic;">
+                                                                    This feature is available in Gantt View Project only
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="row px-lg-4">
+                                                    <div class="col-lg-6 col-12 mb-lg-0 mb-3 ">
+                                                        <div class="px-3" style="background-color: #ffffff; border-radius:5px; padding-top:31px; padding-bottom:38px;">
+                                                            <h5 class="text-center" style="font-weight: 600; font-size: 28px; line-height: 120%; text-align: center; letter-spacing: 0.02em; text-indent: 2px; color: #1D567E;">
+                                                                Edit
+                                                            </h5>
+                                                            <p style="font-weight: 500; font-size: 16px; line-height: 26px; text-align: center; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                                The button is for modification
+                                                            </p>
+                                                            <img src="./img/overview/gantt-view-base/d1.png" alt="img" class="w-100 img-fluid" loading="lazy">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 col-12">
+                                                        <div class="px-3" style="background-color: #ffffff; border-radius:5px; padding-top:31px; padding-bottom:38px;">
+                                                            <h5 class="text-center" style="font-weight: 600; font-size: 28px; line-height: 120%; text-align: center; letter-spacing: 0.02em; text-indent: 2px; color: #1D567E;">
+                                                                Delete
+                                                            </h5>
+                                                            <p style="font-weight: 500; font-size: 16px; line-height: 26px; text-align: center; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                                It is for deleting purpose
+                                                            </p>
+                                                            <img src="./img/overview/gantt-view-base/d2.png" alt="img" class="w-100 img-fluid" loading="lazy">
+                                                        </div>
+                                                    </div>
+                                                </div>
+        
+                                                <!-- color -->
+                                                <div class="row d-flex align-items-center justify-content-center mt-5">
+                                                    <div class="col-xl-9 col-lg-10">
+                                                        <h5 style="font-weight: 600; font-size: 28px; line-height: 45px; text-align: center; letter-spacing: 0.02em; text-indent: 2px; color: #14608A;">
+                                                            Coloring the tasks
+                                                        </h5>
+                                                        <p style="font-weight: 500; font-size: 16px; line-height: 26px; text-align: center; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                            In left grid, you can see the different color beside each task that denote project progress:-
+                                                        </p>
+                                                    </div>
+                                                </div>
+        
+                                                <!-- colored-circle boxes  -->
+                                                <div class="row px-lg-4 mt-4">
+                                                    <div class="col-12 col-lg-4 col-md-6 px-lg-4 mb-md-0 mb-2">
+                                                        <div class="d-flex flex-column align-items-start justify-content-start px-4" style="background-color: #ffffff; border-radius: 5px; border: 1px solid #C4C4C4; padding-top: 31px; padding-bottom: 45px; height: 100%;">
+                                                            <div class="w-100 d-flex justify-content-center mb-3">
+                                                                <div style="border-radius:100%; background-color: #21B021; width: 35px; height: 35px;"></div>
+                                                            </div>
+                                                            <p class="mb-lg-3" style="font-weight: 500; font-size: 16px; line-height: 22px; text-align: center; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                                Green Color show that task has 100% completed
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-lg-4 col-md-6 px-lg-4 mb-md-2 mb-2 mb-lg-0">
+                                                        <div class="d-flex flex-column align-items-start justify-content-center px-4" style="background-color: #ffffff; border-radius: 5px; border: 1px solid #C4C4C4; padding-top: 31px; padding-bottom: 40px; height: 100%;">
+                                                            <div class="w-100 d-flex justify-content-center mb-3">
+                                                                <div style="border-radius:100%; background-color: #FF0000; width: 35px; height: 35px;"></div>
+                                                            </div>
+                                                            <p class="mb-0" style="font-weight: 500; font-size: 16px; line-height: 22px; text-align: center; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                                Red color indicate 0% task completed means it is not yet started
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-lg-4 col-md-6 px-lg-4 mb-md-0 mb-2">
+                                                        <div class="d-flex flex-column align-items-start justify-content-center px-4" style="background-color: #ffffff; border-radius: 5px; border: 1px solid #C4C4C4; padding-top: 31px; padding-bottom: 41px; height: 100%;">
+                                                            <div class="w-100 d-flex justify-content-center mb-3">
+                                                                <div style="border-radius:100%; background-color: #FFFF00; width: 35px; height: 35px;"></div>
+                                                            </div>
+                                                            <p class="mb-lg-3 mb-xl-0 pb-xl-0 pb-lg-1" style="font-weight: 500; font-size: 16px; line-height: 22px; text-align: center; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                                Yellow color show that task progress is between 0 to 100%
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <p class="text-center mb-0" style="font-style: italic; font-weight: 400; font-size: 12px; line-height: 19px; letter-spacing: 0.02em; text-indent: 2px; margin-top: 26px; color: #3C3C3C;">
+                                                    Available in Gantt View Project
+                                                </p>
+                                        </div>
+                                    </div>
+
+                                    <!-- 2 -->
+                                    <div class="position-relative overflow-hidden" style="border-radius: 5px; padding: 35px 32px; margin-bottom: 17px;">
+                                        <img src="./img/overview/gantt-view-base/right-bg.png" alt="bg-img" loading="lazy" style="margin-top:-35px; margin-left: -32px; object-fit: cover;" class="h-100 w-100 position-absolute fix-bottom img-fluid">
+                                        <div class="position-relative">
+                                            <!-- right grid -->
+                                            <h5 style="font-weight: 600; font-size: 28px; line-height: 42px; text-align: center; letter-spacing: 0.02em; text-indent: 2px; color: #1D567E;">
+                                                Right Grid
+                                            </h5>
+                                            <div class="row d-flex align-items-center justify-content-center">
+                                                <div class="col-lg-9 col-11">
+                                                    <p class="mb-4" style="font-weight: 500; font-size: 16px; line-height: 26px; text-align: center; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                        The Right Grid is the main view where Gantt View displays. It showcases your data information in easy readable form.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div style="padding-top:41px; padding-bottom:8px; margin-bottom: 30px;">
+                                                <div class="row" style="margin-bottom:33px">
+                                                    <div class="col-lg-4 d-flex align-items-center justify-content-start  ">
+                                                        <div class="pr-3  pt-xl-0 pt-3">
+                                                            <h5 style="font-weight: 500; font-size: 24px; line-height: 160%; letter-spacing: 0.02em; text-indent: 2px; color: #14608A;">
+                                                                ToolTip
+                                                            </h5>
+                                                            <p class="mb-4" style="font-weight: 500; font-size: 16px; line-height: 26px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                                When you hover your mouse on the timeline, a tooltip appears to give short info according to your task/project such as Start Date, End Date, Title, Constraints, and more.
+                                                            </p>
+                                                            <p style="font-style: italic; font-weight: 400; font-size: 12px; line-height: 19px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                                Available in Gantt  View Time Off, Gantt View Manufacturing and  Gantt View Project
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-8 d-flex align-items-center justify-content-center ">
+                                                        <div style="background-color:#ffffff; border-radius:2px; width: 100%; padding: 14px;">
+                                                            <img style="border-radius: 5px;" src="./img/overview/gantt-view-base/r1.png" alt="img" class="w-100 img-fluid" loading="lazy">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row" style="margin-bottom:37px">
+                                                    <div class="col-lg-8 d-flex align-items-center justify-content-center ">
+                                                        <div style="background-color:#ffffff; border-radius:2px; width: 100%; padding: 14px;">
+                                                            <img style="border-radius: 5px;" src="./img/gif-file/drag.gif" alt="gif" class="w-100 img-fluid" loading="lazy">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 d-flex align-items-center justify-content-start  ">
+                                                        <div class="pr-3  pt-xl-0 pt-3">
+                                                            <h5 style="font-weight: 500; font-size: 24px; line-height: 160%; letter-spacing: 0.02em; text-indent: 2px; color: #14608A;">
+                                                                Drag the timeline of time-off
+                                                            </h5>
+                                                            <p class="mb-4" style="font-weight: 500; font-size: 16px; line-height: 26px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                                You can change or shift your tasks by adjusting them directly on the Timeline with drag the timeline of time-off feature. 
+                                                            </p>
+                                                            <p style="font-style: italic; font-weight: 400; font-size: 12px; line-height: 19px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                                Available in Gantt View Project, Gantt View Manufacturing 
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row" style="margin-bottom:37px">
+                                                    <div class="col-lg-4 d-flex align-items-center justify-content-start  ">
+                                                        <div class="pr-3  pt-xl-0 pt-3">
+                                                            <h5 style="font-weight: 500; font-size: 24px; line-height: 160%; letter-spacing: 0.02em; text-indent: 2px; color: #14608A;">
+                                                                Milestone of a Project
+                                                            </h5>
+                                                            <p class="mb-4" style="font-weight: 500; font-size: 16px; line-height: 26px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                                You can create project milestones to display in the Timeline with a unique symbol.
+                                                            </p>
+                                                            <p style="font-style: italic; font-weight: 400; font-size: 12px; line-height: 19px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                                Available in Gantt View Project
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-8 d-flex align-items-center justify-content-center ">
+                                                        <div style="background-color:#ffffff; border-radius:2px; width: 100%; padding: 14px;">
+                                                            <img style="border-radius: 5px;" src="./img/overview/gantt-view-base/r3.png" alt="img" class="w-100 img-fluid" loading="lazy">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-8 d-flex align-items-center justify-content-center ">
+                                                        <div style="background-color:#ffffff; border-radius:2px; width: 100%; padding: 14px;">
+                                                            <img style="border-radius: 5px;" src="./img/overview/gantt-view-base/r4.png" alt="img" class="w-100 img-fluid" loading="lazy">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 d-flex align-items-center justify-content-start  ">
+                                                        <div class="pr-3  pt-xl-0 pt-3">
+                                                            <h5 style="font-weight: 500; font-size: 24px; line-height: 160%; letter-spacing: 0.02em; text-indent: 2px; color: #14608A;">
+                                                                Markers
+                                                            </h5>
+                                                            <p class="mb-4" style="font-weight: 500; font-size: 16px; line-height: 26px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                                It only highlights the start date and end date of the project so you can organize the task accordingly. 
+                                                            </p>
+                                                            <p style="font-style: italic; font-weight: 400; font-size: 12px; line-height: 19px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                                Available in Gantt View Project
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <!-- part3 -->
+                                <div class="px-4" style="background-color:#F8F8F8; border-radius:10px; padding-top:56px; padding-bottom: 25px; margin-bottom: 32px;">
+                                    <h5 style="font-weight: 600; font-size: 36px; line-height: 54px; text-align: center; text-indent: 2px; color: #3C3C3C;">
+                                        Gantt Settings
+                                    </h5>
+                                    <p class="mb-4" style="font-weight: 600; font-size: 18px; line-height: 27px; text-align: center; text-indent: 2px; color: #3C3C3C;">
+                                        Improve your Gantt View appearance with Gantt Settings 
+                                    </p>
+                                    <div class="position-relative overflow-hidden" style="border-radius: 5px; padding: 27px 35px 20px 35px; margin-bottom: 27px;">
+                                        <img src="./img/overview/gantt-view-base/gantt-setting-bg.png" alt="bg-img" loading="lazy" style="margin-top:-27px; margin-left: -35px; object-fit: cover;" class="h-100 w-100 position-absolute fix-bottom img-fluid">
+                                        <div class="position-relative text-center">
+                                            <h5 style="font-weight: 600; font-size: 28px; line-height: 150%; text-align: center; letter-spacing: 0.02em; text-indent: 2px; color: #1D567E;">
+                                                Tooltip Settings
+                                            </h5>
+                                            <div class="row d-flex align-items-center justify-content-center">
+                                                <div class="col-11 col-lg-9">
+                                                    <p style="font-weight: 500; font-size: 16px; line-height: 26px; text-align: center; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                By enabling or disabling the Tooltip settings you can customize the tooltip data display in the timeline
+                                            </p>
+                                                </div>
+                                            </div>
+                                            <div class="row d-flex align-items-center justify-content-center">
+                                                <div class="col-12">
+                                                    <div style="border-radius: 2px;background-color:#F8F8F8; padding:20px;">
+                                                        <div class="p-lg-4 p-2" style="border-radius: 5px;background-color:#FFFFFF;">
+                                                            <img src="./img/overview/gantt-view-base/gantt-setting.png" alt="img" class="w-100 img-fluid">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row d-flex align-items-center justify-content-center">
+                                        <div class="col-lg-7 col-12">
+                                            <div class="note-point" style="background-color: #ffffff; border-radius:5px;">
+                                                <p class="mb-0 text-center" style="font-weight: 400; font-size: 12px; font-style: italic; line-height: 19px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C; padding: 6px 2px;">
+                                                    Available in Gantt  View Time Off, Gantt View Manufacturing and  Gantt View Project
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- part4 -->
+                                <div class="px-4" style="background-color:#F8F8F8; border-radius:10px; padding-top:56px; padding-bottom: 25px; margin-bottom: 32px;">
+                                    <h5 class="mb-lg-5 mb-3" style="font-weight: 600; font-size: 36px; line-height: 54px; text-align: center; text-indent: 2px; color: #3C3C3C;">
+                                        Gantt Chart Settings
+                                    </h5>
+                                    <!-- bg-1 -->
+                                    <div class="position-relative overflow-hidden" style="border-radius: 5px; padding: 20px; margin-bottom: 39px;">
+                                        <img src="./img/overview/gantt-view-base/2-bg.png" alt="bg-img" loading="lazy" style="margin-top:-20px; margin-left: -20px; object-fit: cover;" class="h-100 w-100 position-absolute fix-bottom img-fluid">
+                                        <div class="position-relative">
+                                            <div class="row mb-3">
+                                                <div class="col-xl-9 d-flex align-items-center justify-content-center ">
+                                                    <div style="background-color:#F8F8F8; border-radius:2px; width: 100%; padding: 14px;">
+                                                        <img style="border-radius: 5px;" src="./img/overview/gantt-view-base/q1.png" alt="img" class="w-100 img-fluid" loading="lazy">
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-3 d-flex align-items-center justify-content-start  ">
+                                                    <div class="pr-3  pt-xl-0 pt-3">
+                                                        <h5 style="font-weight: 600; font-size: 28px; line-height: 42px; letter-spacing: 0.02em; text-indent: 2px; color: #1D567E;">
+                                                            Dynamic Text
+                                                        </h5>
+                                                        <p style="font-weight: 500; font-size: 16px; line-height: 26px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                            When you enable Dynamic text, it automatically adjusts the bar for long project description and displays it in the Timeline. 
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row d-flex align-items-center justify-content-center">
+                                                <div class="col-lg-9 col-12">
+                                                    <div class="note-point" style="background-color: #ffffff; opacity: 0.8; border-radius:5px;">
+                                                        <p class="mb-0 text-center" style="font-weight: 400; font-size: 12px; font-style: italic; line-height: 19px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C; padding: 6px 2px;">
+                                                            Available in Gantt  View Time Off, Gantt View Manufacturing and  Gantt View Project
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- bg-2 -->
+                                    <div class="position-relative overflow-hidden" style="border-radius: 5px; padding: 20px; margin-bottom: 32px;">
+                                        <img src="./img/overview/gantt-view-base/1-bg.png" alt="bg-img" loading="lazy" style="margin-top:-20px; margin-left: -20px; object-fit: cover;" class="h-100 w-100 position-absolute fix-bottom img-fluid">
+                                        <div class="position-relative">
+                                            <div class="row mb-3">
+                                                <div class="col-xl-3 d-flex align-items-center justify-content-start  ">
+                                                    <div class="pr-3  pt-xl-0 pt-3">
+                                                        <h5 style="font-weight: 600; font-size: 28px; line-height: 42px; letter-spacing: 0.02em; text-indent: 2px; color: #1D567E;">
+                                                            Dynamic Progress
+                                                        </h5>
+                                                        <p style="font-weight: 500; font-size: 16px; line-height: 26px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                            This setting enables you to view the project/task progress in the form of percent directly in the Timeline. 
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-9 d-flex align-items-center justify-content-center ">
+                                                    <div style="background-color:#F8F8F8; border-radius:2px; width: 100%; padding: 14px;">
+                                                        <img style="border-radius: 5px;" src="./img/overview/gantt-view-base/q2.png" alt="img" class="w-100 img-fluid" loading="lazy">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row d-flex align-items-center justify-content-center">
+                                                <div class="col-lg-9 col-12">
+                                                    <div class="note-point" style="background-color: #ffffff; opacity: 0.8; border-radius:5px;">
+                                                        <p class="mb-0 text-center" style="font-weight: 400; font-size: 12px; font-style: italic; line-height: 19px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C; padding: 6px 2px;">
+                                                            Available in Gantt View Manufacturing and Gantt View Project
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- bg-3 -->
+                                    <div class="position-relative overflow-hidden" style="border-radius: 5px; padding: 20px; margin-bottom: 39px;">
+                                        <img src="./img/overview/gantt-view-base/2-bg.png" alt="bg-img" loading="lazy" style="margin-top:-20px; margin-left: -20px; object-fit: cover;" class="h-100 w-100 position-absolute fix-bottom img-fluid">
+                                        <div class="position-relative">
+                                            <div class="row mb-3">
+                                                <div class="col-xl-9 d-flex align-items-center justify-content-center ">
+                                                    <div style="background-color:#F8F8F8; border-radius:2px; width: 100%; padding: 14px;">
+                                                        <img style="border-radius: 5px;" src="./img/overview/gantt-view-base/q3.png" alt="img" class="w-100 img-fluid" loading="lazy">
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-3 d-flex align-items-center justify-content-start  ">
+                                                    <div class="pr-3  pt-xl-0 pt-3">
+                                                        <h5 style="font-weight: 600; font-size: 28px; line-height: 42px; letter-spacing: 0.02em; text-indent: 2px; color: #1D567E;">
+                                                            Days Off
+                                                        </h5>
+                                                        <p style="font-weight: 500; font-size: 16px; line-height: 26px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                            This setting highlights the days off and week offs in the timeline to keep you informed about unproductive days. 
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row d-flex align-items-center justify-content-center">
+                                                <div class="col-lg-9 col-12">
+                                                    <div class="note-point" style="background-color: #ffffff; opacity: 0.8; border-radius:5px;">
+                                                        <p class="mb-0 text-center" style="font-weight: 400; font-size: 12px; font-style: italic; line-height: 19px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C; padding: 6px 2px;">
+                                                            Available in Gantt  View Time Off, Gantt View Manufacturing and  Gantt View Project
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- bg-4 -->
+                                    <div class="position-relative overflow-hidden" style="border-radius: 5px; padding: 20px; margin-bottom: 30px;">
+                                        <img src="./img/overview/gantt-view-base/bg-3.png" alt="bg-img" loading="lazy" style="margin-top:-20px; margin-left: -20px; object-fit: cover;" class="h-100 w-100 position-absolute fix-bottom img-fluid">
+                                        <div class="position-relative">
+                                            <div class="row mb-3">
+                                                <div class="col-xl-3 d-flex align-items-center justify-content-start  ">
+                                                    <div class="pr-3  pt-xl-0 pt-3">
+                                                        <h5 style="font-weight: 600; font-size: 28px; line-height: 42px; letter-spacing: 0.02em; text-indent: 2px; color: #1D567E;">
+                                                            Hide <br class="d-none d-xl-block"> Holiday Day
+                                                        </h5>
+                                                        <p style="font-weight: 500; font-size: 16px; line-height: 26px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                            You can also hide the day offs and holidays from the timeline by enabling this setting.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-9 d-flex align-items-center justify-content-center ">
+                                                    <div style="background-color:#F8F8F8; border-radius:2px; width: 100%; padding: 14px;">
+                                                        <img style="border-radius: 5px;" src="./img/overview/gantt-view-base/q4.png" alt="img" class="w-100 img-fluid" loading="lazy">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row d-flex align-items-center justify-content-center">
+                                                <div class="col-lg-9 col-12">
+                                                    <div class="note-point" style="background-color: #ffffff; opacity: 0.8; border-radius:5px;">
+                                                        <p class="mb-0 text-center" style="font-weight: 400; font-size: 12px; font-style: italic; line-height: 19px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C; padding: 6px 2px;">
+                                                            Available in Gantt View Project
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- bg-5 -->
+                                    <div class="position-relative overflow-hidden" style="border-radius: 5px; padding: 20px; margin-bottom: 39px;">
+                                        <img src="./img/overview/gantt-view-base/bg-4.png" alt="bg-img" loading="lazy" style="margin-top:-20px; margin-left: -20px; object-fit: cover;" class="h-100 w-100 position-absolute fix-bottom img-fluid">
+                                        <div class="position-relative">
+                                            <div class="row mb-3">
+                                                <div class="col-xl-9 d-flex align-items-center justify-content-center ">
+                                                    <div style="background-color:#F8F8F8; border-radius:2px; width: 100%; padding: 14px;">
+                                                        <img style="border-radius: 5px;" src="./img/overview/gantt-view-base/q5.png" alt="img" class="w-100 img-fluid" loading="lazy">
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-3 d-flex align-items-center justify-content-start  ">
+                                                    <div class="pr-3  pt-xl-0 pt-3">
+                                                        <h5 style="font-weight: 600; font-size: 28px; line-height: 42px; letter-spacing: 0.02em; text-indent: 2px; color: #1D567E;">
+                                                            Select Days
+                                                        </h5>
+                                                        <p style="font-weight: 500; font-size: 16px; line-height: 26px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                            You can select the days when it's a holiday and hide them in the Gantt View.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row d-flex align-items-center justify-content-center">
+                                                <div class="col-lg-9 col-12">
+                                                    <div class="note-point" style="background-color: #ffffff; opacity: 0.8; border-radius:5px;">
+                                                        <p class="mb-0 text-center" style="font-weight: 400; font-size: 12px; font-style: italic; line-height: 19px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C; padding: 6px 2px;">
+                                                            Available in Gantt View Project
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- bg-6 -->
+                                    <div class="position-relative overflow-hidden" style="border-radius: 5px; padding: 20px; margin-bottom: 39px;">
+                                        <img src="./img/overview/gantt-view-base/bg-5.png" alt="bg-img" loading="lazy" style="margin-top:-20px; margin-left: -20px; object-fit: cover;" class="h-100 w-100 position-absolute fix-bottom img-fluid">
+                                        <div class="position-relative">
+                                            <div class="row mb-3">
+                                                <div class="col-xl-3 d-flex align-items-center justify-content-start  ">
+                                                    <div class="pr-3  pt-xl-0 pt-3">
+                                                        <h5 style="font-weight: 600; font-size: 28px; line-height: 42px; letter-spacing: 0.02em; text-indent: 2px; color: #1D567E;">
+                                                            Quick Info
+                                                        </h5>
+                                                        <p style="font-weight: 500; font-size: 16px; line-height: 26px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                            You can enable or disable quick info display in the Timeline as per your wish.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-9 d-flex align-items-center justify-content-center ">
+                                                    <div style="background-color:#F8F8F8; border-radius:2px; width: 100%; padding: 14px;">
+                                                        <img style="border-radius: 5px;" src="./img/overview/gantt-view-base/q6.png" alt="img" class="w-100 img-fluid" loading="lazy">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row d-flex align-items-center justify-content-center">
+                                                <div class="col-lg-9 col-12">
+                                                    <div class="note-point" style="background-color: #ffffff; opacity: 0.8; border-radius:5px;">
+                                                        <p class="mb-0 text-center" style="font-weight: 400; font-size: 12px; font-style: italic; line-height: 19px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C; padding: 6px 2px;">
+                                                            Available in Gantt  View Time Off, Gantt View Manufacturing and  Gantt View Project
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- bg-7 -->
+                                    <div class="position-relative overflow-hidden" style="border-radius: 5px; padding: 20px; margin-bottom: 31px;">
+                                        <img src="./img/overview/gantt-view-base/bg-4.png" alt="bg-img" loading="lazy" style="margin-top:-20px; margin-left: -20px; object-fit: cover;" class="h-100 w-100 position-absolute fix-bottom img-fluid">
+                                        <div class="position-relative">
+                                            <div class="row mb-3">
+                                                <div class="col-xl-9 d-flex align-items-center justify-content-center ">
+                                                    <div style="background-color:#F8F8F8; border-radius:2px; width: 100%; padding: 14px;">
+                                                        <img style="border-radius: 5px;" src="./img/overview/gantt-view-base/q7.png" alt="img" class="w-100 img-fluid" loading="lazy">
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-3 d-flex align-items-center justify-content-start  ">
+                                                    <div class="pr-3  pt-xl-0 pt-3">
+                                                        <h5 style="font-weight: 600; font-size: 28px; line-height: 42px; letter-spacing: 0.02em; text-indent: 2px; color: #1D567E;">
+                                                            Mail Timesheet User
+                                                        </h5>
+                                                        <p style="font-weight: 500; font-size: 16px; line-height: 26px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                            Enter the user id to whom you want to send an email alert once your task is 90% completed.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row d-flex align-items-center justify-content-center">
+                                                <div class="col-lg-9 col-12">
+                                                    <div class="note-point" style="background-color: #ffffff; opacity: 0.8; border-radius:5px;">
+                                                        <p class="mb-0 text-center" style="font-weight: 400; font-size: 12px; font-style: italic; line-height: 19px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C; padding: 6px 2px;">
+                                                            Available in Gantt View Project
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- bg-8 -->
+                                    <div class="position-relative overflow-hidden" style="border-radius: 5px; padding: 20px; margin-bottom: 23px;">
+                                        <img src="./img/overview/gantt-view-base/bg-5.png" alt="bg-img" loading="lazy" style="margin-top:-20px; margin-left: -20px; object-fit: cover;" class="h-100 w-100 position-absolute fix-bottom img-fluid">
+                                        <div class="position-relative">
+                                            <div class="row mb-3">
+                                                <div class="col-xl-3 d-flex align-items-center justify-content-start  ">
+                                                    <div class="pr-3  pt-xl-0 pt-3">
+                                                        <h5 style="font-weight: 600; font-size: 28px; line-height: 42px; letter-spacing: 0.02em; text-indent: 2px; color: #1D567E;">
+                                                            Stage Color
+                                                        </h5>
+                                                        <p style="font-weight: 500; font-size: 16px; line-height: 26px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                            You can apply different stage colors according to the project/task state and improve its visualization in the Gantt View.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-9 d-flex align-items-center justify-content-center ">
+                                                    <div style="background-color:#F8F8F8; border-radius:2px; width: 100%; padding: 14px;">
+                                                        <img style="border-radius: 5px;" src="./img/overview/gantt-view-base/q8.png" alt="img" class="w-100 img-fluid" loading="lazy">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row d-flex align-items-center justify-content-center">
+                                                <div class="col-lg-9 col-12">
+                                                    <div class="note-point" style="background-color: #ffffff; opacity: 0.8; border-radius:5px;">
+                                                        <p class="mb-0 text-center" style="font-weight: 400; font-size: 12px; font-style: italic; line-height: 19px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C; padding: 6px 2px;">
+                                                            Available in Gantt  View Time Off, Gantt View Manufacturing and  Gantt View Project
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- long-bg-9 -->
+                                    <div class="position-relative overflow-hidden" style="border-radius: 5px; padding: 20px; margin-bottom: 32px;">
+                                        <img src="./img/overview/gantt-view-base/gantt-view-details-bg.png" alt="bg-img" loading="lazy" style="margin-top:-20px; margin-left: -20px; object-fit: cover;" class="h-100 w-100 position-absolute fix-bottom img-fluid">
+                                        <div class="position-relative mb-4">
+                                            <h6 class="mt-lg-4 mt-3" style="font-weight: 600; font-size: 32px; line-height: 150%; text-align: center; text-indent: 2px; color: #1D567E; margin-bottom: 44px;">
+                                                Edit screen - Gantt View Details
+                                            </h6>
+                                            <div class="row" style="margin-bottom: 37px">
+                                                <div class="col-xl-8 d-flex align-items-center justify-content-center ">
+                                                    <div class="p-lg-4 p-2" style="background-color:#ffffff; border-radius:5px; width: 100%;">
+                                                        <img src="./img/overview/gantt-view-base/e1.png" alt="img" class="w-100 img-fluid" loading="lazy">
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-4 d-flex align-items-center justify-content-start  ">
+                                                    <div class="pr-3  pt-xl-0 pt-3">
+                                                        <h5 style="font-weight: 500; font-size: 24px; line-height: 160%; letter-spacing: 0.02em; text-indent: 2px; color: #14608A;">
+                                                            Unschedule
+                                                        </h5>
+                                                        <p class="mb-3" style="font-weight: 500; font-size: 16px; line-height: 26px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                            By enabling this setting you can unschedule any task/order from the Gantt View. The task will be visible in the left grid but not in the Timeline.
+                                                        </p>
+                                                        <p style="font-style: italic; font-weight: 400; font-size: 12px; line-height: 19px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                            Available in Gantt View Manufacturing and  Gantt View Project
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+                                            <div class="row" style="margin-bottom: 42px">
+                                                <div class="col-xl-4 d-flex align-items-center justify-content-start  ">
+                                                    <div class="pr-3  pt-xl-0 pt-3">
+                                                        <h5 style="font-weight: 500; font-size: 24px; line-height: 160%; letter-spacing: 0.02em; text-indent: 2px; color: #14608A;">
+                                                            Task Type
+                                                        </h5>
+                                                        <p class="mb-3" style="font-weight: 500; font-size: 16px; line-height: 26px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                            You can create a task either as a milestone or task for the project.
+                                                        </p>
+                                                        <p style="font-style: italic; font-weight: 400; font-size: 12px; line-height: 19px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                            Available in Gantt View Project
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-8 d-flex align-items-center justify-content-center ">
+                                                    <div class="p-lg-4 p-2" style="background-color:#ffffff; border-radius:5px; width: 100%;">
+                                                        <img src="./img/overview/gantt-view-base/e2.png" alt="img" class="w-100 img-fluid" loading="lazy">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row" style="margin-bottom: 37px">
+                                                <div class="col-xl-8 d-flex align-items-center justify-content-center ">
+                                                    <div class="p-lg-4 p-2" style="background-color:#ffffff; border-radius:5px; width: 100%;">
+                                                        <img src="./img/overview/gantt-view-base/e3.png" alt="img" class="w-100 img-fluid" loading="lazy">
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-4 d-flex align-items-center justify-content-start  ">
+                                                    <div class="pr-3  pt-xl-0 pt-3">
+                                                        <h5 style="font-weight: 500; font-size: 24px; line-height: 160%; letter-spacing: 0.02em; text-indent: 2px; color: #14608A;">
+                                                            Enable task duration
+                                                        </h5>
+                                                        <p class="mb-3" style="font-weight: 500; font-size: 16px; line-height: 26px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                            When you don't know the end date of your order or task you can enable the task duration. Enter the start date and duration, the end date will automatically.
+                                                        </p>
+                                                        <p style="font-style: italic; font-weight: 400; font-size: 12px; line-height: 19px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                            Available in Gantt View Manufacturing and Gantt View Project.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+                                            <div class="row" style="margin-bottom: 42px">
+                                                <div class="col-xl-4 d-flex align-items-center justify-content-start  ">
+                                                    <div class="pr-3  pt-xl-0 pt-3">
+                                                        <h5 style="font-weight: 500; font-size: 24px; line-height: 160%; letter-spacing: 0.02em; text-indent: 2px; color: #14608A;">
+                                                            Start Date
+                                                        </h5>
+                                                        <p class="mb-3" style="font-weight: 500; font-size: 16px; line-height: 26px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                            Enter the start date when will you task or order will be started
+                                                        </p>
+                                                        <p style="font-style: italic; font-weight: 400; font-size: 12px; line-height: 19px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                            Available in Gantt View Manufacturing and  Gantt View Project.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-8 d-flex align-items-center justify-content-center ">
+                                                    <div class="p-lg-4 p-2" style="background-color:#ffffff; border-radius:5px; width: 100%;">
+                                                        <img src="./img/overview/gantt-view-base/e4.png" alt="img" class="w-100 img-fluid" loading="lazy">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row" style="margin-bottom: 35px">
+                                                <div class="col-xl-8 d-flex align-items-center justify-content-center ">
+                                                    <div class="p-lg-4 p-2" style="background-color:#ffffff; border-radius:5px; width: 100%;">
+                                                        <img src="./img/overview/gantt-view-base/e5.png" alt="img" class="w-100 img-fluid" loading="lazy">
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-4 d-flex align-items-center justify-content-start  ">
+                                                    <div class="pr-3  pt-xl-0 pt-3">
+                                                        <h5 style="font-weight: 500; font-size: 24px; line-height: 160%; letter-spacing: 0.02em; text-indent: 2px; color: #14608A;">
+                                                            End Date
+                                                        </h5>
+                                                        <p class="mb-3" style="font-weight: 500; font-size: 16px; line-height: 26px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                            Enter the date when will the task or order will be completed
+                                                        </p>
+                                                        <p style="font-style: italic; font-weight: 400; font-size: 12px; line-height: 19px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                            Available in Gantt View Manufacturing and  Gantt View Project.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+                                            <div class="pt-lg-5">
+                                                <div style="background-color:#ffffff; border-radius:9px; padding: 0 30px; margin-bottom: 43px;">
+                                                    <h6 class="pt-lg-4 pt-3 text-center" style="font-weight: 500; font-size: 24px; line-height: 160%; letter-spacing: 0.02em; text-indent: 2px; color: #14608A; margin-bottom: 18px;">
+                                                        Schedule Mode Manual/Auto
+                                                    </h6>
+                                                    <div class="row d-flex align-items-center justify-content-center">
+                                                        <div class="col-lg-9 col-11">
+                                                            <p class="mb-4" style="font-weight: 500; font-size: 16px; line-height: 160%; text-align: center; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                                With this setting you can schedule your task/order manually or automatically. With automatic mode the task/order will schedule automatically according to the parent task. With manual mode you have to manually modify the order or task dates.
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <img src="./img/overview/gantt-view-base/mode.png" alt="img" class="w-100 img-fluid mb-3" loading="lazy">
+                                                    <div class="row d-flex align-items-center justify-content-center pb-3">
+                                                        <div class="col-lg-9 col-12">
+                                                            <div class="note-point" style="background-color: #ffffff; opacity: 0.8; border-radius:5px;">
+                                                                <p class="mb-0 text-center" style="font-weight: 400; font-size: 12px; font-style: italic; line-height: 19px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C; padding: 6px 2px;">
+                                                                    Available in Gantt View Manufacturing and  Gantt View Project.
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row" style="margin-bottom: 42px">
+                                                <div class="col-xl-4 d-flex align-items-center justify-content-start  ">
+                                                    <div class="pr-3  pt-xl-0 pt-3">
+                                                        <h5 style="font-weight: 500; font-size: 24px; line-height: 160%; letter-spacing: 0.02em; text-indent: 2px; color: #14608A;">
+                                                            Constraint Type
+                                                        </h5>
+                                                        <p class="mb-3" style="font-weight: 500; font-size: 16px; line-height: 26px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                            Select the priority of your task or order by choosing the constraint type. It will appear in the timeline and keep you informed about task/order priority. 
+                                                        </p>
+                                                        <p style="font-style: italic; font-weight: 400; font-size: 12px; line-height: 19px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                            Available in Gantt View Manufacturing and  Gantt View Project.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-8 d-flex align-items-center justify-content-center ">
+                                                    <div class="p-lg-4 p-2" style="background-color:#ffffff; border-radius:5px; width: 100%;">
+                                                        <img src="./img/overview/gantt-view-base/e6.png" alt="img" class="w-100 img-fluid" loading="lazy">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row" style="margin-bottom: 42px">
+                                                <div class="col-xl-8 d-flex align-items-center justify-content-center ">
+                                                    <div class="p-lg-4 p-2" style="background-color:#ffffff; border-radius:5px; width: 100%;">
+                                                        <img src="./img/overview/gantt-view-base/e7.png" alt="img" class="w-100 img-fluid" loading="lazy">
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-4 d-flex align-items-center justify-content-start  ">
+                                                    <div class="pr-3  pt-xl-0 pt-3">
+                                                        <h5 style="font-weight: 500; font-size: 24px; line-height: 160%; letter-spacing: 0.02em; text-indent: 2px; color: #14608A;">
+                                                            Constraint Date
+                                                        </h5>
+                                                        <p class="mb-3" style="font-weight: 500; font-size: 16px; line-height: 26px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                            By setting a constraint date you can display the start date of your task/order in the timeline. It works as a reminder to start the work on a specific date.
+                                                        </p>
+                                                        <p style="font-style: italic; font-weight: 400; font-size: 12px; line-height: 19px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                            Available in Gantt View Manufacturing and Gantt View Project.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+                                            <div class="row" style="margin-bottom: 40px">
+                                                <div class="col-xl-4 d-flex align-items-center justify-content-start  ">
+                                                    <div class="pr-3  pt-xl-0 pt-3">
+                                                        <h5 style="font-weight: 500; font-size: 24px; line-height: 160%; letter-spacing: 0.02em; text-indent: 2px; color: #14608A;">
+                                                            Send Email
+                                                        </h5>
+                                                        <p class="mb-3" style="font-weight: 500; font-size: 16px; line-height: 26px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                            You can send the mail notification to the configured users once the task achieves 90% completion. It is an email alert about a work update. 
+                                                        </p>
+                                                        <p style="font-style: italic; font-weight: 400; font-size: 12px; line-height: 19px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                            Available in Gantt View Project.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-8 d-flex align-items-center justify-content-center ">
+                                                    <div class="p-lg-4 p-2" style="background-color:#ffffff; border-radius:5px; width: 100%;">
+                                                        <img src="./img/overview/gantt-view-base/e8.png" alt="img" class="w-100 img-fluid" loading="lazy">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- bg-10 -->
+                                    <div class="position-relative overflow-hidden" style="border-radius: 5px; padding: 20px; margin-bottom: 32px;">
+                                        <img src="./img/overview/gantt-view-base/e-bg.png" alt="bg-img" loading="lazy" style="margin-top:-20px; margin-left: -20px; object-fit: cover;" class="h-100 w-100 position-absolute fix-bottom img-fluid">
+                                        <div class="position-relative">
+                                            <h5 class="text-center" style="margin-top: 10px; font-weight: 600; font-size: 28px;
+                                            line-height: 160%; letter-spacing: 0.02em; text-indent: 2px; color: #14608A;">
+                                               Export
+                                            </h5>
+                                            <div class="row d-flex align-items-center justify-content-center">
+                                                <div class="col-lg-9 col-11">
+                                                    <p class="text-center mb-4" style="font-weight: 500; font-size: 16px; line-height: 26px;letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                        In our Gantt View we allow users to export their file data in seven different formats including Excel, PDF, PNG, Json, XML, Primavera P6 and iCal.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <img src="./img/overview/gantt-view-base/ee.png" alt="img" loading="lazy" class="w-100 img-fluid px-lg-4">
+                                            <div class="row d-flex align-items-center justify-content-center mt-3">
+                                                <div class="col-lg-9 col-12">
+                                                    <div class="note-point">
+                                                        <p class="mb-0 text-center" style="font-weight: 400; font-size: 12px; font-style: italic; line-height: 19px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C; padding: 6px 2px;">
+                                                            Available in Gantt  View Time Off, Gantt View Manufacturing and  Gantt View Project
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- bg-11 -->
+                                    <div class="position-relative overflow-hidden" style="border-radius: 5px; padding: 20px; margin-bottom: 20px;">
+                                        <img src="./img/overview/gantt-view-base/i-bg.png" alt="bg-img" loading="lazy" style="margin-top:-20px; margin-left: -20px; object-fit: cover;" class="h-100 w-100 position-absolute fix-bottom img-fluid">
+                                        <div class="position-relative">
+                                            <h5 class="text-center" style="margin-top: 10px; font-weight: 600; font-size: 28px;
+                                            line-height: 160%; letter-spacing: 0.02em; text-indent: 2px; color: #14608A;">
+                                               Import Project
+                                            </h5>
+                                            <div class="row d-flex align-items-center justify-content-center">
+                                                <div class="col-lg-9 col-11">
+                                                    <p class="text-center mb-4" style="font-weight: 500; font-size: 16px; line-height: 26px;letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                        You can also import your project in two formats Excel and Json.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="px-lg-4">
+                                                <div  style="background-color: #f8f8f8; border-radius:9px; padding:15px;">
+                                                    <img src="./img/overview/gantt-view-base/ii.png" alt="img" loading="lazy" class="w-100 img-fluid ">
+                                                </div>
+                                            </div>
+                                            <div class="row d-flex align-items-center justify-content-center mt-3">
+                                                <div class="col-lg-9 col-12">
+                                                    <div class="note-point">
+                                                        <p class="mb-0 text-center" style="font-weight: 400; font-size: 12px; font-style: italic; line-height: 19px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C; padding: 6px 2px;">
+                                                            Available in Gantt View Project
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade show pt-4 py-lg-5" id="why-ks" role="tabpanel" aria-labelledby="why-ks-tab">
+                                <div class="p-3 p-lg-5" style="background-color: #FAFAFA; border-radius: 30px;">
+                                    <h5 style=" font-family: 'Inter', sans-serif; font-weight: 600;font-size: 30px;line-height: 155.19%;color: #252525; text-align: center;  font-family: 'Inter', sans-serif; font-size: calc(0.93rem + 1vw);">
+                                        Why
+                                        Ksolves
+                                    </h5>
+                                    <p style="font-weight: 500;font-size: 16px;line-height: 155.19%;text-align: center; margin-bottom: 30px;  font-family: 'Inter', sans-serif;">
+                                        You know us as the
+                                        <strong style="color: #173E85;"> makers of the "Dashboard Ninja",</strong>
+                                        You
+                                        <br>
+                                        will remember us with Gantt View Base
+                                    </p>
+                                    <ul class="list-unstyled row m-0">
+                                        <li class="col-6 col-md-4 col-lg-3 p-2">
+                                            <img src="images/new-dscr-img/ks_1.png" loading="lazy" alt="logo-img" class="img-fluid">
+                                        </li>
+                                        <li class="col-6 col-md-4 col-lg-3 p-2">
+                                            <img src="images/new-dscr-img/ks_2.png" loading="lazy" alt="logo-img" class="img-fluid">
+                                        </li>
+                                        <li class="col-6 col-md-4 col-lg-3 p-2">
+                                            <img src="images/new-dscr-img/ks_3.png" loading="lazy" alt="logo-img" class="img-fluid">
+                                        </li>
+                                        <li class="col-6 col-md-4 col-lg-3 p-2">
+                                            <img src="images/new-dscr-img/ks_4.png" loading="lazy" alt="logo-img" class="img-fluid">
+                                        </li>
+                                        <li class="col-6 col-md-4 col-lg-3 p-2">
+                                            <img src="images/new-dscr-img/ks_5.png" loading="lazy" alt="logo-img" class="img-fluid">
+                                        </li>
+                                        <li class="col-6 col-md-4 col-lg-3 p-2">
+                                            <img src="images/new-dscr-img/ks_6.png" loading="lazy" alt="logo-img" class="img-fluid">
+                                        </li>
+                                        <li class="col-6 col-md-4 col-lg-3 p-2">
+                                            <img src="images/new-dscr-img/ks_7.png" loading="lazy" alt="logo-img" class="img-fluid">
+                                        </li>
+                                        <li class="col-6 col-md-4 col-lg-3 p-2">
+                                            <img src="images/new-dscr-img/ks_8.png" loading="lazy" alt="logo-img" class="img-fluid">
+                                        </li>
+                                        <li class="col-6 col-md-4 col-lg-3 p-2">
+                                            <img src="images/new-dscr-img/ks_9.png" loading="lazy" alt="logo-img" class="img-fluid">
+                                        </li>
+                                        <li class="col-6 col-md-4 col-lg-3 p-2">
+                                            <img src="images/new-dscr-img/ks_10.png" loading="lazy" alt="logo-img" class="img-fluid">
+                                        </li>
+                                        <li class="col-6 col-md-4 col-lg-3 p-2">
+                                            <img src="images/new-dscr-img/ks_11.png" loading="lazy" alt="logo-img" class="img-fluid">
+                                        </li>
+                                        <li class="col-6 col-md-4 col-lg-3 p-2">
+                                            <img src="images/new-dscr-img/ks_12.png" alt="logo-img" loading="lazy" class="img-fluid">
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="my-3 my-lg-5 p-0 py-lg-4">
+                                    <h5 style=" font-family: 'Inter', sans-serif; font-weight: 600;font-size: 30px;line-height: 155.19%;color: #252525; text-align: center;  font-family: 'Inter', sans-serif; font-size: calc(0.93rem + 1vw);">
+                                        Client
+                                        Success
+                                    </h5>
+                                    <p style="font-weight: 500;font-size: 16px;line-height: 155.19%;text-align: center;color: #414141;  font-family: 'Inter', sans-serif;">
+                                        Invest
+                                        your trust like our elite clientele did!
+                                    </p>
+                                    <ul class="list-unstyled row m-0 justify-content-center">
+                                        <li class="col-6 col-md-3 col-lg-2 p-1" style="text-align: center;">
+                                            <img src="images/new-dscr-img/ks_c_1.png" loading="lazy" alt="logo-img" class="img-fluid">
+                                        </li>
+                                        <li class="col-6 col-md-3 col-lg-2 p-1" style="text-align: center;">
+                                            <img src="images/new-dscr-img/ks_c_2.png" loading="lazy" alt="logo-img" class="img-fluid">
+                                        </li>
+                                        <li class="col-6 col-md-3 col-lg-2 p-1" style="text-align: center;">
+                                            <img src="images/new-dscr-img/ks_c_3.png" alt="logo-img" loading="lazy" class="img-fluid">
+                                        </li>
+                                        <li class="col-6 col-md-3 col-lg-2 p-1" style="text-align: center;">
+                                            <img src="images/new-dscr-img/ks_c_4.png" alt="logo-img" loading="lazy" class="img-fluid">
+                                        </li>
+                                        <li class="col-6 col-md-3 col-lg-2 p-1" style="text-align: center;">
+                                            <img src="images/new-dscr-img/ks_c_5.png" alt="logo-img" loading="lazy" class="img-fluid">
+                                        </li>
+                                        <li class="col-6 col-md-3 col-lg-2 p-1" style="text-align: center;">
+                                            <img src="images/new-dscr-img/ks_c_6.png" alt="logo-img" loading="lazy" class="img-fluid">
+                                        </li>
+                                        <li class="col-6 col-md-3 col-lg-2 p-1" style="text-align: center;">
+                                            <img src="images/new-dscr-img/ks_c_7.png" alt="logo-img" loading="lazy" class="img-fluid">
+                                        </li>
+                                        <li class="col-6 col-md-3 col-lg-2 p-1" style="text-align: center;">
+                                            <img src="images/new-dscr-img/ks_c_8.png" alt="logo-img" loading="lazy" class="img-fluid">
+                                        </li>
+                                        <li class="col-6 col-md-3 col-lg-2 p-1" style="text-align: center;">
+                                            <img src="images/new-dscr-img/ks_c_9.png" alt="logo-img" loading="lazy" class="img-fluid">
+                                        </li>
+                                        <li class="col-6 col-md-3 col-lg-2 p-1" style="text-align: center;">
+                                            <img src="images/new-dscr-img/ks_c_10.png" alt="logo-img" loading="lazy" class="img-fluid">
+                                        </li>
+                                        <li class="col-6 col-md-3 col-lg-2 p-1" style="text-align: center;">
+                                            <img src="images/new-dscr-img/ks_c_11.png" alt="logo-img" loading="lazy" class="img-fluid">
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="p-3 p-lg-5" style="background-color: #FAFAFA; border-radius: 30px;">
+                                    <h1 style="font-weight: 600;font-size: 30px;line-height: 155.19%;color: #252525; text-align: center;   font-size: calc(0.93rem + 1vw);  font-family: 'Inter', sans-serif;">
+                                        Products That Blends Together
+                                    </h1>
+                                    <p style="font-weight: 500;font-size: 16px;line-height: 155.19%;text-align: center; margin-bottom: 30px; font-family: 'Inter', sans-serif;">
+                                        Related Products You May Be Interested In!
+                                    </p>
+                                    <div>
+                                        <div class="table-responsive">
+                                            <table class="table w-100">
+                                                <tr>
+                                                    <td class="text-center" style="padding: 0.5rem;">
+                                                        <a target="_blank" href="https://apps.odoo.com/apps/modules/15.0/ks_dashboard_ninja/" class="d-block bg-white p-4 text-center mx-auto" style="border-radius: 10px;width: 180px;min-height: 248px; text-decoration: none;" >
+                                                            <img src="./img/why-ksolves/ks_dashboard_ninja.png" alt="logo" style="border-radius: 10px;" loading="lazy">
+                                                            <div style="color: #333;font-size: 16px;font-weight: 600;" class="mt-3" >Dashboard Ninja</div>
+                                                        </a>
+                                                    </td>
+                                                    <td class="text-center" style="padding: 0.5rem; vertical-align: middle;font-size: 20px;color: #333;font-weight: 700;" class="px-2" >
+                                                        +
+                                                    </td>
+                                                    <td class="text-center" style="padding: 0.5rem;">
+                                                        <a target="_blank" href="https://apps.odoo.com/apps/themes/14.0/ks_curved_backend_theme/" class="d-block bg-white p-4 text-center mx-auto" style="border-radius: 10px;width: 180px;min-height: 248px; text-decoration: none;" >
+                                                            <img src="./img/why-ksolves/ks_curved_backend_theme.png" alt="logo" loading="lazy" style="border-radius: 10px;" width="135" height="136">
+                                                            <div style="color: #333;font-size: 16px;font-weight: 600;" class="mt-3" >Arc Backend Theme</div>
+                                                        </a>
+                                                    </td>
+                                                    <td class="text-center" style=" padding: 0.5rem; vertical-align: middle;font-size: 20px;color: #333;font-weight: 700;" class="px-2" >
+                                                        +
+                                                    </td>
+                                                    <td class="text-center" style="padding: 0.5rem;">
+                                                        <a target="_blank" href="https://apps.odoo.com/apps/modules/15.0/ks_gantt_view_base/" class="d-block bg-white p-4 text-center mx-auto" style="border-radius: 10px;width: 180px;min-height: 195px; text-decoration: none;" >
+                                                            <img src="./img/why-ksolves/ks_gantt_view_base.png" alt="logo" loading="lazy" style="border-radius: 10px;" width="135" height="136">
+                                                            <div style="color: #333;font-size: 16px;font-weight: 600;" class="mt-3" >Odoo Gantt View Base</div>
+                                                        </a>
+                                                    </td>
+                                                    <td class="text-center" style="padding: 0.5rem; vertical-align: middle;font-size: 20px;color: #333;font-weight: 700;" class="px-2" >
+                                                        =
+                                                    </td>
+                                                    <td class="text-center" style="padding: 0.5rem;">
+                                                        <div class="d-block bg-white p-4 text-center mx-auto" style="border-radius: 10px;width: 180px;min-height: 248px;" >
+                                                            <img src="./img/why-ksolves/perfect_combo.png" alt="logo" loading="lazy" style="border-radius: 10px;">
+                                                            <div style="color: #333;font-size: 16px;font-weight: 600;" class="mt-3" >Perfect Combo</div>
+                                                        </div>
+                                                    </td>
+                            
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade show pt-4 py-lg-5" id="support" role="tabpanel" aria-labelledby="support-tab">
+                                <div class=" text-center">
+                                    <h3 style="font-size: 18px;line-height: 155.19%;color: #414141; margin-bottom: 36px; font-family: 'Inter', sans-serif; ">
+                                        Ksolves is 24/7 open to discuss your thoughts and queries!
+                                    </h3>
+                                    <img src="images/new-dscr-img/solution.png" loading="lazy" alt="" class="img-fluid">
+                                    <div class="text-center">
+                                        <div class="row d-flex align-items-center justify-content-center" style="margin-top:10px">
+                                            <div class="col-lg-4 col-md-5 col-sm-9 col-11">
+                                                <a class="d-flex align-items-center justify-content-center px-2 py-3" href="mailto:sales@ksolves.com"
+                                                    style="background-color: #173E85; text-decoration: none; border-radius: 5px;font-style: normal; font-weight: 400; font-size: 14px; color: #ffffff; height:45px;">
+                                                    <img alt="mail-icon" class="img-fluid pr-2 pl-2 mr-xl-2 mr-lg-0 mr-2" loading="lazy" src="./img/email.png">sales@ksolves.com</a>
+                                            </div>
+                                            <div class="col-lg-4 col-md-5 col-sm-9 col-11 mt-md-0 mt-2" >
+                                                <a class=" d-flex align-items-center justify-content-center px-2 py-3" href="tel:+91-7498170227"
+                                                    style="background-color: #173E85; text-decoration: none; border-radius: 5px;font-style: normal; font-weight: 400; font-size: 14px; color: #ffffff; height:45px;">
+                                                    <img alt="phone" class="img-fluid pr-2 pl-2 mr-xl-2 mr-lg-0 mr-2" loading="lazy" src="./img/phone.png">+91-7498170227</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row justify-content-center mt-3 mt-lg-5">
+                                        <div class="col-12 col-md-8">
+                                            <img src="images/new-dscr-img/ks_map_img.png" loading="lazy" alt="" class="w-100">
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="tab-pane fade show" id="releases" role="tabpanel" aria-labelledby="releases-tab">
+
+
+                                <div class="row pt-5 m-0">
+                                    <div class="col-md-3">
+                                        <h4 style="font-size: 16px; color: #514F4F;margin: 0;line-height: 26px; font-family: 'Inter', sans-serif;">
+                                            Latest Release 1.0.3
+                                        </h4>
+                                        <span style="font-size: 14px; color: #7A7979;display: block; margin-bottom: 20px; font-family: 'Inter', sans-serif;">
+                                            28th June, 2022
+                                        </span>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div style="padding: 0 0 40px;">
+                                            <div style="margin: 0 0 10px;">
+                                                <div
+                                                        style="display: inline-block; padding: 0px 8px; color: #514F4F; background-color: #FFD8D8; border-radius: 20px;">
+                                                        Enhancement
+                                                </div>
+                                            </div>
+                                            <div class="d-flex m-0"
+                                            style="color: #7A7979;  font-family: 'Inter', sans-serif;">
+
+                                                <ul class="pl-3 mb-0">
+                                                    <li>
+                                                        Added planned hours column in task gantt view.
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div style="padding: 0 0 40px;">
+                                            <div style="margin: 0 0 10px;">
+                                                <div
+                                                        style="display: inline-block; padding: 0px 8px; color: #514F4F; background-color: #FFD8D8; border-radius: 20px;">
+                                                        Improvement
+                                                </div>
+                                            </div>
+                                            <div class="d-flex m-0" style="color: #7A7979;  font-family: 'Inter', sans-serif;">
+                                                <ul class="pl-3 mb-0">
+                                                    <li >
+                                                        Groupby functionality after applying project and assignees.
+                                                    </li>
+                                                    <li>
+                                                        Duration in auto mode.
+                                                    </li>
+                                                    <li>
+                                                        Enable task duration after applying constraint.
+                                                    </li>
+                                                    <li>
+                                                        Task linking after applying constraint.
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                        </div>
+                                        <div style="padding: 0 0 0; border-bottom: 1px solid #E3E3E3;">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row pt-5 m-0">
+                                    <div class="col-md-3">
+                                        <h4 style="font-size: 16px; color: #514F4F;margin: 0;line-height: 26px; font-family: 'Inter', sans-serif;">
+                                            Release 1.0.2
+                                        </h4>
+                                        <span style="font-size: 14px; color: #7A7979;display: block; margin-bottom: 20px; font-family: 'Inter', sans-serif;">
+                                            22nd April, 2022
+                                        </span>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div style="padding: 0 0 40px;">
+                                            <div style="margin: 0 0 10px;">
+                                                <div
+                                                        style="display: inline-block; padding: 0px 8px; color: #514F4F; background-color: #FFD8D8; border-radius: 20px;">
+                                                        Fix
+                                                </div>
+                                            </div>
+                                            <div class="d-flex m-0" style="color: #7A7979;  font-family: 'Inter', sans-serif;">
+                                                <ul class="pl-3 mb-0">
+                                                    <li >
+                                                        Fixed Gantt view duration at the center.
+                                                    </li>
+                                                    <li>
+                                                        Fixed Gantt view left section view.
+                                                    </li>
+                                                    <li>
+                                                        Fixed Gantt view scrolling and adjustment when we select resource panel.
+                                                    </li>
+                                                    <li>
+                                                        Fixed export button menu at one position after click.
+                                                    </li>
+                                                    <li>
+                                                        Fixed UI changes for export and create button.
+                                                    </li>
+                                                    <li>
+                                                        Fixed Gantt view resource panel click on hour and task.
+                                                    </li>
+                                                    <li>
+                                                        Fixed Gantt view resource panel UI fix.
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            
+                                        </div>
+                                        <div style="padding: 0 0 0; border-bottom: 1px solid #E3E3E3;">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row pt-5 m-0">
+                                    <div class="col-md-3">
+                                        <h4 style="font-size: 16px; color: #514F4F;margin: 0;line-height: 26px; font-family: 'Inter', sans-serif;">
+                                            Release 1.0.1
+                                        </h4>
+                                        <span style="font-size: 14px; color: #7A7979;display: block; margin-bottom: 20px; font-family: 'Inter', sans-serif;">
+                                            19th January, 2022
+                                                    </span>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div style="padding: 0 0 40px;">
+                                            <div style="margin: 0 0 10px;">
+                                                <div
+                                                        style="display: inline-block; padding: 0px 8px; color: #514F4F; background-color: #FFD8D8; border-radius: 20px;">
+                                                        Hot Fix
+                                                </div>
+                                            </div>
+                                            <div class="d-flex m-0"
+                                            style="color: #7A7979;  font-family: 'Inter', sans-serif;">
+                            
+                                                <ul class="pl-3 mb-0">
+                                                    <li>
+                                                        Fixed Gantt View Hierarchy issue for subtasks
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div style="padding: 0 0 0; border-bottom: 1px solid #E3E3E3;">
+                                        </div>
+                                    </div>
+                                </div>
+                            
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+            </section>
+
+            <section>
+                <div class="shadow pt-lg-5 pb-4 bg-white" id="free_support" style="margin-top: 42px; border-radius: 20px;">
+                    <div class="row d-flex align-items-center justify-content-center">
+                        <div class="col-11 px-0 mx-auto pb-lg-5 position-relative overflow-hidden" style="border-radius: 20px; background-color: #fffefd;">
+                            <img src="./img/support/support-bg.png" alt="bg-img" class="h-100 w-100 position-absolute fix-bottom img-fluid"  loading="lazy" style="object-fit: cover;top: 0;left: 0;">
+                            <div class="row position-relative pt-lg-5 px-lg-5 pb-lg-3 p-md-4 p-3 mx-auto d-flex align-items-center" style="color: #333333;font-weight: 500;font-size: 16px;width: 95%;">
+                                <div class="col-lg-auto col-sm-12">
+                                    <img src="./img/support/support.png" width="219" loading="lazy"/>
+                                </div>
+                                <div class="col pl-lg-5 pl-0 pt-lg-0 pt-3">
+                                    <h5 class="text-left" style="margin-bottom: 15px;font-style: normal;font-weight: 600;font-size: 36px;line-height: 44px;letter-spacing: 0.02em;text-transform: uppercase;color: #FFFFFF; font-family: 'Inter', sans-serif;">
+                                        Free <span style="color:#9EFFFF; font-weight: 800;">90 Days</span> Support
+                                    </h5>
+                                    <p style="font-style: normal;font-weight: 500;font-size: 18px;line-height: 28px;text-transform: capitalize;color: #FFFFFF;margin: 0; font-family: 'Inter', sans-serif;">Ksolves will provide FREE 90 days support for any doubt, queries, and bug fixing (excluding data recovery) or any type of issues related to this module. This is applicable from the date of purchase.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row d-flex align-items-center justify-content-center m-0">
+                        <div class="col-12 p-0 pt-4 overflow-hidden text-center">
+                            <p style="font-style: normal;font-weight: 500;font-size: 18px;line-height: 28px;letter-spacing: 0.01em;color: #535456;margin: 0;"><span style="font-style: normal;font-weight: 600;font-size: 24px;line-height: 28px;letter-spacing: 0.01em;color: #283C63;margin: 0 10px 0 0;">Note</span> Extensively Tested on Odoo Vanilla with Ubuntu OS</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="shadow bg-white" id="all_suggested-app" style="margin-top: 42px; border-radius: 20px;  padding-top: 41px; padding-bottom: 30px;">
+                    <h5 class="text-center" style="color: #2B5FB2; font-weight: 700; font-size: 32px; line-height:43px; margin-bottom: 25px; font-size: calc(1.5rem + 0.4vw); font-family: 'Inter', sans-serif;">
+                        <span style="color:#333333; ">Ksolves Suggested Apps</span>
+                    </h5>
+                    <div class="row d-flex align-items-center justify-content-center">
+                        <div class="col-11 pt-lg-3 px-lg-5 pb-lg-2 p-md-4 p-3 position-relative overflow-hidden" style="border-radius: 10px; background-color: #fffefd;">
+                            <div class="row position-relative" style="color: #333333; font-weight: 500; font-size: 16px; ">
+
+                                <div class="col-sm-6 col-lg-4 col-xl-4 mb-3 pr-lg-0 pr-sm-1">
+                                    <a href="https://apps.odoo.com/apps/modules/15.0/ks_dashboard_ninja/" target="_blanck" style="text-decoration:none">
+                                        <div class="d-flex  align-items-center h-100 bg-white px-3 py-3" style="border: 1px solid #EFECEC; border-radius: 8px;">
+                                            <div style="width:100px;">
+                                                <img src="./img/support/Dashboard-Ninja.png" alt="icon" loading="lazy" width="100" height="100">
+                                            </div>
+                                            <div class="w-100 pl-3">
+                                                <p style="font-style: normal;font-weight: 500;font-size: 15px;line-height: 150%;text-indent: 2px;color: #535456;" class="mb-0">
+                                                    Dashboard Ninja
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="col-sm-6 col-lg-4 col-xl-4 mb-3 pr-lg-0 pr-sm-1">
+                                    <a href="https://apps.odoo.com/apps/modules/15.0/ks_dn_advance/" target="_blanck" style="text-decoration:none">
+                                        <div class="d-flex  align-items-center h-100 bg-white px-3 py-3" style="border: 1px solid #EFECEC; border-radius: 8px;">
+                                            <div style="width:100px;">
+                                                <img src="./img/support/Dashboard-Ninja-Advance.png" alt="icon" loading="lazy" width="100" height="100">
+                                            </div>
+                                            <div class="w-100 pl-3">
+                                                <p style="font-style: normal;font-weight: 500;font-size: 15px;line-height: 150%;text-indent: 2px;color: #535456;" class="mb-0">
+                                                    Dashboard Ninja Advance
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="col-sm-6 col-lg-4 col-xl-4 mb-3 pr-lg-0 pr-sm-1">
+                                    <a href="https://apps.odoo.com/apps/modules/15.0/ks_woocommerce/" target="_blanck" style="text-decoration:none">
+                                        <div class="d-flex  align-items-center h-100 bg-white px-3 py-3" style="border: 1px solid #EFECEC; border-radius: 8px;">
+                                            <div style="width:100px;">
+                                                <img src="./img/support/Odoo-WooCommerce.png" alt="icon" loading="lazy" width="100" height="100">
+                                            </div>
+                                            <div class="w-100 pl-3">
+                                                <p style="font-style: normal;font-weight: 500;font-size: 15px;line-height: 150%;text-indent: 2px;color: #535456;" class="mb-0">
+                                                    Odoo WooCommerce Connector
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="col-sm-6 col-lg-4 col-xl-4 mb-3 pr-lg-0 pr-sm-1">
+                                    <a href="https://apps.odoo.com/apps/themes/14.0/ks_curved_backend_theme/" target="_blanck" style="text-decoration:none">
+                                        <div class="d-flex  align-items-center h-100 bg-white px-3 py-3" style="border: 1px solid #EFECEC; border-radius: 8px;">
+                                            <div style="width:100px;">
+                                                <img src="./img/support/arc-backend-theme.png" alt="icon" loading="lazy" width="100" height="100">
+                                            </div>
+                                            <div class="w-100 pl-3">
+                                                <p style="font-style: normal;font-weight: 500;font-size: 15px;line-height: 150%;text-indent: 2px;color: #535456;" class="mb-0">
+                                                    Arc Backend Theme
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="col-sm-6 col-lg-4 col-xl-4 mb-3 pr-lg-0 pr-sm-1">
+                                    <a href="https://apps.odoo.com/apps/modules/15.0/ks_gantt_view_base/" target="_blanck" style="text-decoration:none">
+                                        <div class="d-flex  align-items-center h-100 bg-white px-3 py-3" style="border: 1px solid #EFECEC; border-radius: 8px;">
+                                            <div style="width:100px;">
+                                                <img src="./img/support/odoo-base.png" alt="icon" loading="lazy" width="100" height="100">
+                                            </div>
+                                            <div class="w-100 pl-3">
+                                                <p style="font-style: normal;font-weight: 500;font-size: 15px;line-height: 150%;text-indent: 2px;color: #535456;" class="mb-0">
+                                                    Odoo Gantt View Base
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="col-sm-6 col-lg-4 col-xl-4 mb-3 pr-lg-0 pr-sm-1">
+                                    <a href="https://apps.odoo.com/apps/modules/15.0/ks_list_view_manager/" target="_blanck" style="text-decoration:none">
+                                        <div class="d-flex  align-items-center h-100 bg-white px-3 py-3" style="border: 1px solid #EFECEC; border-radius: 8px;">
+                                            <div style="width:100px;">
+                                                <img src="./img/support/list-view-manager.png" alt="icon" loading="lazy" width="100" height="100">
+                                            </div>
+                                            <div class="w-100 pl-3">
+                                                <p style="font-style: normal;font-weight: 500;font-size: 15px;line-height: 150%;text-indent: 2px;color: #535456;" class="mb-0">
+                                                    List View Manager
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="col-sm-6 col-lg-4 col-xl-4 mb-3 pr-lg-0 pr-sm-1">
+                                    <a href="https://apps.odoo.com/apps/modules/15.0/ks_custom_report/" target="_blanck" style="text-decoration:none">
+                                        <div class="d-flex  align-items-center h-100 bg-white px-3 py-3" style="border: 1px solid #EFECEC; border-radius: 8px;">
+                                            <div style="width:100px;">
+                                                <img src="./img/support/report.png" alt="icon" loading="lazy" width="100" height="100">
+                                            </div>
+                                            <div class="w-100 pl-3">
+                                                <p style="font-style: normal;font-weight: 500;font-size: 15px;line-height: 150%;text-indent: 2px;color: #535456;" class="mb-0">
+                                                    ReportMate
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="col-sm-6 col-lg-4 col-xl-4 mb-3 pr-lg-0 pr-sm-1">
+                                    <a href="https://apps.odoo.com/apps/modules/15.0/ks_dynamic_financial_report/" style="text-decoration:none" target="_blanck">
+                                        <div class="d-flex  align-items-center h-100 bg-white px-3 py-3" style="border: 1px solid #EFECEC;  border-radius: 8px;">
+                                            <div style="width:100px;">
+                                                <img src="./img/support/dfr.png" alt="icon" style="border-radius: 5px;" loading="lazy" width="100" height="100">
+                                            </div>
+                                            <div class="w-100 pl-3">
+                                                <p style="font-style: normal;font-weight: 500;font-size: 15px;line-height: 150%;text-indent: 2px;color: #535456;" class="mb-0">
+                                                    Dynamic Financial Report
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="col-sm-6 col-lg-4 col-xl-4 mb-3 pr-lg-0 pr-sm-1">
+                                    <a href="https://apps.odoo.com/apps/modules/15.0/ks_shopify/" target="_blanck" style="text-decoration:none">
+                                        <div class="d-flex  align-items-center h-100 bg-white px-3 py-3" style="border: 1px solid #EFECEC; border-radius: 8px;">
+                                            <div style="width:100px;">
+                                                <img src="./img/support/shopify.png" alt="icon" loading="lazy" width="100" height="100">
+                                            </div>
+                                            <div class="w-100 pl-3">
+                                                <p style="font-style: normal;font-weight: 500;font-size: 15px;line-height: 150%;text-indent: 2px;color: #535456;" class="mb-0">
+                                                    Odoo Shopify Connector
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="shadow bg-white p-0" id="free_support" style="margin-top: 42px; border-radius: 20px;  padding-top: 41px; padding-bottom: 41px;">
+                    <div class="row d-flex align-items-center justify-content-center m-0">
+                        <div class="col-12 px-0 position-relative overflow-hidden" style="border-radius: 20px; background-color: #fffefd;">
+                            <img src="./img/support/ks-odoo-services-bg.png" alt="bg-img" class="h-100 w-100 position-absolute fix-bottom img-fluid"  loading="lazy" style="object-fit: cover;top: 0;left: 0;">
+                            <div class="row position-relative pt-lg-3 px-lg-5 pb-lg-3 p-md-4 p-3 mx-auto d-flex align-items-center" style="color: #333333;font-weight: 500;font-size: 16px;width: 100%;gap: 35px 70px;">
+                                <div class="col text-center py-4">
+                                    <h5 class="text-center mb-4" style="font-style: normal;font-weight: 700;font-size: 32px;line-height: 48px;letter-spacing: -0.02em;text-indent: 2px;color: #9EFFFF; font-size: calc(1.5rem + 0.4vw); font-family: 'Inter', sans-serif;">
+                                        Ksolves Odoo Services
+                                    </h5>
+                                    <img src="./img/support/services-img.png" width="685" class="img-fluid" loading="lazy"/>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <!-- jQuery library -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_assets_common_inherit_studio" inherit_id="web.report_assets_common"
+                  name="Studio report common assets">
+            <xpath expr="link[last()]" position="after">
+                <link rel="stylesheet" type="text/scss" href="/dynamic_odoo/static/src/scss/studio_report.scss"/>
+            </xpath>
+        </template>
+        <template id="dynamic_odoo" name="dynamic_odoo templates" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" type="text/css" href="/dynamic_odoo/static/src/scss/base.scss"/>
+                <link rel="stylesheet" type="text/css" href="/dynamic_odoo/static/src/scss/automation_access.scss"/>
+                <link rel="stylesheet" type="text/css" href="/dynamic_odoo/static/src/scss/views.scss"/>
+                <link rel="stylesheet" type="text/css" href="/dynamic_odoo/static/src/scss/fields.scss"/>
+                <link rel="stylesheet" type="text/css" href="/dynamic_odoo/static/src/scss/widgets.scss"/>
+                <link rel="stylesheet" type="text/css" href="/dynamic_odoo/static/src/scss/planning_view.scss"/>
+                <link rel="stylesheet" type="text/css" href="/dynamic_odoo/static/src/scss/form_components.scss"/>
+                <link rel="stylesheet" type="text/css" href="/dynamic_odoo/static/src/scss/menu_edit.scss"/>
+                <link rel="stylesheet" type="text/css" href="/dynamic_odoo/static/src/scss/report_center.scss"/>
+                <link rel="stylesheet" type="text/css" href="/dynamic_odoo/static/src/scss/form_center.scss"/>
+                <link rel="stylesheet" type="text/css" href="/dynamic_odoo/static/src/scss/test.scss"/>
+                <!--Libs-->
+                <link rel="stylesheet" type="text/css"
+                      href="/dynamic_odoo/static/src/lib/gridstackjs/gridstack.min.css"/>
+                <script type="text/javascript"
+                        src="/dynamic_odoo/static/src/lib/gridstackjs/gridstack-h5.min.js"></script>
+                <script type="text/javascript" src="/dynamic_odoo/static/src/lib/dom_to_image.min.js" />
+                <script type="text/javascript" src="/dynamic_odoo/static/src/lib/jspdf.min.js"></script>
+                <script type="text/javascript" src="/dynamic_odoo/static/src/js/chrome/abstract_web_client.js"></script>
+                <script type="text/javascript" src="/dynamic_odoo/static/src/js/chrome/action_manager.js"></script>
+                <script type="text/javascript" src="/dynamic_odoo/static/src/js/base.js"></script>
+                <script type="text/javascript" src="/dynamic_odoo/static/src/js/views_edit_base.js"></script>
+                <script type="text/javascript" src="/dynamic_odoo/static/src/js/base_center.js"></script>
+                <script type="text/javascript" src="/dynamic_odoo/static/src/js/app_center.js"></script>
+                <script type="text/javascript" src="/dynamic_odoo/static/src/js/automations.js"></script>
+                <script type="text/javascript" src="/dynamic_odoo/static/src/js/views_center.js"></script>
+                <!--<script type="text/javascript" src="/dynamic_odoo/static/src/js/abstract_controller.js"></script>-->
+                <script type="text/javascript" src="/dynamic_odoo/static/src/js/fields/basic_fields.js"></script>
+                <script type="text/javascript" src="/dynamic_odoo/static/src/js/fields/odoo_base_fields.js"></script>
+                <script type="text/javascript" src="/dynamic_odoo/static/src/js/widgets/basic_widgets.js"></script>
+                <script type="text/javascript"
+                        src="/dynamic_odoo/static/src/js/views/planning_view/planning_controller.js"></script>
+                <script type="text/javascript"
+                        src="/dynamic_odoo/static/src/js/views/planning_view/planning_model.js"></script>
+                <script type="text/javascript"
+                        src="/dynamic_odoo/static/src/js/views/planning_view/planning_renderer.js"></script>
+                <script type="text/javascript"
+                        src="/dynamic_odoo/static/src/js/views/planning_view/planning_view.js"></script>
+                <script type="text/javascript"
+                        src="/dynamic_odoo/static/src/js/views/list_view/list_renderer.js"></script>
+                <script type="text/javascript"
+                        src="/dynamic_odoo/static/src/js/views/form_view/form_renderer.js"></script>
+                <script type="text/javascript"
+                        src="/dynamic_odoo/static/src/js/views/form_view/form_controller.js"></script>
+                <script type="text/javascript" src="/dynamic_odoo/static/src/js/views/basic_model.js"></script>
+                <script type="text/javascript" src="/dynamic_odoo/static/src/js/chrome/menu.js"></script>
+                <script type="text/javascript" src="/dynamic_odoo/static/src/js/report_edit/ReportCenter.js"></script>
+                <script type="text/javascript" src="/dynamic_odoo/static/src/js/report_edit/ReportKanBan.js"></script>
+                <script type="text/javascript" src="/dynamic_odoo/static/src/js/report_edit/ReportEdit.js"></script>
+                <script type="text/javascript" src="/dynamic_odoo/static/src/js/views/graph_view/graph_view.js"></script>
+                <script type="text/javascript" src="/dynamic_odoo/static/src/js/views_edit/calendar.js"></script>
+                <script type="text/javascript" src="/dynamic_odoo/static/src/js/views_edit/graph.js"></script>
+                <script type="text/javascript" src="/dynamic_odoo/static/src/js/views_edit/pivot.js"></script>
+                <script type="text/javascript" src="/dynamic_odoo/static/src/js/views_edit/activity.js"></script>
+                <script type="text/javascript" src="/dynamic_odoo/static/src/js/views_edit/kanban.js"></script>
+                <script type="text/javascript" src="/dynamic_odoo/static/src/js/views_edit/planning.js"></script>
+                <script type="text/javascript" src="/dynamic_odoo/static/src/js/views_edit/tree.js"></script>
+                <script type="text/javascript" src="/dynamic_odoo/static/src/js/views_edit/form.js"></script>
+                <script type="text/javascript" src="/dynamic_odoo/static/src/js/views_edit/search.js"></script>
+                <script type="text/javascript" src="/dynamic_odoo/static/src/js/views_edit/basic.js"></script>
+                <script type="text/javascript" src="/dynamic_odoo/static/src/js/libs/jquery.js"></script>
+            </xpath>
+        </template>
+    </data>
+</odoo>

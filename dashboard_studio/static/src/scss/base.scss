@@ -1,0 +1,303 @@
+.dashboardView.o_web_client.tv_mode:not(.editMode) {
+  .o_action_manager {
+    position: fixed;
+    right: 0px;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    .o_control_panel {
+      border-bottom: 5px solid #c7ddef;
+      & > div:nth-child(2) {
+        display: none;
+      }
+      .breadcrumb-item {
+        color: #3c5d77;
+        font-weight: bold;
+      }
+
+    }
+  }
+}
+
+.dashboardView:not(.editMode) {
+  .elEdiT {
+    &:hover {
+      outline: 1px dashed #a5d7ff;
+    }
+  }
+  .bgCheck {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    z-index: -1;
+  }
+  .wBtn {
+    position: absolute;
+    left: calc(50% - 45px);
+    top: 0px;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    a {
+      border: 1px solid #66729e;
+      margin: 2px 10px;
+      border-radius: 7px;
+      background: rgba(3, 169, 244, 0.2);
+      padding: 5px 15px;
+      &:hover {
+        border-color: #8791b5;
+        background: rgba(3, 169, 244, 0.4);
+        cursor: pointer;
+        &.aSave {
+          color: #21adec;
+        }
+        &.aReset {
+          color: #f5734a;
+        }
+      }
+      &.aSave {
+        color: #03A9F4;
+      }
+      &.aReset {
+        color: #FF5722;
+      }
+    }
+  }
+  .wRemoveNode {
+    padding-top: 20px;
+    & > a {
+      display: block;
+      text-align: center;
+      padding: 7px;
+      background: #def1ff;
+      border: 1px solid #bfe5ff;
+      border-radius: 5px;
+      color: #2196F3 !important;
+      font-weight: bold;
+      font-family: sans-serif;
+      &:hover {
+        cursor: pointer;
+        background: #d4edff;
+        border: 1px solid #abd8f7;
+      }
+    }
+  }
+
+  .wTabView {
+    padding: 15px;
+    height: 100%;
+    & > div {
+      margin-bottom: 10px;
+    }
+  }
+  .wTabFields {
+    height: 100%;
+    .wFields {
+      padding: 15px;
+      height: calc(100% - 65px);
+    }
+    .item {
+      display: inline-block;
+      padding: 5px 8px;
+      background: rgba(243, 243, 243, 0.4);
+      border: 1px solid #e6e9ed;
+      border-radius: 5px;
+      margin-bottom: 5px;
+      border-right: 5px solid #a4daf3;
+      cursor: pointer;
+      &:hover {
+        background-color: #d0e3ef;
+      }
+    }
+    .wSearch {
+      padding: 15px;
+      input {
+        background: white !important;
+      }
+    }
+  }
+  .treeProps, .kanbanProps {
+    //.viewProps {
+    .wPViewHead {
+      padding: 15px;
+      background: #f3faff;
+      min-height: 300px;
+      max-height: 300px;
+      ._wCb, input, select {
+        background-color: white;
+      }
+      & > div {
+        margin-bottom: 6px;
+      }
+    }
+    //}
+  }
+
+  .viewView {
+    .uiSort-placeholder {
+      outline: 1px solid #FF5722;
+      outline-offset: -1px;
+      background-color: rgba(255, 87, 34, 0.5) !important;
+    }
+  }
+  .uiSort-item {
+    background-color: rgba(255, 255, 255, 0.8) !important;
+    border: 1px solid #8ecff3 !important;
+    border-radius: 2px !important;
+    opacity: 0.9;
+    transform: rotate(2deg);
+  }
+  .viewView {
+    &.batteryWidget, &.titleWidget {
+      padding-top: 100px;
+    }
+  }
+  .viewView {
+    .wTodoCon {
+      margin: 100px auto;
+      max-width: 500px;
+      .itemCon {
+        input {
+          height: 100%;
+          background: white;
+        }
+      }
+    }
+    .countdownWidget {
+      max-width: 700px;
+      margin: 100px auto;
+      padding: 20px;
+      //border-radius: 10px;
+      //border: 1px solid #dcdee0;
+      //box-shadow: 0px 0px 10px 0 rgba(0, 0, 0, 0.12);
+    }
+  }
+}
+
+.wAdBoard {
+  position: fixed;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+  left: 0px;
+  background: rgba(41, 47, 76, 0.7);
+  z-index: 1002;
+  transition: left .3s, top .3s, height .3s, width .3s;
+  .aDBoardCon {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    .activeModal {
+      position: relative;
+      background: white;
+      margin: auto;
+      padding: 32px;
+      height: auto;
+      width: 500px;
+      max-height: 90vh;
+      max-width: 1020px;
+      border-radius: 10px;
+      box-shadow: rgba(0, 0, 0, 0.7) 0 25px 50px -15px !important;
+    }
+    .iClose {
+      position: absolute;
+      right: 15px;
+      top: 15px;
+      font-size: 20px;
+      color: #2196F3;
+      &:hover {
+        cursor: pointer;
+        color: #147cd0;
+      }
+    }
+    .modalCon {
+      color: #343f80;
+      font-family: 'Roboto';
+      .aDBHead {
+        h2 {
+          font-size: 28px;
+          margin: 0px;
+          font-weight: 100;
+        }
+      }
+      .aDBCon {
+        padding: 20px 0px;
+      }
+      .ipName {
+        input {
+          width: 100%;
+          width: 100%;
+          border-radius: 4px;
+          border: 1px solid #b7bbce;
+          background-color: #ffffff;
+          font-size: 16px;
+          padding: 8px 16px;
+          outline: 0;
+          color: #1b255f;
+          position: relative;
+          &::placeholder {
+            color: #1b255f;
+            opacity: 0.8;
+          }
+        }
+      }
+      .aDBFoot {
+        margin-top: 20px;
+      }
+      .wButton {
+        text-align: right;
+      }
+      button {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        padding: 8px 16px;
+        min-height: 40px;
+        color: #1b255f;
+        cursor: pointer;
+      }
+      .btnCreate {
+        background: rgb(72, 90, 189);
+        color: white;
+        &:hover {
+          background: #3346ab;
+        }
+      }
+    }
+  }
+}
+
+._atDbView {
+  color: #03A9F4;
+}
+
+.treeSql {
+  overflow: hidden;
+  & > div {
+    height: 100%;
+    .o_list_view {
+      height: 50%;
+      overflow: auto;
+      overflow-y: scroll;
+      overflow-x: scroll;
+      padding-bottom: 50px;
+    }
+    .w_query {
+      width: 100%;
+      min-height: 100px;
+      textarea {
+        border: 0px;
+        border-bottom: 1px solid #e6e9ed;
+        padding: 10px;
+        font-size: 14px;
+        min-height: 150px;
+      }
+      .valDiff {
+        color: #ff5621;
+      }
+    }
+  }
+}

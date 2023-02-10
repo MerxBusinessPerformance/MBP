@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="dashboard.menu.Ul">
+        <ul class="_wrapUlEdit" t-att-data-menu-id="menuId">
+            <t t-foreach="menus" t-as="menu">
+                <t t-set="widget.menuObj[menu.id]" t-value="menu" />
+                <t t-call="dashboard.menu.li">
+                    <t t-set="menu" t-value="menu" />
+                </t>
+            </t>
+        </ul>
+    </t>
+    <t t-name="dashboard.menu.SortEdit">
+        <div class="wDBbg">
+            <div class="wDBMenuEdit">
+                <div class="_head">
+                    <div>
+                        <a>Create Dashboard</a>
+                    </div>
+                    <div>
+                        <a class="_aClose"><i class="fa fa-close" /></a>
+                    </div>
+                </div>
+                <div class="_con _divSBB">
+                    <t t-call="dashboard.menu.Ul" >
+                        <t t-set="menus" t-value="widget.menus" />
+                        <t t-set="root" t-value="true" />
+                    </t>
+                </div>
+                <div class="_bot">
+                    <div class="wpTS">
+
+                    </div>
+                    <a class="btn btn-info _btnConfirm">Save</a>
+                </div>
+            </div>
+        </div>
+    </t>
+    <t t-name="dashboard.menu.li">
+        <li class="_liSub" t-att-data-menu-id="menu.id">
+            <div class="_wInfo">
+                <div class="_wAdd">
+                    <i class="fa fa-plus" />
+                </div>
+                <div class="_wName">
+                    <a><t t-esc="menu.name" /></a>
+                    <input class="form-control" t-att-value="menu.name" />
+                </div>
+                <div class="_wEdit _wIcon">
+                    <i class="fa fa-pencil faEdit" />
+                    <i class="fa fa-trash faRemove" />
+                </div>
+            </div>
+            <t t-if="root &amp;&amp; !widget.isApp">
+                <t t-set="root" t-value="false" />
+                <t t-if="menu.childrenTree &amp;&amp; menu.childrenTree.length">
+                    <t t-call="dashboard.menu.Ul">
+                        <t t-set="menuId" t-value="menu.id" />
+                        <t t-set="menus" t-value="menu.childrenTree" />
+                    </t>
+                </t>
+                <t t-else="">
+                    <ul class="_wrapUlEdit" t-att-data-menu="menu.id"></ul>
+                </t>
+            </t>
+        </li>
+    </t>
+</templates>

@@ -1,0 +1,246 @@
+.dashboardView:not(.editMode) {
+  .editView, .wDBbg {
+    .wgCon {
+      overflow: hidden !important;
+      padding: 0px !important;
+    }
+    select, input {
+      background-color: rgba(178, 221, 243, 0.3);
+      box-shadow: none;
+      border: 1px solid #dbe1e8;
+      border-radius: 5px;
+      box-shadow: 0 0 0;
+      color: #4c4c4c;
+      font-size: 14px;
+      font-weight: 300;
+      height: 35px;
+      padding-left: 8px;
+      vertical-align: middle;
+      transition: background-color .2s;
+    }
+  }
+  .wView {
+    height: 100%;
+    width: 100%;
+    .wPropsView {
+      font-family: emoji;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      .wPViewCon {
+        margin-bottom: 15px;
+        height: calc(100% - 300px);
+      }
+      .lblField {
+        font-size: 15px;
+        color: #585858;
+        font-family: emoji;
+        margin-bottom: 0px;
+      }
+    }
+    .wPViewHead {
+      &._divSBB::-webkit-scrollbar-track {
+        background: #f2fafe;
+      }
+    }
+    .wPViewCon {
+      flex: 1;
+      .wTab {
+        //position: relative;
+        height: 100%;
+      }
+      .wTabCon {
+        //position: absolute;
+        //bottom: 0px;
+        //top: 41px;
+        //left: 0px;
+        //right: 0px;
+      }
+    }
+    .viewCon {
+      height: 100%;
+      display: flex;
+      .viewProps {
+        width: 350px;
+        min-width: 350px;
+        border-right: 1px solid #e6e9ee;
+      }
+      .viewView {
+        flex: 1;
+        position: relative;
+        .noEdit {
+          position: absolute;
+          background: rgba(0, 0, 0, 0.0);
+          top: 0px;
+          left: 0px;
+          right: 0px;
+          bottom: 0px;
+        }
+      }
+    }
+    .o_content {
+      border-bottom: 1px solid #e6e9ee;
+    }
+  }
+  // Calendar View
+  .calendarView {
+    .noEdit {
+      z-index: 101;
+    }
+  }
+  // Kanban View
+  .wKanBan {
+    .wPViewHead {
+      //.widgetSelection {
+      //  padding: 15px 20px;
+      //  background: rgb(232, 244, 252);
+      //  border-bottom: 1px solid #e6e9ed;
+      //  select {
+      //    background-color: white;
+      //  }
+      //}
+    }
+    ._addView {
+      color: #80c1de !important;
+      margin-right: 10px !important;
+      opacity: 0.5;
+      &:hover {
+        opacity: 1;
+      }
+      &[replace-type='img'] {
+        float: right;
+        margin: 0px;
+      }
+      &[replace-type='title'] {
+        display: block;
+        font-weight: bold;
+      }
+      &[replace-type='color'] {
+        float: right;
+        margin: 0px;
+        font: normal normal normal 14px/1 FontAwesome;
+        &:before {
+          content: "\f0ca";
+        }
+      }
+    }
+  }
+  //Planning View
+  .planningView {
+    .noEdit {
+      z-index: 101;
+    }
+  }
+  //Tree View
+  .wTree {
+    th {
+      border-bottom: 0px !important;
+      border-top: 0px !important;
+    }
+    thead, tfoot, tr:active, tr:focus-within {
+      background-color: rgba(178, 221, 243, 0.3) !important;
+    }
+    thead {
+      th:hover, th.active, th:focus-within {
+        background: #d7edfb !important;
+        cursor: pointer;
+        &.uiSort-item {
+          background: rgba(255, 255, 255, 0.9) !important;
+        }
+      }
+    }
+    .sortVirtual:not(.notBg), .colRoot:not(.notBg) {
+      border: 1px solid #FF5722 !important;
+      border-bottom-width: 0px !important;
+      border-top-width: 0px !important;
+      background-color: rgba(255, 87, 34, 0.5) !important;
+    }
+    .o_onboarding_container {
+      display: none !important;
+    }
+    .treeView {
+      position: inherit !important;
+      .o_content {
+        position: inherit;
+        .o_list_view {
+          position: inherit;
+          .o_list_table {
+            position: inherit;
+            .o_optional_columns_dropdown_toggle {
+              top: 66px;
+            }
+          }
+        }
+      }
+    }
+    .wFields {
+      .uiSort-placeholder {
+        display: none;
+      }
+      //position: absolute;
+      //bottom: 0px;
+      //top: 62px;
+      //right: 0px;
+      //left: 0px;
+      //overflow-y: scroll;
+      //margin-right: 0px;
+    }
+  }
+  .wPivot {
+    .o_content {
+      padding: 10px;
+    }
+  }
+  // Graph
+  .graphProps {
+    .wChartProps {
+      padding: 15px;
+      background: white;
+      border-radius: 5px;
+      border: 1px solid #dbe1e7;
+    }
+  }
+  .graphView {
+    .o_view_controller {
+      height: 100%;
+      & > .o_content {
+        height: 80%;
+        padding-bottom: 50px;
+      }
+    }
+  }
+
+  // View
+  .wTree {
+    .sortVirtual {
+      border: 1px solid #FF5722;
+      border-bottom-width: 0px;
+      border-top-width: 0px;
+      background-color: rgba(255, 87, 34, 0.5) !important;
+    }
+    .wTabView {
+      .wFieldRadio {
+        //width: 30%;
+        display: inline-block;
+        margin-right: 5px;
+      }
+      .tSort, .tOrder {
+        width: 35%;
+        display: inline-block;
+        margin-right: 10px;
+      }
+      .tLimit {
+        width: 15%;
+        float: right;
+        display: inline-block;
+        .lblField {
+          text-align: right;
+        }
+        input {
+          text-align: right;
+          padding-right: 10px;
+        }
+      }
+    }
+  }
+}

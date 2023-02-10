@@ -1,0 +1,352 @@
+<templates id="template" xml:space="preserve">
+    <!-- New product template -->
+    <t t-name="vendor_portal_management.vendor_product_dialog">
+        <form>
+            <label for="product_code">Product Code</label>
+            <input id="product_code"
+                   type="text"
+                   class="form-control o_website_form_input"
+                   t-att-value="widget.product_code"
+            />
+            <label for="product_code">Product Name</label>
+            <input id="product_name"
+                   type="text"
+                   class="form-control o_website_form_input"
+                   t-att-value="widget.product_name"
+            />
+            <label for="product_code">Description</label>
+            <textarea id="description"
+                      style="width: 100%; height: 150px;"
+                      t-esc="widget.description"
+                      class="form-control o_website_form_input"
+            />
+        </form>
+    </t>
+    <!-- Empty dialog -->
+    <t t-name="vendor_portal_management.confirm_toggle_dialog"></t>
+    <!-- Products and prices import -->
+    <t t-name="vendor_portal_management.vendor_product_import_prices">
+        <form>
+            <div class="form-group row form-field o_website_form_required_custom">
+                <label class="col-lg-5 col-md-4 col-form-label" for="table_bin">Table to Import</label>
+                <div class="col-lg-6 col-md-8">
+                    <input type="file"
+                           id="table_bin"
+                           class="form-control o_website_form_input"
+                           required="required"
+                    />
+                </div>
+            </div>
+            <div class="form-group row form-field">
+                <label class="col-lg-5 col-md-4 col-form-label" for="import_chosen_lines">
+                    Import only chosen lines
+                </label>
+                <div class="col-lg-1 col-md-8">
+                    <input type="checkbox"
+                           id="import_chosen_lines"
+                           class="form-control o_website_form_input chekbox_input"
+                    />
+                </div>
+            </div>
+            <div class="form-group row form-field hidden_input" id="lines_range">
+                <label class="col-lg-5 col-md-4 col-form-label" for="lines_start">
+                    Lines
+                </label>
+                <div class="col-lg-2 col-md-8">
+                    <input type="number"
+                           id="lines_start"
+                           class="form-control o_website_form_input"
+                           min="2"
+                           value="2"
+                    />
+                </div>
+                <div class="col-lg-2 col-md-8">
+                    <input type="number"
+                           id="lines_end"
+                           class="form-control o_website_form_input"
+                           min="2"
+                           value="1002"
+                    />
+                </div>
+            </div>
+            <div class="form-group row form-field" id="archive_products_div">
+                <label class="col-lg-5 col-md-4 col-form-label" for="archive_products">
+                    Archive all other products
+                </label>
+                <div class="col-lg-1 col-md-8">
+                    <input type="checkbox"
+                           id="archive_products"
+                           class="form-control o_website_form_input chekbox_input"
+                    />
+                </div>
+            </div>
+            <div class="form-group row form-field" id="archive_prices_div">
+                <label class="col-lg-5 col-md-4 col-form-label" for="archive_prices">
+                    Mark previous prices as outdated
+                </label>
+                <div class="col-lg-1 col-md-8">
+                    <input type="checkbox"
+                           id="archive_prices"
+                           class="form-control o_website_form_input chekbox_input"
+                    />
+                </div>
+            </div>
+            <t t-if="widget.template_table or widget.vendor_product_help">
+                <div id="myCollapse" class="accordion" role="tablist">
+                    <div class="bg-white">
+                        <a href="#"
+                           role="tab"
+                           data-toggle="collapse"
+                           aria-expanded="false"
+                           class="collapsed o_default_snippet_text"
+                           data-parent="#myCollapse"
+                           data-target="#helptext">
+                            <big>Help</big>
+                        </a>
+                        <div class="collapse" role="tabpanel" id="helptext">
+                            <div t-if="widget.template_table" class="mb8 mt8">
+                                <a t-att-href="widget.template_table" class="btn btn-success btn-sm">
+                                    <i class="fa fa-download"> </i> Download template
+                                </a>
+                            </div>
+                            <div t-if="widget.cur_help" class="mb8 mt8">
+                                <i>Available Currencies:</i> <t t-esc="widget.cur_help"/>
+                            </div>
+                            <div>
+                                <t t-raw="widget.vendor_product_help"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </form>
+    </t>
+    <!-- Products and stocks import -->
+    <t t-name="vendor_portal_management.vendor_product_import_stocks">
+        <form>
+            <div class="form-group row form-field o_website_form_required_custom">
+                <label class="col-lg-5 col-md-4 col-form-label" for="table_bin">Table to Import</label>
+                <div class="col-lg-6 col-md-8">
+                    <input type="file"
+                           id="table_bin"
+                           class="form-control o_website_form_input"
+                           required="required"
+                    />
+                </div>
+            </div>
+            <div class="form-group row form-field">
+                <label class="col-lg-5 col-md-4 col-form-label" for="import_chosen_lines">
+                    Import only chosen lines
+                </label>
+                <div class="col-lg-1 col-md-8">
+                    <input type="checkbox"
+                           id="import_chosen_lines"
+                           class="form-control o_website_form_input chekbox_input"
+                    />
+                </div>
+            </div>
+            <div class="form-group row form-field hidden_input" id="lines_range">
+                <label class="col-lg-5 col-md-4 col-form-label" for="lines_start">
+                    Lines
+                </label>
+                <div class="col-lg-2 col-md-8">
+                    <input type="number"
+                           id="lines_start"
+                           class="form-control o_website_form_input"
+                           min="2"
+                           value="2"
+                    />
+                </div>
+                <div class="col-lg-2 col-md-8">
+                    <input type="number"
+                           id="lines_end"
+                           class="form-control o_website_form_input"
+                           min="2"
+                           value="1002"
+                    />
+                </div>
+            </div>
+            <div class="form-group row form-field" id="archive_products_div">
+                <label class="col-lg-5 col-md-4 col-form-label" for="archive_products">
+                    Archive all other products
+                </label>
+                <div class="col-lg-1 col-md-8">
+                    <input type="checkbox"
+                           id="archive_products"
+                           class="form-control o_website_form_input chekbox_input"
+                    />
+                </div>
+            </div>
+            <div class="form-group row form-field" id="archive_prices_div">
+                <label class="col-lg-5 col-md-4 col-form-label" for="archive_stocks">
+                    Archive previous stocks
+                </label>
+                <div class="col-lg-1 col-md-8">
+                    <input type="checkbox"
+                           id="archive_stocks"
+                           class="form-control o_website_form_input chekbox_input"
+                    />
+                </div>
+            </div>
+            <t t-if="widget.template_table or widget.vendor_stocks_help">
+                <div id="myCollapse" class="accordion" role="tablist">
+                    <div class="bg-white">
+                        <a href="#"
+                           role="tab"
+                           data-toggle="collapse"
+                           aria-expanded="false"
+                           class="collapsed o_default_snippet_text"
+                           data-parent="#myCollapse"
+                           data-target="#helptext">
+                            <big>Help</big>
+                        </a>
+                        <div class="collapse" role="tabpanel" id="helptext">
+                            <div t-if="widget.template_table" class="mb8 mt8">
+                                <a t-att-href="widget.template_table" class="btn btn-success btn-sm">
+                                    <i class="fa fa-download"> </i> Download template
+                                </a>
+                            </div>
+                            <div t-if="widget.uoms_help" class="mb8 mt8">
+                                <i>Available Units of Measure:</i> <t t-esc="widget.uoms_help"/>
+                            </div>
+                            <div>
+                                <t t-raw="widget.vendor_stocks_help"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </form>
+    </t>
+    <!-- Import results dialog -->
+    <t t-name="vendor_portal_management.import_results">
+        <form>
+            <div class="form-group row form-field">
+                <label class="col-lg-5 col-md-4 col-form-label" for="archive_stocks">
+                    Number of updated records
+                </label>
+                <div class="col-lg-1 col-md-8">
+                    <t t-esc="widget.num_updated"/>
+                </div>
+            </div>
+            <div t-if="widget.errors" class="form-group row form-field">
+                <label class="col-lg-12 col-md-4 col-form-label" for="archive_stocks">
+                    Errors registered
+                </label>
+                <div class="col-lg-12 col-md-8">
+                    <t t-esc="widget.errors"/>
+                </div>
+            </div>
+        </form>
+    </t>
+    <!-- Price Update / Create Dialog -->
+    <t t-name="vendor_portal_management.vendor_price_dialog">
+        <form>
+            <label for="price">Price</label>
+            <input id="price"
+                   type="number"
+                   class="form-control o_website_form_input"
+                   t-att-value="widget.price"
+                   min="0"
+            />
+            <label for="currency_id">Currency</label>
+            <select id="currency_id"
+                    class="form-control o_website_form_input"
+            >
+                <t t-foreach="widget.currency_ids" t-as="cur">
+                    <option t-attf-value="{{ cur[0] }}"
+                            t-att-selected="widget.currency_id == cur[0] and 'selected' or null"
+                    >
+                            <t t-esc="cur[1]" />
+                    </option>
+                </t>
+            </select>
+            <label for="min_qty">Minimal Quantity</label>
+            <input id="min_qty"
+                   type="number"
+                   class="form-control o_website_form_input"
+                   t-att-value="widget.min_qty"
+                   min="0"
+            />
+            <label for="date_start">Valid from</label>
+            <input id="date_start"
+                   type="date"
+                   class="form-control o_website_form_input"
+                   t-att-value="widget.date_start"
+            />
+            <label for="date_end">Valid to</label>
+            <input id="date_end"
+                   type="date"
+                   class="form-control o_website_form_input"
+                   t-att-value="widget.date_end"
+            />
+        </form>
+    </t>
+    <!-- Stock Update / Create Dialog -->
+    <t t-name="vendor_portal_management.vendor_quant_dialog">
+        <form>
+            <label for="locaiton_id">Location</label>
+            <select id="location_id"
+                    class="form-control o_website_form_input"
+            >
+                <t t-foreach="widget.location_ids" t-as="loc">
+                    <option t-attf-value="{{ loc[0] }}"
+                            t-att-selected="widget.location_id == loc[0] and 'selected' or null"
+                    >
+                            <t t-esc="loc[1]" />
+                    </option>
+                </t>
+            </select>
+            <label for="supplier_quantity">Quantity</label>
+            <input id="supplier_quantity"
+                   type="number"
+                   class="form-control o_website_form_input"
+                   t-att-value="widget.supplier_quantity"
+                   min="0"
+            />
+            <label for="price">Unit of measure</label>
+            <select id="uom_id"
+                    class="form-control o_website_form_input"
+            >
+                <t t-foreach="widget.uom_ids" t-as="uom">
+                    <option t-attf-value="{{ uom[0] }}"
+                            t-att-selected="widget.uom_id == uom[0] and 'selected' or null"
+                    >
+                            <t t-esc="uom[1]" />
+                    </option>
+                </t>
+            </select>
+        </form>
+    </t>
+    <!-- New location template -->
+    <t t-name="vendor_portal_management.vendor_location_dialog">
+        <form>
+            <label for="loc_name">Name</label>
+            <input id="loc_name"
+                   type="text"
+                   class="form-control o_website_form_input"
+                   t-att-value="widget.loc_name"
+            />
+            <label for="address">Address</label>
+            <input id="address"
+                   type="text"
+                   class="form-control o_website_form_input"
+                   t-att-value="widget.address"
+            />
+            <label for="delivery_time">Delivery time</label>
+            <input id="delivery_time"
+                   type="number"
+                   class="form-control o_website_form_input"
+                   t-att-value="widget.delivery_time"
+                   min="0"
+            />
+            <label for="description">Notes</label>
+            <textarea id="description"
+                      style="width: 100%; height: 150px;"
+                      t-esc="widget.description"
+                      class="form-control o_website_form_input"
+            />
+        </form>
+    </t>
+
+</templates>

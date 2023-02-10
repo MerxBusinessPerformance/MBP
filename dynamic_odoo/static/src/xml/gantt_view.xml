@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="GanttView.buttons">
+        <div class="btn-group" role="toolbar" aria-label="Main actions">
+            <button class="btn btnCreate">
+                ADD
+            </button>
+        </div>
+        <div class="btn-group" role="toolbar">
+            <button class="btn btnScale" data="Hour" title="1H" aria-label="1H">
+                1H
+            </button>
+            <button class="btn btnScale" data="Two Hour" title="2H" aria-label="2H">
+                2H
+            </button>
+            <button class="btn btnScale" data="Quarter Day" title="6H" aria-label="6H">
+                6H
+            </button>
+            <button class="btn btnScale" data="Half Day" title="12H" aria-label="12H">
+                12H
+            </button>
+            <button class="btn btnScale" data="Day" title="Day" aria-label="Day">
+                Day
+            </button>
+            <button class="btn btnScale" data="Week" title="Week" aria-label="Week">
+                Week
+            </button>
+            <button class="btn btnScale" data="Month" title="Month" aria-label="Month">
+                Month
+            </button>
+        </div>
+    </t>
+</templates>

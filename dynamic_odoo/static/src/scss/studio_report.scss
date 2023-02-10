@@ -1,0 +1,51 @@
+.oe_image {
+  height: auto;
+  &.hasHeight {
+    img {
+      height: 100%;
+    }
+  }
+  img {
+    width: 100%;
+  }
+  .editImage {
+    display: none;
+  }
+}
+* {
+  //color: red !important;
+  //font-family: "Lato" !important;
+  //font-weight: inherit;
+}
+
+.wGrid {
+  //margin: 10px 0px;
+}
+
+.col {
+  flex-basis: 0;
+  flex-grow: 1;
+  max-width: 100%;
+}
+
+//
+//.wGrid .row > div {
+//  //min-height: 30px;
+//  //border: 5px solid rgba(255, 87, 34, 0.5);
+//  //background: white;
+//  //padding: 0px;
+//}
+
+.wGrid {
+  padding: 0px;
+  margin: 0px 0px 5px 0px;
+  border: 0px;
+  .row {
+    margin: 0px;
+    > div {
+      border: 0px;
+      padding: 2px;
+      min-height: 2px;
+    }
+  }
+}

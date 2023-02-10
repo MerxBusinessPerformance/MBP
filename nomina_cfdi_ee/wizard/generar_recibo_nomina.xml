@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+    <record id="generar_recibo_nomina_view_form" model="ir.ui.view">
+        <field name="name">generar.recibo.nomina.form.view</field>
+        <field name="model">generar.recibo.nomina</field>
+        <field name="arch" type="xml">
+            <form string="Recibo de nómina">
+                <group>
+                    <field name="department_id"/>
+                </group>
+                <footer>
+                    <button name="print_recibo_nomina" string="Generar" type="object" class="oe_highlight"/>
+                    <button string="Cancelar" class="oe_link" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>    
+
+    <!-- Add action entry in the Action Menu for Partners -->
+    <act_window id="generar_recibo_nomina_action"
+        name="Recibo de nómina"
+        res_model="generar.recibo.nomina"
+        binding_model="hr.payslip.run"
+        view_mode="form"
+        target="new"/>
+
+    </data>
+</odoo>

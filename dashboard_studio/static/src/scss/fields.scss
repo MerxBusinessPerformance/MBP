@@ -1,0 +1,270 @@
+.dashboardView:not(.editMode), .wDBMenuEdit, .canUse {
+  //Field Checkbox and Radio
+  .wFieldCheckbox, .wFieldRadio {
+    cursor: pointer;
+    display: block;
+    .splBl {
+      vertical-align: super;
+      margin-left: 2px;
+      display: inline-block;
+    }
+  }
+
+  .wFieldRadio {
+    &.checked {
+      ._wCb {
+        ._wCcB {
+          background: #ff4242;
+        }
+      }
+    }
+    ._wCb {
+      display: inline-block;
+      padding: 8px;
+      margin: 0px;
+      background: #e8f4fc;
+      border-radius: 100%;
+      border: 1px solid #dbe1e7;
+      ._wCcB {
+        padding: 4px;
+        background: transparent;
+        border-radius: 100%;
+      }
+    }
+  }
+
+  // Many2one, Many2many
+  .wMany2many {
+    .o_field_many2manytags {
+      border: 0px !important;
+      padding: 0px !important;
+    }
+    .o_field_many2manytags, .o_field_many2one {
+      border: 1px solid #dbe1e7;
+      border-radius: 5px;
+      padding: 0px 5px 0px 5px;
+      width: 100%;
+      overflow: hidden;
+      > .o_field_many2one {
+        flex: auto;
+      }
+      .badge {
+        &:first-child {
+          margin-top: 4px !important;
+        }
+        padding: 4px;
+        margin-bottom: 4px;
+        border: 1px solid #737578;
+        box-shadow: none;
+        .o_badge_text {
+          padding-left: 5px;
+        }
+      }
+      .o_input_dropdown {
+        margin: 0px -5px 0px -5px;
+        .o_input {
+          border-radius: 0px;
+          padding-left: 10px;
+          height: 35px;
+          border: none !important;
+        }
+      }
+      .o_dropdown_button {
+        display: inline-block;
+        font-family: FontAwesome;
+        font-size: inherit;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        top: 6px;
+        right: 2px;
+        &:after {
+          border: none !important;
+          display: contents !important;
+          font-size: 10px;
+          content: "\f078";
+          color: #4c4c4c;
+        }
+      }
+    }
+  }
+
+  // Field Input
+  .wFieldInput {
+    &.valDiff input {
+      color: #ff4242;
+    }
+  }
+
+  // Record Color
+  .wRecordColor {
+    ._oSave {
+      input {
+        color: #1c9cb9;
+      }
+    }
+    div:first-child {
+      margin-bottom: 10px;
+    }
+    .colorItem {
+      padding: 0px !important;
+      input {
+        border-left: 10px solid transparent;
+      }
+    }
+    .colorItem[name='decoration-danger'] input {
+      border-left-color: #FF5722;
+    }
+    .colorItem[name='decoration-warning'] input {
+      border-left-color: #FFC107;
+    }
+    .colorItem[name='decoration-success'] input {
+      border-left-color: #8BC34A;
+    }
+    .colorItem[name='decoration-primary'] input {
+      border-left-color: #6e4eb4;
+    }
+    .colorItem[name='decoration-info'] input {
+      border-left-color: #2196F3;
+    }
+    .colorItem[name='decoration-muted'] input {
+      border-left-color: #dee2e6;
+    }
+    .colorItem[name='decoration-bf'] input {
+      font-weight: bold;
+    }
+    .colorItem[name='decoration-it'] input {
+      font-style: italic;
+    }
+  }
+
+  // Radio Condition
+  .rdCondition {
+    position: relative;
+    .aSCon {
+      position: absolute;
+      right: 0px;
+      top: 8px;
+      text-decoration: underline !important;
+      color: #2e97de !important;
+      cursor: pointer;
+      &:hover {
+        cursor: pointer;
+        color: #0d72b7;
+      }
+    }
+  }
+
+  // Groups
+  .wWidgetGroup {
+    .wContent {
+      min-height: 37px;
+    }
+  }
+
+  // M2mRaw
+  .wM2mRaw {
+    .wContent {
+      border: 1px solid #dbe1e8;
+      border-radius: 7px;
+      .wValue {
+        //padding: 5px 5px 2px 5px;
+        a {
+          display: inline-block;
+          padding: 2px 5px 2px 8px;
+          //margin: 2px 4px;
+          border: 1px solid #737578;
+          box-shadow: none;
+          font-size: 12px;
+          border-radius: 25px;
+          background-color: white;
+          color: #777777;
+          margin-bottom: 4px;
+          margin-left: 4px;
+          i {
+            margin-left: 4px;
+          }
+          &:first-child {
+            margin-top: 4px;
+          }
+          &:last-child {
+            margin-bottom: 4px;
+          }
+        }
+      }
+      .wSelect {
+        input, select {
+          width: 100%;
+          border: 0px;
+          border-radius: 0px;
+        }
+      }
+    }
+  }
+  .wToggleSwitch {
+    display: flex;
+    .lblField {
+      margin-left: 10px;
+    }
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 50px;
+      height: 25px;
+      margin: 0px;
+    }
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border: 1px solid #dbe1e7;
+      background-color: white;
+      -webkit-transition: .4s;
+      transition: .4s;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 15px;
+      width: 15px;
+      left: 6px;
+      bottom: 4px;
+      background-color: #cbc9d6;
+      -webkit-transition: .4s;
+      transition: .4s;
+    }
+    input:checked + .slider {
+      background-color: white;
+      &:before {
+        background-color: #9496e0;
+      }
+      //border: 1px solid #7bc4ff;
+    }
+    input:focus + .slider {
+      //box-shadow: 0 0 1px #2196F3;
+    }
+    input:checked + .slider:before {
+      -webkit-transform: translateX(21px);
+      -ms-transform: translateX(21px);
+      transform: translateX(21px);
+    }
+    /* Rounded sliders */
+    .slider.round {
+      border-radius: 34px;
+    }
+    .slider.round:before {
+      border-radius: 50%;
+    }
+  }
+
+}
+
+// FieldDatetime

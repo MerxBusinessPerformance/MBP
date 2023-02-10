@@ -1,0 +1,20 @@
+.navEdit {
+  display: none;
+}
+
+.editMode {
+  .navEdit {
+    cursor: pointer;
+    font-size: 11px;
+    opacity: 0.8;
+    color: #07c4ec;
+    display: flex;
+    align-items: center;
+    i {
+      margin-right: 5px;
+    }
+    &:hover {
+      opacity: 1;
+    }
+  }
+}

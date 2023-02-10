@@ -1,0 +1,12 @@
+ .ks-gantt-container-main{
+    background: $white;
+    .ks_gantt_container{
+        overflow: auto;
+        color: black;
+
+        .form-control:focus{
+            border-color: #acb7c3;
+        }
+    }
+ }
+

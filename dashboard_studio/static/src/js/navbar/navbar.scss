@@ -1,0 +1,12 @@
+a.navDB {
+  display: flex;
+  color: white;
+  i {
+    display: flex;
+    align-items: center;
+  }
+  &:hover {
+    color: #39c2ff;
+    cursor: pointer;
+  }
+}

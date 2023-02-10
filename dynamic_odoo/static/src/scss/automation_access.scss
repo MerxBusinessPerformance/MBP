@@ -1,0 +1,63 @@
+.editMode {
+  .wAutomationAccess {
+    width: 100%;
+    & > .o_action {
+      height: 100%;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-flex-flow: column nowrap;
+      flex-flow: column nowrap;
+      & > .o_content {
+        overflow: auto;
+        & > .o_list_view {
+          margin-bottom: 20px;
+        }
+      }
+    }
+    .o_list_export_xlsx {
+      display: none !important;
+    }
+    .o_control_panel {
+      .dropdown-menu {
+        background: white;
+        border: 1px solid #cccccc;
+      }
+      .o_cp_searchview {
+        //display: none;
+      }
+      .o_cp_right {
+        .o_search_options, .o_cp_switch_buttons {
+          //display: none;
+        }
+      }
+      .btn-primary {
+        background-color: #59b5ff;
+        border-color: #57a4e2;
+        &:hover {
+          background-color: #57a4e2;
+          border-color: #4393d4;
+        }
+      }
+    }
+    .o_list_view {
+      .table thead th {
+        border-bottom: 0px;
+        border-top: 0px;
+      }
+    }
+    .o_form_view .o_form_sheet_bg {
+      padding-top: 15px;
+      .o_form_sheet {
+        margin-top: 0px;
+        border-radius: 5px;
+      }
+      .o_form_statusbar {
+        border: 0px;
+      }
+      .o_required_modifier.o_input, .o_required_modifier .o_input {
+        background-color: rgba(33, 150, 243, 0.3) !important;
+      }
+    }
+  }
+}

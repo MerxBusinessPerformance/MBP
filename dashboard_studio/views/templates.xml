@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="dashboard_studio" name="dashboard_studio templates" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" type="text/css" href="/dashboard_studio/static/src/scss/base.scss"/>
+                <link rel="stylesheet" type="text/css" href="/dashboard_studio/static/src/scss/views.scss"/>
+                <link rel="stylesheet" type="text/css" href="/dashboard_studio/static/src/scss/fields.scss"/>
+                <link rel="stylesheet" type="text/css" href="/dashboard_studio/static/src/scss/widgets.scss"/>
+                <link rel="stylesheet" type="text/css" href="/dashboard_studio/static/src/scss/planning_view.scss"/>
+                <link rel="stylesheet" type="text/css" href="/dashboard_studio/static/src/scss/gantt_view.scss"/>
+                <link rel="stylesheet" type="text/css" href="/dashboard_studio/static/src/scss/dashboard_view.scss"/>
+                <link rel="stylesheet" type="text/css" href="/dashboard_studio/static/src/scss/test.scss"/>
+                <!--Libs-->
+                <!--<link rel="stylesheet" type="text/css" href="/dashboard_studio/static/lib/gridstackjs/gridstack.min.css" />-->
+                <!--<script type="text/javascript" src="/dashboard_studio/static/lib/gridstackjs/gridstack-h5.min.js"></script>-->
+                <!--<script type="text/javascript" src="/dashboard_studio/static/lib/jspdf.min.js"></script>-->
+                <script type="text/javascript" src="/dashboard_studio/static/src/js/base.js"></script>
+                <script type="text/javascript" src="/dashboard_studio/static/src/js/views_edit_base.js"></script>
+                <script type="text/javascript" src="/dashboard_studio/static/src/js/base_center.js"></script>
+                <script type="text/javascript" src="/dashboard_studio/static/src/js/dashboards_center.js"></script>
+                <script type="text/javascript" src="/dashboard_studio/static/src/js/views_center.js"></script>
+                <script type="text/javascript" src="/dashboard_studio/static/src/js/abstract_controller.js"></script>
+                <script type="text/javascript" src="/dashboard_studio/static/src/js/fields/basic_fields.js"></script>
+                <script type="text/javascript" src="/dashboard_studio/static/src/js/widgets/basic_widgets.js"></script>
+
+                <script type="text/javascript" src="/dashboard_studio/static/src/js/views/planning_view/planning_controller.js"></script>
+                <script type="text/javascript" src="/dashboard_studio/static/src/js/views/planning_view/planning_model.js"></script>
+                <script type="text/javascript" src="/dashboard_studio/static/src/js/views/planning_view/planning_renderer.js"></script>
+                <script type="text/javascript" src="/dashboard_studio/static/src/js/views/planning_view/planning_view.js"></script>
+
+                <script type="text/javascript" src="/dashboard_studio/static/src/js/views/dashboard_view/dashboard_controller.js"></script>
+                <script type="text/javascript" src="/dashboard_studio/static/src/js/views/dashboard_view/dashboard_model.js"></script>
+                <script type="text/javascript" src="/dashboard_studio/static/src/js/views/dashboard_view/dashboard_renderer.js"></script>
+                <script type="text/javascript" src="/dashboard_studio/static/src/js/views/dashboard_view/dashboard_view.js"></script>
+                <script type="text/javascript" src="/dashboard_studio/static/src/js/views/dashboard_view/dashboard_card.js"></script>
+                <script type="text/javascript" src="/dashboard_studio/static/src/js/views/dashboard_view/dashboard_modify.js"></script>
+                <script type="text/javascript" src="/dashboard_studio/static/src/js/views/dashboard_view/dashboard_widget.js"></script>
+
+                <script type="text/javascript" src="/dashboard_studio/static/src/js/views/graph_view/graph_renderer.js"></script>
+                <script type="text/javascript" src="/dashboard_studio/static/src/js/views/graph_view/graph_view.js"></script>
+
+                <script type="text/javascript" src="/dashboard_studio/static/src/js/dashboard_edit/chart.js"></script>
+
+                <script type="text/javascript" src="/dashboard_studio/static/src/js/views_edit/calendar.js"></script>
+                <script type="text/javascript" src="/dashboard_studio/static/src/js/views_edit/graph.js"></script>
+                <script type="text/javascript" src="/dashboard_studio/static/src/js/views_edit/pivot.js"></script>
+                <script type="text/javascript" src="/dashboard_studio/static/src/js/views_edit/activity.js"></script>
+                <script type="text/javascript" src="/dashboard_studio/static/src/js/views_edit/kanban.js"></script>
+                <script type="text/javascript" src="/dashboard_studio/static/src/js/views_edit/planning.js"></script>
+                <script type="text/javascript" src="/dashboard_studio/static/src/js/views_edit/tree.js"></script>
+                <script type="text/javascript" src="/dashboard_studio/static/src/js/dashboard_edit/dashboard_widgets.js"></script>
+            </xpath>
+        </template>
+    </data>
+</odoo>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <!--<t t-name="DashboardStudio.Widget.TreeColor">-->
+        <!--<div class="wRecordColor">-->
+            <!--<div><a class="lblField"><t t-esc="widget.props.label" />:</a></div>-->
+            <!--<div>-->
+                <!--<t t-set="value" t-value="widget.state.value" />-->
+                <!--<t t-foreach="Object.keys(widget.viewInfo)" t-as="colorKey">-->
+                    <!--<t t-set="color" t-value="widget.viewInfo[colorKey]" />-->
+                    <!--<div class="colorItem" t-att-name="colorKey">-->
+                        <!--<input t-att-placeholder="color.placeholder" t-att-value="value[colorKey] || ''" t-att-name="colorKey" type="text" />-->
+                    <!--</div>-->
+                <!--</t>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</t>-->
+    <t t-name="DashboardStudio.Widget.Groups">
+        <div class="wWidgetGroup">
+
+        </div>
+    </t>
+    <t t-name="DashboardStudio.Widget.Tab">
+        <div class="wTab">
+            <div class="wTabHead">
+                <t t-set="tabs" t-value="widget.props.tabs" />
+                <t t-foreach="Object.keys(tabs)" t-as="tabName">
+                    <t t-set="tab" t-value="tabs[tabName]" />
+                    <a t-att-class="tabName == widget.state.value ? 'tabItem active' : 'tabItem'" t-att-name="tab.name"><t t-esc="tab.label" /></a>
+                </t>
+            </div>
+            <div class="wTabCon"></div>
+        </div>
+    </t>
+    <t t-name="DashboardStudio.Widget.ChartProps.Item">
+        <div class="wGlItem">
+            <div class="wItem" t-att-title="item.title">
+                <span>
+                    <img t-attf-src="/dashboard_studio/static/src/svg/#{item.icon}" />
+                </span>
+            </div>
+        </div>
+    </t>
+    <t t-name="DashboardStudio.Widget.ChartProps.Group">
+        <div class="glGroup">
+            <div class="glTitle">
+                <a><t t-esc="group.title" /></a>
+            </div>
+            <div class="glContent">
+            </div>
+        </div>
+    </t>
+    <t t-name="DashboardStudio.Widget.ChartProps">
+        <div class="wChartProps">
+            <div class="glGroups">
+
+            </div>
+        </div>
+    </t>
+    <!--<t t-name="DashboardStudio.Widget.ButtonDomain">-->
+        <!--<div class="wBtnDomain">-->
+            <!--<a class="btn btn-primary btnDomain"><i class="fa fa-filter" /><t t-esc="widget.props.label || 'Filter'" /></a>-->
+        <!--</div>-->
+    <!--</t>-->
+    <t t-name="DashboardStudio.Widget.TreeColor">
+        <div class="wRecordColor">
+            <div><a class="lblField"><t t-esc="widget.props.label" />:</a></div>
+            <div class="wItem">
+            </div>
+        </div>
+    </t>
+     <t t-name="DashboardStudio.Widget.ButtonDomain">
+        <div class="wBtnDomain" t-att-name="widget.props.name">
+            <t t-if="widget.state.type == 'input'">
+                <div t-if="widget.props.label" class="lblField">
+                    <a><t t-esc="widget.props.label || 'Domain'" /></a>
+                </div>
+                <div class="wInput">
+                    <t t-set="value" t-value="widget.state.value" />
+                    <input t-att-value="value != '[]' ? value : ''" type="text" readonly="readonly" />
+                    <i class="fa fa-pencil"></i>
+                </div>
+            </t>
+            <t t-else="">
+                <a class="btn btn-primary btnDomain">
+                    <i class="fa fa-filter" />
+                    <t t-esc="widget.props.label || 'Filter'" />
+                </a>
+            </t>
+        </div>
+    </t>
+    <t t-name="DashboardStudio.Widget.ChooseIcon.Content">
+        <div class="wiCon">
+            <t t-foreach="icons" t-as="icon">
+                <div class="iconItem" t-att-icon="icon">
+                    <i t-att-class="'fa fa-'+icon" />
+                </div>
+            </t>
+        </div>
+    </t>
+    <t t-name="DashboardStudio.Widget.ChooseIcon">
+        <div class="wChooseIcon">
+            <div class="chooseIconCon">
+                <div class="icMain">
+                    <div class="wHead">
+                        <a class="lblField">Icons</a>
+                    </div>
+                    <div class="wCon">
+                        <div class="iconSearch">
+                            <input class="ipSearch" />
+                        </div>
+                        <div class="iconResult">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+    <t t-name="DashboardStudio.Widget.ChooseColor">
+        <div class="wChooseColor">
+            <a class="btn btnShow">
+                <i class="fa fa-tint" t-att-style="'color:' + widget.state.value" /><t t-esc="widget.props.label || 'Color'" />
+            </a>
+        </div>
+    </t>
+</templates>

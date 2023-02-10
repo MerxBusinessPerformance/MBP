@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+     <record id="vendor_import_result_form_view" model="ir.ui.view">
+        <field name="name">vendor.import.result.form</field>
+        <field name="model">vendor.import.result</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="model" readonly="1" invisible="1"/>
+                        <field name="record_ids" readonly="1" invisible="1"/>
+                        <field name="record_num" readonly="1"/>
+                    </group>
+                    <label for="errors" attrs="{'invisible': [('errors', '=', False)]}"/>
+                    <field name="errors" readonly="1"/>
+                    <footer>
+                        <button name="action_open_results"
+                                string="Open Imported Lines"
+                                type="object"
+                                class="oe_highlight"
+                        />
+                        <button string="Cancel"
+                                class="oe_link"
+                                special="cancel"
+                        />
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="vendor_import_result_action" model="ir.actions.act_window">
+        <field name="name">Import Results</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">vendor.import.result</field>
+        <field name="target">new</field>
+        <field name="view_mode">form</field>
+    </record>
+
+</odoo>

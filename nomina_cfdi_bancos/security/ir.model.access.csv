@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_generar_pagos_banco,generar.pagos.banco,nomina_cfdi_bancos.model_generar_pagos_banco,,1,1,1,1

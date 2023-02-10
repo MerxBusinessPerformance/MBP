@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="wizard_sbc_bimestral_form_view" model="ir.ui.view">
+        <field name="name">SBC Bimestral</field>
+        <field name="model">wizard.sbc.bimestral</field>
+        <field name="arch" type="xml">
+        <form string="SBC Bimestral">
+            <field name="name" invisible="1" />
+            <group col="4">
+                <field name="primer_fecha_inicio"/>
+                <field name="primer_fecha_fin"/>
+                <field name="segundo_fecha_inicio"/>
+                <field name="segundo_fecha_fin"/>
+                <field name="fecha_aplicacion"/>
+                <field name="employee_id"/>
+                <field name="registro_patronal"/>
+                <field name="detalles"/>
+                <field name="total_empleados"/>
+            </group>
+          <!--  <group>
+                <field name="rule_ids" widget="many2many_tags" options="{'no_create': True}" required="1" default_focus="1"/>
+            </group>-->
+            <footer>
+                <button name="print_sbc_report" string="Generar XLS" type="object" default_focus="1" class="oe_highlight"/>
+                <button name="change_sbc" string="Aplicar nuevo SBC" type="object" default_focus="1" class="oe_highlight" confirm="Aplicar el cambio de salario?"
+/>
+                <button string="Cancelar" class="btn btn-default" special="cancel" />
+            </footer>
+        </form>
+        </field>
+    </record>
+    <record id="action_wizard_sbc_bimestral" model="ir.actions.act_window">
+        <field name="name">SBC Bimestral</field>
+        <field name="res_model">wizard.sbc.bimestral</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="wizard_sbc_bimestral_form_view"/>
+        <field name="target">new</field>
+    </record>
+	
+	<menuitem id="main_menu_wizard_sbc_bimestral"
+                name="Cambio De Salario"
+                parent="hr.menu_hr_root"
+                sequence="76"/>
+                
+    <menuitem id="menu_action_wizard_sbc_bimestral"
+                name="SBC Bimestral"
+                action="action_wizard_sbc_bimestral"
+                parent="nomina_cfdi_sbc.main_menu_wizard_sbc_bimestral"
+                groups="om_hr_payroll.group_hr_payroll_user"
+                sequence="20"/>
+    
+
+</odoo>

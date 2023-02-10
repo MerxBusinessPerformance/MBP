@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_wizard_sbc_bimestral,wizard_sbc_bimestral,model_wizard_sbc_bimestral,,1,1,1,1

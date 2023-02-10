@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <div t-name="Planning" class="o_planning">
+
+    </div>
+    <t t-name="PlanningView.buttons">
+        <div class="btn-group" role="toolbar">
+            <button class="btn btn_sp create_plan">
+                ADD
+            </button>
+        </div>
+        <div class="btn-group" role="toolbar">
+            <button class="btn btn_day fa fa-long-arrow-left prev" title="Previous" aria-label="Previous">
+            </button>
+            <button class="btn btn_day fa today btn_planning" title="Today" aria-label="Today">
+                TODAY
+            </button>
+            <button class="btn btn_day fa fa-long-arrow-right next" title="Next" aria-label="Next">
+            </button>
+        </div>
+        <div class="btn-group btn-extend" role="toolbar">
+            <button class="btn btn-secondary btn-t o_planning_day" view-type="day" title="Day" aria-label="Day">
+                Day
+            </button>
+            <button class="btn btn-secondary btn-t o_planning_week" view-type="week" title="Week" aria-label="Week">
+                Week
+            </button>
+            <button class="btn btn-secondary btn-t o_planning_month" view-type="month" title="Month" aria-label="Month">
+                Month
+            </button>
+        </div>
+    </t>
+
+    <t t-name="Planning.Group">
+        <div class="w_group show">
+            <div class="w_header_group">
+                <div class="r_l">
+                    <t t-if="groupName">
+                        <i class="fa fa-minus"></i><i class="fa fa-plus"></i><label class="lbl_group"><t t-esc="groupName" /></label>
+                    </t>
+                </div>
+            </div>
+            <div class="w_body_group">
+
+            </div>
+        </div>
+    </t>
+    <t t-name="Planning.Header">
+        <div class="o_planning_header">
+            <div class="top"><label><t t-esc="label" /></label></div>
+            <div class="bot">
+                <div class="r_l">
+                </div>
+            </div>
+        </div>
+    </t>
+    <t t-name="Planning.Header.Cell">
+        <div class="h_item">
+            <label><t t-esc="label" /></label>
+        </div>
+    </t>
+    <t t-name="Planning.Body.Row">
+        <div class="w_item"></div>
+    </t>
+    <t t-name="Planning.Body.rowGroup">
+        <div class="w_container">
+            <div class="r_l" t-att-data-id="id" t-att-data-name="name" t-att-style="'padding-left: '+padding+'px;'">
+                <div class="w_image" t-if="image_small"><img t-att-src="'data:image/gif;base64,'+image_small" /></div>
+                <label><t t-esc="label" /></label>
+            </div>
+        </div>
+    </t>
+    <t t-name="Planning.Body.Cell">
+        <div t-att-class="current ? 'r_item current' : 'r_item'" t-att-data-date="date">
+            <div class="r_tran">
+                <span class="circleAdd"></span>
+                <i class="i_add fa fa-plus-circle"></i>
+            </div>
+        </div>
+    </t>
+    <t t-name="Planning.Body.Resize">
+        <div t-att-class="(resize ? 'resizable' : 'resizable no-resize') + (light ? ' light' : '')">
+            <span class="o_start"></span>
+            <div class="resizers">
+                <div class="i_drag">
+                    <div class="o_content"><label class="txt_truncate"><t t-esc="label" /></label></div>
+                </div>
+                <div class="resizer left"><div></div></div>
+                <div class="resizer right"></div>
+                <t t-if="!resize">
+                    <i class="fa fa-lock" />
+                </t>
+            </div>
+        </div>
+    </t>
+    <t t-name="Planning.Body.ResizeFor">
+        <div class="resizable rs_for" t-att-data-id="rs_id" t-att-data-for="data_for" t-att-style="top"></div>
+    </t>
+    <t t-name="Planning.iconEdit">
+        <button class='btn btn-primary fa fa-lg fa-wrench _icPlan' />
+    </t>
+    <t t-name="Planning.Studio">
+        <div class="plStudio">
+            <div class="plWeDit">
+                <div class="head">
+                    <h4><t t-esc="widget.steps[widget.state.step].label" /></h4>
+                    <i class="fa fa-close faClose" />
+                </div>
+                <div class="con">
+
+                </div>
+                <div class="foot">
+                    <t t-if="widget.state.step == 'edit'">
+                        <button class="btn btn-primary btnSave">Save</button>
+                        <button class="btn btn-secondary btnCancel">Cancel</button>
+                    </t>
+                </div>
+            </div>
+        </div>
+    </t>
+    <t t-name="Planning.Studio.Active">
+        <div class="wActive">
+            <button class="btn btn-primary btnActive">Active View</button>
+        </div>
+    </t>
+    <t t-name="Planning.Studio.Edit">
+        <div class="wEdit">
+            <!--<div>-->
+                <!--<h1>Edit View</h1>-->
+            <!--</div>-->
+        </div>
+    </t>
+    <t t-name="Edit.Field.Selection">
+        <div class="_widgetOption">
+            <label class="lblField"><t t-esc="widget.props.label" /></label>
+            <select t-att-value="widget.getValue()">
+                <t t-foreach="widget.data" t-as="dataItem">
+                    <option t-att-value="dataItem.value">
+                        <t t-esc="dataItem.label" />
+                    </option>
+                </t>
+            </select>
+        </div>
+    </t>
+    <t t-name="Planning.Popover">
+        <div>
+            <div>
+                <span>Start:</span>
+                <span><t t-esc="start" /></span>
+            </div>
+            <div>
+                <span>End:</span>
+                <span><t t-esc="end" /></span>
+            </div>
+        </div>
+    </t>
+</templates>

@@ -1,0 +1,117 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="vendor_quant_view_search" model="ir.ui.view">
+        <field name="name">vendor.quant.search</field>
+        <field name="model">vendor.quant</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="vendor_product_id"/>
+                <field name="product_code"/>
+                <field name="vendor_location_id"/>
+                <field name="product_id"/>
+                <field name="product_tmpl_id"/>
+                <field name="product_partner_id"/>
+                <filter string="No zero inventories" name="nozero" domain="[('supplier_quantity', '>', 0)]"/>
+                <group  expand='0' string='Group by...'>
+                    <filter name="product_group" string="Vendor Product" context="{'group_by' : 'vendor_product_id'}"/>
+                    <filter name="vendor_product_partner_id_group" string="Vendor" context="{'group_by' : 'product_partner_id'}"/>
+                    <filter name="vendor_location_id_group" string="Vendor Location" context="{'group_by' : 'vendor_location_id'}"/>
+                    <filter name="product_id_group" string="Product Variant" context="{'group_by' : 'product_id'}"/>
+                    <filter name="product_tmpl_id_group" string="Product Template" context="{'group_by' : 'product_tmpl_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+    <record id="vendor_quant_view_form" model="ir.ui.view">
+        <field name="name">vendor.quant.form</field>
+        <field name="model">vendor.quant</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="vendor_product_id" 
+                                   options="{'no_create_edit': 1, 'no_quick_create': 1}"
+                                   domain="[('partner_id', 'in', product_d_partner_ids)]"
+                            />
+                            <field name="vendor_location_id" 
+                                   options="{'no_create_edit': 1, 'no_quick_create': 1}"
+                                   domain="['|', ('partner_id', 'in', location_d_partner_ids), ('partner_id', '=', False)]"
+                            />
+                        </group>
+                        <group>
+                            <label for="supplier_quantity"/>
+                            <div> 
+                                <field name="supplier_quantity" class="oe_inline"/>
+                                <field name="supplier_product_uom_id" class="oe_inline"/>
+                            </div>
+                            <div colspan="6" style="color: #c54d49;" attrs="{'invisible': [('uom_error', '=', False)]}">
+                                <field name="uom_error" nolabel="1"/>
+                            </div>
+                            <label for="product_quantity"/>
+                            <div>
+                                <field name="product_quantity" class="oe_inline"/>
+                                <field name="product_uom_id" class="oe_inline" placeholder="unit of measurement"/>
+                            </div>
+                            <label for="delivery_time"/>
+                            <div>
+                                <field name="delivery_time" class="oe_inline"/> days
+                            </div>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Info">
+                            <group>
+                                <group string="Our Info">
+                                    <field name="product_id"/>
+                                    <field name="product_tmpl_id"/>
+                                    <field name="write_date"/>
+                                </group>
+                                <group string="Vendor Info">
+                                    <field name="product_partner_id"/>
+                                    <field name="product_name"/>
+                                    <field name="product_code"/>
+                                </group>
+                                <group string="Tech Info" invisible="1">
+                                    <field name="partner_id"/>
+                                    <field name="location_d_partner_ids" widget="many2many_tags"/>
+                                    <field name="product_d_partner_ids" widget="many2many_tags"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="vendor_quant_view_tree" model="ir.ui.view">
+        <field name="name">vendor.quant.tree</field>
+        <field name="model">vendor.quant</field>
+        <field name="arch" type="xml">
+            <tree decoration-danger="uom_error!=False">
+                <field name="product_id"/>
+                <field name="product_partner_id"/>
+                <field name='vendor_product_id'/>
+                <field name="vendor_location_id"/>
+                <field name="supplier_quantity"/>
+                <field name="supplier_product_uom_id"/>
+                <field name="uom_error" invisible="1"/>
+                <field name="product_quantity"/>
+                <field name="product_uom_id"/>
+                <field name="write_date"/>
+            </tree>
+        </field>
+    </record>
+    <record id="vendor_quant_action" model="ir.actions.act_window">
+         <field name="name">Vendor Stocks</field>
+         <field name="type">ir.actions.act_window</field>
+         <field name="res_model">vendor.quant</field>
+         <field name="view_mode">tree,form</field>
+         <field name="search_view_id" eval="vendor_quant_view_search"/>
+         <field name="help" type="html">
+              <p class="oe_view_nocontent_create">Click to update supplier inventory levels</p>
+         </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+     <record id="vendor_product_import_form_view" model="ir.ui.view">
+        <field name="name">vendor.product.import.form</field>
+        <field name="model">vendor.product.import</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="partner_id" required="1"/>
+                        <field name="table_to_import" required="1"/>
+                    </group>
+                    <notebook>
+                        <page string="Settings">
+                            <group>
+                                <field name="import_chosen_lines"/>
+                                <label for="lines_start" attrs="{'invisible': [('import_chosen_lines', '=', False)]}"/>
+                                <div attrs="{'invisible': [('import_chosen_lines', '=', False)]}">
+                                    <field name="lines_start" class="oe_inline"/> to
+                                    <field name="lines_end" class="oe_inline"/>
+                                </div>
+                                <field name="archive_products"
+                                       attrs="{'invisible': [('import_chosen_lines', '=', True)]}"
+                                />
+                                <field name="archive_prices"
+                                       attrs="{'invisible': ['|', ('archive_products', '=', True), ('import_chosen_lines', '=', True)]}"
+                                />
+                            </group>
+                        </page>
+                        <page string="Help">
+                            <group attrs="{'invisible': [('template_table_id', '=', False)]}">
+                                <field name="template_table_id" invisible="1"/>
+                                <field name="url" widget="url"/>
+                            </group>
+                            <group>
+                                <button name="%(base.action_currency_form)d"
+                                        icon="fa-arrow-right"
+                                        type="action"
+                                        string="Available Currencies"
+                                        class="btn-link"
+                                />
+                            </group>
+                            <label for="help_text" string="Recommendations"/>
+                            <field name="help_text"/>
+                        </page>
+                    </notebook>
+                    <footer>
+                        <button name="action_import"
+                                string="Import"
+                                type="object"
+                                class="oe_highlight"
+                        />
+                        <button string="Cancel"
+                                class="oe_link"
+                                special="cancel"
+                        />
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="vendor_product_import_action" model="ir.actions.act_window">
+         <field name="name">Import Vendor Products</field>
+         <field name="type">ir.actions.act_window</field>
+         <field name="res_model">vendor.product.import</field>
+         <field name="target">new</field>
+         <field name="view_mode">form</field>
+    </record>
+
+</odoo>

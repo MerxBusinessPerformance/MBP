@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_vendor_location,access_vendor_location,model_vendor_location,base.group_user,1,0,0,0
+access_vendor_location_purchase,access_vendor_location_purchase,model_vendor_location,purchase.group_purchase_user,1,1,1,1
+access_vendor_quant,access_vendor_quant,model_vendor_quant,base.group_user,1,0,0,0
+access_vendor_quant_purchase,access_vendor_quant,model_vendor_quant,purchase.group_purchase_user,1,1,1,1
+access_vendor_product,access_vendor_product,model_vendor_product,base.group_user,1,0,0,0
+access_vendor_product_purchase,access_vendor_product,model_vendor_product,purchase.group_purchase_user,1,1,1,1
+access_vendor_import_result,access_vendor_import_result,model_vendor_import_result,purchase.group_purchase_user,1,1,1,1
+access_vendor_import_wizard,access_vendor_import_wizard,model_vendor_import_wizard,purchase.group_purchase_user,1,1,1,1
+access_vendor_product_import,access_vendor_product_import,model_vendor_product_import,purchase.group_purchase_user,1,1,1,1
+access_vendor_stock_import,access_vendor_stock_import,model_vendor_stock_import,purchase.group_purchase_user,1,1,1,1

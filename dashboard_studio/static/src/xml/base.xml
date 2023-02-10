@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="DashboardStudio.iconEdit">
+        <div class="wDashboardStudio">
+            <t t-if="widget.state.hasView &amp;&amp; widget.props.showActions">
+                <button class='btn btn-secondary fa fa-ellipsis-h _icVs' />
+            </t>
+            <t t-if="!widget.state.hasView">
+                <button class='btn btn-secondary fa fa-tachometer _atDbView' />
+            </t>
+        </div>
+    </t>
+
+    <t t-name="dashboardStudio.Icon" owl="1">
+        <div>
+        </div>
+    </t>
+
+    <t t-name="dashboardStudio.ControlPanel" t-inherit="web.ControlPanel" t-inherit-mode="extension">
+         <xpath expr="//nav" position="after">
+             <DashboardStudioIcon />
+        </xpath>
+    </t>
+
+    <t t-name="DashboardStudio.ActiveDashboard">
+        <div class="wAdBoard">
+            <div class="aDBoardCon">
+                <div class="activeModal">
+                    <div class="modalCon">
+                        <div class="aDBHead">
+                            <h2>Create Dashboard</h2>
+                            <i class="fa fa-close iClose" />
+                        </div>
+                        <div class="aDBCon">
+                            <div class="ipName">
+                                <input placeholder="New Dashboard" />
+                            </div>
+                            <div>
+                                <div></div>
+                                <div></div>
+                            </div>
+                        </div>
+                        <div class="aDBFoot">
+                            <div class="wButton">
+                                <button class="btn btnCancel">Cancel</button>
+                                <button class="btn btnCreate">Create Dashboard</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+    <t t-name="DashboardStudio.Edit.Options">
+        <div class="wOpDialog">
+             <div class="wConDialog">
+                <t t-foreach="options" t-as="option">
+                    <div class="opsItem" t-att-name="option.name">
+                        <div class="itIcon">
+                            <i t-att-class="'fa ' + icon" />
+                        </div>
+                        <span class="itTitle">
+                            <t t-esc="option.label" />
+                        </span>
+                    </div>
+                </t>
+             </div>
+        </div>
+    </t>
+    <t t-name="DashboardStudio.Edit.ChooseView">
+        <div class="container">
+            <div class="row">
+                <t t-foreach="views" t-as="view">
+                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 iCard" t-att-name="view.name">
+                        <div class="card">
+                            <div class="thumbnail">
+                                <img t-att-src="view.img" />
+                            </div>
+                            <div class="card-info">
+                                <a>
+                                    <h3><t t-esc="view.label" /></h3>
+                                    <p><t t-esc="view.des" /></p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="DashboardStudio.Edit.categoryItem">
+        <div t-att-class="active ? 'categoryItem active' : 'categoryItem'">
+            <a><t t-esc="category.label" /></a>
+        </div>
+    </t>
+
+    <t t-name="DashboardStudio.Edit.categoryWidgets">
+        <div class="container">
+            <div class="row">
+                <t t-foreach="views" t-as="view">
+                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 iCard" t-att-name="view.name">
+                        <div class="card">
+                            <div class="thumbnail">
+                                <img t-att-src="view.img" />
+                            </div>
+                            <div class="card-info">
+                                <a>
+                                    <h3><t t-esc="view.label" /></h3>
+                                    <p><t t-esc="view.description" /></p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </div>
+        </div>
+    </t>
+    <t t-name="DashboardStudio.Edit.ViewsCenter">
+        <div class="wMoreViewDB">
+            <t t-if="widget.state.step == 'setup'">
+                <div class="wBtn">
+                    <a class="aSave">
+                        <i class="fa fa-save" />
+                    </a>
+                    <a class="aReset">
+                        <i class="fa fa-refresh" />
+                    </a>
+                </div>
+            </t>
+            <div t-att-class="widget.state.step == 'setup' ? 'wWidgets editView' : 'wWidgets'">
+                <a class="fa fa-close faClose"></a>
+                <div class="wgHead container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="landing-title">
+                                <span class="title"><t t-esc="widget.steps[widget.state.step].label" /></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="wgCon _divSBB">
+                    <t t-if="!widget.state.hideLeft">
+                        <div class="vclEft">
+                            <div class="listCategory">
+                            </div>
+                        </div>
+                    </t>
+                    <div class="vcrIGht">
+                        <div class="cateWidgets">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+    <t t-name="DashboardStudio.PropsView">
+        <div class="wPropsView">
+            <div class="wPViewHead _divSBB"></div>
+            <div class="wPViewCon">
+
+            </div>
+            <div class="wPViewBot">
+            </div>
+        </div>
+    </t>
+    <t t-name="DashboardStudio.View.View">
+        <div class="wView">
+            <div></div>
+            <div class="viewCon">
+                <div class="viewProps"></div>
+                <div class="viewView _divSBB ovX">
+                    <div class="noEdit"></div>
+                </div>
+            </div>
+        </div>
+    </t>
+    <t t-name="DashboardStudio.View.Calendar">
+        <div class="wView wCalendar">
+            <div></div>
+            <div class="viewCon caCon">
+                <div class="viewProps caProps"></div>
+                <div class="viewView caView _divSBB ovX"></div>
+            </div>
+        </div>
+    </t>
+    <t t-name="DashboardStudio.View.Pivot">
+        <div class="wView wPivot">
+            <div></div>
+            <div class="viewCon piCon">
+                <div class="viewProps piProps"></div>
+                <div class="viewView piView _divSBB ovX">
+                    <div class="noEdit"></div>
+                </div>
+            </div>
+        </div>
+    </t>
+    <t t-name="DashboardStudio.View.Graph">
+        <div class="wView wGraph">
+            <div></div>
+            <div class="viewCon graphCon">
+                <div class="viewProps graphProps"></div>
+                <div class="viewView graphView _divSBB ovX">
+                    <div class="noEdit"></div>
+                </div>
+            </div>
+        </div>
+    </t>
+    <t t-name="DashboardStudio.View.activity">
+        <div class="wView wActivity">
+            <div></div>
+            <div class="viewCon activityCon">
+                <div class="viewProps activityProps"></div>
+                <div class="viewView activityView _divSBB ovX">
+                    <div class="noEdit"></div>
+                </div>
+            </div>
+        </div>
+    </t>
+    <t t-name="DashboardStudio.View.Kanban">
+        <div class="wView wKanBan">
+            <div></div>
+            <div class="viewCon kanbanCon">
+                <div class="viewProps kanbanProps"></div>
+                <div class="viewView kanbanView _divSBB ovX">
+                    <div class="noEdit"></div>
+                </div>
+            </div>
+        </div>
+    </t>
+    <t t-name="DashboardStudio.View.Planning">
+        <div class="wView wPlanning">
+            <div></div>
+            <div class="viewCon planningCon">
+                <div class="viewProps planningProps"></div>
+                <div class="viewView planningView _divSBB ovX">
+                    <div class="noEdit"></div>
+                </div>
+            </div>
+        </div>
+    </t>
+    <t t-name="DashboardStudio.View.Tree">
+        <div class="wView wTree">
+            <div></div>
+            <div class="viewCon treeCon">
+                <div class="viewProps treeProps"></div>
+                <div class="viewView treeView _divSBB ovX">
+                    <div class="noEdit"></div>
+                </div>
+            </div>
+        </div>
+    </t>
+    <t t-name="DashboardStudio.Tree.TabFields">
+        <div class="wTabFields">
+            <div class="wSearch">
+                <input type="text" class="_ipSearch" placeholder="search field..." />
+            </div>
+            <div class="wFields _wSortable _divSBB">
+                <t t-foreach="fields" t-as="fieldName">
+                    <t t-set="field" t-value="fields[fieldName]" />
+                    <t t-call="DashboardStudio.Tree.TabFields.item"/>
+                </t>
+            </div>
+        </div>
+    </t>
+    <t t-name="DashboardStudio.Tree.TabFields.item">
+        <div class="item" t-att-name="fieldName">
+            <a t-att-name="fieldName"><t t-esc="field.string" /></a>
+        </div>
+    </t>
+    <t t-name="DashboardStudio.Tree.TabView">
+        <div class="wTabView _divSBB">
+        </div>
+    </t>
+    <t t-name="DashboardStudio.Buttons">
+        <div class="wRemoveNode">
+            <a>Remove Field</a>
+        </div>
+    </t>
+    <t t-name="DashboardStudio.ListSQL.table">
+        <div class="o_list_view">
+                <t t-if="widget.state.header.length">
+                    <table class="o_list_table table table-sm">
+                        <thead>
+                            <tr>
+                                <t t-foreach="widget.state.header" t-as="label">
+                                    <th><span><t t-esc="label" /></span></th>
+                                </t>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="widget.state.body" t-as="row">
+                                <tr>
+                                    <t t-foreach="row" t-as="col">
+                                        <td><span><t t-esc="col" /></span></td>
+                                    </t>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </t>
+            </div>
+    </t>
+    <t t-name="DashboardStudio.ListSQL">
+        <div>
+            <t t-call="DashboardStudio.ListSQL.table" />
+            <div class="w_query">
+                <textarea><t t-esc="widget.state.query" /></textarea>
+            </div>
+        </div>
+    </t>
+</templates>

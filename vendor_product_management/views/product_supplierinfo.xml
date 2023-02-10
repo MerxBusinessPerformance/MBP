@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="product_supplierinfo_form_view" model="ir.ui.view">
+        <field name="name">product.supplierinfo.form.view</field>
+        <field name="model">product.supplierinfo</field>
+        <field name="inherit_id" ref="product.product_supplierinfo_form_view"/>
+        <field name="arch" type="xml">
+            <field name="product_variant_count" position="before">
+                <field name="vendor_product_id"
+                       domain="[('product_tmpl_id', '=', product_tmpl_id)]"
+                       context="{
+                            'default_partner_id': name,
+                            'default_product_name': product_name,
+                            'default_product_code': product_code,
+                            'default_product_id': product_id,
+                            'default_product_tmpl_id': product_tmpl_id,
+                            'default_delay': delay,
+                        }"
+                />
+            </field>
+            <field name="name" position="attributes">
+                <attribute name="attrs">{'readonly': [('vendor_product_id', '!=', False)]}</attribute>
+            </field>
+            <field name="product_id" position="attributes">
+                <attribute name="attrs">{'readonly': [('vendor_product_id', '!=', False)]}</attribute>
+            </field>
+            <field name="product_tmpl_id" position="attributes">
+                <attribute name="attrs">{'readonly': [('vendor_product_id', '!=', False)]}</attribute>
+            </field>
+            <field name="product_name" position="attributes">
+                <attribute name="attrs">{'readonly': [('vendor_product_id', '!=', False)]}</attribute>
+            </field>
+            <field name="product_code" position="attributes">
+                <attribute name="attrs">{'readonly': [('vendor_product_id', '!=', False)]}</attribute>
+            </field>
+            <field name="delay" position="attributes">
+                <attribute name="attrs">{'readonly': [('vendor_product_id', '!=', False)]}</attribute>
+            </field>
+        </field>
+    </record>
+
+    <record id="product_supplierinfo_tree_view" model="ir.ui.view">
+        <field name="name">product.supplierinfo.tree.view</field>
+        <field name="model">product.supplierinfo</field>
+        <field name="inherit_id" ref="product.product_supplierinfo_tree_view"/>
+        <field name="arch" type="xml">
+            <field name="name" position="before">
+                <field name="vendor_product_id"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>

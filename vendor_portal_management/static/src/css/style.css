@@ -1,0 +1,12 @@
+.inactive_row {
+    background-color: #CCCCCC;
+}
+.chekbox_input {
+    width: 50% !important;
+}
+.hidden_input {
+    display: none;
+}
+.no_wrap_vendor {
+	white-space: nowrap;
+}

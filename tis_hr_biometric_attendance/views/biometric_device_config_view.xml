@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="biometric_device_config_view_form" model="ir.ui.view">
+        <field name="name">biometric.config.form</field>
+        <field name="model">biometric.config</field>
+        <field name="arch" type="xml">
+            <form string="Biometric Device">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="test_device_connection" class="oe_stat_button"
+                                icon="fa-plug" type="object" string="Test Connection"/>
+                        <button name="sync_employees" class="oe_stat_button"
+                                icon="fa-retweet" type="object" string="Sync Employees"/>
+                        <button name="download_attendance_log" class="oe_stat_button"
+                                icon="fa-download" type="object" string="Download Attendance"/>
+                    </div>
+                    <div class="oe_title" name="title">
+                        <label for="name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name" placeholder="Device Reference"/>
+                        </h1>
+                    </div>
+                    <group colspan="4" cols="4">
+                        <group>
+                            <field name="device_ip"/>
+                            <field name="port"/>
+                            <field name="company_id"/>
+                        </group>
+                        <group>
+                            <field name="is_password_set"/>
+                            <field name="device_password" password="True"
+                                   attrs="{'invisible':[('is_password_set','=', False)], 'required': [('is_password_set', '=', True)]}"/>
+                            <field name="time_zone"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="biometric_device_config_view_tree" model="ir.ui.view">
+        <field name="name">biometric.config.tree</field>
+        <field name="model">biometric.config</field>
+        <field name="arch" type="xml">
+            <tree string="Biometric Device">
+                <field name="name"/>
+                <field name="device_ip"/>
+                <field name="port"/>
+                <field name="time_zone"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_biometric_device_config_view" model="ir.actions.act_window">
+        <field name="name">Biometric Device Config</field>
+        <field name="res_model">biometric.config</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Click to config a new biometric device.
+            </p>
+        </field>
+    </record>
+
+    <menuitem action="action_biometric_device_config_view"
+              id="menu_biometric_device_config"
+              parent="hr_attendance.menu_hr_attendance_root"
+              sequence="98"
+              groups="hr_attendance.group_hr_attendance_manager"/>
+
+</odoo>

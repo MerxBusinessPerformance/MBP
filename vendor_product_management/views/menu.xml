@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <menuitem name="Vendor Products"
+              id="menu_vendor_products_root"
+              parent="purchase.menu_purchase_root"
+              sequence="90"
+    />
+
+    <menuitem name="Products"
+              id="menu_vendor_products"
+              parent="menu_vendor_products_root"
+              sequence="10"
+              action="vendor_product_action"
+    />
+
+    <menuitem name="Locations"
+              id="menu_vendor_locations"
+              parent="menu_vendor_products_root"
+              sequence="20"
+              action="vendor_location_action"
+    />
+
+    <menuitem name="Stocks"
+              id="menu_vendor_inventory"
+              parent="menu_vendor_products_root"
+              sequence="30"
+              action="vendor_quant_action"
+    />
+
+    <menuitem name="Import Vendor Products"
+              id="menu_vendor_products_import"
+              parent="menu_vendor_products_root"
+              sequence="40"
+              action="vendor_product_import_action"
+    />
+
+    <menuitem name="Import Vendor Stocks"
+              id="menu_vendor_stocks_import"
+              parent="menu_vendor_products_root"
+              sequence="50"
+              action="vendor_stock_import_action"
+    />
+
+</odoo>

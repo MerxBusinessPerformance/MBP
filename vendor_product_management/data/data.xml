@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="mt_vendor_product_new" model="mail.message.subtype">
+        <field name="name">New vendor product</field>
+        <field name="res_model">vendor.product</field>
+        <field name="default" eval="False"/>
+        <field name="hidden" eval="False"/>
+        <field name="internal" eval="True"/>
+        <field name="sequence">1</field>
+        <field name="description">New vendor product</field>
+    </record>
+    <record id="mt_partner_vendor_product_new" model="mail.message.subtype">
+        <field name="name">New vendor products</field>
+        <field name="sequence">0</field>
+        <field name="res_model">res.partner</field>
+        <field name="default" eval="False"/>
+        <field name="hidden" eval="False"/>
+        <field name="internal" eval="True"/>
+        <field name="sequence">10</field>
+        <field name="parent_id" eval="ref('vendor_product_management.mt_vendor_product_new')"/>
+        <field name="relation_field">partner_id</field>
+    </record>
+    <record id="mt_vendor_product_price" model="mail.message.subtype">
+        <field name="name">Price update</field>
+        <field name="res_model">vendor.product</field>
+        <field name="default" eval="False"/>
+        <field name="hidden" eval="False"/>
+        <field name="internal" eval="True"/>
+        <field name="sequence">1</field>
+        <field name="description">Price update</field>
+    </record>
+    <record id="mt_partner_vendor_product_price" model="mail.message.subtype">
+        <field name="name">Vendor products: price update</field>
+        <field name="sequence">0</field>
+        <field name="res_model">res.partner</field>
+        <field name="default" eval="False"/>
+        <field name="hidden" eval="False"/>
+        <field name="internal" eval="True"/>
+        <field name="sequence">10</field>
+        <field name="parent_id" eval="ref('vendor_product_management.mt_vendor_product_price')"/>
+        <field name="relation_field">partner_id</field>
+    </record>
+    <record id="mt_vendor_product_stocks" model="mail.message.subtype">
+        <field name="name">Stocks update</field>
+        <field name="res_model">vendor.product</field>
+        <field name="default" eval="False"/>
+        <field name="hidden" eval="False"/>
+        <field name="internal" eval="True"/>
+        <field name="sequence">1</field>
+        <field name="description">Stocks update</field>
+    </record>
+    <record id="mt_partner_vendor_product_stocks" model="mail.message.subtype">
+        <field name="name">Vendor products: stocks update</field>
+        <field name="sequence">0</field>
+        <field name="res_model">res.partner</field>
+        <field name="default" eval="False"/>
+        <field name="hidden" eval="False"/>
+        <field name="internal" eval="True"/>
+        <field name="sequence">10</field>
+        <field name="parent_id" eval="ref('vendor_product_management.mt_vendor_product_stocks')"/>
+        <field name="relation_field">partner_id</field>
+    </record>
+
+</odoo>

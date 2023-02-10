@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="ViewStudio.ChooseReport.item">
+        <div class="itemRT">
+            <h4><t t-esc="label" /></h4>
+            <p><t t-esc="description" /></p>
+        </div>
+    </t>
+    <t t-name="ViewStudio.ReportCenter">
+        <div class="wReportCenter">
+
+        </div>
+    </t>
+
+    <t t-name="ViewStudio.ReportView">
+        <div class="wReportView">
+            <link type="text/css" rel="stylesheet" href="/web/assets/debug/web.report_assets_common.css" />
+            <button class="btn btn-primary btnPrint">Print</button>
+            <div class="wContent"></div>
+            <div class="wFrame"></div>
+        </div>
+    </t>
+    <t t-name="ViewStudio.ReportEdit">
+        <div class="wView">
+            <div></div>
+            <div class="viewCon">
+                <div class="viewProps"></div>
+                <div class="viewView _divSB ovX">
+                    <div class="noEdit"></div>
+                </div>
+            </div>
+        </div>
+    </t>
+    <t t-name="ViewStudio.ReportTemplates.Internal">
+        <t t-name="report_studio_id_123">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="web.internal_layout">
+                        <div class="page">
+                            <h2>Hello</h2>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </t>
+    </t>
+    <t t-name="ViewStudio.ReportTemplates.External">
+        <t t-name="report_studio_id_145">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="web.external_layout">
+                        <div class="page">
+                            <h2>Hello</h2>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </t>
+    </t>
+    <t t-name="ViewStudio.ReportTemplates.Blank">
+        <t t-name="report_studio_id_1454">
+            <t t-call="web.html_container">
+                <div class="header"></div>
+                <div class="article">
+                    <t t-foreach="docs" t-as="doc">
+                        <div class="page">
+                            <h2><t t-esc="doc.id" /></h2>
+                        </div>
+                    </t>
+                </div>
+                <div class="footer"></div>
+            </t>
+        </t>
+    </t>
+</templates>

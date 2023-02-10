@@ -1,0 +1,152 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="vendor_product_view_search" model="ir.ui.view">
+        <field name="name">vendor.product.search</field>
+        <field name="model">vendor.product</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="product_name" filter_domain="['|', ('product_name', 'ilike', self), ('product_code', 'ilike', self)]"/>
+                <field name="partner_id"/>
+                <field name="product_id"/>
+                <filter string="Not assigned products" name="not_assigned" domain="[('product_id', '=', False)]"/>
+                <separator/>
+                <filter string="Out of Stock" name="out_of_stock" domain="[('zero_qty', '=', True)]"/>
+                <separator/>
+                <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+                <group  expand='0' string='Group by...'>
+                    <filter name="supplier_group" string="Vendor" context="{'group_by' : 'partner_id'}"/>
+                    <filter name="product_id_group" string="Product" context="{'group_by' : 'product_id'}"/>
+                    <filter name="product_tmpl_id_group" string="Product Template" context="{'group_by' : 'product_tmpl_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+    <record id="vendor_product_view_form" model="ir.ui.view">
+        <field name="name">vendor.product.form</field>
+        <field name="model">vendor.product</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="%(vendor_product_management.vendor_quant_action)d"
+                                type="action"
+                                icon="fa-cubes"
+                                context="{'default_vendor_product_id': id, 'search_default_vendor_product_id': id, 'search_default_vendor_location_id_group': 1, 'search_default_vendor_product_partner_id_group': 1,}"
+                        >
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_value">
+                                    <field name="vendor_quantity"
+                                           widget="statinfo"
+                                           nolabel="1"
+                                           class="mr4"
+                                    />
+                                    <field name="uom_name"/>
+                                </span>
+                                <span class="o_stat_text">Vendor Stocks</span>
+                            </div>
+                        </button>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="partner_id"/>
+                            <field name="product_name"/>
+                            <field name="product_code"/>
+                        </group>
+                        <group>
+                            <div style="color: #c54d49;" attrs="{'invisible': [('uom_notes', '=', False)]}">
+                                <field name="uom_notes" nolabel="1"/>
+                            </div>
+                            <field name="product_id"/>
+                            <field name="product_tmpl_id"/>
+                            <field name="delay"/>
+                            <field name="active" invisible="1"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Prices">
+                            <field name="price_ids">
+                                <tree>
+                                    <field name="price"/>
+                                    <field name="currency_id"/>
+                                    <field name="min_qty"/>
+                                    <field name="date_start"/>
+                                    <field name="date_end"/>
+                                    <field name="company_id" groups="base.group_multi_company"/>
+                                </tree>
+                                <form>
+                                    <sheet>
+                                        <group>
+                                            <label for="min_qty"/>
+                                            <div>
+                                                <field name="min_qty" class="oe_inline"/>
+                                                <field name="product_uom" class="oe_inline" groups="uom.group_uom"/>
+                                            </div>
+                                            <label for="price"/>
+                                            <div>
+                                                <field name="price" class="oe_inline"/>
+                                                <field name="currency_id" class="oe_inline"/>
+                                            </div>
+                                            <label for="date_start" string="Validity"/>
+                                            <div>
+                                                <field name="date_start" class="oe_inline"/> to
+                                                <field name="date_end" class="oe_inline"/>
+                                            </div>
+                                            <field name="company_id"  readonly="1" groups="base.group_multi_company"/>
+                                        </group>
+                                        <group invisible="1">
+                                            <field name="name"/>
+                                            <field name="vendor_product_id"/>
+                                            <field name="product_id"/>
+                                            <field name="product_tmpl_id"/>
+                                            <field name="product_name"/>
+                                            <field name="product_code"/>
+                                        </group>
+                                    </sheet>
+                                </form>
+                            </field>
+                        </page>
+                        <page string="Notes">
+                            <field name="description"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+    <record id="vendor_product_view_tree" model="ir.ui.view">
+        <field name="name">vendor.product.tree</field>
+        <field name="model">vendor.product</field>
+        <field name="arch" type="xml">
+            <tree decoration-danger="not product_id" decoration-warning="zero_qty">
+                <field name='partner_id'/>
+                <field name='product_name'/>
+                <field name='product_code'/>
+                <field name="product_id"/>
+                <field name="product_tmpl_id"/>
+                <field name="vendor_quantity"/>
+                <field name="uom_name" string="UoM"/>
+                <field name="uom_notes"/>
+                <field name="zero_qty" invisible="1"/>
+                <field name="price_ids" widget="many2many_tags"/>
+            </tree>
+        </field>
+    </record>
+    <record id="vendor_product_action" model="ir.actions.act_window">
+         <field name="name">Vendor Products</field>
+         <field name="type">ir.actions.act_window</field>
+         <field name="res_model">vendor.product</field>
+         <field name="view_mode">tree,form</field>
+         <field name="search_view_id" eval="vendor_product_view_search"/>
+         <field name="help" type="html">
+              <p class="oe_view_nocontent_create">Click to add a new vendor product</p>
+         </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="DashboardStudio.Field.Datetime">
+        <div class="wFieldDT">
+            <div class="lblField">
+                <a><t t-esc="widget.props.label" /></a>
+            </div>
+            <div class="wDT">
+            </div>
+        </div>
+    </t>
+    <t t-name="DashboardStudio.Field.Selection">
+        <div class="widgetSelection">
+            <a class="lblField"><t t-esc="widget.props.label" /></a>
+            <select t-att-value="widget.getValue()">
+                <t t-foreach="widget.data" t-as="dataItem">
+                    <option t-att-value="dataItem.value">
+                        <t t-esc="dataItem.label" />
+                    </option>
+                </t>
+            </select>
+        </div>
+    </t>
+    <t t-name="DashboardStudio.Field.Radio">
+        <div class="wFieldRadio">
+            <t t-set="data" t-value="widget.props" />
+            <div class="_wCb" t-att-value="data.value">
+                <div class="_wCcB"></div>
+            </div>
+            <span class="splBl lblField"><t t-esc="data.label" /></span>
+        </div>
+    </t>
+    <t t-name="DashboardStudio.Field.Input">
+        <div class="wFieldInput">
+            <div class="lblField">
+                <a><t t-esc="widget.props.label" /></a>
+            </div>
+            <div class="wInput">
+                <input t-att-type="widget.props.type || 'text'" t-att-placeholder="widget.props.placeholder" t-att-value="widget.state.value" />
+            </div>
+        </div>
+    </t>
+    <t t-name="DashboardStudio.Field.Widget">
+        <div class="_widgetOption">
+            <label class="lblField">Widget</label>
+            <select t-att-value="widget.getValue()">
+                <t t-foreach="widget.fieldsWidget" t-as="fieldWidget">
+                    <option t-att-value="fieldWidget.value">
+                        <t t-esc="fieldWidget.label" /> (<t t-esc="fieldWidget.value" />)
+                    </option>
+                </t>
+            </select>
+        </div>
+    </t>
+    <t t-name="DashboardStudio.Field.Many2many">
+        <div class="wMany2many">
+            <div class="wLabel">
+                <a class="lblField"><t t-esc="widget.props.label" /></a>
+            </div>
+            <div class="wContent"></div>
+        </div>
+    </t>
+    <t t-name="DashboardStudio.Field.Many2one">
+        <div class="wMany2many">
+            <div class="wLabel">
+                <a class="lblField"><t t-esc="widget.props.label" /></a>
+            </div>
+            <div class="wContent"></div>
+        </div>
+    </t>
+    <t t-name="DashboardStudio.Field.RadioCondition">
+        <div class="rdCondition">
+            <div class="wRadio"></div>
+            <a class="aSCon">Condition</a>
+        </div>
+    </t>
+    <t t-name="DashboardStudio.Field.M2mRaw.Choose">
+        <div>
+            <div>
+                <t t-foreach="widget.fields" t-as="field">
+                    <a><t t-esc="field.string" /></a>
+                </t>
+            </div>
+        </div>
+    </t>
+    <t t-name="DashboardStudio.Field.M2mRaw">
+        <div class="wM2mRaw">
+            <div class="wLabel">
+                <a class="lblField"><t t-esc="widget.props.label" /></a>
+            </div>
+            <div class="wContent">
+                <div class="wValue">
+                    <t t-foreach="widget.state.value" t-as="data">
+                        <a class="itemVal" t-att-name="data.value">
+                            <t t-esc="data.label" />
+                            <i class="fa fa-close" />
+                        </a>
+                    </t>
+                </div>
+                <div class="wSelect">
+
+                </div>
+            </div>
+        </div>
+    </t>
+    <t t-name="DashboardStudio.Field.ToggleSwitch">
+        <div class="wToggleSwitch">
+            <label class="switch">
+                <t t-if="widget.state.value">
+                    <input type="checkbox" checked="" />
+                </t>
+                <t t-else="">
+                    <input type="checkbox" />
+                </t>
+                <span class="slider round"></span>
+            </label>
+            <div class="lblField">
+                <a><t t-esc="widget.props.label" /></a>
+            </div>
+        </div>
+    </t>
+</templates>

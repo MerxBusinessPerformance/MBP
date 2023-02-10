@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<data>
+        <record id="view_exportar_cfdi_sua_wizard" model="ir.ui.view">
+            <field name="name">exportar.cfdi.sua.wizard.form</field>
+            <field name="model">exportar.cfdi.sua</field>
+            <field name="arch" type="xml">
+                <form string="Filtro">
+                    <group>
+                        <group>
+                            <field name="start_date" required="1"/>
+                            <field name="employee_id" />
+                            <field name="tipo_exp_sua" invisible="context.get('idse')"/>
+                            <field name="tipo_exp_idse" invisible="not context.get('idse')"/>
+                        </group>
+                        <group>
+                            <field name="end_date" required="1"/>
+                            <field name="registro_patronal_id"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button name="print_exportar_cfdi_sua" string="Generar" type="object" class="btn-primary"/>
+                        <button string="Cancelar" class="btn-default" special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+    <record id="exportar_cfdi_sua_wizard_action" model="ir.actions.act_window">
+        <field name="name">Exportar SUA</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">exportar.cfdi.sua</field>
+        <!-- <field name="view_type">form</field> -->
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_exportar_cfdi_sua_wizard"/>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem
+        id="exportar_cfdi_wizard_main_menu"
+        name="Exportar"
+        parent="hr.menu_hr_root"
+        groups="om_hr_payroll.group_hr_payroll_user"
+        sequence="85"/>
+
+    <menuitem
+        id="exportar_cfdi_sua_wizard_action_menu"
+        name="SUA"
+        parent="exportar_cfdi_wizard_main_menu"
+        action="exportar_cfdi_sua_wizard_action"
+        sequence="10"/>
+
+	<record id="exportar_cfdi_idse_wizard_action" model="ir.actions.act_window">
+        <field name="name">Exportar IDSE</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">exportar.cfdi.sua</field>
+        <!-- <field name="view_type">form</field> -->
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_exportar_cfdi_sua_wizard"/>
+        <field name="context">{'idse':True}</field>
+        <field name="target">new</field>
+    </record>
+    <menuitem
+        id="exportar_cfdi_idse_wizard_action_menu"
+        parent="exportar_cfdi_wizard_main_menu"
+        action="exportar_cfdi_idse_wizard_action"
+        name="IDSE"
+        sequence="20"/>
+
+	</data>
+</odoo>

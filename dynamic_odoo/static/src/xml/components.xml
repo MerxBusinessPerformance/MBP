@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="Components.Button">
+        <div class="wButton">
+            <button class="btn">
+                <i t-if="widget.props.icon" t-att-class="'fa fa-'+widget.props.icon"></i>
+                <t t-esc="widget.props.label" />
+            </button>
+        </div>
+    </t>
+</templates>

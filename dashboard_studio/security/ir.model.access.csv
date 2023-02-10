@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_view_view_center,view.center,model_view_center,base.group_user,1,1,1,1
+access_view_view_dashboard,view.dashboard,model_view_dashboard,base.group_user,1,1,1,1
+access_view_dashboard_widget_view,dashboard.widget.view,model_dashboard_widget_view,base.group_user,1,1,1,1
+access_view_dashboard_widget_data,dashboard.widget.data,model_dashboard_widget_data,base.group_user,1,1,1,1

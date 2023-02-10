@@ -1,0 +1,240 @@
+.wDBbg {
+  position: fixed;
+  z-index: 1002;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  background-color: rgba(0, 0, 0, 0.4);
+  bottom: 0px;
+}
+
+.wMenuCreator {
+  .lblField {
+    font-size: 15px;
+    color: #585858;
+    font-family: emoji;
+  }
+  .wCon > div {
+    margin-bottom: 10px;
+  }
+}
+
+.wDBMenuEdit {
+  font-family: initial;
+  overflow: hidden;
+  min-width: 500px;
+  background: white;
+  //border: 1px solid #2c373c;
+  color: #bbbbbb;
+  display: flex;
+  flex-direction: column;
+  width: max-content;
+  margin: auto;
+  //border-top-width: 0px;
+  position: relative;
+  border-radius: 0px 0px 5px 5px;
+  overflow: hidden;
+  border: 1px solid #282e40;
+  .wpTS {
+    display: inline-block;
+    float: left;
+    .wToggleSwitch {
+      .lblField {
+        font-size: 15px;
+        line-height: 30px;
+      }
+      .switch {
+        width: 70px;
+        height: 35px;
+      }
+      .slider {
+        border: 1px solid #5b636b;
+        background-color: #434a58 !important;
+        &:before {
+          height: 25px;
+          width: 25px;
+        }
+      }
+      input:checked + .slider:before {
+        transform: translateX(31px);
+      }
+    }
+  }
+  .dragging {
+    border: 1px dashed #dee2e6 !important;
+    visibility: inherit !important;
+    margin-bottom: 5px !important;
+  }
+  ._bot {
+    background: #353a42;
+    border-top: 1px solid #2e3238;
+    padding: 10px;
+    text-align: right;
+    ._btnConfirm {
+      border: 1px solid #5b636b;
+      background-color: rgb(67, 74, 88);
+      padding: 7px 20px;
+      color: #d6d6d6;
+      font-weight: 400;
+    }
+  }
+  ._head {
+    padding: 15px 10px;
+    background: #353a42;
+    border-bottom: 1px solid #494b4b;
+    display: flex;
+    div:first-child {
+      flex: 1;
+      a {
+        font-size: 16px;
+        color: #d6d6d6;
+        font-weight: bold;
+      }
+    }
+    div:last-child {
+      text-align: left;
+    }
+    i {
+      font-size: 19px;
+      color: #f6607c;
+      cursor: pointer;
+    }
+    i:hover {
+      color: #ef4d6b;
+    }
+  }
+  ._con {
+    //background-color: #2b2b2b;
+    background: #3c4048;
+    border-top: 1px solid #1f232b;
+    max-height: 500px;
+    overflow-y: scroll;
+    padding: 20px;
+    > ul {
+      padding: 0px;
+      margin-left: 0px;
+    }
+    //._liSub {
+    //  position: relative;
+    //}
+  }
+  .aCh {
+    margin-left: 30px;
+  }
+  ul {
+    //position: relative;
+    list-style: none;
+    margin-left: 30px;
+    padding: 0px;
+  }
+  ._wInfo:hover {
+    //opacity: 1;
+    box-shadow: #2c2d2f -4px 7px 16px -12px;
+    ._wName {
+      color: #3fabdb;
+      font-weight: 600;
+    }
+    ._wAdd:hover i {
+      color: #9473ce;
+    }
+    //._wName {
+    //  background: #555b71;
+    //}
+    //._wEdit {
+    //  background: #43495a;
+    //  .faEdit {
+    //    color: #219dff;
+    //  }
+    //  .faRemove {
+    //    color: #ec5e5e;
+    //  }
+    //}
+  }
+  ._wInfo {
+    display: flex;
+    margin-bottom: 5px;
+    cursor: pointer;
+    border: 1px solid #353b46;
+    border-radius: 4px 0px 0px 4px;
+    overflow: hidden;
+    background: #454c6d;
+    //box-shadow: #2c2d2f 0px 7px 16px -5px;
+    ._wEdit {
+      margin-top: 4px;
+      width: 23px;
+    }
+    ._wName {
+      flex: 1;
+      padding: 8px 15px;
+      background: #434958;
+      border-left-width: 0px;
+      border-right-width: 0px;
+      color: #efefef;
+      font-size: 14px;
+      input {
+        display: none;
+      }
+      input:focus {
+        border: 1px solid #a5a3d3;
+      }
+    }
+    ._wAdd {
+      padding: 10px 7px 0px 7px;
+      background: #4a4f61;
+      border-right: 1px solid #535c6d;
+      i {
+        //font-size: 16px;
+      }
+    }
+    ._wIcon {
+      padding: 5px;
+      margin: 0px;
+      background: #494f5f;
+      border-left: 1px solid #545c6d;
+      display: flex;
+      width: 63px;
+      i {
+        font-size: 20px;
+        padding: 5px;
+      }
+      .faEdit {
+        color: #9ca9b3;
+      }
+      .faRemove {
+        color: #d06969;
+      }
+    }
+  }
+  ._divSBB::-webkit-scrollbar-track {
+    background: #3c4147;
+  }
+  ._divSBB::-webkit-scrollbar-thumb {
+    background-color: #4d5269;
+    border-radius: 10px;
+    border: 2.5px solid rgba(0, 0, 0, 0);
+    background-clip: padding-box;
+  }
+  ._divSBB::-webkit-scrollbar-thumb:hover {
+    background: #4e5369;
+  }
+  ._divSBB::-webkit-scrollbar {
+    width: 16px;
+  }
+  ._divSBB::-webkit-scrollbar-track {
+    //background: #f2fafe;
+    background: #353a42 !important;
+  }
+
+  //._divSBB::-webkit-scrollbar-thumb {
+  //  background: #b6b2ca;
+  //  border-radius: 10px;
+  //  border: 2.5px solid rgba(0, 0, 0, 0);
+  //  background-clip: padding-box;
+  //}
+  //
+  //._divSBB::-webkit-scrollbar-thumb:hover {
+  //  background: #a29dbf;
+  //  cursor: pointer;
+  //  border: 1.5px solid rgba(0, 0, 0, 0);
+  //}
+}

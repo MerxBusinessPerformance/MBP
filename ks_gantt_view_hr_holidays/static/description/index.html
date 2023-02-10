@@ -1,0 +1,1418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gantt View Time Off</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <main class="main-container py-md-5 py-2" style="background-color:#ffffff;">
+        <div class="container" style="border-radius: 20px;">
+            <div class="shadow main-desc-container px-lg-5 p-4 bg-white" style="border-radius: 20px; font-family: 'Inter', sans-serif;">
+                <div class="ks-top-logos pb-3">
+                    <div class="text-center mb-md-4 mb-3">
+                        <img src="./img/top-logo/logo1.png" class="img-fluid" alt="ks-logo" height="60" loading="lazy">
+                    </div>
+                    <div class="d-flex align-items-center justify-content-sm-between flex-column flex-sm-row">
+                        <div class="odoo-logos d-flex align-items-center mb-sm-0 mb-3">
+                            <img src="./img/top-logo/logo2.png" class="img-fluid" alt="logo" height="48" loading="lazy">
+                        </div>
+                        <div class="odoo-logos d-flex align-items-center">
+                            <img src="./img/top-logo/logo3.png" class="img-fluid" alt="odoo-logo" height="32" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+                <div class="ks-content-1">
+                    <div class="ks-bg-blue position-relative pt-lg-5 pt-4"  style="z-index: 1; padding-bottom: 111px; padding-bottom: 6vw; background-color: #47527b; border-radius: 40px 40px 80px 80px;">
+                        <img src="./img/header-bg.png" alt="bg-img" class="w-100 h-100 position-absolute img-fluid d-none d-lg-block" loading="lazy" style="margin-top:-24px; border-radius: 10px 10px 20px 20px;">
+                        <div class="position-relative text-center px-3" style="color: #FFFFFF; font-family: 'Inter', sans-serif;">
+                            <img src="./img/header-img.png" alt="header-img"  class="img-fluid">
+                            <p style="font-weight: 500; font-size: 28px; font-size: calc(1.26rem + 0.5vw);" class="mt-3">
+                                Efficient Leave Management at Your Fingertips
+                            </p>
+                            <p class="mx-xl-4 px-xl-5 px-4" style="font-weight: 400; font-size: 16px; line-height: 24px;">
+                                Do you want to visualize the leave plans or vacations of your workforce? Gantt View Time Off is the module you need! Ksolves has developed the Odoo Gantt View Time Off, which allows an organization to manage all of its employees' leaves from a single location. It ensures that you keep your business running smoothly when your employees are on leave.
+                                <br> So, forget about going through the calendar, rolodex, and planners; just import all your employees into Gantt View and plan the leaves ahead for them.
+                            </p>
+                        </div>
+                        
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <div class="col-11 d-flex justify-content-center position-relative" style="margin-top: -8%; z-index:10;">
+                            <div style="background-color:#ffffff; border-radius: 10px;" class="py-3 px-lg-4 p-3 shadow">
+                                <img src="./img/gantt-view-time-off.gif" alt="gif" class="img-fluid" >
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="ks-content-1b p-md-5 p-3 mt-lg-5 mt-3 mx-lg-5" style="background-color:#383B6A; border-radius: 20px;">
+                    <h5 class="text-center px-4 mb-1" 
+                        style="color:#ffffff; font-weight: 700; font-size: 36px; font-size: calc(1.315rem + 1vw); line-height: 44px; letter-spacing: -0.02em; font-family: 'Inter', sans-serif;">
+                        Ksolves-Your One-Stop Solution
+                    </h5>
+                    <p class="text-center"
+                        style="color: #ffffff; font-weight: 400; font-size: 16px; line-height: 26px; margin-bottom: 28px;">
+                        We are available 24/7 for your service. Contact us today!
+                    </p>
+                    <div class=" mt-4 "> 
+                        <div class="row">
+                                <div class="col-lg-6 col-12">
+                                        <div class="mt-n2 d-flex align-items-center justify-content-lg-end justify-content-center mr-lg-5">
+                                            <img src="./img/contact-man-icon.png" alt=" contact-man-icon" class="img-fluid" style="width: 140px;" loading="lazy">
+                                        </div>
+                                </div>
+                                <div class="col-lg-6 col-12 d-flex align-items-center justify-content-lg-start justify-content-center mt-n4 mt-lg-0 ml-lg-n4">
+                                        <div class="row d-flex align-items-center justify-content-lg-start justify-content-center" style="">
+                                            <div class="col-sm-7 px-3 px-sm-0">
+                                                <a class="d-flex align-items-center px-2 py-3" href="mailto:sales@ksolves.com"
+                                                    style="background-color: #A9E8FC; text-decoration: none; border-radius: 5px;font-style: normal; font-weight: 400; font-size: 14px; color: #4F4F4F; height:40px;">
+                                                    <img alt="mail-icon" class="img-fluid pr-2 pl-2 mr-xl-2 mr-lg-0 mr-2" loading="lazy" src="./img/email.png">sales@ksolves.com</a>
+                                            </div>
+                                            <div class="col-sm-7 px-3 px-sm-0" style="margin-top: 5px;">
+                                                <a class=" d-flex align-items-center  px-2 py-3" href="tel:+91-7498170227"
+                                                    style="background-color: #A9E8FC; text-decoration: none; border-radius: 5px;font-style: normal; font-weight: 400; font-size: 14px; color: #4F4F4F; height:40px;">
+                                                    <img alt="phone" class="img-fluid pr-2 pl-2 mr-xl-2 mr-lg-0 mr-2" loading="lazy" src="./img/phone.png">+91-7498170227</a>
+                                            </div>
+                                        </div>
+                                </div>       
+                        </div>
+                    </div> 
+                </div>
+                <div class="ks-content-1c pb-4 mb-lg-2" style="margin-top:52px">
+                    <div class="d-flex align-items-center flex-column justify-content-center">
+                        <h5 style="font-family: 'Inter', sans-serif; font-weight: 600; font-size: 40px; line-height: 124%; text-align: center; font-size: calc(1.54rem + 1vw); letter-spacing: -0.02em; color: #323467;">
+                            USPs
+                        </h5>             
+                        <div style="background-color: #D9304F; width: 17px; height: 3px;"></div>
+                        <div class="pb-lg-2 mb-3 mt-md-4 mt-2">
+                            <img src="./img/ups.png" alt="arc-theme-img" class="img-fluid" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+                <div class="ks-content-1d">
+                    <div class="ks-bg-blue position-relative overflow-hidden pt-lg-5 pt-4 mb-4 px-md-5 px-0"  style=" background-color: #383b6a; padding:65px 75px; border-radius: 20px;">
+                        <img src="./img/cut-off-bg.png" alt="bg-img" class="w-100 h-100 position-absolute img-fluid ml-md-auto ml-sm-0" loading="lazy" style="top:-45px; margin-left: -3rem !important; border-radius: 20px;">
+                        <div class="position-relative">
+                            <div class="row mb-5">
+                                <div class="col-xl-12 pr-xl-0">
+                                    <h5 class="text-center px-4 mb-1" 
+                                        style="color:#8EF2FF; font-weight: 700; font-size: 40px; font-size: calc(1.315rem + 1vw); letter-spacing: -0.02em; font-family: 'Inter', sans-serif;">
+                                        Powerful. Interactive. Efficient.
+                                    </h5>
+                                    <p class="text-center m-0"
+                                        style="color: #ffffff; font-weight: 400; font-size: 38px; font-size: calc(1.2rem + 1vw);">
+                                        Gantt Chart for your business!
+                                    </p>
+                                </div>
+                            </div>
+                                <div class="row mb-5 mx-0">
+                                    <div class="col-xl-8 pr-xl-0">
+                                        <div class="d-flex align-items-center justify-content-center">
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <a href="https://apps.odoo.com/apps/modules/15.0/ks_gantt_view_base/">
+                                                                <img src="./img/odoo1.png" alt="img" loading="lazy" class="img-fluid">
+                                                            </a>
+                                                        </td>
+                                                        <td class="px-4">
+                                                            <img src="./img/plus.png" alt="img" loading="lazy" class="img-fluid">
+                                                        </td>
+                                                        <td>
+                                                            <a href="https://apps.odoo.com/apps/modules/15.0/ks_gantt_view_project/">
+                                                                <img src="./img/odoo2.png" alt="img" loading="lazy" class="img-fluid">
+                                                            </a>
+                                                        </td>
+                                                        
+                                                    </tr>
+                                                    <tr >
+                                                        <td class="text-center" style="height:60px">
+                                                            <img src="./img/plus.png" alt="img" loading="lazy" class="img-fluid">
+                                                        </td>
+                                                        <td style="height:60px" class="px-4">
+    
+                                                        </td>
+                                                        <td class="text-center" style="height:60px">
+                                                            <img src="./img/plus.png" alt="img" loading="lazy" class="img-fluid">
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <a href="https://apps.odoo.com/apps/modules/15.0/ks_gantt_view_mrp/">
+                                                                <img src="./img/odoo3.png" alt="img" loading="lazy" class="img-fluid">
+                                                            </a>
+                                                        </td>
+                                                        <td class="px-4">
+                                                            <img src="./img/plus.png" alt="img" loading="lazy" class="img-fluid">
+                                                        </td>
+                                                        <td>
+                                                            <a href="https://apps.odoo.com/apps/modules/15.0/ks_gantt_view_hr_holidays/">
+                                                                <img src="./img/odoo4.png" alt="img" loading="lazy" class="img-fluid">
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-4 mt-xl-0 mt-3 pl-xl-0">
+                                        <div class="d-flex align-items-center justify-content-center h-100">
+                                            <div style="width:180px">
+                                                <div class="d-flex align-items-center justify-content-center">
+                                                     <img src="./img/equal.png" alt="img" loading="lazy" class="img-fluid">
+                                                </div>
+                                            </div>
+                                            <div class="d-flex align-items-start justify-content-center flex-column h-100">
+                                                <img src="./img/60-img.png" alt="img" class="img-fluid" loading="lazy">
+                                                <div style="background-color: #EFF0FF; padding: 2px 12px; border-radius: 2px; margin-top: 15px; margin-bottom: 17px;" class="text-center">
+                                                    <p class="mb-0" style="font-weight: 500; font-size: 30px; line-height: 155.19%; letter-spacing: 0.08em; text-indent: 2px; color: #383B6A; font-size: calc(0.9rem + 1vw);">CUT-OFF</p>
+                                                </div>
+                                                <p class="mb-0" style="font-weight: 400; font-size: 18px; line-height: 26px; letter-spacing: 0.02em; text-indent: 2px; color: #FFFFFF;">
+                                                    On Total Time Spent In Managing Business Processes
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row d-flex align-items-center justify-content-center">
+                                    <div class="col-lg-9 col-11">
+                                        <div class="text-center py-2" style="background-color: #8EF2FF; border-radius: 5px; font-size: 32px; line-height: 45px; letter-spacing: -0.02em; text-indent: 2px; color: #383B6A; font-size: calc(1.5rem + 0.4vw);">
+                                            <span style="font-weight: 300;">
+                                                Don't Miss To Add The
+                                            </span> 
+                                            <span style="font-weight: 500;">
+                                                Bundle In Your Cart!
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            
+            <section class=" mt-4 pt-2" style="font-family: 'Inter', sans-serif;">
+                <div class="shadow py-3 bg-white" style="border-radius: 20px; ">
+                    <ul class="nav nav-tabs justify-content-center bg-white" id="myTab" role="tablist" style="border-bottom:1px solid #dee2e6;">
+                        <li class="nav-item">
+                          <a class="nav-link active" id="overview-tab" data-toggle="tab" href="#overview" role="tab" aria-controls="overview" aria-selected="true" style="color: #283071;font-weight: 400; font-size: 14px;"> Overview</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="why-ks-tab" data-toggle="tab" href="#why-ks" role="tab" aria-controls="why-ks" aria-selected="false" style="color: #283071;font-weight: 400; font-size: 14px;">Why Ksolves</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="support-tab" data-toggle="tab" href="#support" role="tab" aria-controls="s_c" aria-selected="false" style="color: #283071;font-weight: 400; font-size: 14px;">Support</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="faq-tab" data-toggle="tab" href="#faq" role="tab" aria-controls="faq" aria-selected="false" style="color: #283071;font-weight: 400; font-size: 14px;"> FAQS</a>
+                        </li>
+                        <!-- <li class="nav-item">
+                            <a class="nav-link" id="releases-tab" data-toggle="tab" href="#releases" role="tab" aria-controls="releases" aria-selected="false" style="color: #283071;font-weight: 400; font-size: 14px;">Releases</a>
+                        </li> -->
+                    </ul>
+                    <div class="px-3 px-lg-5">
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview-tab">
+                                
+                                <div class="text-center mt-lg-5 mt-5 mb-4">
+                                <p style="margin-bottom: 10px; font-weight: 500; font-size: 18px; line-height: 23px; letter-spacing: 0.04em; text-indent: 2px;color: #535456;">KEY HIGHLIGHTS OF</p>
+                                <h5 style="font-weight: 700; font-size: 42px; line-height: normal; letter-spacing: -0.02em; text-indent: 2px; color: #1D567E; margin-bottom: 10px;">
+                                        The Gantt View Time Off
+                                </h5>
+                                <p class="col-10 mx-auto px-0 pb-4" style="font-weight: 500; font-size: 18px; line-height: 27px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                        Leave management becomes easy and convenient with Gantt View Time Off!
+                                </p>
+                                </div>
+
+                                <!-- part1  -->
+                                <div class="px-4" style="background-color:#EDF9FF; border-radius:10px; padding-top:48px; padding-bottom: 45px; margin-bottom: 48px;">
+                                    <h5 style="margin-bottom:0px; font-weight: 600; font-size: 36px; line-height: 54px; text-align: center; text-indent: 2px; color: #3C3C3C; font-size: calc(1.315rem + 1vw);">Action Bar</h5>
+                                    <p style="font-weight: 400; font-size: 16px; line-height: 24px; text-align: center; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C; margin-bottom: 22px;">
+                                        The Action Bar contains different tools that include:
+                                    </p>
+
+                                    <div class="position-relative overflow-hidden" style="border-radius: 5px; padding: 20px; margin-bottom: 28px;">
+                                        <img src="./img/overview/time-off/duration.png" alt="bg-img" loading="lazy" style="margin-top:-20px; margin-left: -20px; object-fit: cover;" class="h-100 w-100 position-absolute fix-bottom img-fluid">
+                                        <div class="position-relative">
+                                            <div class="row">
+                                                <div class="col-xl-3 d-flex align-items-center justify-content-start  ">
+                                                    <div>
+                                                        <h5 style="font-weight: 600; font-size: 28px;line-height: 42px; letter-spacing: 0.02em; text-indent: 2px; color: #1D567E;">
+                                                            Duration
+                                                        </h5>
+                                                        <p style="font-weight: 500; font-size: 16px; line-height: 26px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                            Once you click on the duration button, it displays the number of leaves applied by each employee in the Gantt View Time Off.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-9 d-flex align-items-center justify-content-center ">
+                                                    <div style="background-color:#F8F8F8; border-radius:2px; padding:14px; width: 100%;">
+                                                        <img src="./img/overview/time-off/1.png" alt="img" class="w-100 img-fluid" loading="lazy">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="position-relative overflow-hidden" style="border-radius: 5px; padding: 20px; margin-bottom: 28px;">
+                                        <img src="./img/overview/time-off/grid.png" alt="bg-img" loading="lazy" style="margin-top:-20px; margin-left: -20px; object-fit: cover;" class="h-100 w-100 position-absolute fix-bottom img-fluid">
+                                        <div class="position-relative">
+                                            <div class="row">
+                                                <div class="col-xl-9 d-flex align-items-center justify-content-center ">
+                                                    <div style="background-color:#F8F8F8; border-radius:2px; width: 100%;">
+                                                        <img src="./img/overview/time-off/2.png" alt="img" class="w-100 img-fluid" loading="lazy">
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-3 d-flex align-items-center justify-content-start  ">
+                                                    <div class="pr-3  pt-xl-0 pt-3">
+                                                        <h5 style="font-weight: 600; font-size: 28px;line-height: 42px; letter-spacing: 0.02em; text-indent: 2px; color: #1D567E;">
+                                                            Grid
+                                                        </h5>
+                                                        <p style="font-weight: 500; font-size: 16px; line-height: 26px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                            By using the grid feature, you can hide the left grid panel that contains the title, duration, start time, and owner. It allows you to view the complete leave data in the Gantt View Time Off.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="position-relative overflow-hidden" style="border-radius: 5px; padding: 20px; margin-bottom: 25px;">
+                                        <img src="./img/overview/time-off/resource-panel.png" alt="bg-img" loading="lazy" style="margin-top:-20px; margin-left: -20px; object-fit: cover;" class="h-100 w-100 position-absolute fix-bottom img-fluid">
+                                        <div class="position-relative">
+                                            <div class="row">
+                                                <div class="col-xl-3 d-flex align-items-center justify-content-start pr-0  ">
+                                                    <div class="">
+                                                        <h5 style="font-weight: 600; font-size: 28px;line-height: 42px; letter-spacing: 0.02em; text-indent: 2px; color: #1D567E;">
+                                                            Resource Panel
+                                                        </h5>
+                                                        <p class="pr-3" style="font-weight: 500; font-size: 16px; line-height: 26px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                            The Resource Panel shows the total number of leaves applied by each employee along with working hours and allocated tasks. With this feature, you can manage the employee's leaves while checking out how many working hours and tasks will be affected during their leaves.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-9 d-flex align-items-center justify-content-center ">
+                                                    <div style="background-color:#F8F8F8; border-radius:2px; padding:14px; width: 100%;">
+                                                        <img src="./img/overview/time-off/2_a.png" alt="img" class="w-100 img-fluid" loading="lazy">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="position-relative overflow-hidden" style="border-radius: 5px; padding: 20px; margin-bottom: 30px;">
+                                        <img src="./img/overview/time-off/zoom.png" alt="bg-img" loading="lazy" style="margin-top:-20px; margin-left: -20px; object-fit: cover;" class="h-100 w-100 position-absolute fix-bottom img-fluid">
+                                        <div class="position-relative">
+                                            <div class="row">
+                                                <div class="col-xl-9 d-flex align-items-center justify-content-center ">
+                                                    <div style="background-color:#F8F8F8; border-radius:2px; padding:14px; width: 100%;">
+                                                        <img src="./img/overview/time-off/zoom1.png" alt="img" class="w-100 img-fluid" loading="lazy">
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-3 d-flex align-items-center justify-content-start  ">
+                                                    <div class="pr-3  pt-xl-0 pt-3">
+                                                        <h5 style="font-weight: 600; font-size: 28px;line-height: 42px; letter-spacing: 0.02em; text-indent: 2px; color: #1D567E;">
+                                                            Zoom to Fit 
+                                                        </h5>
+                                                        <p style="font-weight: 500; font-size: 16px; line-height: 26px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                            Zoom to Fit feature gives an easily readable Gantt View of large data according to the user's screen.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="position-relative overflow-hidden" style="border-radius: 5px; padding: 20px; margin-bottom: 25px;">
+                                        <img src="./img/overview/time-off/critical-path.png" alt="bg-img" loading="lazy" style="margin-top:-20px; margin-left: -20px; object-fit: cover;" class="h-100 w-100 position-absolute fix-bottom img-fluid">
+                                        <div class="position-relative">
+                                            <div class="row">
+                                                <div class="col-xl-3 d-flex align-items-center justify-content-start  ">
+                                                    <div>
+                                                        <h5 style="font-weight: 600; font-size: 28px;line-height: 42px; letter-spacing: 0.02em; text-indent: 2px; color: #1D567E;">
+                                                            Critical Path
+                                                        </h5>
+                                                        <p style="font-weight: 500; font-size: 16px; line-height: 26px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                            This feature works on the current view only. It shows the dependency of the current leave on the previous one.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-9 d-flex align-items-center justify-content-center ">
+                                                    <div style="background-color:#F8F8F8; border-radius:2px; padding:14px; width: 100%;">
+                                                        <img src="./img/overview/time-off/4.png" alt="img" class="w-100 img-fluid" loading="lazy">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="position-relative overflow-hidden" style="border-radius: 5px; padding: 20px; margin-bottom: 34px;">
+                                        <img src="./img/overview/time-off/days-off.png" alt="bg-img" loading="lazy" style="margin-top:-20px; margin-left: -20px; object-fit: cover;" class="h-100 w-100 position-absolute fix-bottom img-fluid">
+                                        <div class="position-relative">
+                                            <div class="row">
+                                                <div class="col-xl-9 d-flex align-items-center justify-content-center ">
+                                                    <div style="background-color:#F8F8F8; border-radius:2px; padding:14px; width: 100%;">
+                                                        <img src="./img/overview/time-off/5.png" alt="img" class="w-100 img-fluid" loading="lazy">
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-3 d-flex align-items-center justify-content-start  ">
+                                                    <div class="pr-3  pt-xl-0 pt-3">
+                                                        <h5 style="font-weight: 600; font-size: 28px;line-height: 42px; letter-spacing: 0.02em; text-indent: 2px; color: #1D567E;">
+                                                            Days Off 
+                                                        </h5>
+                                                        <p style="font-weight: 500; font-size: 16px; line-height: 26px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                            The term "day off" is used to highlight the week off and weekends in the Gantt View.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="position-relative overflow-hidden" style="border-radius: 5px; padding: 20px; margin-bottom: 28px;">
+                                        <img src="./img/overview/time-off/today.png" alt="bg-img" loading="lazy" style="margin-top:-20px; margin-left: -20px; object-fit: cover;" class="h-100 w-100 position-absolute fix-bottom img-fluid">
+                                        <div class="position-relative">
+                                            <div class="row">
+                                                <div class="col-xl-3 d-flex align-items-center justify-content-start  ">
+                                                    <div>
+                                                        <h5 style="font-weight: 600; font-size: 28px;line-height: 42px; letter-spacing: 0.02em; text-indent: 2px; color: #1D567E;">
+                                                            Today
+                                                        </h5>
+                                                        <p style="font-weight: 500; font-size: 16px; line-height: 26px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                            Today's feature will scroll you to the current date in the timeline and highlight it.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-9 d-flex align-items-center justify-content-center ">
+                                                    <div style="background-color:#F8F8F8; border-radius:2px; padding:14px; width: 100%;">
+                                                        <img src="./img/overview/time-off/6.png" alt="img" class="w-100 img-fluid" loading="lazy">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="position-relative overflow-hidden" style="border-radius: 5px; padding: 20px; margin-bottom: 34px;">
+                                        <img src="./img/overview/time-off/scaling.png" alt="bg-img" loading="lazy" style="margin-top:-20px; margin-left: -20px; object-fit: cover;" class="h-100 w-100 position-absolute fix-bottom img-fluid">
+                                        <div class="position-relative">
+                                            <div class="row">
+                                                <div class="col-xl-9 d-flex align-items-center justify-content-center ">
+                                                    <div style="background-color:#F8F8F8; border-radius:2px; padding:14px; width: 100%;">
+                                                        <img src="./img/overview/time-off/7.png" alt="img" class="w-100 img-fluid" loading="lazy">
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-3 d-flex align-items-center justify-content-start  ">
+                                                    <div class="pr-3  pt-xl-0 pt-3">
+                                                        <h5 style="font-weight: 600; font-size: 28px;line-height: 42px; letter-spacing: 0.02em; text-indent: 2px; color: #1D567E;">
+                                                            Scaling
+                                                        </h5>
+                                                        <p style="font-weight: 500; font-size: 16px; line-height: 26px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                            With this feature, you can set the duration such as day, week, month, year,  and more. to display the leave information in different patterns. In this way, you can make your data more readable in the Gantt View Time Off as per your convenience.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="position-relative overflow-hidden" style="border-radius: 5px; padding: 20px; margin-bottom: 28px;">
+                                        <img src="./img/overview/time-off/sorting.png" alt="bg-img" loading="lazy" style="margin-top:-20px; margin-left: -20px; object-fit: cover;" class="h-100 w-100 position-absolute fix-bottom img-fluid">
+                                        <div class="position-relative">
+                                            <div class="row">
+                                                <div class="col-xl-3 d-flex align-items-center justify-content-start  ">
+                                                    <div>
+                                                        <h5 style="font-weight: 600; font-size: 28px;line-height: 42px; letter-spacing: 0.02em; text-indent: 2px; color: #1D567E;">
+                                                            Sorting
+                                                        </h5>
+                                                        <p style="font-weight: 500; font-size: 16px; line-height: 26px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                            This feature allows you to sort your leave data in different orders, like Name Ascending, Name Descending, New to Old, and more.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-9 d-flex align-items-center justify-content-center ">
+                                                    <div style="background-color:#F8F8F8; border-radius:2px; padding:14px; width: 100%;">
+                                                        <img src="./img/overview/time-off/sort.png" alt="img" class="w-100 img-fluid" loading="lazy">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="position-relative overflow-hidden" style="border-radius: 5px; padding: 20px;">
+                                        <img src="./img/overview/time-off/full-screen-mode.png" alt="bg-img" loading="lazy" style="margin-top:-20px; margin-left: -20px; object-fit: cover;" class="h-100 w-100 position-absolute fix-bottom img-fluid">
+                                        <div class="position-relative">
+                                            <div class="row">
+                                                <div class="col-xl-9 d-flex align-items-center justify-content-center ">
+                                                    <div style="background-color:#F8F8F8; border-radius:2px; padding:14px; width: 100%;">
+                                                        <img src="./img/overview/time-off/Full_Screen.gif" alt="img" class="w-100 img-fluid" loading="lazy">
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-3 d-flex align-items-center justify-content-start  ">
+                                                    <div class="pr-3  pt-xl-0 pt-3">
+                                                        <h5 style="font-weight: 600; font-size: 28px;line-height: 120%; letter-spacing: 0.02em; text-indent: 2px; color: #1D567E;">
+                                                            Full Screen Mode
+                                                        </h5>
+                                                        <p style="font-weight: 500; font-size: 16px; line-height: 26px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                            If you have a small screen, then you can use this feature to get a full-screen mode of the Gantt View.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                
+                                <!-- part2 -->
+                                <div class="px-4" style="background-color:#EDF9FF; border-radius:10px; padding-top:48px; padding-bottom: 26px; margin-bottom: 44px;">
+                                    <h5 style="margin-bottom:0px; font-weight: 600; font-size: 36px; line-height: 54px; text-align: center; text-indent: 2px; color: #3C3C3C; font-size: calc(1.315rem + 1vw);">Gantt View Grid</h5>
+                                    <p style="font-weight: 400; font-size: 16px; line-height: 24px; text-align: center; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C; margin-bottom: 22px;">
+                                        Give freedom to customize your view!
+                                    </p>
+
+                                    <!-- part - left grid -->
+                                    <div class="position-relative overflow-hidden" style="padding: 34px 20px 20px 20px;  margin-bottom: 37px; border-radius: 5px;">
+                                        <img src="./img/overview/time-off/left-grid-bg.png" alt="bg-img" class="h-100 w-100 position-absolute fix-bottom img-fluid" loading="lazy" 
+                                        style="margin-top:-34px; margin-left: -20px; object-fit: cover; border-radius: 5px;">
+                                        <div class="position-relative">
+                                            <div class="px-lg-4 px-3">
+                                                <h5 style="font-weight: 600; font-size: 28px; line-height: 42px; text-align: center;letter-spacing: 0.02em; text-indent: 2px; color: #1D567E; font-size: calc(1.26rem + 0.5vw);">
+                                                    Left Grid
+                                                </h5>
+                                                <p style="font-weight: 500; font-size: 16px; line-height: 26px; text-align: center;
+                                                letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                    The left grid will display leave data with the leave title, duration, start time, and owner.
+                                                </p>
+                                                <div class="row pt-3">
+                                                    <div class="col-lg-3 col-md-6 col-12">
+                                                        <h5 style="font-weight: 600;font-size: 20px; line-height: 34px; text-align: center; letter-spacing: 0.02em; text-indent: 2px; color: #14608A;">
+                                                            Title
+                                                        </h5>
+                                                        <p style="font-weight: 400; font-size: 16px; line-height: 24px; text-align: center; letter-spacing: 0.02em; text-indent: 2px; color: #4E4E4E;">
+                                                            The type of leaves you applied
+                                                        </p>
+                                                        <div class="text-center mb-3">
+                                                            <img src="./img/overview/time-off/title.png" alt="img" class="img-fluid" loading="lazy">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-3 col-md-6 col-12">
+                                                        <h5 style="font-weight: 600;font-size: 20px; line-height: 34px; text-align: center; letter-spacing: 0.02em; text-indent: 2px; color: #14608A;">
+                                                            Duration
+                                                        </h5>
+                                                        <p style="font-weight: 400; font-size: 16px; line-height: 24px; text-align: center; letter-spacing: 0.02em; text-indent: 2px; color: #4E4E4E;">
+                                                            Time duration of the leaves
+                                                        </p>
+                                                        <div class="text-center mb-3">
+                                                            <img src="./img/overview/time-off/duration-t.png" alt="img" class="img-fluid" loading="lazy">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-3 col-md-6 col-12">
+                                                        <h5 style="font-weight: 600;font-size: 20px; line-height: 34px; text-align: center; letter-spacing: 0.02em; text-indent: 2px; color: #14608A;">
+                                                            Start Time
+                                                        </h5>
+                                                        <p style="font-weight: 400; font-size: 16px; line-height: 24px; text-align: center; letter-spacing: 0.02em; text-indent: 2px; color: #4E4E4E;">
+                                                            When the leaves start and end
+                                                        </p>
+                                                        <div class="text-center mb-3">
+                                                            <img src="./img/overview/time-off/start-time.png" alt="img" class="img-fluid" loading="lazy">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-3 col-md-6 col-12">
+                                                        <h5 style="font-weight: 600;font-size: 20px; line-height: 34px; text-align: center; letter-spacing: 0.02em; text-indent: 2px; color: #14608A;">
+                                                            Owner
+                                                        </h5>
+                                                        <p style="font-weight: 400; font-size: 16px; line-height: 24px; text-align: center; letter-spacing: 0.02em; text-indent: 2px; color: #4E4E4E;">
+                                                            Who applied for the leaves?
+                                                        </p>
+                                                        <div class="text-center mb-3">
+                                                            <img src="./img/overview/time-off/owner.png" alt="img" class="img-fluid" loading="lazy">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row mt-4">
+                                                    <div class="col-xl-4 d-flex align-items-center justify-content-start  ">
+                                                        <div>
+                                                            <h5 style="font-weight: 500; font-size: 24px; line-height: 38px;
+                                                            letter-spacing: 0.02em; text-indent: 2px; color: #14608A;">
+                                                                Add Button
+                                                            </h5>
+                                                            <p style="font-weight: 500; font-size: 16px; line-height: 26px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                                Once you click the (+) icon, a default Odoo form will appear on the screen where you can apply for your leave and save it.
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-8 d-flex align-items-center justify-content-center ">
+                                                        <div class="p-md-3 p-sm-2 p-1" style="background-color:#FFFFFF; border-radius:9px; width: 100%;">
+                                                            <img src="./img/overview/time-off/add.png" alt="img" class="w-100 img-fluid" loading="lazy">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row mt-4 pt-3">
+                                                    <div class="col-xl-8 d-flex align-items-center justify-content-center ">
+                                                        <div class="p-md-3 p-sm-2 p-1" style="background-color:#FFFFFF; border-radius:9px; width: 100%;">
+                                                            <img src="./img/overview/time-off/edit.png" alt="img" class="w-100 img-fluid" loading="lazy">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-4 d-flex align-items-center justify-content-start  ">
+                                                        <div class="pl-xl-3  pt-xl-0 pt-3">
+                                                            <h5 style="font-weight: 500; font-size: 24px; line-height: 38px;
+                                                            letter-spacing: 0.02em; text-indent: 2px; color: #14608A;">
+                                                                Edit button
+                                                            </h5>
+                                                            <p style="font-weight: 500; font-size: 16px; line-height: 26px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                                The edit option allows you to modify your applied leave.
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row mt-4 pt-3 mb-4">
+                                                    <div class="col-xl-4 d-flex align-items-center justify-content-start  ">
+                                                        <div>
+                                                            <h5 style="font-weight: 500; font-size: 24px; line-height: 38px;
+                                                            letter-spacing: 0.02em; text-indent: 2px; color: #14608A;">
+                                                                Delete Button
+                                                            </h5>
+                                                            <p style="font-weight: 500; font-size: 16px; line-height: 26px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                                It enables you to delete your applied leave.
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-8 d-flex align-items-center justify-content-center ">
+                                                        <div class="p-md-3 p-sm-2 p-1" style="background-color:#FFFFFF; border-radius:9px; width: 100%;">
+                                                            <img src="./img/overview/time-off/delete.png" alt="img" class="w-100 img-fluid" loading="lazy">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- part - right grid  -->
+                                    <div class="position-relative overflow-hidden" style="padding: 34px 20px 20px 20px; margin-bottom: 37px; border-radius: 5px;">
+                                        <img src="./img/overview/time-off/right-grid.png" alt="bg-img" class="h-100 w-100 position-absolute fix-bottom img-fluid" loading="lazy" 
+                                        style="margin-top:-34px; margin-left: -20px; object-fit: cover; border-radius: 5px;">
+                                        <div class="position-relative">
+                                            <div class="px-lg-4 px-3 mb-3">
+                                                <h5 style="font-weight: 600; font-size: 28px; line-height: 42px; text-align: center;
+                                                letter-spacing: 0.02em; text-indent: 2px; color: #1D567E; font-size: calc(1.26rem + 0.5vw); margin-bottom: 20px;">
+                                                    Right Grid
+                                                </h5>
+                                            </div>
+                                                <div class="row mt-4">
+                                                    <div class="col-xl-4 d-flex align-items-center justify-content-start  ">
+                                                        <div>
+                                                            <h5 style="font-weight: 500; font-size: 24px; line-height: 38px;  letter-spacing: 0.02em; text-indent: 2px; color: #1D567E;">
+                                                                Tooltip
+                                                            </h5>
+                                                            <p style="font-weight: 500; font-size: 16px; line-height: 26px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                                When you hover a mouse over a leave-bar in the Gantt View, the tooltip feature will show the leave details including Title, Duration,Start date, End date and Stage.
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-8 d-flex align-items-center justify-content-center ">
+                                                        <div class="p-md-3 p-sm-2 p-1" style="background-color:#F4F4F4; border-radius:9px; width: 100%;">
+                                                            <img src="./img/overview/time-off/tooltip.png" alt="img" class="w-100 img-fluid" loading="lazy">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row mt-5">
+                                                    <div class="col-xl-8 d-flex align-items-center justify-content-center ">
+                                                        <div class="p-md-3 p-sm-2 p-1" style="background-color:#F4F4F4; border-radius:9px; width: 100%;">
+                                                            <img src="./img/overview/time-off/quick.png" alt="img" class="w-100 img-fluid" loading="lazy">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-4 d-flex align-items-center justify-content-start  ">
+                                                        <div class="pl-3  pt-xl-0 pt-3">
+                                                            <h5 style="font-weight: 500; font-size: 24px; line-height: 38px;  letter-spacing: 0.02em; text-indent: 2px; color: #1D567E;">
+                                                                Quick Info
+                                                            </h5>
+                                                            <p style="font-weight: 500; font-size: 16px; line-height: 26px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                                When you click on the leave-bar in the Gantt view, a quick info will appear that displays the Start date, End date of the leave along with a title. Also, it gives an option to delete and edit the leave.
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div style="margin-top: 38px;">
+                                                    <div class="text-center">
+                                                        <h5 style="font-weight: 500; font-size: 24px; line-height: 38px;  letter-spacing: 0.02em; text-indent: 2px; color: #1D567E; font-size: calc(1rem + 0.5vw);">
+                                                            Export
+                                                        </h5>
+                                                        <div class="row d-flex align-items-center justify-content-center">
+                                                            <p style="font-weight: 500; font-size: 16px; line-height: 26px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C; " class="col-lg-9">
+                                                                With this feature you can export your employee's leave report in different formats like Excel, PDF, PNG, Json, XML, Primvera P6 and iCal.
+                                                            </p>
+                                                            <div style="margin-top: 22px; margin-bottom: 42px;">
+                                                                <img src="./img/overview/time-off/export.png" alt="img" class="img-fluid" loading="lazy">
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <!-- part3 -->
+                                <div class="px-4" style="background-color:#EDF9FF; border-radius:10px; padding-top:44px; padding-bottom: 38px; margin-bottom: 48px;">
+                                    <div class="text-center " style="margin-bottom: 35px;">
+                                        <h5 style="font-weight: 600; font-size: 36px; font-size: calc(1.315rem + 1vw); line-height: 54px; text-align: center; text-indent: 2px; color: #3C3C3C; margin-bottom: 0;">
+                                            Gantt Settings
+                                        </h5>
+                                        <p class="text-center" style="font-weight: 400; font-size: 16px; line-height: 24px; text-align: center; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                            Different configuration to customize your Gantt View
+                                        </p>
+                                    </div>
+                                    <div class="position-relative overflow-hidden" style="border-radius: 5px; padding: 37px 30px 30px 31px">
+                                        <img src="./img/overview/time-off/setting-bg.png" alt="bg-img" class="h-100 w-100 position-absolute fix-bottom img-fluid"  loading="lazy" style="margin-top:-37px; object-fit: cover;margin-left: -30px;">
+                                        <div class="position-relative">
+                                            <div class="text-center">
+                                                <h5 style="font-weight: 600; font-size: 28px; line-height: 42px; letter-spacing: 0.02em; text-indent: 2px; color: #1D567E; font-size: calc(1.26rem + 0.5vw); margin-bottom: 20px;">
+                                                    Tooltip Settings
+                                                </h5>
+                                                <div class="row d-flex align-items-center justify-content-center">
+                                                    <p style="font-weight: 500; font-size: 16px; line-height: 26px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C; " class="col-lg-9">
+                                                        You can modify the leave information display in the Gantt View Time Off by enabling or disabling the tooltip setting options like duration, start date, end date, and more.
+                                                    </p>
+                                                </div>
+                                                <div style="margin-top: 10px;">
+                                                    <div class="py-md-4 px-md-3 p-sm-2 p-1" style="background-color: #f4f4f4; border-radius: 9px;">
+                                                        <img src="./img/overview/time-off/setting.png" alt="img" class="img-fluid" loading="lazy">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- part4 -->
+                                <div class="px-4" style="background-color:#EDF9FF; border-radius:10px; padding-top:44px; padding-bottom: 32px; margin-bottom: 30px;">
+                                    <div class="text-center" style="margin-bottom: 35px;">
+                                        <h5 style="font-weight: 600; font-size: 36px; font-size: calc(1.315rem + 1vw); line-height: 54px; text-align: center; text-indent: 2px; color: #3C3C3C; margin-bottom: 0;">
+                                            Gantt Chart Settings
+                                        </h5>
+                                        <p class="text-center" style="font-weight: 400; font-size: 16px; line-height: 24px; text-align: center; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                            Different configuration to customize your Gantt View
+                                        </p>
+                                    </div>
+                                    <div class="position-relative overflow-hidden" style="border-radius: 5px; padding: 20px; margin-bottom: 28px;">
+                                        <img src="./img/overview/time-off/t1.png" alt="bg-img" loading="lazy" style="margin-top:-20px; margin-left: -20px; object-fit: cover;" class="h-100 w-100 position-absolute fix-bottom img-fluid">
+                                        <div class="position-relative">
+                                            <div class="row">
+                                                <div class="col-xl-3 d-flex align-items-center justify-content-start  ">
+                                                    <div>
+                                                        <h5 style="font-weight: 600; font-size: 28px;line-height: 42px; letter-spacing: 0.02em; text-indent: 2px; color: #1D567E;">
+                                                            Dynamic Text
+                                                        </h5>
+                                                        <p style="font-weight: 500; font-size: 16px; line-height: 26px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                            Generally, leave descriptions are too long, which doesn't fit into the Gantt view. When you enable "Dynamic Text," the leave info will be automatically adjusted and displayed in the Gantt View.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-9 d-flex align-items-center justify-content-center ">
+                                                    <div class="p-md-3 p-sm-2 p-1" style="background-color:#F4F4F4; border-radius:9px; width: 100%;">
+                                                        <img src="./img/overview/time-off/textt.png" alt="img" class="w-100 img-fluid" loading="lazy">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="position-relative overflow-hidden" style="border-radius: 5px; padding: 20px; margin-bottom: 28px;">
+                                        <img src="./img/overview/time-off/info.png" alt="bg-img" loading="lazy" style="margin-top:-20px; margin-left: -20px; object-fit: cover;" class="h-100 w-100 position-absolute fix-bottom img-fluid">
+                                        <div class="position-relative">
+                                            <div class="row">
+                                                <div class="col-xl-9 d-flex align-items-center justify-content-center ">
+                                                    <div class="p-md-3 p-sm-2 p-1" style="background-color:#F4F4F4; border-radius:9px; width: 100%;">
+                                                        <img src="./img/overview/time-off/infoo.png" alt="img" class="w-100 img-fluid" loading="lazy">
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-3 d-flex align-items-center justify-content-start  ">
+                                                    <div class="  pt-xl-0 pt-3">
+                                                        <h5 style="font-weight: 600; font-size: 28px;line-height: 42px; letter-spacing: 0.02em; text-indent: 2px; color: #1D567E;">
+                                                            Quick Info
+                                                        </h5>
+                                                        <p style="font-weight: 500; font-size: 16px; line-height: 26px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                            This feature gives an option to delete or edit the leave when you click on it in the Gantt View Time Off. You can enable or disable this feature as per your choice.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="position-relative overflow-hidden" style="border-radius: 5px; padding: 20px;">
+                                        <img src="./img/overview/time-off/c1.png" alt="bg-img" loading="lazy" style="margin-top:-20px; margin-left: -20px; object-fit: cover;" class="h-100 w-100 position-absolute fix-bottom img-fluid">
+                                        <div class="position-relative">
+                                            <div class="row">
+                                                <div class="col-xl-3 d-flex align-items-center justify-content-start  ">
+                                                    <div>
+                                                        <h5 style="font-weight: 600; font-size: 28px;line-height: 42px; letter-spacing: 0.02em; text-indent: 2px; color: #1D567E;">
+                                                            Stage Color
+                                                        </h5>
+                                                        <p style="font-weight: 500; font-size: 16px; line-height: 26px; letter-spacing: 0.02em; text-indent: 2px; color: #3C3C3C;">
+                                                            You have the option to highlight the leave status in different colors, like to submit, to approval, approved, and more. This will provide a better view of the leaves in the Gantt View and make it easy to understand.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-9 d-flex align-items-center justify-content-center ">
+                                                    <div class="p-md-3 p-sm-2 p-1" style="background-color:#F4F4F4; border-radius:9px; width: 100%;">
+                                                        <img src="./img/overview/time-off/colorr.png" alt="img" class="w-100 img-fluid" loading="lazy">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="tab-pane fade show pt-4 py-lg-5" id="why-ks" role="tabpanel" aria-labelledby="why-ks-tab">
+                                <div class="p-3 p-lg-5" style="background-color: #FAFAFA; border-radius: 30px;">
+                                    <h5 style=" font-family: 'Inter', sans-serif; font-weight: 600;font-size: 30px;line-height: 155.19%;color: #252525; text-align: center;  font-family: 'Inter', sans-serif; font-size: calc(0.93rem + 1vw);">
+                                        Why
+                                        Ksolves
+                                    </h5>
+                                    <p style="font-weight: 500;font-size: 16px;line-height: 155.19%;text-align: center; margin-bottom: 30px;  font-family: 'Inter', sans-serif;">
+                                        You know us as the
+                                        <strong style="color: #173E85;"> makers of the "Dashboard Ninja",</strong>
+                                        You
+                                        <br>
+                                        will remember us with Gantt View Time Off
+                                    </p>
+                                    <ul class="list-unstyled row m-0">
+                                        <li class="col-6 col-md-4 col-lg-3 p-2">
+                                            <img src="images/new-dscr-img/ks_1.png" loading="lazy" alt="logo-img" class="img-fluid">
+                                        </li>
+                                        <li class="col-6 col-md-4 col-lg-3 p-2">
+                                            <img src="images/new-dscr-img/ks_2.png" loading="lazy" alt="logo-img" class="img-fluid">
+                                        </li>
+                                        <li class="col-6 col-md-4 col-lg-3 p-2">
+                                            <img src="images/new-dscr-img/ks_3.png" loading="lazy" alt="logo-img" class="img-fluid">
+                                        </li>
+                                        <li class="col-6 col-md-4 col-lg-3 p-2">
+                                            <img src="images/new-dscr-img/ks_4.png" loading="lazy" alt="logo-img" class="img-fluid">
+                                        </li>
+                                        <li class="col-6 col-md-4 col-lg-3 p-2">
+                                            <img src="images/new-dscr-img/ks_5.png" loading="lazy" alt="logo-img" class="img-fluid">
+                                        </li>
+                                        <li class="col-6 col-md-4 col-lg-3 p-2">
+                                            <img src="images/new-dscr-img/ks_6.png" loading="lazy" alt="logo-img" class="img-fluid">
+                                        </li>
+                                        <li class="col-6 col-md-4 col-lg-3 p-2">
+                                            <img src="images/new-dscr-img/ks_7.png" loading="lazy" alt="logo-img" class="img-fluid">
+                                        </li>
+                                        <li class="col-6 col-md-4 col-lg-3 p-2">
+                                            <img src="images/new-dscr-img/ks_8.png" loading="lazy" alt="logo-img" class="img-fluid">
+                                        </li>
+                                        <li class="col-6 col-md-4 col-lg-3 p-2">
+                                            <img src="images/new-dscr-img/ks_9.png" loading="lazy" alt="logo-img" class="img-fluid">
+                                        </li>
+                                        <li class="col-6 col-md-4 col-lg-3 p-2">
+                                            <img src="images/new-dscr-img/ks_10.png" loading="lazy" alt="logo-img" class="img-fluid">
+                                        </li>
+                                        <li class="col-6 col-md-4 col-lg-3 p-2">
+                                            <img src="images/new-dscr-img/ks_11.png" loading="lazy" alt="logo-img" class="img-fluid">
+                                        </li>
+                                        <li class="col-6 col-md-4 col-lg-3 p-2">
+                                            <img src="images/new-dscr-img/ks_12.png" alt="logo-img" loading="lazy" class="img-fluid">
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="my-3 my-lg-5 p-0 py-lg-4">
+                                    <h5 style=" font-family: 'Inter', sans-serif; font-weight: 600;font-size: 30px;line-height: 155.19%;color: #252525; text-align: center;  font-family: 'Inter', sans-serif; font-size: calc(0.93rem + 1vw);">
+                                        Client
+                                        Success
+                                    </h5>
+                                    <p style="font-weight: 500;font-size: 16px;line-height: 155.19%;text-align: center;color: #414141;  font-family: 'Inter', sans-serif;">
+                                        Invest
+                                        your trust like our elite clientele did!
+                                    </p>
+                                    <ul class="list-unstyled row m-0 justify-content-center">
+                                        <li class="col-6 col-md-3 col-lg-2 p-1" style="text-align: center;">
+                                            <img src="images/new-dscr-img/ks_c_1.png" loading="lazy" alt="logo-img" class="img-fluid">
+                                        </li>
+                                        <li class="col-6 col-md-3 col-lg-2 p-1" style="text-align: center;">
+                                            <img src="images/new-dscr-img/ks_c_2.png" loading="lazy" alt="logo-img" class="img-fluid">
+                                        </li>
+                                        <li class="col-6 col-md-3 col-lg-2 p-1" style="text-align: center;">
+                                            <img src="images/new-dscr-img/ks_c_3.png" alt="logo-img" loading="lazy" class="img-fluid">
+                                        </li>
+                                        <li class="col-6 col-md-3 col-lg-2 p-1" style="text-align: center;">
+                                            <img src="images/new-dscr-img/ks_c_4.png" alt="logo-img" loading="lazy" class="img-fluid">
+                                        </li>
+                                        <li class="col-6 col-md-3 col-lg-2 p-1" style="text-align: center;">
+                                            <img src="images/new-dscr-img/ks_c_5.png" alt="logo-img" loading="lazy" class="img-fluid">
+                                        </li>
+                                        <li class="col-6 col-md-3 col-lg-2 p-1" style="text-align: center;">
+                                            <img src="images/new-dscr-img/ks_c_6.png" alt="logo-img" loading="lazy" class="img-fluid">
+                                        </li>
+                                        <li class="col-6 col-md-3 col-lg-2 p-1" style="text-align: center;">
+                                            <img src="images/new-dscr-img/ks_c_7.png" alt="logo-img" loading="lazy" class="img-fluid">
+                                        </li>
+                                        <li class="col-6 col-md-3 col-lg-2 p-1" style="text-align: center;">
+                                            <img src="images/new-dscr-img/ks_c_8.png" alt="logo-img" loading="lazy" class="img-fluid">
+                                        </li>
+                                        <li class="col-6 col-md-3 col-lg-2 p-1" style="text-align: center;">
+                                            <img src="images/new-dscr-img/ks_c_9.png" alt="logo-img" loading="lazy" class="img-fluid">
+                                        </li>
+                                        <li class="col-6 col-md-3 col-lg-2 p-1" style="text-align: center;">
+                                            <img src="images/new-dscr-img/ks_c_10.png" alt="logo-img" loading="lazy" class="img-fluid">
+                                        </li>
+                                        <li class="col-6 col-md-3 col-lg-2 p-1" style="text-align: center;">
+                                            <img src="images/new-dscr-img/ks_c_11.png" alt="logo-img" loading="lazy" class="img-fluid">
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="p-3 p-lg-5" style="background-color: #FAFAFA; border-radius: 30px;">
+                                    <h1 style="font-weight: 600;font-size: 30px;line-height: 155.19%;color: #252525; text-align: center;   font-size: calc(0.93rem + 1vw);  font-family: 'Inter', sans-serif;">
+                                        Products That Blends Together
+                                    </h1>
+                                    <p style="font-weight: 500;font-size: 16px;line-height: 155.19%;text-align: center; margin-bottom: 30px; font-family: 'Inter', sans-serif;">
+                                        Related Products You May Be Interested In!
+                                    </p>
+                                    <div>
+                                        <div class="table-responsive">
+                                            <table class="table w-100">
+                                                <tr>
+                                                    <td class="text-center" style="padding: 0.5rem;">
+                                                        <a target="_blank" href="https://apps.odoo.com/apps/modules/15.0/ks_dashboard_ninja/" class="d-block bg-white p-4 text-center mx-auto" style="border-radius: 10px;width: 180px;min-height: 248px; text-decoration: none;" >
+                                                            <img src="./img/why-ksolves/ks_dashboard_ninja.png" alt="logo" style="border-radius: 10px;" loading="lazy">
+                                                            <div style="color: #333;font-size: 16px;font-weight: 600;" class="mt-3" >Dashboard Ninja</div>
+                                                        </a>
+                                                    </td>
+                                                    <td class="text-center" style="padding: 0.5rem; vertical-align: middle;font-size: 20px;color: #333;font-weight: 700;" class="px-2" >
+                                                        +
+                                                    </td>
+                                                    <td class="text-center" style="padding: 0.5rem;">
+                                                        <a target="_blank" href="https://apps.odoo.com/apps/themes/14.0/ks_curved_backend_theme/" class="d-block bg-white p-4 text-center mx-auto" style="border-radius: 10px;width: 180px;min-height: 248px; text-decoration: none;" >
+                                                            <img src="./img/why-ksolves/ks_curved_backend_theme.png" alt="logo" loading="lazy" style="border-radius: 10px;" width="135" height="136">
+                                                            <div style="color: #333;font-size: 16px;font-weight: 600;" class="mt-3" >Arc Backend Theme</div>
+                                                        </a>
+                                                    </td>
+                                                    <td class="text-center" style=" padding: 0.5rem; vertical-align: middle;font-size: 20px;color: #333;font-weight: 700;" class="px-2" >
+                                                        +
+                                                    </td>
+                                                    <td class="text-center" style="padding: 0.5rem;">
+                                                        <a target="_blank" href="https://apps.odoo.com/apps/modules/15.0/ks_gantt_view_base/" class="d-block bg-white p-4 text-center mx-auto" style="border-radius: 10px;width: 180px;min-height: 195px; text-decoration: none;" >
+                                                            <img src="./img/why-ksolves/ks_gantt_view_base.png" alt="logo" loading="lazy" style="border-radius: 10px;" width="135" height="136">
+                                                            <div style="color: #333;font-size: 16px;font-weight: 600;" class="mt-3" >Odoo Gantt View Base</div>
+                                                        </a>
+                                                    </td>
+                                                    <td class="text-center" style="padding: 0.5rem; vertical-align: middle;font-size: 20px;color: #333;font-weight: 700;" class="px-2" >
+                                                        =
+                                                    </td>
+                                                    <td class="text-center" style="padding: 0.5rem;">
+                                                        <div class="d-block bg-white p-4 text-center mx-auto" style="border-radius: 10px;width: 180px;min-height: 248px;" >
+                                                            <img src="./img/why-ksolves/perfect_combo.png" alt="logo" loading="lazy" style="border-radius: 10px;">
+                                                            <div style="color: #333;font-size: 16px;font-weight: 600;" class="mt-3" >Perfect Combo</div>
+                                                        </div>
+                                                    </td>
+                            
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade show pt-4 py-lg-5" id="support" role="tabpanel" aria-labelledby="support-tab">
+                                <div class=" text-center">
+                                    <h3 style="font-size: 18px;line-height: 155.19%;color: #414141; margin-bottom: 36px; font-family: 'Inter', sans-serif; ">
+                                        Ksolves is 24/7 open to discuss your thoughts and queries!
+                                    </h3>
+                                    <img src="images/new-dscr-img/solution.png" loading="lazy" alt="" class="img-fluid">
+                                    <div class="text-center">
+                                        <div class="row d-flex align-items-center justify-content-center" style="margin-top:10px">
+                                            <div class="col-lg-4 col-md-5 col-sm-9 col-11">
+                                                <a class="d-flex align-items-center justify-content-center px-2 py-3" href="mailto:sales@ksolves.com"
+                                                    style="background-color: #173E85; text-decoration: none; border-radius: 5px;font-style: normal; font-weight: 400; font-size: 14px; color: #ffffff; height:45px;">
+                                                    <img alt="mail-icon" class="img-fluid pr-2 pl-2 mr-xl-2 mr-lg-0 mr-2" loading="lazy" src="./img/email.png">sales@ksolves.com</a>
+                                            </div>
+                                            <div class="col-lg-4 col-md-5 col-sm-9 col-11 mt-md-0 mt-2" >
+                                                <a class=" d-flex align-items-center justify-content-center px-2 py-3" href="tel:+91-7498170227"
+                                                    style="background-color: #173E85; text-decoration: none; border-radius: 5px;font-style: normal; font-weight: 400; font-size: 14px; color: #ffffff; height:45px;">
+                                                    <img alt="phone" class="img-fluid pr-2 pl-2 mr-xl-2 mr-lg-0 mr-2" loading="lazy" src="./img/phone.png">+91-7498170227</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row justify-content-center mt-3 mt-lg-5">
+                                        <div class="col-12 col-md-8">
+                                            <img src="images/new-dscr-img/ks_map_img.png" loading="lazy" alt="" class="w-100">
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="tab-pane fade show pt-4 py-lg-5" id="faq" role="tabpanel" aria-labelledby="faq-tab">
+                                <div id="accordion6" class="accordion">
+                                    <div style="background-color:#fff">
+                                        <!-- Question 1 -->
+                                        <div class="card-header collapsed" style="background-color:transparent; border:none; border-top:1px solid #E8E8E8" data-toggle="collapse" href="#collapseFAQOne">
+                                            <a style="text-decoration:none; color:inherit; font-size:18px; line-height:30px; font-weight:500; font-family:'Inter', sans-serif" class="card-title">
+                                                What is Gantt View Time Off ?
+                                                <img src="./images/new-dscr-img/down-arrow.svg" loading="lazy" alt="" class="float-right pt-2">
+                                            </a>
+                                        </div>
+                                        <div id="collapseFAQOne" class="card-body collapse" data-parent="#accordion6">
+                                            <p style="font-size:16px; line-height:27px; color:#414141; font-weight:normal; font-family:'Inter', sans-serif">
+                                                Gantt View Time Off module is the one-stop platform to manage the leaves of employees for an organization/ business.
+                                            </p>
+                                        </div>
+                                        <!-- Question 2 -->
+                                        <div style="background-color:transparent; border:none; border-top:1px solid #E8E8E8" class="card-header collapsed" data-toggle="collapse" data-parent="#accordion6" href="#collapseFAQTwo">
+                                            <a style="text-decoration:none; color:inherit; font-size:18px; line-height:30px; font-weight:500; font-family:'Inter', sans-serif" class="card-title">
+                                                How will it help in leave management?
+                                                <img src="./images/new-dscr-img/down-arrow.svg" loading="lazy" alt="" class="float-right pt-2">
+                                            </a>
+                                        </div>
+                                        <div id="collapseFAQTwo" class="card-body collapse" data-parent="#accordion6">
+                                            <p style="font-size:16px; line-height:27px; color:#414141; font-weight:normal; font-family:'Inter', sans-serif">
+                                                With it’s easy-to-use functionalities, anyone can leverage the Gantt Chart to organize regular leave routines. There are various leave types that can be set up along with specific durations, extra notes, etc. Critical path and leave dependencies can also be set up easily.
+                                            </p>
+                                        </div>
+                                        <!-- Question 3 -->
+                                        <div style="background-color:transparent; border:none; border-top:1px solid #E8E8E8" class="card-header collapsed" data-toggle="collapse" data-parent="#accordion6" href="#collapseFAQThree">
+                                            <a style="text-decoration:none; color:inherit; font-size:18px; line-height:30px; font-weight:500; font-family:'Inter', sans-serif" class="card-title">
+                                                Is this app compatible with Odoo Enterprise?
+                                                <img src="./images/new-dscr-img/down-arrow.svg" loading="lazy" alt="" class="float-right pt-2">
+                                            </a>
+                                        </div>
+                                        <div id="collapseFAQThree" class="collapse" data-parent="#accordion6">
+                                            <div class="card-body">
+                                                <p style="font-size:16px; line-height:27px; color:#414141; font-weight:normal; font-family:'Inter', sans-serif">
+                                                    No, it is not currently compatible with the Odoo Enterprise. However, future updates can make it compatible with Odoo Enterprise later.
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <!-- Question 4 -->
+                                        <div style="background-color:transparent; border:none; border-top:1px solid #E8E8E8" class="card-header collapsed" data-toggle="collapse" data-parent="#accordion6" href="#collapse4">
+                                            <a style="text-decoration:none; color:inherit; font-size:18px; line-height:30px; font-weight:500; font-family:'Inter', sans-serif" class="card-title">
+                                                How to create time off request?
+                                                <img src="./images/new-dscr-img/down-arrow.svg" loading="lazy" alt="" class="float-right pt-2">
+                                            </a>
+                                        </div>
+                                        <div id="collapse4" class="collapse" data-parent="#accordion6">
+                                            <div class="card-body">
+                                                <p style="font-size:16px; line-height:27px; color:#414141; font-weight:normal; font-family:'Inter', sans-serif">
+                                                    These are the steps to create the time off request:<br/>
+1. Click on the create/plus icon button on the Gantt view,<br/>
+2. Select the leave type,<br/>
+3. Add leave start/end date,<br/>
+4. Add description(regarding the leave) and then save it.<br/>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <!-- Question 5 -->
+                                        <div style="background-color:transparent; border:none; border-top:1px solid #E8E8E8" class="card-header collapsed" data-toggle="collapse" data-parent="#accordion6" href="#collapse5">
+                                            <a style="text-decoration:none; color:inherit; font-size:18px; line-height:30px; font-weight:500; font-family:'Inter', sans-serif" class="card-title">
+                                                Do you provide any free support?
+                                                <img src="./images/new-dscr-img/down-arrow.svg" loading="lazy" alt="" class="float-right pt-2">
+                                            </a>
+                                        </div>
+                                        <div id="collapse5" class="collapse" data-parent="#accordion6">
+                                            <div class="card-body">
+                                                <p style="font-size:16px; line-height:27px; color:#414141; font-weight:normal; font-family:'Inter', sans-serif">
+                                                    Ksolves provides 120 days of free support since the day of app purchase regarding any issues, glitches, etc.
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <!-- Question 6 -->
+                                        <div style="background-color:transparent; border:none; border-top:1px solid #E8E8E8" class="card-header collapsed" data-toggle="collapse" data-parent="#accordion6" href="#collapse6">
+                                            <a style="text-decoration:none; color:inherit; font-size:18px; line-height:30px; font-weight:500; font-family:'Inter', sans-serif" class="card-title">
+                                                Need some customization in this app, whom to contact?
+                                                <img src="./images/new-dscr-img/down-arrow.svg" loading="lazy" alt="" class="float-right pt-2">
+                                            </a>
+                                        </div>
+                                        <div id="collapse6" class="collapse" data-parent="#accordion6">
+                                            <div class="card-body">
+                                                <p style="font-size:16px;line-height:27px;color:#414141; font-weight: normal; font-family: 'Inter', sans-serif;">
+                                                    For customization in the Gantt View Time Off Module, you can contact the developers of the app, which is us. We will check the feasibility of your customization request and definitely work on it.
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <!-- Question 7 -->
+                                        <div style="background-color: transparent;border: none;border-top: 1px solid #E8E8E8;"
+                                            class="card-header collapsed" data-toggle="collapse" data-parent="#accordion6"
+                                            href="#collapse7"
+                                            style="background:none; cursor: pointer;">
+                                            <a style="text-decoration: none; color: inherit; font-size: 18px;line-height:30px;font-weight:500;  font-family: 'Inter', sans-serif;"
+                                            class="card-title">
+                                            Is it possible to modify my leaves?
+                                                <img src="images/new-dscr-img/down-arrow.svg" loading="lazy" alt="" class="float-right pt-2">
+                                            </a>
+                                        </div>
+                                        <div id="collapse7" class="collapse" data-parent="#accordion6">
+                                            <div class="card-body">
+                                                <p style="font-size:16px;line-height:27px;color:#414141; font-weight: normal; font-family: 'Inter', sans-serif;">
+                                                    Yes, it is possible to modify the leaves by editing a saved leave.
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <!-- Question 8 -->
+                                        <div style="background-color:transparent; border:none; border-top:1px solid #E8E8E8" class="card-header collapsed" data-toggle="collapse" data-parent="#accordion6" href="#collapse8">
+                                            <a style="text-decoration:none; color:inherit; font-size:18px; line-height:30px; font-weight:500; font-family:'Inter', sans-serif" class="card-title">
+                                                Who can manage the leaves of other employees?
+                                                <img src="./images/new-dscr-img/down-arrow.svg" loading="lazy" alt="" class="float-right pt-2">
+                                            </a>
+                                        </div>
+                                        <div id="collapse8" class="collapse" data-parent="#accordion6">
+                                            <div class="card-body">
+                                                <p style="font-size:16px; line-height:27px; color:#414141; font-weight:normal; font-family:'Inter', sans-serif">
+                                                    The admin/manager can manage the leaves of other employees easily.
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <!-- Question 9 -->
+                                        <div style="background-color:transparent; border:none; border-top:1px solid #E8E8E8" class="card-header collapsed" data-toggle="collapse" data-parent="#accordion6" href="#collapse9">
+                                            <a style="text-decoration:none; color:inherit; font-size:18px; line-height:30px; font-weight:500; font-family:'Inter', sans-serif" class="card-title">
+                                                In which formats can the Gantt View Time Off report be exported?
+                                                <img src="./images/new-dscr-img/down-arrow.svg" loading="lazy" alt="" class="float-right pt-2">
+                                            </a>
+                                        </div>
+                                        <div id="collapse9" class="collapse" data-parent="#accordion6">
+                                            <div class="card-body">
+                                                <p style="font-size:16px; line-height:27px; color:#414141; font-weight:normal; font-family:'Inter', sans-serif">
+                                                    The Gantt View Time Off report can be exported in many formats like Excel, PDF, PNG, JSON, MS Project(XML), Primavera P6, and iCal.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="tab-pane fade show" id="releases" role="tabpanel" aria-labelledby="releases-tab">
+                                
+                                <div class="row pt-5 m-0">
+                                    <div class="col-md-3">
+                                        <h4 style="font-size: 16px; color: #514F4F;margin: 0;line-height: 26px; font-family: 'Inter', sans-serif;">
+                                            Release
+                                            1.0.3
+                                        </h4>
+                                        <span style="font-size: 14px; color: #7A7979;display: block; margin-bottom: 20px; font-family: 'Inter', sans-serif;">
+                                            3rd March, 2022
+                                                    </span>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div style="padding: 0 0 40px;">
+                                            <div style="margin: 0 0 10px;">
+                                                <div style="display: inline-block; padding: 0px 8px; color: #514F4F; background-color: #FFD8D8; border-radius: 20px;">
+                                                    Bug Fixed
+                                                </div>
+                                            </div>
+                                            <div class="d-flex m-0" style="color: #7A7979;  font-family: 'Inter', sans-serif;">
+                                                <ul class="pl-3 mb-0">
+                                                    <li >
+                                                        Issue on Expected Revenue Color.
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="d-flex m-0" style="color:#7A7979; font-family:'Inter', sans-serif">
+                                                <ul class="pl-3 mb-0">
+                                                    <li>The issue on listview on select highlight.
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                        <div style="padding:0px 0 0; border-bottom:1px solid #E3E3E3">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row pt-5 m-0">
+                                    <div class="col-md-3">
+                                        <h4 style="font-size: 16px; color: #514F4F;margin: 0;line-height: 26px; font-family: 'Inter', sans-serif;">
+                                            Release
+                                            1.0.2
+                                        </h4>
+                                        <span style="font-size: 14px; color: #7A7979;display: block; margin-bottom: 20px; font-family: 'Inter', sans-serif;">
+                                            11th February, 2022
+                                                    </span>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div style="padding: 0 0 40px;">
+                                            <div style="margin: 0 0 10px;">
+                                                <div
+                                                        style="display: inline-block; padding: 0px 8px; color: #514F4F; background-color: #FFD8D8; border-radius: 20px;">
+                                                        Bug Fixed
+                                                </div>
+                                            </div>
+                                            <div class="d-flex m-0"
+                                            style="color: #7A7979;  font-family: 'Inter', sans-serif;">
+                                                        <ul class="pl-3 mb-0">
+                                                                <li >
+                                                                    Issue on Placeholder Color.
+                                                                </li>
+                                                        </ul>
+                                            </div>
+                                            <div class="d-flex m-0" style="color:#7A7979; font-family:'Inter', sans-serif">
+                                                <ul class="pl-3 mb-0">
+                                                    <li>
+                                                        App drawers app icon improved.
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div style="padding: 0 0 0; border-bottom: 1px solid #E3E3E3;">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row pt-5 m-0">
+                                    <div class="col-md-3">
+                                        <h4 style="font-size: 16px; color: #514F4F;margin: 0;line-height: 26px; font-family: 'Inter', sans-serif;">
+                                            Release
+                                            1.0.1
+                                        </h4>
+                                        <span style="font-size: 14px; color: #7A7979;display: block; margin-bottom: 20px; font-family: 'Inter', sans-serif;">
+                                            27th January, 2022
+                                                    </span>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div style="padding: 0 0 40px;">
+                                            <div style="margin: 0 0 10px;">
+                                                <div
+                                                        style="display: inline-block; padding: 0px 8px; color: #514F4F; background-color: #FFD8D8; border-radius: 20px;">
+                                                        Bug Fixed
+                                                </div>
+                                            </div>
+                                            <div class="d-flex m-0"
+                                            style="color: #7A7979;  font-family: 'Inter', sans-serif;">
+
+                                                <ul class="pl-3 mb-0">
+                                                    <li>
+                                                        Issue on installing App.
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div style="padding: 0 0 0; border-bottom: 1px solid #E3E3E3;">
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div> -->
+                        </div>
+                    </div>
+                </div> 
+            </section>
+
+            <section>
+                <div class="shadow pt-lg-5 pb-4 bg-white" id="free_support" style="margin-top: 42px; border-radius: 20px;">
+                    <div class="row d-flex align-items-center justify-content-center">
+                        <div class="col-11 px-0 mx-auto pb-lg-5 position-relative overflow-hidden" style="border-radius: 20px; background-color: #fffefd;">
+                            <img src="./img/support/support-bg.png" alt="bg-img" class="h-100 w-100 position-absolute fix-bottom img-fluid"  loading="lazy" style="object-fit: cover;top: 0;left: 0;">
+                            <div class="row position-relative pt-lg-5 px-lg-5 pb-lg-3 p-md-4 p-3 mx-auto d-flex align-items-center" style="color: #333333;font-weight: 500;font-size: 16px;width: 95%;">
+                                <div class="col-lg-auto col-sm-12">
+                                    <img src="./img/support/support.png" width="219" loading="lazy"/>
+                                </div>
+                                <div class="col pl-lg-5 pl-0 pt-lg-0 pt-3">
+                                    <h5 class="text-left" style="margin-bottom: 15px;font-style: normal;font-weight: 600;font-size: 36px;line-height: 44px;letter-spacing: 0.02em;text-transform: uppercase;color: #FFFFFF; font-family: 'Inter', sans-serif;">
+                                        Free <span style="color:#9EFFFF; font-weight: 800;">90 Days</span> Support
+                                    </h5>
+                                    <p style="font-style: normal;font-weight: 500;font-size: 18px;line-height: 28px;text-transform: capitalize;color: #FFFFFF;margin: 0; font-family: 'Inter', sans-serif;">Ksolves will provide FREE 90 days support for any doubt, queries, and bug fixing (excluding data recovery) or any type of issues related to this module. This is applicable from the date of purchase.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row d-flex align-items-center justify-content-center m-0">
+                        <div class="col-12 p-0 pt-4 overflow-hidden text-center">
+                            <p style="font-style: normal;font-weight: 500;font-size: 18px;line-height: 28px;letter-spacing: 0.01em;color: #535456;margin: 0;"><span style="font-style: normal;font-weight: 600;font-size: 24px;line-height: 28px;letter-spacing: 0.01em;color: #283C63;margin: 0 10px 0 0;">Note</span> Extensively Tested on Odoo Vanilla with Ubuntu OS</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="shadow bg-white" id="all_suggested-app" style="margin-top: 42px; border-radius: 20px;  padding-top: 41px; padding-bottom: 30px;">
+                    <h5 class="text-center" style="color: #2B5FB2; font-weight: 700; font-size: 32px; line-height:43px; margin-bottom: 25px; font-size: calc(1.5rem + 0.4vw); font-family: 'Inter', sans-serif;">
+                        <span style="color:#333333; ">Ksolves Suggested Apps</span>
+                    </h5>
+                    <div class="row d-flex align-items-center justify-content-center">
+                        <div class="col-11 pt-lg-3 px-lg-5 pb-lg-2 p-md-4 p-3 position-relative overflow-hidden" style="border-radius: 10px; background-color: #fffefd;">
+                            <div class="row position-relative" style="color: #333333; font-weight: 500; font-size: 16px; ">
+
+                                <div class="col-sm-6 col-lg-4 col-xl-4 mb-3 pr-lg-0 pr-sm-1">
+                                    <a href="https://apps.odoo.com/apps/modules/15.0/ks_dashboard_ninja/" target="_blanck" style="text-decoration:none">
+                                        <div class="d-flex  align-items-center h-100 bg-white px-3 py-3" style="border: 1px solid #EFECEC; border-radius: 8px;">
+                                            <div style="width:100px;">
+                                                <img src="./img/support/Dashboard-Ninja.png" alt="icon" loading="lazy" width="100" height="100">
+                                            </div>
+                                            <div class="w-100 pl-3">
+                                                <p style="font-style: normal;font-weight: 500;font-size: 15px;line-height: 150%;text-indent: 2px;color: #535456;" class="mb-0">
+                                                    Dashboard Ninja
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="col-sm-6 col-lg-4 col-xl-4 mb-3 pr-lg-0 pr-sm-1">
+                                    <a href="https://apps.odoo.com/apps/modules/15.0/ks_dn_advance/" target="_blanck" style="text-decoration:none">
+                                        <div class="d-flex  align-items-center h-100 bg-white px-3 py-3" style="border: 1px solid #EFECEC; border-radius: 8px;">
+                                            <div style="width:100px;">
+                                                <img src="./img/support/Dashboard-Ninja-Advance.png" alt="icon" loading="lazy" width="100" height="100">
+                                            </div>
+                                            <div class="w-100 pl-3">
+                                                <p style="font-style: normal;font-weight: 500;font-size: 15px;line-height: 150%;text-indent: 2px;color: #535456;" class="mb-0">
+                                                    Dashboard Ninja Advance
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="col-sm-6 col-lg-4 col-xl-4 mb-3 pr-lg-0 pr-sm-1">
+                                    <a href="https://apps.odoo.com/apps/modules/15.0/ks_woocommerce/" target="_blanck" style="text-decoration:none">
+                                        <div class="d-flex  align-items-center h-100 bg-white px-3 py-3" style="border: 1px solid #EFECEC; border-radius: 8px;">
+                                            <div style="width:100px;">
+                                                <img src="./img/support/Odoo-WooCommerce.png" alt="icon" loading="lazy" width="100" height="100">
+                                            </div>
+                                            <div class="w-100 pl-3">
+                                                <p style="font-style: normal;font-weight: 500;font-size: 15px;line-height: 150%;text-indent: 2px;color: #535456;" class="mb-0">
+                                                    Odoo WooCommerce Connector
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="col-sm-6 col-lg-4 col-xl-4 mb-3 pr-lg-0 pr-sm-1">
+                                    <a href="https://apps.odoo.com/apps/themes/14.0/ks_curved_backend_theme/" target="_blanck" style="text-decoration:none">
+                                        <div class="d-flex  align-items-center h-100 bg-white px-3 py-3" style="border: 1px solid #EFECEC; border-radius: 8px;">
+                                            <div style="width:100px;">
+                                                <img src="./img/support/arc-backend-theme.png" alt="icon" loading="lazy" width="100" height="100">
+                                            </div>
+                                            <div class="w-100 pl-3">
+                                                <p style="font-style: normal;font-weight: 500;font-size: 15px;line-height: 150%;text-indent: 2px;color: #535456;" class="mb-0">
+                                                    Arc Backend Theme
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="col-sm-6 col-lg-4 col-xl-4 mb-3 pr-lg-0 pr-sm-1">
+                                    <a href="https://apps.odoo.com/apps/modules/15.0/ks_gantt_view_base/" target="_blanck" style="text-decoration:none">
+                                        <div class="d-flex  align-items-center h-100 bg-white px-3 py-3" style="border: 1px solid #EFECEC; border-radius: 8px;">
+                                            <div style="width:100px;">
+                                                <img src="./img/support/odoo-base.png" alt="icon" loading="lazy" width="100" height="100">
+                                            </div>
+                                            <div class="w-100 pl-3">
+                                                <p style="font-style: normal;font-weight: 500;font-size: 15px;line-height: 150%;text-indent: 2px;color: #535456;" class="mb-0">
+                                                    Odoo Gantt View Base
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="col-sm-6 col-lg-4 col-xl-4 mb-3 pr-lg-0 pr-sm-1">
+                                    <a href="https://apps.odoo.com/apps/modules/15.0/ks_list_view_manager/" target="_blanck" style="text-decoration:none">
+                                        <div class="d-flex  align-items-center h-100 bg-white px-3 py-3" style="border: 1px solid #EFECEC; border-radius: 8px;">
+                                            <div style="width:100px;">
+                                                <img src="./img/support/list-view-manager.png" alt="icon" loading="lazy" width="100" height="100">
+                                            </div>
+                                            <div class="w-100 pl-3">
+                                                <p style="font-style: normal;font-weight: 500;font-size: 15px;line-height: 150%;text-indent: 2px;color: #535456;" class="mb-0">
+                                                    List View Manager
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="col-sm-6 col-lg-4 col-xl-4 mb-3 pr-lg-0 pr-sm-1">
+                                    <a href="https://apps.odoo.com/apps/modules/15.0/ks_custom_report/" target="_blanck" style="text-decoration:none">
+                                        <div class="d-flex  align-items-center h-100 bg-white px-3 py-3" style="border: 1px solid #EFECEC; border-radius: 8px;">
+                                            <div style="width:100px;">
+                                                <img src="./img/support/report.png" alt="icon" loading="lazy" width="100" height="100">
+                                            </div>
+                                            <div class="w-100 pl-3">
+                                                <p style="font-style: normal;font-weight: 500;font-size: 15px;line-height: 150%;text-indent: 2px;color: #535456;" class="mb-0">
+                                                    ReportMate
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="col-sm-6 col-lg-4 col-xl-4 mb-3 pr-lg-0 pr-sm-1">
+                                    <a href="https://apps.odoo.com/apps/modules/15.0/ks_dynamic_financial_report/" style="text-decoration:none" target="_blanck">
+                                        <div class="d-flex  align-items-center h-100 bg-white px-3 py-3" style="border: 1px solid #EFECEC;  border-radius: 8px;">
+                                            <div style="width:100px;">
+                                                <img src="./img/support/dfr.png" alt="icon" style="border-radius: 5px;" loading="lazy" width="100" height="100">
+                                            </div>
+                                            <div class="w-100 pl-3">
+                                                <p style="font-style: normal;font-weight: 500;font-size: 15px;line-height: 150%;text-indent: 2px;color: #535456;" class="mb-0">
+                                                    Dynamic Financial Report
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="col-sm-6 col-lg-4 col-xl-4 mb-3 pr-lg-0 pr-sm-1">
+                                    <a href="https://apps.odoo.com/apps/modules/15.0/ks_shopify/" target="_blanck" style="text-decoration:none">
+                                        <div class="d-flex  align-items-center h-100 bg-white px-3 py-3" style="border: 1px solid #EFECEC; border-radius: 8px;">
+                                            <div style="width:100px;">
+                                                <img src="./img/support/shopify.png" alt="icon" loading="lazy" width="100" height="100">
+                                            </div>
+                                            <div class="w-100 pl-3">
+                                                <p style="font-style: normal;font-weight: 500;font-size: 15px;line-height: 150%;text-indent: 2px;color: #535456;" class="mb-0">
+                                                    Odoo Shopify Connector
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="shadow bg-white p-0" id="free_support" style="margin-top: 42px; border-radius: 20px;  padding-top: 41px; padding-bottom: 41px;">
+                    <div class="row d-flex align-items-center justify-content-center m-0">
+                        <div class="col-12 px-0 position-relative overflow-hidden" style="border-radius: 20px; background-color: #fffefd;">
+                            <img src="./img/support/ks-odoo-services-bg.png" alt="bg-img" class="h-100 w-100 position-absolute fix-bottom img-fluid"  loading="lazy" style="object-fit: cover;top: 0;left: 0;">
+                            <div class="row position-relative pt-lg-3 px-lg-5 pb-lg-3 p-md-4 p-3 mx-auto d-flex align-items-center" style="color: #333333;font-weight: 500;font-size: 16px;width: 100%;gap: 35px 70px;">
+                                <div class="col text-center py-4">
+                                    <h5 class="text-center mb-4" style="font-style: normal;font-weight: 700;font-size: 32px;line-height: 48px;letter-spacing: -0.02em;text-indent: 2px;color: #9EFFFF; font-size: calc(1.5rem + 0.4vw); font-family: 'Inter', sans-serif;">
+                                        Ksolves Odoo Services
+                                    </h5>
+                                    <img src="./img/support/services-img.png" width="685" class="img-fluid" loading="lazy"/>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <!-- jQuery library -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <template id="403">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="container">
+                    <h1 class="mt32">403: Forbidden</h1>
+                    <p>The page you were looking for could not be authorized.</p>
+                    <p>Maybe you were looking for one of these popular pages ?</p>
+                    <ul>
+                        <li><a href="/">Homepage</a></li>
+                        <li><a href="/contactus">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </t>
+    </template>
+    <template id="portal_layout"
+              name="Portal layout: Vendor Portal"
+              inherit_id="portal.portal_breadcrumbs"
+              priority="40"
+    >
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+            <li t-if="page_name == 'My Products' or vendor_product" t-attf-class="breadcrumb-item #{'active ' if not vendor_product else ''}">
+                <a t-if="vendor_product" t-attf-href="/my/products?{{ keep_query() }}">My Products</a>
+                <t t-else="">My Products</t>
+            </li>
+            <li t-if="vendor_product" class="breadcrumb-item active">
+                [<t t-esc="vendor_product.product_code"/>] <t t-esc="vendor_product.product_name"/>
+            </li>
+            <li t-if="page_name == 'My Locations' or vendor_location" t-attf-class="breadcrumb-item #{'active ' if not vendor_location else ''}">
+                <a t-if="vendor_location" t-attf-href="/my/locations?{{ keep_query() }}">My Locations</a>
+                <t t-else="">My Locations</t>
+            </li>
+            <li t-if="vendor_location" class="breadcrumb-item active">
+                <t t-esc="vendor_location.name"/>
+            </li>
+        </xpath>
+    </template>
+    <template id="portal_my_home_vendor"
+              name="Portal My Home : vendor entries"
+              inherit_id="portal.portal_my_home"
+              priority="20"
+    >
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="title">My Products</t>
+                <t t-set="url" t-value="'/my/products'"/>
+                <t t-set="count" t-value="products_count"/>
+            </t>
+            <t t-if="vendor_portal_stocks" t-call="portal.portal_docs_entry">
+                <t t-set="title">My Locations</t>
+                <t t-set="url" t-value="'/my/locations'"/>
+                <t t-set="count" t-value="locations_count"/>
+            </t>
+        </xpath>
+    </template>
+
+</odoo>

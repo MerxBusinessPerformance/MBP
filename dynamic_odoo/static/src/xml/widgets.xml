@@ -1,0 +1,586 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="ViewStudio.Widget.TreeColor">
+        <div class="wRecordColor">
+            <div><a class="lblField"><t t-esc="widget.props.label" />:</a></div>
+            <div class="wItem">
+                <!--<t t-set="value" t-value="widget.state.value" />-->
+                <!--<t t-foreach="Object.keys(widget.viewInfo)" t-as="colorKey">-->
+                    <!--<t t-set="color" t-value="widget.viewInfo[colorKey]" />-->
+                    <!--<div class="colorItem" t-att-name="colorKey">-->
+                        <!--<input t-att-placeholder="color.placeholder" t-att-value="value[colorKey] || ''" t-att-name="colorKey" type="text" />-->
+                    <!--</div>-->
+                <!--</t>-->
+            </div>
+        </div>
+    </t>
+    <t t-name="ViewStudio.Widget.Groups">
+        <div class="wWidgetGroup">
+
+        </div>
+    </t>
+    <t t-name="ViewStudio.Widget.Tab">
+        <div class="wTab" t-att-node-id="(widget.props.node || {}).nodeId" t-att-tab-active="widget.state.value">
+            <div class="wTabHead">
+                <t t-set="tabs" t-value="widget.props.tabs" />
+                <t t-foreach="Object.keys(tabs)" t-as="tabName">
+                    <t t-set="tab" t-value="tabs[tabName]" />
+                    <a t-att-node-id="tab.nodeId" t-att-class="(tabName == widget.state.value ? 'tabItem active' : 'tabItem') + ' ' +tab.classes" t-att-name="tab.name">
+                        <i t-if="tab.icon" t-att-class="'fa fa-'+tab.icon"></i><t t-esc="tab.label" />
+                    </a>
+                </t>
+            </div>
+            <div class="wTabCon _divSB"></div>
+        </div>
+    </t>
+    <t t-name="ViewStudio.Widget.ChartProps.Item">
+        <div class="wGlItem">
+            <div class="wItem" t-att-title="item.title">
+                <span>
+                    <img t-attf-src="/dynamic_odoo/static/src/svg/#{item.icon}" />
+                </span>
+            </div>
+        </div>
+    </t>
+    <t t-name="ViewStudio.Widget.ChartProps.Group">
+        <div class="glGroup">
+            <div class="glTitle">
+                <a><t t-esc="group.title" /></a>
+            </div>
+            <div class="glContent">
+            </div>
+        </div>
+    </t>
+    <t t-name="ViewStudio.Widget.ChartProps">
+        <div class="wChartProps">
+            <div class="glGroups">
+
+            </div>
+        </div>
+    </t>
+    <t t-name="ViewStudio.Widget.ButtonDomain">
+        <div class="wBtnDomain" t-att-name="widget.props.name">
+            <t t-if="widget.state.type == 'input'">
+                <div t-if="widget.props.label" class="lblField">
+                    <a><t t-esc="widget.props.label || 'Domain'" /></a>
+                </div>
+                <div class="wInput">
+                    <t t-set="value" t-value="widget.state.value" />
+                    <input t-att-value="value != '[]' ? value : ''" type="text" readonly="readonly" />
+                    <i class="fa fa-pencil"></i>
+                </div>
+            </t>
+            <t t-else="">
+                <a class="btn btn-primary btnDomain">
+                    <i class="fa fa-filter" />
+                    <t t-esc="widget.props.label || 'Filter'" />
+                </a>
+            </t>
+        </div>
+    </t>
+    <t t-name="ViewStudio.Widget.ChooseIcon.Content">
+        <div class="wiCon">
+            <t t-foreach="icons" t-as="icon">
+                <div class="iconItem" t-att-icon="icon">
+                    <i t-att-class="'fa fa-'+icon" />
+                </div>
+            </t>
+        </div>
+    </t>
+    <t t-name="ViewStudio.Widget.ChooseIcon">
+        <div class="wChooseIcon">
+            <div class="chooseIconCon">
+                <div class="icMain">
+                    <div class="wHead">
+                        <a class="lblField">Icons</a>
+                    </div>
+                    <div class="wCon">
+                        <div class="iconSearch">
+                            <input class="ipSearch" />
+                        </div>
+                        <div class="iconResult">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+    <t t-name="ViewStudio.Widget.ChooseColor">
+        <div class="wChooseColor">
+            <a class="btn btnShow">
+                <i class="fa fa-tint" t-att-style="'color:' + widget.state.value" /><t t-esc="widget.props.label || 'Color'" />
+            </a>
+        </div>
+    </t>
+    <t t-name="ViewStudio.Widget.ChooseField">
+        <div class="wCField">
+            <div t-if="widget.props.label" class="wHead">
+                <a class="lblField"><t t-esc="widget.props.label" /></a>
+            </div>
+            <div class="wCon">
+
+            </div>
+        </div>
+    </t>
+    <t t-name="ViewEdit.ViewMore">
+        <div class="_wViewMore">
+            <t t-if="!widget.props.noEdit &amp;&amp; !widget.newField &amp;&amp; widget.props.node.tag == 'field'">
+                <button class="btnMore">More</button>
+            </t>
+            <button class="btnRemove">Remove</button>
+        </div>
+    </t>
+    <t t-name="ViewStudio.Widget.OptionsEdit.item">
+        <div t-att-data_id="option[0]" t-att-class="item todo">
+            <div class="itemLeft">
+                <div class="cbCheck">
+                </div>
+            </div>
+            <div class="itemCon">
+                <a>
+                    <t t-esc="option[1]" />
+                </a>
+            </div>
+            <i class="fa fa-trash rmTask" />
+        </div>
+    </t>
+    <t t-name="ViewStudio.Widget.OptionsEdit.list">
+        <div class="wTaskTodo">
+            <div class="taskTodoList">
+                <t t-foreach="options" t-as="option">
+                    <div t-att-data_id="option[0]" class="item">
+                        <div class="itemLeft">
+                            <div class="cbCheck">
+                            </div>
+                        </div>
+                        <div class="itemCon">
+                            <t t-if="itemActive == option[0]">
+                                <input t-att-value="option[1]" />
+                            </t>
+                            <t t-else="">
+                                <a>
+                                    <t t-esc="option[1]" />
+                                </a>
+                            </t>
+                        </div>
+                        <t t-if="!(newOptions.indexOf(option[0]) &lt; 0)">
+                            <i class="fa fa-trash rmItem" />
+                        </t>
+                    </div>
+                </t>
+            </div>
+        </div>
+    </t>
+    <t t-name="ViewStudio.Widget.OptionsEdit.empty">
+        <div class="dataEmpty">
+            <div class="wImg">
+                <img t-att-src="img" />
+            </div>
+            <div class="emptyLbl">
+                <h3><t t-esc="label" /></h3>
+            </div>
+        </div>
+    </t>
+    <t t-name="ViewStudio.Widget.OptionsEdit.wOptions">
+        <div class="wOptions">
+            <div class="wEmpty"></div>
+            <div class="wContent"></div>
+            <div t-if="create" class="wCreate">
+                <div class="item">
+                    <div class="itemLeft">
+                        <img src="/dynamic_odoo/static/src/svg/ic_new_todo.svg" />
+                    </div>
+                    <div class="itemCon">
+                        <input t-att-value="value" class="inputAdd" t-att-placeholder="info.create.label" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+    <t t-name="ViewStudio.Widget.OptionsEdit">
+        <div class="wOptionsEdit">
+            <div class="wHead">
+                <a class="lblField">Options</a>
+            </div>
+            <div class="wCon">
+                <div class="optionsBadge">
+                    <t t-foreach="widget.state.options" t-as="option">
+                        <div class="opBadge">
+                            <span class="badge_text"><t t-esc="option[1]" /></span>
+                        </div>
+                    </t>
+                </div>
+            </div>
+        </div>
+    </t>
+    <t t-name="ViewStudio.Widget.StyleWidget">
+        <div class="wStyle">
+            <div class="sRow">
+                <div class="wFont">
+                    <div class="sHead">
+                        <label>Font</label>
+                    </div>
+                    <div class="sCon">
+                        <div>
+                            <select type="font-family">
+                                <t t-foreach="widget.fontFamily" t-as="font">
+                                    <option><t t-esc="font" /></option>
+                                </t>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <!--<div class="wFontSize">-->
+                <!--<div class="sHead">-->
+                <!--<label>Size</label>-->
+                <!--</div>-->
+                <!--<div class="sCon">-->
+                <!--<div>-->
+                <!--<select type="font-size">-->
+                <!--<t t-foreach="widget.fontSize" t-as="size">-->
+                <!--<option><t t-esc="size" /></option>-->
+                <!--</t>-->
+                <!--</select>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--<div class="wWidth">-->
+                <!--<div class="sHead">-->
+                <!--<label>Width</label>-->
+                <!--</div>-->
+                <!--<div class="sCon">-->
+                <!--<div>-->
+                <!--<input type="width" />-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--</div>-->
+            </div>
+            <div class="sRow">
+                <div class="wGridCol">
+                    <div class="sHead">
+                        <label>Col</label>
+                    </div>
+                    <div class="sCon">
+                        <div>
+                            <select type="grid-col">
+                                <t t-foreach="widget.gridCol" t-as="col">
+                                    <option><t t-esc="col" /></option>
+                                </t>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="wFontSize">
+                    <div class="sHead">
+                        <label>Size</label>
+                    </div>
+                    <div class="sCon">
+                        <div>
+                            <select type="font-size">
+                                <t t-foreach="widget.fontSize" t-as="size">
+                                    <option><t t-esc="size" /></option>
+                                </t>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="wWidth">
+                    <div class="sHead">
+                        <label>Width</label>
+                    </div>
+                    <div class="sCon">
+                        <div>
+                            <input type="width" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="wMargin">
+                <div class="sHead">
+                    <label>Margins</label>
+                </div>
+                <div class="sCon">
+                    <div><input type="margin-top" placeholder="top" /></div>
+                    <div><input type="margin-right" placeholder="right" /></div>
+                    <div><input type="margin-bottom" placeholder="bottom" /></div>
+                    <div><input type="margin-left" placeholder="left" /></div>
+                </div>
+            </div>
+            <div class="wPadding">
+                <div class="sHead">
+                    <label>Padding</label>
+                </div>
+                <div class="sCon">
+                    <div><input type="padding-top" placeholder="top" /></div>
+                    <div><input type="padding-right" placeholder="right" /></div>
+                    <div><input type="padding-bottom" placeholder="bottom" /></div>
+                    <div><input type="padding-left" placeholder="left" /></div>
+                </div>
+            </div>
+
+            <div class="wDA">
+                <div class="wDecoration">
+                    <div class="sHead">Text Decoration</div>
+                    <div class="sCon">
+                        <a type="text-decoration" data="bold">
+                            <i class="fa fa-bold" />
+                        </a>
+                        <a type="text-decoration" data="italic">
+                            <i class="fa fa-italic" />
+                        </a>
+                        <a type="text-decoration" data="underline">
+                            <i class="fa fa-underline" />
+                        </a>
+                    </div>
+                </div>
+                <div class="wAlign">
+                    <div class="sHead">Alignment</div>
+                    <div class="sCon">
+                        <a type="text-align" data="left">
+                            <i class="fa fa-align-left" />
+                        </a>
+                        <a type="text-align" data="center">
+                            <i class="fa fa-align-center" />
+                        </a>
+                        <a type="text-align" data="right">
+                            <i class="fa fa-align-right" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="wBC">
+                <div class="sHead">
+                    <label>Colors</label>
+                </div>
+                <div class="sCon">
+                    <a type="color">
+                        <i class="fa fa-font" />
+                    </a>
+                    <a type="background-color">
+                        <i class="fa fa-paint-brush" />
+                    </a>
+                </div>
+            </div>
+        </div>
+    </t>
+    <t t-name="ViewStudio.Widget.CssWidget">
+        <div t-att-class="widget.hideEdit ? 'wCssWidget cssHide' : 'wCssWidget extra'">
+            <i t-if="widget.hideEdit" class="fa fa-eye toggle"></i>
+            <div t-if="!widget.hideEdit">
+                <div class="cwHead">
+                    <div class="help">
+                        <i class="fa fa-eye-slash toggle"></i>
+                    </div>
+                    <div class="drag-area">
+                        <t t-call="Studio.icon.list" />
+                    </div>
+                    <div class="close">
+                        <t t-call="Studio.icon.close" />
+                    </div>
+                </div>
+                <div class="cwCon row">
+
+                </div>
+            </div>
+        </div>
+    </t>
+    <t t-name="CssWidget.group">
+        <div t-att-class="'col-'+ (widget.props.col ? widget.props.col : '6')">
+            <div class="wGroupProps" t-att-type="widget.props.type">
+                <t t-if="widget.props.label">
+                    <div class="wgpHead">
+                        <label><t t-esc="widget.props.label" /></label>
+                        <div t-if="widget.props.units" class="wUnits"></div>
+                        <!--<t t-if="widget.props.units">(<t t-call="CssWidget.chooseUnits" />)</t>-->
+                    </div>
+                </t>
+                <div class="wpgCon"></div>
+            </div>
+        </div>
+    </t>
+    <!--<t t-name="ViewStudio.Widget.CssWidget.template2">-->
+    <!--<div class="wTpl2">-->
+    <!--<span t-if="!input" t-att-class="classes" t-att-data-type="name" t-att-data="data">-->
+    <!--<t t-if="icon">-->
+    <!--<t t-call="{{icon}}" />-->
+    <!--</t>-->
+    <!--<t t-else="">-->
+    <!--<t t-esc="label" />-->
+    <!--</t>-->
+    <!--</span>-->
+    <!--<span t-if="input">-->
+    <!--<t t-if="icon">-->
+    <!--<t t-call="{{icon}}" />-->
+    <!--</t>-->
+    <!--<t t-else="">-->
+    <!--<t t-esc="label" />-->
+    <!--</t>-->
+    <!--</span>-->
+    <!--<t t-if="input">-->
+    <!--<div>-->
+    <!--<input t-att-data-type="name" type="text" maxlength="8" step="1" placeholder="0" class="input" />-->
+    <!--</div>-->
+    <!--</t>-->
+    <!--</div>-->
+    <!--</t>-->
+    <t t-name="CssWidget.chooseUnits">
+        (<select class="sUnits" t-att-disabled="disable">
+            <t t-foreach="['pt', 'px', 'pc', 'in', 'mm', 'cm', 'em', 'ex', 'ch', 'rem', 'vw', 'vh', 'vmin', 'vmax', '%']" t-as="unit">
+                <t t-if="currentUnit == unit">
+                    <option selected="selected"><t t-esc="unit" /></option>
+                </t>
+                <t t-else="">
+                    <option><t t-esc="unit" /></option>
+                </t>
+            </t>
+        </select>)
+        <!--<span class="spPex">-->
+        <!--(-->
+        <!--<i pex="px">px</i>-->
+        <!--/-->
+        <!--<i pex="%">%</i>-->
+        <!--)-->
+        <!--</span>-->
+    </t>
+    <t t-name="CssWidget.iconTemplate">
+        <div class="wTpl2" t-att-name="widget.props.name">
+            <span>
+                <t t-if="widget.props.icon">
+                    <t t-call="{{'Studio.icon.'+widget.props.icon}}" />
+                </t>
+                <t t-else="">
+                    <t t-esc="widget.props.label" />
+                </t>
+            </span>
+        </div>
+    </t>
+    <T t-name="CssWidget.inputTemplate">
+        <div class="wTpl2">
+            <span>
+                <t t-esc="widget.props.label" />
+            </span>
+            <div>
+                <input type="text" maxlength="8" t-att-name="widget.props.key" t-att-value="widget.state.value" step="1" placeholder="0" class="input ipT" />
+            </div>
+        </div>
+    </T>
+    <t t-name="CssWidget.font">
+        <div class="wFont">
+            <select>
+                <t t-foreach="widget.fonts" t-as="font">
+                    <t t-if="widget.state.value == font">
+                        <option selected="selected">
+                            <t t-esc="font" />
+                        </option>
+                    </t>
+                    <t t-else="">
+                        <option>
+                            <t t-esc="font" />
+                        </option>
+                    </t>
+                </t>
+            </select>
+        </div>
+    </t>
+    <t t-name="CssWidget.fontSize">
+        <div class="wFontSize" t-att-data-type="name">
+            <div class="slider">
+                <div class="line"></div>
+                <div class="slideOver">
+                    <div class="lineOver"></div>
+                    <div class="dot"></div>
+                </div>
+            </div>
+            <div class="lblFont">30</div>
+        </div>
+    </t>
+    <t t-name="CssWidget.border">
+        <div class="wBorder">
+            <t t-set="_bName" t-value="widget.state.border" />
+            <t t-set="border" t-value="widget.state.value[_bName] || {'width': 0, 'style': 'none'}" />
+            <div class="bOP">
+                <div class="bSize">
+                    <input type="number" t-att-value="border.width" min="0" max="100" />
+                </div>
+                <div class="bStyle">
+                    <select>
+                        <t t-foreach="widget.options.style" t-as="op">
+                            <t t-if="op.value == border.style">
+                                <option t-att-value="op.value" selected="selected"><t t-esc="op.label" /></option>
+                            </t>
+                            <t t-else="">
+                                <option t-att-value="op.value"><t t-esc="op.label" /></option>
+                            </t>
+                        </t>
+                    </select>
+                </div>
+            </div>
+            <div class="bCorner">
+                <t t-foreach="Object.keys(widget.borders)" t-as="borderName">
+                    <t t-set="_border" t-value="widget.state.value[borderName] || false" />
+                    <span t-att-name="borderName" t-att-class="borderName.trim() == _bName.trim() ? '_active' : ''" t-att-style="_border ? (borderName+'-color: '+_border.color) : ''"></span>
+                </t>
+            </div>
+        </div>
+    </t>
+    <t t-name="Studio.TextWidget">
+        <div class="textWidget">
+            <span t-if="widget.props.label" class="sLb"><t t-esc="widget.props.label" /></span>
+            <div t-if="!widget.props.popup" class="wTextCon"></div>
+        </div>
+    </t>
+    <t t-name="ChooseColor.ColorSimple">
+        <div class="wChooseColorSp">
+            <div>
+                <t t-foreach="colors" t-as="color">
+                    <div class="itCl" t-att-data="color" t-att-style="'background-color:' + color"></div>
+                </t>
+            </div>
+        </div>
+    </t>
+    <t t-name="Report.NodeTemplate.Item.attr">
+        <t t-set="stop" t-value="false" />
+        <t t-foreach="['t-foreach', 't-if', 't-name', 't-set', 't-call', 'class']" t-as="attr">
+            <t t-if="!stop">
+                <t t-set="value" t-value="node.attrs[attr]" />
+                <t t-if="value">
+                    <t t-if="attr == 'class'">
+                        <span class="nAttr"><t t-esc="value" /></span>
+                    </t>
+                    <t t-elif="['t-foreach', 't-if', 't-name', 't-set', 't-call'].includes(attr)">
+                        <span class="nAttr">[<t t-esc="attr.replace('t-', '')" />="<t t-esc="value" />"]</span>
+                    </t>
+                    <t t-else="">
+                        <span class="nAttr">(<t t-esc="value" />)</span>
+                    </t>
+                    <t t-set="stop" t-value="true" />
+                </t>
+            </t>
+        </t>
+    </t>
+    <t t-name="Report.NodeTemplate.Item">
+        <div class="tplItem" t-att-node-id="node.nodeId">
+            <div class="itHead">
+                <span class="sI"/>
+                <h5>
+                    <i t-if="icon" t-att-class="'fa fa-' + icon" />
+                    <t t-esc="tagName" />
+                    <t t-call="Report.NodeTemplate.Item.attr" />
+                </h5>
+                <span class="sII" />
+            </div>
+            <div class="itProps"></div>
+        </div>
+    </t>
+    <t t-name="StudioWidget.changeImage">
+        <div class="wChangeImg">
+            <a><i class="fa fa-image" /> Change Image</a>
+        </div>
+    </t>
+    <t t-name="ViewEdit.ActionStudio">
+        <div>
+            <button class="btn_edit_action">Edit Action</button>
+        </div>
+    </t>
+</templates>
