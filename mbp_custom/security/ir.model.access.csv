@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_business_area,business_area,model_business_area,base.group_user,1,1,1,1
+access_business_process,business_process,model_business_process,base.group_user,1,1,1,1
+access_odoo_modules,odoo_modules,model_odoo_modules,base.group_user,1,1,1,1

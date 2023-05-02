@@ -9,8 +9,6 @@ class ProjectTask(models.Model):
 
     business_requirement_deliverable_id = fields.Many2one(
         comodel_name="business.requirement.deliverable",
-        related="sale_line_id.business_requirement_deliverable_id",
-        readonly=True,
         string="Deliverable",
     )
     business_requirement_id = fields.Many2one(

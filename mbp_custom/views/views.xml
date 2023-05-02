@@ -1,0 +1,103 @@
+<odoo>
+
+     <record id="deliverable_tasks_inherit" model="ir.ui.view">
+        <field name="name">deliverable.task.form.inherit</field>
+        <field name="model">business.requirement.deliverable</field>
+        <field name="inherit_id" ref="business_requirement_deliverable.view_business_requirement_deliverable_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='proposed_solution']" position="replace">
+
+            </xpath>
+            <xpath expr="//group[@name='user_case']" position="replace">
+               <group>
+                   <field name="business_process_id" widget="many2many_tags"/>
+                   <field name="business_area_id" widget="many2many_tags"/>
+                   <field name="odoo_modules_id" widget="many2many_tags"/>
+               </group>
+                <notebook>
+                    <page string="Detalles">
+                        <group name="user_case" string="User Case">
+                            <field name="user_case" nolabel="1"/>
+                        </group>
+                        <group name="proposed_solution" string="Proposed Solution">
+                            <field name="proposed_solution" nolabel="1"/>
+                        </group>
+                    </page>
+                    <page string="Backlog">
+                        <field name="task_ids" widget="one2many"
+                               context="{'default_business_requirement_deliverable_id': id}">
+                            <tree editable="bottom" >
+                                <field name="business_requirement_id" optional="hide"/>
+                                <field name="business_requirement_deliverable_id" optional="hide"/>
+                                <field name="is_closed" invisible="1"/>
+                                <field name="name"/>
+                                <field name="project_id" optional="show"/>
+                                <field name="partner_id" optional="hide"/>
+                                <field name="parent_id" groups="project.group_subtask_project" optional="hide"/>
+                                <field name="planned_hours" widget="timesheet_uom_no_toggle" sum="Initially Planned Hours" optional="hide"/>
+                                <field name="effective_hours" widget="timesheet_uom" sum="Effective Hours" optional="show"/>
+                                <field name="user_ids" optional="show" widget="many2many_avatar_user" domain="[('share', '=', False), ('active', '=', True)]"/>
+                                <field name="company_id" groups="base.group_multi_company" optional="hide"/>
+                                <field name="activity_ids" widget="list_activity" optional="show"/>
+                                <field name="date_deadline" optional="show" widget="remaining_days" attrs="{'invisible': [('is_closed', '=', True)]}"/>
+                                <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}" optional="show"/>
+                                <field name="kanban_state" widget="state_selection" optional="hide" readonly="1"/>
+                                <field name="stage_id" invisible="context.get('set_visible',False)" optional="show"/>
+                            </tree>
+                        </field>
+                    </page>
+                </notebook>
+            </xpath>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_menu_brprocess">
+        <field name="name">Business Processes</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">business.process</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_menu_brareas">
+        <field name="name">Business Areas</field>
+        <field name="res_model">business.area</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_menu_modules">
+        <field name="name">Modules</field>
+        <field name="res_model">odoo.modules</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+    </record>
+
+    <menuitem
+            id="br_relations_submenu_config"
+            name="Business Relations"
+            parent="business_requirement.menu_business_root"
+            sequence="10"
+    />
+
+    <menuitem
+        id="menu_business_process"
+        action="action_menu_brprocess"
+        parent="br_relations_submenu_config"
+        sequence="15"
+    />
+
+    <menuitem
+        id="menu_business_areas"
+        action="action_menu_brareas"
+        parent="br_relations_submenu_config"
+        sequence="13"
+    />
+
+    <menuitem
+        id="menu_business_modules"
+        action="action_menu_modules"
+        parent="br_relations_submenu_config"
+        sequence="14"
+    />
+</odoo>
