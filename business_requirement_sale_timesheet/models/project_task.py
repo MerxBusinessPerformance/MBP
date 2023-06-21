@@ -14,6 +14,31 @@ class ProjectTask(models.Model):
     business_requirement_id = fields.Many2one(
         "business.requirement", string="Business requirement"
     )
+    task_type = fields.Selection([
+        ("1", "Reunion"),
+        ("2", "Desarrollo"),
+        ("3", "Configuracion"),
+        ("4", "Documentacion"),
+        ("5", "Levantamiento de campo"),
+        ("6", "Carga de datos"),
+        ("7", "Implementacion"),
+        ("8", "Pruebas"),
+        ("9", "Capacitacion"),
+        ("10", "Soporte"),
+        ("11", "Milestone"),
+        ("12", "Agrupador"),
+    ], string="Tipo de tarea")
+    change_control = fields.Boolean(string='Control de Cambios')
+    business_process_id = fields.Many2many('business.process', string='Procesos de negocio involucrados')
+    business_area_id = fields.Many2many('business.area', string='Areas de negocio involucradas')
+    complexity = fields.Selection([
+        ("1", "Alta"),
+        ("2", "Media"),
+        ("3", "Baja"),
+    ],string="Complejidad")
+    priority = fields.Selection(
+        selection_add=[("2", "High")],
+    )
 
     def action_view_deliverable(self):
         action = self.env.ref(

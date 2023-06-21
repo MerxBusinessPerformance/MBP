@@ -41,3 +41,17 @@ class BusinessRequirementExtend(models.Model):
     business_area_id = fields.Many2many('business.area', string='Areas de negocio involucradas')
     odoo_modules_id = fields.Many2many('odoo.modules', string='Modulos afectados')
     task_ids = fields.One2many('project.task', 'business_requirement_deliverable_id', string='Tareas', )
+    complexity = fields.Selection([
+        ("1", "Alta"),
+        ("2", "Media"),
+        ("3", "Baja"),
+    ], string="Complejidad")
+    priority = fields.Selection(
+        selection=[("0", "Low"), ("1", "Normal"), ("2", "High")],
+        required=True,
+        default="1",
+    )
+    project_id = fields.Many2one(
+        comodel_name='project.project',
+        string='Project', related='business_requirement_id.project_id')
+
