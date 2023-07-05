@@ -9,6 +9,35 @@
                  t-att-title="icon.name"/>
         </t>
     </template>
+    <!-- Common payment block   -->
+    <template id="payment_block_content_common">
+        <div t-attf-class="container te_end_ftr_container #{align_class}">
+            <div class="row align-items-center">
+                <div t-attf-class="te_footer_payment_img col-md-12 #{img_align_class}">
+                    <div class="oe_structure">
+                        <section class="te_payment_list">
+                            <t t-call="theme_clarico_vega.display_payment_icons_footer"/>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+    <!-- footer_map_opt-->
+    <template id="footer_map_opt">
+         <div class="mapouter">
+            <div class="gmap_canvas">
+                <iframe width="100%" height="100%" id="gmap_canvas"
+                        t-att-src="'https://maps.google.com/maps?q=%s %s %s %s %s %s %s' % (street or '', street2 or '', city or '', zip_code or '', state or '', country or '', '&amp;width=100%&amp;hl=en&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=&amp;output=embed')"
+                        frameborder="0" scrolling="no" marginheight="0"
+                        marginwidth="0"></iframe>
+            </div>
+            <style>
+                .mapouter{position:relative;text-align:right;height:240px;width:220px;}.gmap_canvas
+                {overflow:hidden;background:none!important;height:100%;width:100%;}
+            </style>
+        </div>
+    </template>
     <!--=============================== Footer Style-1 =============================-->
     <template id="customize_footer_style_1" inherit_id="website.layout" active="False">
         <xpath expr="//div[@id='footer']" position="replace">
@@ -25,18 +54,7 @@
                                 <t t-if="res_company.state_id" t-set="state" t-value="res_company.state_id.name"/>
                                 <t t-if="res_company.country_id" t-set="country" t-value="res_company.country_id.name"/>
                                 <div class="te_footer_map">
-                                    <div class="mapouter">
-                                        <div class="gmap_canvas">
-                                            <iframe width="100%" height="100%" id="gmap_canvas"
-                                                    t-att-src="'https://maps.google.com/maps?q=%s %s %s %s %s %s %s' % (street or '', street2 or '', city or '', zip_code or '', state or '', country or '', '&amp;width=100%&amp;hl=en&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=&amp;output=embed')"
-                                                    frameborder="0" scrolling="no" marginheight="0"
-                                                    marginwidth="0"></iframe>
-                                        </div>
-                                        <style>
-                                            .mapouter{position:relative;text-align:right;height:240px;width:220px;}.gmap_canvas
-                                            {overflow:hidden;background:none!important;height:100%;width:100%;}
-                                        </style>
-                                    </div>
+                                    <t t-call="theme_clarico_vega.footer_map_opt"/>
                                 </div>
                                 <!-- Company Address -->
                                 <ul class="te_footer_info_text">
@@ -176,18 +194,7 @@
                                 <t t-if="res_company.state_id" t-set="state" t-value="res_company.state_id.name"/>
                                 <t t-if="res_company.country_id" t-set="country" t-value="res_company.country_id.name"/>
                                 <div class="te_s3_map te_footer_map">
-                                    <div class="mapouter">
-                                        <div class="gmap_canvas">
-                                            <iframe width="100%" height="100%" id="gmap_canvas"
-                                                    t-att-src="'https://maps.google.com/maps?q=%s %s %s %s %s %s %s' % (street or '', street2 or '', city or '', zip_code or '', state or '', country or '', '&amp;width=100%&amp;hl=en&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=&amp;output=embed')"
-                                                    frameborder="0" scrolling="no" marginheight="0"
-                                                    marginwidth="0"></iframe>
-                                        </div>
-                                        <style>
-                                            .mapouter{position:relative;text-align:right;height:240px;width:220px;}.gmap_canvas
-                                            {overflow:hidden;background:none!important;height:100%;width:100%;}
-                                        </style>
-                                    </div>
+                                   <t t-call="theme_clarico_vega.footer_map_opt"/>
                                 </div>
                             </div>
                             <!-- Static Menu-->
@@ -333,17 +340,10 @@
                 </section>
             </div>
             <!-- Payment Icon -->
-            <div class="container py-3 te_end_ftr_container">
-                <div class="row align-items-center">
-                    <div class="te_footer_payment_img col-md-12 px-sm-0">
-                        <div class="oe_structure">
-                            <section class="te_payment_list">
-                                <t t-call="theme_clarico_vega.display_payment_icons_footer"/>
-                            </section>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <t t-call="theme_clarico_vega.payment_block_content_common">
+                <t t-set="align_class" t-valuef="py-3"/>
+                <t t-set="img_align_class" t-valuef="px-sm-0"/>
+            </t>
         </xpath>
     </template>
     <!--=============================== Footer_style_5 =============================-->
@@ -445,19 +445,10 @@
                 </section>
             </div>
             <!-- Payment Icon -->
-            <div class="container te_end_ftr_container">
-                <div class="row align-items-center">
-                    <div class="te_footer_payment_img col-md-12">
-                        <div class="oe_structure">
-                            <section class="te_payment_list">
-                                <t t-call="theme_clarico_vega.display_payment_icons_footer"/>
-                            </section>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <t t-call="theme_clarico_vega.payment_block_content_common"/>
         </xpath>
     </template>
+
     <!--=============================== Footer_style_6 =============================-->
     <template id="customize_footer_style_6" inherit_id="website.layout" active="False">
         <xpath expr="//div[@id='footer']" position="replace">
@@ -474,18 +465,7 @@
                                 <t t-if="res_company.state_id" t-set="state" t-value="res_company.state_id.name"/>
                                 <t t-if="res_company.country_id" t-set="country" t-value="res_company.country_id.name"/>
                                 <div class="te_footer_map te_s6_map">
-                                    <div class="mapouter">
-                                        <div class="gmap_canvas">
-                                            <iframe width="100%" height="100%" id="gmap_canvas"
-                                                    t-att-src="'https://maps.google.com/maps?q=%s %s %s %s %s %s %s' % (street or '', street2 or '', city or '', zip_code or '', state or '', country or '', '&amp;width=100%&amp;hl=en&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=&amp;output=embed')"
-                                                    frameborder="0" scrolling="no" marginheight="0"
-                                                    marginwidth="0"></iframe>
-                                        </div>
-                                        <style>
-                                            .mapouter{position:relative;text-align:right;height:240px;width:220px;}.gmap_canvas
-                                            {overflow:hidden;background:none!important;height:100%;width:100%;}
-                                        </style>
-                                    </div>
+                                    <t t-call="theme_clarico_vega.footer_map_opt"/>
                                 </div>
                                 <!-- Social Icon -->
                                 <t t-call="theme_clarico_vega.te_footer_social_icon"/>
@@ -534,17 +514,9 @@
                     </div>
                 </section>
                 <!-- Payment Icon -->
-                <div class="container pb-3 te_end_ftr_container">
-                    <div class="row align-items-center">
-                        <div class="te_footer_payment_img col-md-12">
-                            <div class="oe_structure">
-                                <section class="te_payment_list">
-                                    <t t-call="theme_clarico_vega.display_payment_icons_footer"/>
-                                </section>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <t t-call="theme_clarico_vega.payment_block_content_common">
+                    <t t-set="align_class" t-valuef="pb-3"/>
+                </t>
             </div>
         </xpath>
     </template>

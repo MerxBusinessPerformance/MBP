@@ -48,13 +48,13 @@
                                         <t t-elif="theme_name == 'theme_clarico_vega'">
                                             <t t-if="name == 'product-multi-tab'">
                                                 <t t-set="user_guide"
-                                                   t-value="'https://docs.emiprotechnologies.com/theme-clarico-vega/v15/multi-tab-snippet-builder.html'"/>
+                                                   t-value="'https://docs.emiprotechnologies.com/theme-clarico-vega/v15/dynamic-slider-builder/multi-tab-snippet-builder.html'"/>
                                                 <t t-set="video"
                                                    t-value="'https://youtu.be/xVfZuDKXnB4'"/>
                                             </t>
                                             <t t-else="">
                                                 <t t-set="user_guide"
-                                                   t-value="'https://docs.emiprotechnologies.com/theme-clarico-vega/v15/product-snippet-builder.html'"/>
+                                                   t-value="'https://docs.emiprotechnologies.com/theme-clarico-vega/v15/dynamic-slider-builder/product-snippet-builder.html'"/>
                                                 <t t-set="video"
                                                    t-value="'https://youtu.be/xVfZuDKXnB4'"/>
                                             </t>
@@ -426,7 +426,7 @@
     <template id="edit_product_template">
         <t t-if="products">
             <t t-foreach="products" t-as="product">
-                <li class="js_items products align-items-center product-main media"
+                <div class="js_items align-items-center product-main d-flex"
                     t-att-data-item_id="product.id" t-att-value='product.id'>
                     <div class="draggable-icon">
                         <span class="fa fa-ellipsis-v fa-1"/>
@@ -446,7 +446,7 @@
                             <span>Remove</span>
                         </a>
                     </div>
-                </li>
+                </div>
             </t>
         </t>
     </template>

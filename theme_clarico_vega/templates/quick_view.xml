@@ -10,7 +10,7 @@
         </xpath>
     </template>
     <template id="quickview_popup" inherit_id="web.frontend_layout">
-        <xpath expr="//div[@id='wrapwrap']/main" position="before">
+        <xpath expr="//div[@id='wrapwrap']/header" position="before">
             <!-- Quick View Popup Model -->
             <t t-call="theme_clarico_vega.quickview_popup_ept"/>
         </xpath>

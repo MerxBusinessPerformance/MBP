@@ -105,6 +105,9 @@
             vertical-align: middle;
             .te_signin {
                 margin-left: -8px;
+                @include media-breakpoint-down(sm){
+                    margin-left: 6px;
+                }
             }
 
             @include media-breakpoint-down(sm)
@@ -383,6 +386,9 @@
             }
             .te_user_account
             {
+                @include media-breakpoint-down(sm){
+                    margin-left: 8px;
+                }
                 .dropdown-menu{
                     &:before, &:after{
                         right: 8px;
@@ -451,7 +457,6 @@
                         & a.btn-link
                         {
                             padding: 0px 2px;
-                            font-size: $font-size-dynamic - 0.125rem; /* Reduced 2px */
                             & .caret
                             {
                                 margin-left: 0px !important;

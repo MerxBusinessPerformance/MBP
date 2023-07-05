@@ -6,10 +6,10 @@
             <t t-if="(website.is_price_range_filter and website.price_filter_on) or request.website.viewref('website_sale.filter_products_price').active">
                 <t t-set="curr_web" t-value="request.website.get_current_website()"/>
                 <t t-set="range_values" t-value='website.get_min_max_prices(search,category,attrib_values)'/>
-                 <t t-if="range_values and range_values[2] and range_values[3]">
-                    <input type="hidden" id="price_slider_min" t-att-value="range_values[2]"/>
-                    <input type="hidden" id="price_slider_max" t-att-value="range_values[3]"/>
-                    <div class="ept_price_slider_block">
+                 <t t-if="range_values">
+                     <input type="hidden" id="price_slider_min" t-att-value="range_values[2]"/>
+                     <input type="hidden" id="price_slider_max" t-att-value="range_values[3]"/>
+                    <div class="ept_price_slider_block" t-if="range_values[2] != range_values[3]">
                         <div class="price_filter_head te_fa-plus">
                             <span class="m-0 te_pricerange_title">Price Range</span>
                             <a class="price_filter_reset">(Reset)</a>
@@ -37,7 +37,7 @@
                                     <label t-att-class="'d-none' if website.currency_id.position == 'after' else ''"
                                            t-field="website.currency_id.symbol"/>
                                     <input name="min_price" type="number" class="sliderValue ept_price_min" data-index="0"
-                                           t-att-value="range_values[0] or 1"/>
+                                           t-att-value="range_values[0]"/>
                                     <label t-att-class="'d-none' if website.currency_id.position == 'before' else ''"
                                            t-field="website.currency_id.symbol"/>
                                 </div>

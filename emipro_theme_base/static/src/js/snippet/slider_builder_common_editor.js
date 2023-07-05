@@ -3,8 +3,9 @@ odoo.define('slider.builder.common.editor', function(require) {
 
     var ajax = require('web.ajax');
     var publicWidget = require('web.public.widget');
+    var OwlMixin = require('theme_clarico_vega.mixins');
 
-    publicWidget.registry.sliderEditorCommonEpt = publicWidget.Widget.extend({
+    publicWidget.registry.sliderEditorCommonEpt = publicWidget.Widget.extend(OwlMixin, {
         selector: "#wrapwrap",
         disabledInEditableMode: false,
         edit_events: {
@@ -230,7 +231,7 @@ odoo.define('slider.builder.common.editor', function(require) {
                 var name = target.attr('name')
                 name = name === 'product-slider' ? $('.product_configure_model .product-config-content').first().attr('data-value') : name
                 if (name === 'manual-configuration') {
-                    $('.product-box .products').each(function() {
+                    $('.product-box .product-main').each(function() {
                         item_ids.push($(this).attr('data-item_id'));
                     });
                 }
@@ -285,8 +286,8 @@ odoo.define('slider.builder.common.editor', function(require) {
             }
             if (val.length >= 1 && ev.keyCode != 13) {
                 var product_ids = [];
-                $('li.js_items').each(function() {
-                    product_ids.push($(this).val());
+                $('.js_items').each(function() {
+                    product_ids.push($(this).data('item_id'));
                 });
                 this.appendData(val, product_ids)
                 var child_height = $('.product_slider_configure_template').height();
@@ -316,7 +317,7 @@ odoo.define('slider.builder.common.editor', function(require) {
                 $(".input-item-link").on('click', async function(ev) {
                     var val = $(this).attr('data-item_id');
                     var name = $(this).attr('data-item_name');
-                    $(".js_new_item").after('<li class="js_items products media align-items-center product-main" value =' + val + ' data-item_id =' + val + '>' + $(this).html() + '</li>');
+                    $(".js_new_item").after('<div class="js_items align-items-center product-main" value =' + val + ' data-item_id =' + val + '>' + $(this).html() + '</div>');
                     $('.js_input_item').val('')
                     $("#js_item").empty().removeClass('show')
                     self._setItemIds()
@@ -700,7 +701,7 @@ odoo.define('slider.builder.common.editor', function(require) {
         getItemIds: function(name) {
             var item_ids = []
             if (name === 'manual-configuration') {
-                $('.product-box .products').each(function() {
+                $('.product-box .product-main').each(function() {
                     item_ids.push($(this).attr('data-item_id'));
                 });
             }
@@ -756,29 +757,10 @@ odoo.define('slider.builder.common.editor', function(require) {
             if (name === 'brand-slider' || name === 'category-slider') {
                 ajax.jsonRpc('/slider/category-brand-render', 'call', params).then(function(data) {
                     $(".product-configure-section-preview").html(data)
-                    var owl_rtl = false;
-                    if ($('#wrapwrap').hasClass('o_rtl')) {
-                        owl_rtl = true;
-                    }
                     $(".product-configure-section-preview").find('.slider_edit_msg').toggleClass('d-none', true);
-                    $('.category_carousel,.brand_carousel').owlCarousel({
-                        loop: false,
-                        rewind: true,
-                        margin: 10,
-                        rtl: owl_rtl,
-                        nav: true,
-                        lazyLoad: true,
-                        dots: false,
-                        autoplay: true,
-                        autoplayTimeout: 4000,
-                        navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
-                        autoplayHoverPause: true,
-                        items: 6,
-                        responsive: {
-                            775: {
-                                items: 3
-                            }
-                        }
+                    $('.category_carousel, .brand_carousel').each(function(index){
+                        var responsive = { 775: {items: 3} };
+                        OwlMixin.initOwlCarousel('.category_carousel, .brand_carousel', 10, responsive, false, 6, false, true, false, false, false, false, true, false);
                     });
                     if ($('#id_lazyload').length) {
                         $("img.lazyload").lazyload();
@@ -791,87 +773,29 @@ odoo.define('slider.builder.common.editor', function(require) {
                 ajax.jsonRpc('/slider/render', 'call', params).then(function(data) {
                     $(".product-configure-section-preview").html(data)
                     $(".product-configure-section-preview").find('.slider_edit_msg').toggleClass('d-none', true);
-                    var owl_rtl = false;
-                    if ($('#wrapwrap').hasClass('o_rtl')) {
-                        owl_rtl = true;
-                    }
-                    $('.te_product_slider_1, .te_slider_style_2_right_pannel, .te_product_slider_5, .te_slider_style_6').owlCarousel({
-                        loop: false,
-                        rtl: owl_rtl,
-                        margin: 10,
-                        nav: true,
-                        lazyLoad: true,
-                        dots: false,
-                        navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
-                        autoplay: $('.te_auto_play_value span').text() == "True" ? true : false,
-                        autoplayTimeout: 4000,
-                        autoplayHoverPause: true,
-                        items: 4,
-                        responsive: {
-                            0: {
-                                items: 1
-                            },
-                            576: {
-                                items: 1
-                            },
-                            991: {
-                                items: 2
-                            },
-                            1200: {
-                                items: 2
-                            },
-                        },
+                    $('.te_product_slider_1, .te_slider_style_2_right_pannel, .te_product_slider_5, .te_slider_style_6').each(function(index){
+                        var responsive = { 0: {items: 1}, 576: {items: 1}, 991: {items: 2}, 1200: {items: 2} };
+                        OwlMixin.initOwlCarousel('.te_product_slider_1, .te_slider_style_2_right_pannel, .te_product_slider_5, .te_slider_style_6', 10, responsive, false, 4, false, true, false, false, false, false, true, false);
                     });
-                    $('.te_product_slider_4').owlCarousel({
-                        loop: false,
-                        rtl: owl_rtl,
-                        margin: 10,
-                        nav: true,
-                        lazyLoad: true,
-                        dots: false,
-                        navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
-                        autoplay: $('.te_auto_play_value span').text() == "True" ? true : false,
-                        autoplayTimeout: 4000,
-                        autoplayHoverPause: true,
-                        items: 1,
-                        responsive: {
-                            991: {
-                                items: 1
-                            },
-                            1200: {
-                                items: 1
-                            },
-                        },
+
+                    $('.te_product_slider_4').each(function(index){
+                        var responsive = { 991: {items: 1}, 1200: {items: 1} };
+                        OwlMixin.initOwlCarousel('.te_product_slider_4', 10, responsive, false, 1, false, true, false, false, false, false, true, false);
                     });
+
                     $('.te_product_slider_banner').each(function(index) {
                         var $items = $(this);
                         var items = $items.find(".item").length;
-                        $items.owlCarousel({
-                            loop: true,
-                            rtl: owl_rtl,
-                            nav: false,
-                            lazyLoad: true,
-                            autoplay: true,
-                            autoplayTimeout: 4000,
-                            autoplayHoverPause: true,
-                            items: items > 1 ? true : false,
-                        });
+                        OwlMixin.initOwlCarousel('.te_product_slider_banner', 10, false, true, 1, false, false, false, false, false, false, true, false);
                     });
+
                     $('.te_slider_style_7, .te_slider_style_8').each(function(index) {
                         var $items = $(this);
-                        var items = $items.find(".product-rows").length;
-                        $items.owlCarousel({
-                            rtl: owl_rtl,
-                            nav: false,
-                            lazyLoad: true,
-                            autoplay: true,
-                            autoplayTimeout: 4000,
-                            autoplayHoverPause: true,
-                            loop: items > 1 ? true : false,
-                            items: 1,
-                            itemClass: 'owl-item container-fluid',
-                        });
+                        var items = $items.find(".product-rows").length,
+                        loop = items > 1 ? true : false;
+                        OwlMixin.initOwlCarousel('.te_slider_style_7, .te_slider_style_8', 10, false, loop, 1, false, false, false, false, false, false, true, false);
                     });
+
                     if ($('#id_lazyload').length) {
                         $("img.lazyload").lazyload();
                     }

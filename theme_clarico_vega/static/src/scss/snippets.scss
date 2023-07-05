@@ -100,7 +100,6 @@
 /*==================== 03. 3 Blocks ==================*/
 .te_max_width_3_blocks 
 {
-	// 	@include width(90%,1170px)
     @include width(100%,auto)
 	@include media-breakpoint-down(sm)
 	{
@@ -2889,7 +2888,6 @@
 			line-height: 1.5;
 			font-weight: 600;
 			font-size:nth($f_sizes,8);
-// 			@include line-clamp(2,53px);
             @include line-clamp(2,auto);
 		}
 		.te_extra_btn
@@ -3144,7 +3142,6 @@
 		}
 		@include media-breakpoint-down(xs)
 		{
-// 			font-size:nth($f_sizes,15);
 			font-size:1.44rem;
 		}
 	}
@@ -3881,11 +3878,6 @@ section.te_category_slider {
 	}
 }
 /*======================= ODOO SNIPPETS ==================================*/
-/*===================== 01. Title Snippet =================================*/
-/*.te_s_title_default
-{
-	font-weight: bold;
-}*/
 /*=========================== 02. Picture =====================================*/
 .te_picture_img img{
     max-height: 450px;
@@ -4580,5 +4572,13 @@ body {
                   background-size: contain;
                   padding: 20px 0 !important;
                 }
+    }
+}
+
+/* General design for slider arrow of snippet */
+.s_carousel .carousel-control-prev, .s_carousel .carousel-control-next,
+.s_quotes_carousel .carousel-control-prev, .s_quotes_carousel .carousel-control-next{
+    @include media-breakpoint-down(sm){
+        display: flex !important;
     }
 }

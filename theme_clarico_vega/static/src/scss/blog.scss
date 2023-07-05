@@ -227,13 +227,9 @@
     }
 }
 /*=========================== 04. Complete Blog =============================*/
-.website_blog .o_wblog_read {
-    //max-width: 1000px;
-}
 #o_wblog_post_main {
 
     #o_wblog_post_content {
-//         max-width: 720px;
         .badge {
             color: #8d8d8d!important;
             text-transform: uppercase;
@@ -251,7 +247,6 @@
             border: 3px solid #fff;
             font-weight: 700;
             &:hover {
-//                  background-color: #294cfe!important;
                  color: #fff!important;
                  background-color: theme-color('primary');
             }
@@ -533,7 +528,6 @@
                 color: unset;
             }
             .s_blog_posts_post_title {
-                /* @include line-clamp(2,70px); */
                 margin-bottom: 1rem !important;
                 font-size: 1.53rem;
 
@@ -691,7 +685,6 @@
                 }
             }
             .s_blog_posts_post_title {
-                /* @include line-clamp(2,70px); */
                 margin-bottom: 1rem !important;
                 font-size: 1.53rem;
 

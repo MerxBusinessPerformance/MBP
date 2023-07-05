@@ -789,9 +789,6 @@
                 border-left:0px !important;
             }
         }
-        /*#wrapwrap.homepage header:hover .te_header_before_overlay {
-            background-color: unset;
-        }*/
         #wrapwrap.homepage.header_top_overlay > header:not(.o_header_affix) > .navbar{
             box-shadow:none !important;
             background-color:nth($f_color,27) !important;
@@ -805,9 +802,6 @@
         header:not(:hover) .te_header_before_overlay {
             border-bottom:1px solid rgba(255, 255, 255, 0.3);
         }
-        /*.homepage header:not(:hover) .te_header_before_overlay{
-            background:none;
-        }*/
         .header_top_overlay #wrapwrap header .navbar {
             box-shadow: none;
             padding-top: 0px !important;

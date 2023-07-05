@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <record id="nutrula_teach_account_importar_estado_de_cuenta_view_form" model="ir.ui.view">
+        <field name="name">nutula_teach_account.importar_estado_de_cuenta.view.form</field>
+        <field name="model">account.importar_estado_de_cuenta</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <h1>Escoge tu fichero .csv o .xls</h1>
+                    <group>
+                        <p class="text-muted">Ingresa un estado de cuenta que coincida con el
+                            nombre del banco relacionado al diario.</p>
+                        <field name="bancos" />
+                        <field name="nombre" invisible="1" />
+                        <field name="fichero" filename="nombre" />
+
+                    </group>
+                </sheet>
+
+                <footer>
+
+                    <button name="procesar" type="object" string="Procesar" />
+                    <button name="cancelar" type="object" string="Cancelar" />
+
+                </footer>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="nutrula_teach_importar_estado_de_cuenta" model="ir.actions.act_window">
+        <field name="name">Importar estado de cuenta</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">account.importar_estado_de_cuenta</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+
+</odoo>

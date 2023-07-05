@@ -227,20 +227,19 @@ odoo.define('theme_clarico_vega.image_hotspot_snippet_backend',function(require)
             $(ev.currentTarget).parentsUntil( ".dropdown_div" ).find('.slider-dropdown-button').text($(ev.currentTarget).text());
             if($(ev.currentTarget).attr('id') == "square") {
                 if(self.animation == 'fade'){
-                    self.element_selector.find('svg').html('<rect fill="'+self.color+'" height="50" width="50" x="25" y="25"></rect><rect fill="none" height="50" width="50" stroke="'+self.color+'" stroke-width="5" x="25" y="25"><animate attributeName="stroke-width" begin="0s" dur="1.8s" values="10; 50" calcMode="spline" keyTimes="0; 1" keySplines="0.165, 0.84, 0.44, 1" repeatCount="indefinite"></animate><animate attributeName="stroke-opacity" begin="0s" dur="1.8s" values="1; 0" calcMode="spline" keyTimes="0; 1" keySplines="0.3, 0.61, 0.355, 1" repeatCount="indefinite"></animate></rect>')
+                    self.set_fade_square(ev);
                 } else if(self.animation == 'blink'){
-                    self.element_selector.find('svg').html('<rect fill="'+self.color+'" height="50" width="50" x="25" y="25"></rect><rect fill="none" height="100" width="100" stroke="'+self.color+'" stroke-width="30"><animate attributeName="stroke-opacity" begin="0s" dur="1.5s" values="1; 0" calcMode="spline" keyTimes="0; 1" repeatCount="indefinite" keySplines="0.3, 0.61, 0.355, 1"></animate></rect>')
+                    self.set_blink_square(ev);
                 } else {
                     self.element_selector.find('svg').html('<rect fill="'+self.color+'" height="100" width="100"></rect>')
                 }
-
             } else {
                 if(self.animation == 'fade'){
-                    self.element_selector.find('svg').html('<circle cx="50" cy="50" r="30" fill="'+self.color+'"></circle><circle cx="50" cy="50" r="30" fill="none" stroke="'+self.color+'" stroke-width="5"><animate attributeName="stroke-width" begin="0s" dur="1.8s" values="20; 45" calcMode="spline" keyTimes="0; 1" keySplines="0.165, 0.84, 0.44, 1" repeatCount="indefinite"></animate><animate attributeName="stroke-opacity" begin="0s" dur="1.8s" values="1; 0" calcMode="spline" keyTimes="0; 1" keySplines="0.3, 0.61, 0.355, 1" repeatCount="indefinite"></animate></circle>')
+                    self.set_fade_circle(ev);
                 } else if(self.animation == 'blink'){
-                    self.element_selector.find('svg').html('<circle cx="50" cy="50" r="20" fill="'+self.color+'"></circle><circle cx="50" cy="50" r="40" fill="none" stroke="'+self.color+'" stroke-width="20"><animate attributeName="stroke-opacity" begin="0s" dur="1.5s" values="1; 0" calcMode="spline" keyTimes="0; 1" keySplines="0.3, 0.61, 0.355, 1" repeatCount="indefinite"></animate></circle>')
+                    self.set_blink_circle(ev);
                 } else {
-                    self.element_selector.find('svg').html('<circle cx="50" cy="50" r="50" fill="'+self.color+'"></circle>')
+                    self.element_selector.find('svg').html('<circle cx="50" cy="50" r="50" fill="'+self.color+'"></circle>');
                 }
             }
             self.shape = $(ev.currentTarget).attr('id')
@@ -253,24 +252,45 @@ odoo.define('theme_clarico_vega.image_hotspot_snippet_backend',function(require)
             $(ev.currentTarget).parentsUntil( ".dropdown_div" ).find('.slider-dropdown-button').text($(ev.currentTarget).text());
             if($(ev.currentTarget).attr('id') == "fade") {
                 if(self.shape.includes('square')) {
-                    self.element_selector.find('svg').html('<rect fill="'+self.color+'" height="50" width="50" x="25" y="25"></rect><rect fill="none" height="50" width="50" stroke="'+self.color+'" stroke-width="5" x="25" y="25"><animate attributeName="stroke-width" begin="0s" dur="1.8s" values="10; 50" calcMode="spline" keyTimes="0; 1" keySplines="0.165, 0.84, 0.44, 1" repeatCount="indefinite"></animate><animate attributeName="stroke-opacity" begin="0s" dur="1.8s" values="1; 0" calcMode="spline" keyTimes="0; 1" keySplines="0.3, 0.61, 0.355, 1" repeatCount="indefinite"></animate></rect>')
+                    self.set_fade_square(ev);
                 } else {
-                    self.element_selector.find('svg').html('<circle cx="50" cy="50" r="30" fill="'+self.color+'"></circle><circle cx="50" cy="50" r="30" fill="none" stroke="'+self.color+'" stroke-width="5"><animate attributeName="stroke-width" begin="0s" dur="1.8s" values="20; 45" calcMode="spline" keyTimes="0; 1" keySplines="0.165, 0.84, 0.44, 1" repeatCount="indefinite"></animate><animate attributeName="stroke-opacity" begin="0s" dur="1.8s" values="1; 0" calcMode="spline" keyTimes="0; 1" keySplines="0.3, 0.61, 0.355, 1" repeatCount="indefinite"></animate></circle>')
+                    self.set_fade_circle(ev);
                 }
             } else if($(ev.currentTarget).attr('id') == "blink") {
                 if(self.shape.includes('square')) {
-                    self.element_selector.find('svg').html('<rect fill="'+self.color+'" height="50" width="50" x="25" y="25"></rect><rect fill="none" height="100" width="100" stroke="'+self.color+'" stroke-width="30"><animate attributeName="stroke-opacity" begin="0s" dur="1.5s" values="1; 0" calcMode="spline" keyTimes="0; 1" repeatCount="indefinite" keySplines="0.3, 0.61, 0.355, 1"></animate></rect>')
+                    self.set_blink_square(ev);
                 } else {
-                    self.element_selector.find('svg').html('<circle cx="50" cy="50" r="20" fill="'+self.color+'"></circle><circle cx="50" cy="50" r="40" fill="none" stroke="'+self.color+'" stroke-width="20"><animate attributeName="stroke-opacity" begin="0s" dur="1.5s" values="1; 0" calcMode="spline" keyTimes="0; 1" keySplines="0.3, 0.61, 0.355, 1" repeatCount="indefinite"></animate></circle>')
+                    self.set_blink_circle(ev);
+
                 }
             } else {
                 if(self.shape == 'square'){
-                    self.element_selector.find('svg').html('<rect fill="'+self.color+'" height="100" width="100"></rect>')
+                    self.element_selector.find('svg').html('<rect fill="'+self.color+'" height="100" width="100"></rect>');
                 } else {
-                    self.element_selector.find('svg').html('<circle cx="50" cy="50" r="50" fill="'+self.color+'"></circle>')
+                    self.element_selector.find('svg').html('<circle cx="50" cy="50" r="50" fill="'+self.color+'"></circle>');
                 }
             }
             self.animation = $(ev.currentTarget).attr('id')
+        },
+
+        set_fade_square: function(ev) {
+            var self = this;
+            self.element_selector.find('svg').html('<rect fill="'+self.color+'" height="50" width="50" x="25" y="25"></rect><rect fill="none" height="50" width="50" stroke="'+self.color+'" stroke-width="5" x="25" y="25"><animate attributeName="stroke-width" begin="0s" dur="1.8s" values="10; 50" calcMode="spline" keyTimes="0; 1" keySplines="0.165, 0.84, 0.44, 1" repeatCount="indefinite"></animate><animate attributeName="stroke-opacity" begin="0s" dur="1.8s" values="1; 0" calcMode="spline" keyTimes="0; 1" keySplines="0.3, 0.61, 0.355, 1" repeatCount="indefinite"></animate></rect>');
+        },
+
+        set_fade_circle: function(ev) {
+            var self = this;
+            self.element_selector.find('svg').html('<circle cx="50" cy="50" r="30" fill="'+self.color+'"></circle><circle cx="50" cy="50" r="30" fill="none" stroke="'+self.color+'" stroke-width="5"><animate attributeName="stroke-width" begin="0s" dur="1.8s" values="20; 45" calcMode="spline" keyTimes="0; 1" keySplines="0.165, 0.84, 0.44, 1" repeatCount="indefinite"></animate><animate attributeName="stroke-opacity" begin="0s" dur="1.8s" values="1; 0" calcMode="spline" keyTimes="0; 1" keySplines="0.3, 0.61, 0.355, 1" repeatCount="indefinite"></animate></circle>');
+        },
+
+        set_blink_square: function(ev) {
+            var self = this;
+            self.element_selector.find('svg').html('<rect fill="'+self.color+'" height="50" width="50" x="25" y="25"></rect><rect fill="none" height="100" width="100" stroke="'+self.color+'" stroke-width="30"><animate attributeName="stroke-opacity" begin="0s" dur="1.5s" values="1; 0" calcMode="spline" keyTimes="0; 1" repeatCount="indefinite" keySplines="0.3, 0.61, 0.355, 1"></animate></rect>');
+        },
+
+        set_blink_circle: function(ev) {
+            var self = this;
+            self.element_selector.find('svg').html('<circle cx="50" cy="50" r="20" fill="'+self.color+'"></circle><circle cx="50" cy="50" r="40" fill="none" stroke="'+self.color+'" stroke-width="20"><animate attributeName="stroke-opacity" begin="0s" dur="1.5s" values="1; 0" calcMode="spline" keyTimes="0; 1" keySplines="0.3, 0.61, 0.355, 1" repeatCount="indefinite"></animate></circle>')
         },
 
         _saveHotspot: function (str) {

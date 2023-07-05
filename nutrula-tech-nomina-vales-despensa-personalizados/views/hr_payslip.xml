@@ -1,0 +1,22 @@
+<odoo>
+  <data>
+    <record id="nutrula_teach_nomina_vales_de_despensa_form"
+      model="ir.ui.view">
+      <field name="name">nutrula.teach.nomina.vales.de.despensa.form</field>
+      <field name="model">hr.payslip</field>
+      <field name="inherit_id"
+        ref="nomina_cfdi_ee.view_hr_payslip_form" />
+      <field name="arch"
+        type="xml">
+        <xpath expr="//field[@name='dias_infonavit']"
+          position="after">
+
+          <field name="acumulado_dias_de_trabajo" />
+          <field name="acumulado_horas_de_trabajo" />
+          <field name="nominas_para_calculo" />
+
+        </xpath>
+      </field>
+    </record>
+  </data>
+</odoo>

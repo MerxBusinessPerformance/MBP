@@ -1,10 +1,6 @@
 /* add product variant style in backend view */
 .js_add_cart_variants
 	{
-        /*margin-top: 0.5rem;
-        margin-bottom: 0;
-        border-top: 1px solid #ededed;
-        padding-top: 10px;*/
         clear: both;
         margin-top: 8px;
         margin-bottom: 0px;
@@ -115,15 +111,6 @@
                 &.active input {
                     cursor: not-allowed;
                 }
-                /*&.active:before{
-                    position: absolute;
-                    left: 12px;
-                    top: 1px;
-                    content: '\f00c';
-                    font-family: fontawesome;
-                    text-shadow: 2px 0 0 #fff,-2px 0 0 #fff,0 2px 0 #fff,0 -2px 0 #fff,1px 1px #fff,-1px -1px 0 #fff,1px -1px 0 #fff,-1px 1px 0 #fff;
-                    color: #000;
-                }*/
             }
 		}
 		.list-inline-item.te_style_square{

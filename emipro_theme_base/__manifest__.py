@@ -4,7 +4,7 @@
     'name': 'Emipro Theme Base',
     'category': 'Base',
     'summary': 'Base module containing common libraries for all Emipro eCommerce themes.',
-    'version': '4.1.3',
+    'version': '4.1.6',
     'license': 'OPL-1',
     'depends': [
         'website_sale_wishlist',
@@ -14,12 +14,13 @@
 
     'data': [
         'data/slider_styles_data.xml',
-	    'templates/template.xml',
+        'views/synonym_group_views.xml',
+        'security/ir.model.access.csv',
+        'templates/template.xml',
         'templates/product_snippet_popup.xml',
         'templates/brand_category_snippet_popup.xml',
         'templates/pwa.xml',
         'templates/assets.xml',
-	    'security/ir.model.access.csv',
         'views/res_config_settings.xml',
         'views/product_template.xml',
         'views/product_attribute_value_view.xml',
@@ -36,7 +37,6 @@
         'templates/image_hotspot_popup.xml',
         'templates/offilne.xml',
         'templates/product_variants.xml',
-        'views/synonym_group_views.xml',
         'views/search_keyword_report_views.xml',
         'views/website.xml',
     ],
@@ -83,5 +83,5 @@
     'installable': True,
     'auto_install': False,
     'price': 19.00,
-    'currency': 'EUR',
+    'currency': 'USD',
 }

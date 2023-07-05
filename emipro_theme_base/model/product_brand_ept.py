@@ -34,8 +34,8 @@ class ProductBrandEpt(models.Model):
         product count computation
         @return:
         """
-        for product in self:
-            product.products_count = len(product.product_ids)
+        for brand in self:
+            brand.products_count = len(brand.product_ids.filtered(lambda p: p.website_published))
 
     def set_brand_wizard(self):
         """

@@ -254,16 +254,10 @@
         <xpath expr="//t[@t-set='show_dropdown']" position="after">
             <t t-set="item_class"
                t-value="submenu.is_highlight_menu and (item_class and item_class or '') + ' te_highlighted_menu' or item_class"/>
-        </xpath>
-        <xpath expr="//t[@t-set='show_dropdown']" position="after">
             <t t-set="item_class"
                t-value="(submenu.dynamic_mega_menu and submenu.category_menu_styles == 'style6') and (item_class and item_class or '') + ' m_custom te_dynamic_ept' or item_class"/>
-        </xpath>
-        <xpath expr="//t[@t-set='show_dropdown']" position="after">
             <t t-set="item_class"
                t-value="(submenu.dynamic_mega_menu and submenu.category_menu_styles == 'style5') and (item_class and item_class or '') + ' m_custom te_all_dynamic_ept' or item_class"/>
-        </xpath>
-        <xpath expr="//t[@t-set='show_dropdown']" position="after">
             <t t-set="item_class"
                t-value="(submenu.dynamic_mega_menu) and (item_class and item_class or '') + ' te_mega_menu_ept' or item_class"/>
         </xpath>
@@ -588,8 +582,8 @@
                                    t-attf-class="nav-link te_main_a #{' active' if c.id == int(category or 0) else ''}">
                                     <img class="img"
                                          t-attf-src="/website/image/#{c._name}/#{c.id}/icon/30x30"/>
-                                    <span class="ml-2 d-block">
-                                        <span class="category_name" t-field="c.name"></span>
+                                    <span class="ml-2 d-block text-truncate category_full_name">
+                                        <span class="category_name text-truncate" t-field="c.name"></span>
                                         <span class="cat_badge badge badge-pill"
                                               t-if="c.menu_label_id"
                                               t-esc="c.menu_label_id.name"

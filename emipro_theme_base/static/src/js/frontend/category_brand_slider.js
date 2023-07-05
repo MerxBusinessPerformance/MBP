@@ -5,7 +5,8 @@ odoo.define('website_category_brand_slider.front_js', function(require) {
     'use strict';
     var publicWidget = require('web.public.widget');
     var ajax = require("web.ajax");
-    publicWidget.registry.js_category_brand_snippet = publicWidget.Widget.extend({
+    var OwlMixin = require('theme_clarico_vega.mixins');
+    publicWidget.registry.js_category_brand_snippet = publicWidget.Widget.extend(OwlMixin, {
         selector: '.js_category_brand_snippet',
         start: function() {
             this.redrow();
@@ -79,79 +80,19 @@ odoo.define('website_category_brand_slider.front_js', function(require) {
             })
         },
         initOwlSlider: function() {
-            var owl_rtl = false;
-            if ($('#wrapwrap').hasClass('o_rtl')) {
-                owl_rtl = true;
-            }
             $('.brand_slider_template_3 .brand_carousel').each(function(index) {
                 var $items = $(this);
-                var items = $items.find(".item").length;
-                $items.owlCarousel({
-                    loop: items > 3 ? true : false,
-                    margin: 10,
-                    rtl: owl_rtl,
-                    nav: true,
-                    lazyLoad: true,
-                    dots: false,
-                    autoplay: true,
-                    autoplayTimeout: 4000,
-                    navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
-                    autoplayHoverPause: true,
-                    items: 3,
-                    responsive: {
-                        0: {
-                            items: 2,
-                            loop: items > 2 ? true : false,
-                        },
-                        576: {
-                            items: 3,
-                            loop: items > 3 ? true : false,
-                        },
-                        992: {
-                            items: 2,
-                            loop: items > 2 ? true : false,
-                        },
-                        1300: {
-                            items: 3,
-                            loop: items > 3 ? true : false,
-                        }
-                    }
-                });
+                var items = $items.find(".item").length,
+                loop = items > 3 ? true : false,
+                responsive = { 0: {items: 2, loop: items > 2 ? true : false}, 576: {items: 3, loop: loop}, 992: {items: 2, loop: items > 2 ? true : false}, 1300: {items: 3, loop: loop} };
+                OwlMixin.initOwlCarousel('.brand_slider_template_3 .brand_carousel', 10, responsive, loop, 3, false, true, false, false, false, false, true, false);
             })
-            $('.category_carousel,.brand_carousel').each(function(index) {
+            $('.category_carousel, .brand_carousel').each(function(index) {
                 var $items = $(this);
-                var items = $items.find(".item").length;
-                $items.owlCarousel({
-                    loop: items > 6 ? true : false,
-                    margin: 10,
-                    rtl: owl_rtl,
-                    nav: true,
-                    lazyLoad: true,
-                    dots: false,
-                    autoplay: true,
-                    autoplayTimeout: 4000,
-                    navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
-                    autoplayHoverPause: true,
-                    items: 6,
-                    responsive: {
-                        0: {
-                            items: 2,
-                            loop: items > 2 ? true : false,
-                        },
-                        576: {
-                            items: 3,
-                            loop: items > 3 ? true : false,
-                        },
-                        991: {
-                            items: 4,
-                            loop: items > 4 ? true : false,
-                        },
-                        1200: {
-                            items: 6,
-                            loop: items > 6 ? true : false,
-                        }
-                    }
-                });
+                var items = $items.find(".item").length,
+                loop = items > 6 ? true : false,
+                responsive = { 0: {items: 2, loop: items > 2 ? true : false}, 576: {items: 3, loop: items > 3 ? true : false}, 991: {items: 4, loop: items > 4 ? true : false}, 1200: {items: 6, loop: loop} };
+                OwlMixin.initOwlCarousel('.category_carousel, .brand_carousel', 10, responsive, loop, 6, false, true, false, false, false, false, true, false);
             })
         },
     });

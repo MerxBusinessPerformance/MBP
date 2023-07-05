@@ -157,6 +157,12 @@ class Website(models.Model):
     search_in_attributes_and_values = fields.Boolean('Search with Attributes', default=True)
     enable_smart_search = fields.Boolean('Advanced Search', default=True)
 
+    allow_countries = fields.Selection([('all', 'All Countries'), ('selected', 'Selected Country Group')],
+                                       'Allow Countries', default='all')
+    country_group_id = fields.Many2one('res.country.group', 'Allow Country Group')
+    default_country_id = fields.Many2one('res.country', 'Default Country',
+                                         default=lambda self: self.env.company.country_id.id)
+
     def getDatabase(self):
         """
                 To display database in login popup

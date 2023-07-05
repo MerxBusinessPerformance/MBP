@@ -8,7 +8,7 @@
         <xpath expr="//section[@id='product_detail']" position="attributes">
             <attribute name="t-attf-class" add="py-2" remove="py-4" separator=" "/>
         </xpath>
-        <xpath expr="//div[@id='product_details']//t[1]//a[hasclass('o_product_page_reviews_link')]" position="attributes">
+        <xpath expr="//div[@id='product_details']//a[hasclass('o_product_page_reviews_link')]" position="attributes">
             <attribute name="class" add="ept-total-review" separator=" "/>
         </xpath>
         <xpath expr="//p[@t-field='product.description_sale']" position="replace"/>
@@ -43,7 +43,7 @@
         <xpath expr="//div[@id='product_details']/h1" position="after">
             <span id="te_rect_cnt" class="d-none" t-esc="website.number_of_product_line"/>
         </xpath>
-        <xpath expr="//div[@id='product_details']//t[1]" position="after">
+        <xpath expr="//div[@id='product_details']//h1[@t-field='product.name']" position="after">
             <p t-if="product.description_sale" t-field="product.description_sale"
                class="te_prod_desc te_prod_bottom_margin text-muted"/>
         </xpath>
@@ -116,12 +116,12 @@
         </xpath>
 
         <!-- Shop page wishist and compare button -->
-        <xpath expr="//div[@id='product_details']" position="inside">
+        <xpath expr="//div[hasclass('js_product')]" position="inside">
             <div class="product_btns_right_block">
                 <t t-if="is_view_active('website_sale_comparison.add_to_compare')">
                     <t t-set="product_variant_id" t-value="product._get_first_possible_variant_id()"/>
                     <button t-if="product_variant_id" type="button" role="button"
-                            class="d-none d-md-inline-block btn o_add_compare" title="Compare" aria-label="Compare"
+                            class="d-none d-md-inline-block btn o_add_compare_dyn" title="Compare" aria-label="Compare"
                             t-att-data-product-product-id="product_variant_id" data-action="o_comparelist">
                         <span class="fa fa-exchange"></span>
                     </button>
@@ -132,7 +132,7 @@
                     <t t-set="in_wish" t-value="product._is_in_wishlist()"/>
                     <t t-set="product_variant_id" t-value="product._get_first_possible_variant_id()"/>
                     <button t-if="product_variant_id" type="button" role="button"
-                            class="btn o_add_wishlist te_btn_add_wishlist" t-att-disabled='in_wish or None'
+                            class="btn o_add_wishlist_dyn o_add_wishlist te_btn_add_wishlist" t-att-disabled='in_wish or None'
                             title="Add to Wishlist" t-att-data-product-template-id="product.id"
                             t-att-data-product-product-id="product_variant_id" data-action="o_wishlist">
                         <span class="fa fa-heart" role="img" aria-label="Add to wishlist"></span>
@@ -805,7 +805,7 @@
                 <t t-set="difference"
                    t-value="round(combination_info['list_price'] - combination_info['price'],2) "/>
                 <t t-set="discount"
-                   t-value="round(difference*100/combination_info['list_price'], 2) if combination_info['list_price'] &gt; 0 else 0"/>
+                   t-value="round(difference*100/combination_info['list_price']) if combination_info['list_price'] &gt; 0 else 0"/>
                 <h4 class="oe_price_h4 css_editable_mode_hidden">
                     <b class="oe_price" style="white-space: nowrap;" t-esc="combination_info['price']"
                        t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>

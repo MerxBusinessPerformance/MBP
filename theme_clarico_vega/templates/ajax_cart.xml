@@ -6,7 +6,7 @@
         </xpath>
     </template>
     <template id="ajaxcart_popup" inherit_id="web.frontend_layout">
-        <xpath expr="//div[@id='wrapwrap']/main" position="before">
+        <xpath expr="//div[@id='wrapwrap']/header" position="before">
             <!-- ajax View Popup Model -->
             <t t-call="theme_clarico_vega.ajaxcart_popup_ept"/>
 <!--            <t t-if="request.website.viewref('theme_clarico_vega.ajax_add_to_cart').active">-->

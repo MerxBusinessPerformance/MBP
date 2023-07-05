@@ -48,7 +48,6 @@ odoo.define('theme_clarico_vega.ajax_color_pane_process', function (require) {
             var self = this;
             var color_id = $target.attr('data-variant-color')
             var product_id = $target.attr('data-product-id')
-            var attribute_lines = $target.attr('data-attribute-lines')
             var params = {
                 'color_id': color_id,
                 'product_id': product_id,
@@ -63,7 +62,6 @@ odoo.define('theme_clarico_vega.ajax_color_pane_process', function (require) {
             var self = this;
             var color_id = $target.attr('data-variant-color')
             var product_id = $target.attr('data-product-id')
-            var attribute_lines = $target.attr('data-attribute-lines')
             var params = {
                 'color_id': color_id,
                 'product_id': product_id,

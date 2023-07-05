@@ -329,9 +329,6 @@
             @include transition(all, 0.3s, ease-in-out);
         }
     }
-   /*  .te_searchform__body.te_header_style_5_main_search .dropdown-menu.show a {
-        border-bottom: 1px solid #ededed;
-    } */
     .te_header_before_overlay {
         .te_header_lang div.js_language_selector {
             button.dropdown-toggle{
@@ -411,11 +408,6 @@
             }
         }
     }
-    /*@media (max-width: 991px) and (min-width: 768px) { /* Ipad view specific media query */
-        /*#top_menu li.dropdown .menu-categories-container {
-            position: absolute;
-        }
-    }*/
     .te_searchform__body
     {
         input.search-query.form-control.oe_search_box {

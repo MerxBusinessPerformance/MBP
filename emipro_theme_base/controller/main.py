@@ -13,9 +13,21 @@ from odoo.addons.auth_signup.controllers.main import AuthSignupHome as Home
 from odoo.addons.sale.controllers.variant import VariantController
 from odoo.addons.website_sale_wishlist.controllers.main import WebsiteSaleWishlist
 from odoo.addons.website_sale.controllers.main import WebsiteSale
+from odoo.addons.sale.controllers.portal import CustomerPortal
 
 _logger = logging.getLogger(__name__)
 
+
+class CustomerPortal(CustomerPortal):
+    @http.route()
+    def account(self, redirect=None, **post):
+        """ display only allowed countries in user address page from website portal """
+        res = super(CustomerPortal, self).account(redirect=redirect, **post)
+        countries = res.qcontext.get('countries', False)
+        if countries and request.website.allow_countries == 'selected':
+            updated_countries = set(request.website.country_group_id.country_ids + request.website.default_country_id + request.env.user.partner_id.country_id)
+            res.qcontext['countries'] = updated_countries
+        return res
 
 class WebsiteSaleExt(WebsiteSale):
 
@@ -71,6 +83,22 @@ class WebsiteSaleExt(WebsiteSale):
                     'no_of_products_in_result': res.qcontext.get('search_count', 0),
                     'user_id': request.env.user.id
                 })
+        return res
+
+    def _get_country_related_render_values(self, kw, render_values):
+        res = super(WebsiteSaleExt, self)._get_country_related_render_values(kw=kw, render_values=render_values)
+        partner_id = int(kw.get('partner_id', -1))
+        if request.website.allow_countries == 'selected':
+            res['countries'] = request.website.country_group_id.country_ids + request.website.default_country_id if request.website.default_country_id not in request.website.country_group_id.country_ids else request.website.country_group_id.country_ids
+        if partner_id == -1:
+            mode = render_values['mode']
+            default_country = request.website.default_country_id and request.website.default_country_id.exists() or res['country']
+            res['country'] = default_country
+            res['country_states'] = default_country.get_website_sale_states(mode=mode[1])
+        if res['country'] not in res['countries']:
+            res['countries'] += res['country']
+        if not res['country']:
+            res['country'] = request.website.default_country_id
         return res
 
 
@@ -404,8 +432,11 @@ class WebsiteExt(Website):
                                                    order=order, limit=limit,
                                                    max_nb_chars=max_nb_chars, options=options)
         website = request.website.get_current_website()
-        categories = request.env['product.public.category'].sudo().search([('website_id', 'in', (False, website.id)),
-                                                                           ('name', '=ilike', term.strip())])
+        # categories = request.env['product.public.category'].sudo().search([('website_id', 'in', (False, website.id)),
+        #                                                                    ('name', '=ilike', term.strip())])
+        categories = request.env['product.public.category'].sudo().search(
+            [('website_id', 'in', (False, website.id))]
+        ).filtered(lambda catg: term.strip().lower() in catg.name.strip().lower())
         search_categories = []
         for categ in categories:
             search_categories.append({'_fa': 'fa-folder-o', 'name': categ.name,

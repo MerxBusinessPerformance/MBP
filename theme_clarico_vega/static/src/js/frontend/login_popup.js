@@ -98,7 +98,7 @@ odoo.define('theme_clarico_vega.login_popup', function(require) {
     });
     $(document).ready(function() {
         /** Login / Signup Popup **/
-        $(document).on('click', '.te_user_account_icon, .te_signin', function() {
+        $(document).on('click', '.te_signin', function() {
             $("#loginRegisterPopup").modal();
             $('body').find('.modal-backdrop').css('position', 'relative');
         });

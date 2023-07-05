@@ -466,17 +466,16 @@
                             </select>
                         </t>
                         <t t-if="a.display_type == 'radio' or a.display_type == 'pills'">
-
-                            <ul class="nav nav-pills flex-column">
-                                <div t-if="a.allow_search" id="js_attrib_search" class="collapsed">
-                                    <div class="js_attrib_search">
-                                        <input type="text" class="js_attrib_search_ept sliderValue"
-                                               t-att-placeholder="'%s %s' % (placeholder, a.name)"/>
-                                        <span class="js_attrib_search_span">
-                                            <i class="fa fa-search"></i>
-                                        </span>
-                                    </div>
+                            <div t-if="a.allow_search" id="js_attrib_search" class="collapsed">
+                                <div class="js_attrib_search">
+                                    <input type="text" class="js_attrib_search_ept sliderValue"
+                                           t-att-placeholder="'%s %s' % (placeholder, a.name)"/>
+                                    <span class="js_attrib_search_span">
+                                        <i class="fa fa-search"></i>
+                                    </span>
                                 </div>
+                            </div>
+                            <ul class="nav nav-pills flex-column">
                                 <t t-foreach="a.value_ids" t-as="v">
                                     <t t-if="is_associated_values_enabled">
                                         <t t-if="v.id in search_products">
@@ -514,9 +513,7 @@
                             </ul>
                         </t>
                         <t t-if="a.display_type == 'color'">
-
-                            <ul class="nav nav-pills flex-column">
-                                <div t-if="a.allow_search" id="js_attrib_search" class="collapsed">
+                            <div t-if="a.allow_search" id="js_attrib_search" class="collapsed">
                                     <div class="js_attrib_search">
                                         <input type="text" class="js_attrib_search_ept sliderValue"
                                                t-att-placeholder="'%s %s' % (placeholder, a.name)"/>
@@ -525,53 +522,79 @@
                                         </span>
                                     </div>
                                 </div>
+                            <ul class="nav nav-pills flex-column">
                                 <t t-foreach="a.value_ids" t-as="v">
                                     <t t-if="is_associated_values_enabled">
                                         <t t-if="v.id in search_products">
                                             <t t-if="v.icon"> <!-- Here, checked is that image icon avalible -->
                                                 <li t-attf-class="color-with-name-divmaxW te_s_attr_color nav-item #{'active' if v.id in attrib_set else ''}">
-                                                    <label t-attf-style="background-image: url(data:image/*;base64,#{v.icon}) !important; position: relative;background-size: cover;"
+                                                    <label class="w-100 font-weight-normal" t-att-for="'attr-%s-%s' % (a.id,v.id)">
+                                                    <span t-attf-style="background-image: url(data:image/*;base64,#{v.icon}) !important; position: relative;background-size: cover;"
                                                            t-attf-class="css_attribute_color #{'active' if v.id in attrib_set else ''}">
-                                                        <input type="checkbox" name="attrib"
+                                                        <input type="checkbox" name="attrib" t-att-id="'attr-%s-%s' % (a.id,v.id)"
                                                                t-att-value="'%s-%s' % (a.id,v.id)"
                                                                t-att-checked="'checked' if v.id in attrib_set else None"
                                                                t-att-title="v.name"/>
-                                                    </label>
+                                                    </span>
                                                     <span class="te_color-name te_s_attr_val text-truncate"
                                                           t-esc="v.name"/>
                                                     <span style="font-weight: normal" class="pull-right attr_counter"
                                                           t-if="is_count_enable" t-esc="search_products.get(v.id,'0')"/>
+                                                    </label>
                                                 </li>
                                             </t>
                                             <t t-else="">
                                                 <li t-attf-class="color-with-name-divmaxW te_s_attr_color nav-item #{'active' if v.id in attrib_set else ''}">
-                                                    <label t-attf-style="background-color:#{v.html_color or v.name}"
+                                                    <label class="w-100 font-weight-normal" t-att-for="'attr-%s-%s' % (a.id,v.id)">
+                                                    <span t-attf-style="background-color:#{v.html_color or v.name}"
                                                            t-attf-class="css_attribute_color #{'active' if v.id in attrib_set else ''}">
                                                         <input type="checkbox" name="attrib"
-                                                               t-att-value="'%s-%s' % (a.id,v.id)"
+                                                               t-att-value="'%s-%s' % (a.id,v.id)" t-att-id="'attr-%s-%s' % (a.id,v.id)"
                                                                t-att-checked="'checked' if v.id in attrib_set else None"
                                                                t-att-title="v.name"/>
-                                                    </label>
+                                                    </span>
                                                     <span class="te_color-name te_s_attr_val text-truncate"
                                                           t-esc="v.name"/>
                                                     <span style="font-weight: normal" class="pull-right attr_counter"
                                                           t-if="is_count_enable" t-esc="search_products.get(v.id,'0')"/>
+                                                    </label>
                                                 </li>
                                             </t>
                                         </t>
                                     </t>
                                     <t t-else="">
-                                        <li t-attf-class="color-with-name-divmaxW te_s_attr_color nav-item #{'active' if v.id in attrib_set else ''}">
-                                            <label t-attf-style="background-color:#{v.html_color or v.name}"
-                                                   t-attf-class="css_attribute_color #{'active' if v.id in attrib_set else ''}">
-                                                <input type="checkbox" name="attrib" t-att-value="'%s-%s' % (a.id,v.id)"
-                                                       t-att-checked="'checked' if v.id in attrib_set else None"
-                                                       t-att-title="v.name"/>
-                                            </label>
-                                            <span class="te_color-name te_s_attr_val text-truncate" t-esc="v.name"/>
-                                            <span style="font-weight: normal" class="pull-right attr_counter"
-                                                  t-if="is_count_enable" t-esc="search_products.get(v.id,'0')"/>
-                                        </li>
+                                        <t t-if="v.icon"> <!-- Here, checked is that image icon avalible -->
+                                            <li t-attf-class="color-with-name-divmaxW te_s_attr_color nav-item #{'active' if v.id in attrib_set else ''}">
+                                                <label class="w-100 font-weight-normal" t-att-for="'attr-%s-%s' % (a.id,v.id)">
+                                                <span t-attf-style="background-image: url(data:image/*;base64,#{v.icon}) !important; position: relative;background-size: cover;"
+                                                       t-attf-class="css_attribute_color #{'active' if v.id in attrib_set else ''}">
+                                                    <input type="checkbox" name="attrib"
+                                                           t-att-value="'%s-%s' % (a.id,v.id)" t-att-id="'attr-%s-%s' % (a.id,v.id)"
+                                                           t-att-checked="'checked' if v.id in attrib_set else None"
+                                                           t-att-title="v.name"/>
+                                                </span>
+                                                <span class="te_color-name te_s_attr_val text-truncate"
+                                                      t-esc="v.name"/>
+                                                <span style="font-weight: normal" class="pull-right attr_counter"
+                                                      t-if="is_count_enable" t-esc="search_products.get(v.id,'0')"/>
+                                                </label>
+                                            </li>
+                                        </t>
+                                        <t t-else="">
+                                            <li t-attf-class="color-with-name-divmaxW te_s_attr_color nav-item #{'active' if v.id in attrib_set else ''}">
+                                                <label class="w-100 font-weight-normal" t-att-for="'attr-%s-%s' % (a.id,v.id)">
+                                                <span t-attf-style="background-color:#{v.html_color or v.name}"
+                                                       t-attf-class="css_attribute_color #{'active' if v.id in attrib_set else ''}">
+                                                    <input type="checkbox" name="attrib" t-att-value="'%s-%s' % (a.id,v.id)" t-att-id="'attr-%s-%s' % (a.id,v.id)"
+                                                           t-att-checked="'checked' if v.id in attrib_set else None"
+                                                           t-att-title="v.name"/>
+                                                </span>
+                                                <span class="te_color-name te_s_attr_val text-truncate" t-esc="v.name"/>
+                                                <span style="font-weight: normal" class="pull-right attr_counter"
+                                                      t-if="is_count_enable" t-esc="search_products.get(v.id,'0')"/>
+                                                </label>
+                                            </li>
+                                        </t>
                                     </t>
                                 </t>
                             </ul>
@@ -594,16 +617,16 @@
                                     <span>Brand</span>
                                     <a class="te_clear_all_variant">[Clear]</a>
                                 </div>
-                                <ul class="nav nav-pills flex-column brand_main">
-                                    <div id="js_attrib_search" class="collapsed">
-                                        <div class="js_attrib_search">
-                                            <input type="text" class="js_attrib_search_ept sliderValue"
-                                                   placeholder="Search for Brand"/>
-                                            <span class="js_attrib_search_span">
-                                                <i class="fa fa-search"></i>
-                                            </span>
-                                        </div>
+                                <div id="js_attrib_search" class="collapsed">
+                                    <div class="js_attrib_search">
+                                        <input type="text" class="js_attrib_search_ept sliderValue"
+                                               placeholder="Search for Brand"/>
+                                        <span class="js_attrib_search_span">
+                                            <i class="fa fa-search"></i>
+                                        </span>
                                     </div>
+                                </div>
+                                <ul class="nav nav-pills flex-column brand_main">
                                     <t t-foreach="brand_list" t-as="brand">
                                         <t t-if="is_associated_values_enabled">
                                             <li t-if="brand.id in search_brand_products"
@@ -772,55 +795,61 @@
                                                 <t t-if="v.id in search_products">
                                                     <t t-if="v.icon"> <!-- Here, checked is that image icon avalible -->
                                                         <li t-attf-class="py-1 nav-item te_s_attr_color #{'active' if v.id in attrib_set else ''}">
-                                                            <label t-attf-style="background-image: url(data:image/*;base64,#{v.icon}) !important; position: relative;background-size: cover;"
+                                                            <label class="w-100 font-weight-normal" t-att-for="'attr-%s-%s' % (a.id,v.id)">
+                                                            <span t-attf-style="background-image: url(data:image/*;base64,#{v.icon}) !important; position: relative;background-size: cover;"
                                                                    t-attf-class="css_attribute_color #{'active' if v.id in attrib_set else ''}">
                                                                 <input type="checkbox" name="attrib"
-                                                                       t-att-value="'%s-%s' % (a.id,v.id)"
+                                                                       t-att-value="'%s-%s' % (a.id,v.id)" t-att-id="'attr-%s-%s' % (a.id,v.id)"
                                                                        t-att-checked="'checked' if v.id in attrib_set else None"
                                                                        t-att-title="v.name"/>
-                                                            </label>
+                                                            </span>
                                                             <span class="te_color-name te_s_attr_val text-truncate"
                                                                   t-esc="v.name"/>
                                                             <span style="font-weight: normal"
                                                                   class="pull-right attr_counter pl-1"
                                                                   t-if="is_count_enable"
                                                                   t-esc="search_products.get(v.id,'0')"/>
+                                                            </label>
                                                         </li>
                                                     </t>
                                                     <t t-else="">
                                                         <li t-attf-class="py-1 nav-item te_s_attr_color #{'active' if v.id in attrib_set else ''}">
-                                                            <label t-attf-style="background-color:#{v.html_color or v.name}"
+                                                            <label class="w-100 font-weight-normal" t-att-for="'attr-%s-%s' % (a.id,v.id)">
+                                                            <span t-attf-style="background-color:#{v.html_color or v.name}"
                                                                    t-attf-class="css_attribute_color #{'active' if v.id in attrib_set else ''}">
                                                                 <input type="checkbox" name="attrib"
-                                                                       t-att-value="'%s-%s' % (a.id,v.id)"
+                                                                       t-att-value="'%s-%s' % (a.id,v.id)" t-att-id="'attr-%s-%s' % (a.id,v.id)"
                                                                        t-att-checked="'checked' if v.id in attrib_set else None"
                                                                        t-att-title="v.name"/>
-                                                            </label>
+                                                            </span>
                                                             <span class="te_color-name te_s_attr_val text-truncate"
                                                                   t-esc="v.name"/>
                                                             <span style="font-weight: normal"
                                                                   class="pull-right attr_counter pl-1"
                                                                   t-if="is_count_enable"
                                                                   t-esc="search_products.get(v.id,'0')"/>
+                                                            </label>
                                                         </li>
                                                     </t>
                                                 </t>
                                             </t>
                                             <t t-else="">
                                                 <li t-attf-class="py-1 nav-item te_s_attr_color #{'active' if v.id in attrib_set else ''}">
-                                                    <label t-attf-style="background-color:#{v.html_color or v.name}"
+                                                    <label class="w-100 font-weight-normal" t-att-for="'attr-%s-%s' % (a.id,v.id)">
+                                                    <span t-attf-style="background-color:#{v.html_color or v.name}"
                                                            t-attf-class="css_attribute_color #{'active' if v.id in attrib_set else ''}">
                                                         <input type="checkbox" name="attrib"
-                                                               t-att-value="'%s-%s' % (a.id,v.id)"
+                                                               t-att-value="'%s-%s' % (a.id,v.id)" t-att-id="'attr-%s-%s' % (a.id,v.id)"
                                                                t-att-checked="'checked' if v.id in attrib_set else None"
                                                                t-att-title="v.name"/>
-                                                    </label>
+                                                    </span>
                                                     <span class="te_color-name te_s_attr_val text-truncate"
                                                           t-esc="v.name"/>
                                                     <span style="font-weight: normal"
                                                           class="pull-right attr_counter pl-1"
                                                           t-if="is_count_enable"
                                                           t-esc="search_products.get(v.id,'0')"/>
+                                                    </label>
                                                 </li>
                                             </t>
                                         </t>
@@ -904,12 +933,15 @@
                 </span>
             </t>
         </xpath>
+        <xpath expr='//label[@t-att-for="c.id"]' position="attributes">
+            <attribute name="class" add="text-truncate cate_attr" separator=" "/>
+        </xpath>
         <xpath expr="//input[@t-att-id='c.id']/." position="attributes">
             <attribute name="t-if">len(request.env['product.template'].search([('sale_ok', '=', True), ('website_id', 'in', (False, request.website.id)), ('public_categ_ids', 'child_of', c.id)]))</attribute>
         </xpath>
     </template>
     <template id="categories_recursive_ept" inherit_id="website_sale.categories_recursive">
-        <xpath expr="//li[hasclass('nav-item]" position="attributes">
+        <xpath expr="//t[@t-call='website_sale.categorie_link']" position="attributes">
             <attribute name="t-if">len(request.env['product.template'].search([('sale_ok', '=', True), ('website_id', 'in', (False, request.website.id)), ('public_categ_ids', 'child_of', c.id)]))</attribute>
         </xpath>
     </template>
@@ -988,7 +1020,7 @@
                 </a>
             </t>
             <t t-else="">
-                <a href="#" role="button" class="btn btn-primary a-submit" aria-label="Shopping cart" title="Shopping cart">
+                <a href="#" role="button" t-attf-class="btn btn-primary a-submit #{'d-none' if (website.option_out_of_stock and product.type=='product' and (not product.allow_out_of_stock_order) and (product.sudo().qty_available &lt; 1)) else ''} #{'d-none' if website.b2b_hide_add_to_cart and website.is_public_user() else ''}" aria-label="Shopping cart" title="Shopping cart">
                     <span class="fa fa-shopping-cart"/>
                 </a>
             </t>
@@ -1064,20 +1096,9 @@
             </div>
         </template>
 
-        <record id="theme_clarico_vega.filter_products_price_inherit" model="ir.ui.view">
-            <field name="name">filter_products_price_inherit</field>
-            <field name="inherit_id" search="[('key', '=', 'website_sale.filter_products_price')]"/>
-            <field name="type">qweb</field>
-            <field name="key">theme_clarico_vega.filter_products_price_inherit</field>
-            <field name="arch" type="xml">
-                <xpath expr="//div[@t-if='available_min_price != available_max_price']" position="attributes">
-                    <attribute name="t-if">(available_min_price != available_max_price) and (False if website.b2b_hide_price and website.is_public_user() else True)</attribute>
-                </xpath>
-                <xpath expr="//div[@id='o_wsale_price_range_option']" position="attributes">
-                    <attribute name="class">d-none</attribute>
-                </xpath>
-            </field>
-        </record>
+        <template id="filter_products_price_ext" inherit_id="website_sale.filter_products_price">
+            <xpath expr="//div[@id='o_wsale_price_range_option']" position="replace"/>
+        </template>
 
         <template id="one_hybrid" inherit_id="website.one_hybrid">
                 <xpath expr="//div[hasclass('flex-shrink-0')]" position="attributes">
@@ -1107,7 +1128,7 @@
         <div t-attf-class="te_discount {{'' if combination_info['has_discounted_price'] else 'd-none'}}">
             <t t-set="difference" t-value="round(combination_info['list_price'] - combination_info['price'],2)"/>
             <t t-set="discount"
-               t-value="round(difference*100/combination_info['list_price'], 2) if combination_info['list_price'] &gt; 0 else 0"/>
+               t-value="round(difference*100/combination_info['list_price']) if combination_info['list_price'] &gt; 0 else 0"/>
             <div class="te_percentage">
                 <span class="percent_val" t-esc="'%s'%(discount)"/>%
                 Off

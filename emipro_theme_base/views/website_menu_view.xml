@@ -10,7 +10,7 @@
                 <td class="o_td_label position-absolute"
                     attrs="{'invisible': [('is_mega_menu', '!=', True)]}">
                     <label class="o_form_label" style="display: inline;" for="dynamic_mega_menu"/>
-                    <a href="https://docs.emiprotechnologies.com/theme-clarico-vega/v15/dynamic-mega-menu.html"
+                    <a href="https://docs.emiprotechnologies.com/theme-clarico-vega/v15/menu/dynamic-mega-menu.html"
                        title="Dynamic mega menu user guide"
                        class="o_doc_link" target="_blank"
                        style="display: inline;margin-left: 5px;"></a>

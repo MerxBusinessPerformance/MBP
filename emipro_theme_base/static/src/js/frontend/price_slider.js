@@ -23,26 +23,23 @@ odoo.define('emipro_theme_base.price_slider', function(require) {
             var urlMaxVal = parseFloat(searchParams.get('max_price'));
             var inputMinVal = parseFloat($("input.ept_price_min").val());
             var inputMaxVal = parseFloat($("input.ept_price_max").val());
-            var showMinVal;
-            var showMaxVal;
+            var showMinVal = minValue || 1;
+            var showMaxVal = maxValue || 1;
             if(urlMinVal && urlMaxVal)
             {
-                showMinVal = urlMinVal;
-                showMaxVal = urlMaxVal;
+                showMinVal = urlMinVal || 1;
+                showMaxVal = urlMaxVal || 1;
                 $("input.ept_price_min").val(urlMinVal);
                 $("input.ept_price_max").val(urlMaxVal);
 
                 $("#ept_price_slider:nth-child(2) .ui-slider-handle").attr("data-content",urlMinVal);
                 $("#ept_price_slider:nth-child(3) .ui-slider-handle").attr("data-content",urlMaxVal);
-            }else {
-                showMinVal = minValue;
-                showMaxVal = maxValue;
             }
             $("#ept_price_slider").slider({
                 range: true,
                 step: 1,
-                min: minValue,
-                max:maxValue,
+                min: minValue || 1,
+                max:maxValue || 1,
                 values: [showMinVal, showMaxVal],
                 slide: function(event, ui) {
                     for (var i = 0; i < ui.values.length; ++i) {
@@ -67,7 +64,7 @@ odoo.define('emipro_theme_base.price_slider', function(require) {
         },
         resetFilter: function (event) {
             /* This method is called for reset the price slider */
-            var minValue = parseFloat($("#price_slider_min").val());
+            var minValue = parseFloat($("#price_slider_min").val()) || 1;
             var maxValue = parseFloat($("#price_slider_max").val());
             $("input.ept_price_min").val(minValue);
             $("input.ept_price_max").val(maxValue);
@@ -108,12 +105,6 @@ odoo.define('emipro_theme_base.price_slider', function(require) {
             /* This method is called for hide or show the slider element */
             $(".te_pricerange_content").toggle('slow');
             $(".price_filter_head").toggleClass("te_fa-plus te_fa-minus");
-            if($(".price_filter_head").hasClass("te_fa-plus")){
-                $(".price_filter_head").find('i.te_price_icon').css({"transform":"rotate(90deg)","text-align":"center"});
-            }
-            else{
-                $(".price_filter_head").find('i.te_price_icon').css({"transform":"rotate(0deg)","transition":"transform 0.5s ease-out","text-align":"center"});
-            }
         }
     });
 });

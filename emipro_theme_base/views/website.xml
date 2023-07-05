@@ -9,13 +9,22 @@
             <xpath expr="//notebook" position="inside">
                 <page string="Theme Clarico Vega">
                     <group>
-                        <field name="enable_smart_search"/>
-                        <div class="text-muted mb-2 mt-n3">
-                            Enable it to activate search synonyms and search keywords reporting.
-                        </div>
-                        <field name="search_in_brands" attrs="{'invisible': [('enable_smart_search', '=', False)]}"/>
-                        <field name="search_in_attributes_and_values"
-                               attrs="{'invisible': [('enable_smart_search', '=', False)]}"/>
+                        <group>
+                            <field name="enable_smart_search"/>
+                            <div class="text-muted mb-2 mt-n3">
+                                Enable it to activate search synonyms and search keywords reporting.
+                            </div>
+                            <field name="search_in_brands" attrs="{'invisible': [('enable_smart_search', '=', False)]}"/>
+                            <field name="search_in_attributes_and_values"
+                                   attrs="{'invisible': [('enable_smart_search', '=', False)]}"/>
+                        </group>
+                        <group string="Country for Customer Billing &amp; Shipping Address"
+                               name="country_configuration">
+                            <field name="default_country_id" required="1"/>
+                            <field name="allow_countries" required="1"/>
+                            <field name="country_group_id" options="{'no_create': True}"
+                                   attrs="{'invisible': [('allow_countries', '=', 'all')]}"/>
+                        </group>
                     </group>
                 </page>
             </xpath>

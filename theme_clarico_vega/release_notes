@@ -1,3 +1,32 @@
+Version 15.0.4.1.8 - 12 May 23
+===================================
+Improvement
+- Minor UI/UX Changes
+
+Version 15.0.4.1.7 - 20 Jan 23
+===================================
+Note:First upgrade emipro_theme_base and update theme.
+Improvement
+- Minor UI/UX Changes
+
+New Feature
+- Allow only selected countries for order checkout
+
+Version 15.0.4.1.6 - 28 Dec 22
+===================================
+Note:First upgrade emipro_theme_base and update theme.
+Improvement
+- Flicker page issue 
+- Fix wisthlist issue Variant-wise
+- Improvement in product slider having product discount
+- Added numeric filter in brand page 
+
+Version 15.0.4.1.5 - 12 Oct 22
+===================================
+Note:First upgrade emipro_theme_base and update theme.
+Improvement
+- XML Templates Source Code Optimization
+
 Version 15.0.4.1.4 - 14 Sep 22
 ===================================
 Note:First upgrade emipro_theme_base and update theme.

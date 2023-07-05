@@ -19,7 +19,7 @@
                'Multi Tab Theme Odoo, Attractive Theme, Elegant Theme, Community Theme, '
                'Odoo Enterprise Theme, Responsive Web Client, Mobile Theme , Mobile Responsive '
                'for Odoo Community, Ecommerce theme, odoo theme , B2B theme , B2C theme',
-    'version': '4.1.4',
+    'version': '4.1.8',
     'license': 'OPL-1',
     'depends': [
         # 'website_theme_install',
@@ -52,7 +52,6 @@
         'templates/menu_config.xml',
         'templates/404.xml',
         'templates/brand.xml',
-        'templates/extra_pages.xml',
         'templates/comingsoon.xml',
         'templates/emipro_dynamic_snippets_styles.xml',
     ],
@@ -95,6 +94,7 @@
             "theme_clarico_vega/static/src/scss/jquery.mCustomScrollbar.css",
             "theme_clarico_vega/static/src/js/frontend/owl.carousel.js",
             "theme_clarico_vega/static/src/js/frontend/theme_script.js",
+            "theme_clarico_vega/static/src/js/frontend/mixins.js",
             "theme_clarico_vega/static/src/js/frontend/login_popup.js",
             "theme_clarico_vega/static/src/js/frontend/multi_item_carousel.js",
             "theme_clarico_vega/static/src/js/frontend/offer_snippent_frontend.js",
@@ -168,7 +168,7 @@
     },
 
     # Odoo Store Specific
-    'live_test_url': 'https://claricovega.theme15demo.emiprotechnologies.com/',
+    'live_test_url': 'https://claricovega.theme15.demo.emiprotechnologies.com/',
     'images': [
         'static/description/main_poster.jpg',
         'static/description/main_screenshot.gif',
@@ -182,6 +182,6 @@
     # Technical
     'installable': True,
     'auto_install': False,
-    'price': 265.00,
-    'currency': 'EUR',
+    'price': 280.00,
+    'currency': 'USD',
 }

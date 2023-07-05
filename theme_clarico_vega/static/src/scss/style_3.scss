@@ -254,17 +254,6 @@ body.editor_enable
             margin: 0px 0;
         }
     }
-    &.sticky-filter {
-     /* display: block;
-        border: 1px solid #ddd;
-        height: 40px;
-        width: 40px;
-        text-align: center;
-        line-height: 40px;
-        @include position(fixed,122px,null,null,0);
-        z-index: 9;
-        background: nth($f_color,05);*/
-    }
 }
 .te_s_attr_head{
     font-size: $font-size-base;
@@ -275,6 +264,10 @@ body.editor_enable
 .te_s_attr_brand{
     width: 32% !important;
     text-align: center;
+    img{
+        max-width:60px;
+        height:auto;
+    }
 }
 @include media-breakpoint-down(md)
 {
@@ -387,7 +380,6 @@ body.editor_enable
 		background-color: nth($f_color,27);
 		padding: 0.25rem;
 		margin:0.25rem 0.45rem;
-// 		color: rgba(($body-color),0.3);
         color: rgb(118, 118, 118);
 		font-size: $font-size-base - 0.125rem; /* decrease font size by 2px */
 		@include transition(background,.3s)
@@ -409,15 +401,9 @@ body.editor_enable
 	.page-item.active .page-link,
 	.page-item:hover .page-link
 	{
-// 		background-color: nth($f_color,19);
 		border-color: nth($f_color,27);
 		color:nth($f_color,19);
-// 		cursor: pointer;
 	}
-	/* li.page-item
-	{
-		border-right: 1px solid nth($f_color,11);
-	} */
 	li.page-item:last-child{
 		border:none;
 	}
@@ -575,8 +561,8 @@ body.editor_enable
 	& .attribute{
 		display: inline-block;
 		@include style(3,3);
-        /*border-right: 1px solid nth($f_color,17);*/
         margin-right: 8px;
+        vertical-align: middle;
         span.position-relative{
             color: #5a5a59;
             cursor: pointer;
@@ -606,6 +592,7 @@ body.editor_enable
         transition: color .2s ease-in-out;
         vertical-align: middle;
         display: inline-block;
+        margin-bottom:4px;
         @include media-breakpoint-down(xs) {
             display: inline-block;
         }
@@ -706,8 +693,8 @@ span.attr_value {
     left: 0px;
     transition: color .1s ease-in-out;
 }
-#o_shop_collapse_category{
-	padding-left: 5px !important;
+#o_shop_collapse_category,
+.open_ul{
 	width: 100% !important;
 	.nav-item{
 		& a{
@@ -744,14 +731,13 @@ span.attr_value {
         padding-left:0.5rem;
         input[type="radio"]:checked ~ .te_cate_count,
         input[type="radio"]:checked + label {
-            /* content:'\f10c' ;
-            font-family: "FontAwesome";
-            position:absolute;
-            top: 5px;
-            font-size: 8px;
-            border: none !important;
-            left: -12px; */
             color:nth($f_color,19);
+        }
+        .cate_attr{
+            max-width: 200px;
+            @include media-breakpoint-down(md){
+                max-width: 170px;
+            }
         }
         span.te_cate_count {
         font-size: 0.825rem;
@@ -767,7 +753,6 @@ span.attr_value {
 
 .te_shop_ctg_list{
 	.nav-item{
-		padding: 2px 0;
 		width: 100%;
 		& a{
 			padding-left:3px;
@@ -792,7 +777,6 @@ span.attr_value {
 			}
 			label.custom-control-label {
 			    max-width: 180px;
-// 			    font-size: $font-size-base - 0.125rem; /* decrease font size by 2px */
 			    vertical-align: middle;
 			    @include media-breakpoint-down(sm){
 			        max-width: 175px;
@@ -804,6 +788,7 @@ span.attr_value {
 			}
 		}
 	}
+
 }
 .te_shop_attr_ul > li {
 	padding: 0 12px 12px;
@@ -836,7 +821,6 @@ span.attr_value {
 		float:right;
 		display:none;
 		color:#eb5813ba !important;
-// 		color:nth($f_color,19) !important; /* Not used mixin to add important*/
 		font-size:11px; /* Not defined in variable */
 		cursor: pointer;
 		z-index:98;
@@ -859,11 +843,8 @@ span.attr_value {
         display:none;
         cursor: pointer;
         font-size:nth($f_sizes,2);
-        /*border-right: 1px solid nth($f_color,17);*/
         margin-left: 0px;
-        /*margin-right: 15px;*/
         color: lighten(theme-color('primary'), 25%) !important;
-        /* color:nth($f_color,9) !important;*/ /* Not used mixin to add important*/
         &:hover
         {
             color:nth($f_color,19) !important;
@@ -912,6 +893,7 @@ span.attr_value {
 			display:inline-block;
             color: #5a5a5a;
             margin-top: 1px;
+            vertical-align: middle;
 		}
 	}
 	.te_clear_all_variant
@@ -951,7 +933,6 @@ span.attr_value {
     padding: 0px 5px;
     min-width: 30px;
     height: 20px;
-//     border: 1px solid #ccc;
     border-radius: 35px;
     color: inherit;
     text-align: center;
@@ -984,14 +965,6 @@ span.attr_value {
 .te_sort_btn{
     font-size: $font-size-base - 0.125rem; /* decrease font size by 2px */
 	border:1px solid $border-color;
-	/*> span.d-lg-inline {
-	    @include media-breakpoint-down(md) {
-            display: inline-block !important;
-            font-size: $font-size-base;
-            margin-right: 0.25rem;
-            line-height: 20px;
-        }
-    }*/
     .sort_by_mobi {
         display: none;
         @include media-breakpoint-down(md){
@@ -1090,10 +1063,10 @@ span.attr_value {
 				    }
 				}
 				.te_s_attr_val {
-				    max-width: 230px;
+				    max-width: 200px;
                     vertical-align: middle;
                     @include media-breakpoint-down(xs) {
-                        max-width: 192px;
+                        max-width: 170px;
                     }
 				}
 			}
@@ -1159,7 +1132,6 @@ span.attr_value {
 	  	@include position(absolute,50%,auto,auto,7px);
 	  	width: 15px;
 	  	height: 14px;
-// 	  	@include border(1px,11,solid);
         border:1px solid #5a5a5a;
 	  	background: nth($f_color,5);
 	  	@include border-radius(1px);
@@ -1889,31 +1861,12 @@ span.attr_value {
         height: auto;
         line-height: 36px;
 	}
-	/*.te_s_variant_text {
-        padding: 0px 5px 0px 0px;
-        cursor: pointer;
-        display: inline-block;
-        width: 100%;
-        vertical-align: top;
-        .te_show_variants{
-            line-height: 1.5;
-        }
-        i.fa {
-            font-size: 18px;
-            line-height: 20px;
-            vertical-align: top;
-        }
-    }*/
     .te_s_hr_line{
         clear:both;
         margin: 0.5rem 0px;
     }
 	.js_add_cart_variants
 	{
-        /*margin-top: 0.5rem;
-        margin-bottom: 0;
-        border-top: 1px solid #ededed;
-        padding-top: 10px;*/
         clear: both;
         margin-top: 8px;
         margin-bottom: 0px;
@@ -1940,7 +1893,6 @@ span.attr_value {
 			.te-radio-list {
 			    .te-radio-name {
 			        cursor: pointer;
-                    /*@include border(1px,11,solid);*/
                     border: 1px solid rgba(33, 37, 41, 0.7);
                     color: rgba(33, 37, 41, 0.7); /* this it text-muted static class color */
                     padding: 0.2rem 0.5rem;
@@ -2027,15 +1979,6 @@ span.attr_value {
                 &.active input {
                     cursor: not-allowed;
                 }
-                /*&.active:before{
-                    position: absolute;
-                    left: 12px;
-                    top: 1px;
-                    content: '\f00c';
-                    font-family: fontawesome;
-                    text-shadow: 2px 0 0 #fff,-2px 0 0 #fff,0 2px 0 #fff,0 -2px 0 #fff,1px 1px #fff,-1px -1px 0 #fff,1px -1px 0 #fff,-1px 1px 0 #fff;
-                    color: #000;
-                }*/
             }
 		}
 		.list-inline-item.te_style_square{
@@ -2170,16 +2113,6 @@ section#product_full_spec {
     padding-top: 0px !important;
 }
 /* Hide addtocart and buynow button for mobile view */
-/*div:not(.quick_view_content),
-div:not(.ajax_cart_content){
-    #product_details {
-        #add_to_cart, #buy_now, .o_add_wishlist_dyn{
-            @include media-breakpoint-down(sm){
-                display: none !important;
-            }
-        }
-    }
-}*/
 #products_grid .te_shop_grid .o_wsale_product_information .product_price{
     margin-top: 0px !important;
     margin-bottom: 0px;
@@ -2424,11 +2357,13 @@ h1.te_product_name
         position: absolute;
         right: 15px;
         top: 0px;
-        .btn.o_add_compare,
+        .btn.o_add_compare_dyn,
         .btn.o_add_wishlist{
             cursor: pointer;
             width: 40px;
             height: 40px;
+            margin-top:unset !important;
+            color:unset;
             border-radius: 50%;
             border: 1px solid #f0f0f0;
             box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.1);
@@ -2440,9 +2375,6 @@ h1.te_product_name
             color: #ff0000a6 !important;
             cursor: not-allowed;
         }
-    }
-    @include media-breakpoint-down(sm){
-        display: none !important;
     }
 }
 .availability_messages{
@@ -2584,6 +2516,7 @@ h1.te_product_name
             @include transition(all, 0.3s, ease-out);
             &.clickable {
                 cursor: pointer;
+                background-color: #f8f8f8;
 				&.collapsed
 				{
 					.te_ctg_icon::before
@@ -3145,6 +3078,24 @@ prd-count{
     color: #ff3535;
     font-size: 14px;
 }
+
+.te_shop_filter_resp_top {
+    position: unset;
+    bottom: unset;
+    left: unset;
+    z-index: unset;
+    box-shadow: unset;
+}
+
+.te_shop_filter_resp_scroll {
+    position: fixed;
+    bottom: 43%;
+    left: 0px;
+    z-index: 9999;
+    box-shadow: 6px 6px 5px 1px rgba(0,0,0,0.25);
+    background: white;
+}
+
 /*--------tab content-----------*/
 .tabs_container_main{
     .nav-tabs{
@@ -3161,11 +3112,13 @@ prd-count{
         display: block ;
         }
     }
-.collapse:not(.show){
-    @include media-breakpoint-up(lg){
-        display:block !important;
+    .tab-pane{
+         >.collapse:not(.show){
+            @include media-breakpoint-up(lg){
+                display:block !important;
+            }
+        }
     }
-}
     .tab-content{
         >.tab-pane{
             @include media-breakpoint-down(md){
@@ -3202,3 +3155,4 @@ input [type="search"]::-webkit-search-cancel-button{
     width:50px;
 
 }
+

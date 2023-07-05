@@ -703,7 +703,6 @@ div.quick_view_content {
     background: nth($f_color,5);
     z-index: 99;
     max-height: 285px;
-//     overflow: auto;
     @include box-shadow(0px 4px 15px 5px rgba(3, 3, 3, 0.05))
     display: none;
     @include media-breakpoint-down(md){
@@ -845,6 +844,7 @@ div.quick_view_content {
         @include media-breakpoint-down(md) {
             display: list-item;
             list-style: none;
+            text-align:center;
         }
     }
     .o_wsale_products_grid_table_wrapper {
@@ -921,9 +921,6 @@ div.quick_view_content {
                 .o_wsale_product_grid_wrapper{
                     .oe_product_image{
                         .new_span img {
-//                             @include media-breakpoint-up(lg){
-//                                 height: calc(18.6rem * 2);
-//                             }
                             @media (min-width: 1199px){
                                 height: calc(18.6rem * 2);
                             }
@@ -941,10 +938,6 @@ div.quick_view_content {
                 .o_wsale_product_grid_wrapper{
                     .oe_product_image{
                         .new_span img {
-
-//                             @include media-breakpoint-up(lg){
-//                                 height: calc(19.5rem * 3);
-//                             }
                             @media (min-width: 1199px){
                                 height: calc(19.5rem * 3);
                             }
@@ -962,9 +955,6 @@ div.quick_view_content {
                 .o_wsale_product_grid_wrapper{
                     .oe_product_image{
                         .new_span img {
-//                             @include media-breakpoint-up(lg){
-//                                 height: calc(19.9rem * 4);
-//                             }
                             @media (min-width: 1199px){
                                 height: calc(19.9rem * 4);
                             }
@@ -1047,7 +1037,7 @@ div.quick_view_content {
         table:not([data-ppr="2"]){
             .te_shop_grid {
                 @include media-breakpoint-down(md){
-                    width: 32%;
+                    width: 45%;
                     display: inline-block;
                     margin-top: 0;
                 }
@@ -1519,7 +1509,6 @@ div.quick_view_content {
 	{
 		.js_add_cart_json
 		{
-// 			border: 1px solid #ced4da;  /*This color is not used in variables*/
             border: 1px solid #ededed;
             background-color: nth($f_color,5);
             color:nth($f_color,13);
@@ -1529,7 +1518,6 @@ div.quick_view_content {
             height: 36px;
             line-height: 36px;
             padding: 0;
-//             font-size: 14px;
             font-size: $font-size-base - 0.188rem; //reduce 3px
 		}
 	}
@@ -2149,9 +2137,7 @@ button:focus {
 }
 /*===== 09. common css for Employee And Customers Snippet ========*/
 .common_carousel_emp_ept {
-    .carousel-inner .carousel-item.active/* ,
-    .carousel-inner .carousel-item-next,
-    .carousel-inner .carousel-item-prev */ {
+    .carousel-inner .carousel-item.active {
         display: flex;
     }
     .carousel-inner .carousel-item-next,
@@ -2309,11 +2295,17 @@ button:focus {
             padding: 5px 2px 0 2px;
             text-align: center;
             height:100%;
-            width: 130px;
+            width: 210px;
+            @include media-breakpoint-down(md){
+                width: 150px;
+            }
             .brand-logo {
                 display: inline-block;
                 height: 90px;
                 line-height: 90px;
+            }
+            img {
+                height: 90px;
             }
         }
     }
@@ -2330,8 +2322,6 @@ button:focus {
             border: 0px;
             @include border-radius(30px);
             box-shadow: unset;
-            /*border-top-left-radius:0px;*/
-            /*border-bottom-left-radius:0px;*/
             line-height: 40px;
             height: 40px;
             padding: 0px 1rem;
@@ -2363,7 +2353,7 @@ button:focus {
         margin: 0;
     }
     .brand-name{
-        word-break: break-all;
+        word-break: break-word;
     }
     #all-brands{
         line-height:24px;
@@ -2600,13 +2590,6 @@ button:focus {
     text-align: center;
     .owl-dot {
         span {
-            /*width: 10px;
-            height: 10px;
-            margin: 5px;
-            border: 2px solid #ccc;
-            display: block;
-            transition: opacity .2s ease;
-            border-radius: 30px;*/
             width: 9px;
             height: 9px;
             margin: 5px 7px;
@@ -2621,7 +2604,6 @@ button:focus {
         }
         &.active {
             span {
-                /*background-color: #ccc;*/
                 background: theme-color('primary');
                 width: 18px;
             }
@@ -2651,7 +2633,6 @@ button:focus {
     box-shadow: 0 1px 4px 0 #ccc;
     background: #fff;
     width: 160px;
-    /* height: 26px; */
     cursor: default;
     text-align: center;
     margin: 0px auto;
@@ -2660,7 +2641,6 @@ button:focus {
 
 }
 .color-changer{
-//     position:relative;
     z-index:8;
     overflow-x: auto;
     overflow-y: hidden;

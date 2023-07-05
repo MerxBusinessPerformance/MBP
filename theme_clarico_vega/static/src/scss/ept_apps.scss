@@ -7,7 +7,6 @@
 		border:0;
 	}
 }
-/*@media (min-width:1200px)*/
 @include media-breakpoint-up(xl)
 {
 	.te_cart_summary_card .toggle_summary_div
@@ -16,7 +15,6 @@
 	}
 }
 
-/*@media (max-width:767.98px)*/
 @include media-breakpoint-down(sm)
 {
 

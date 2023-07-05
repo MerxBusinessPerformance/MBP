@@ -340,9 +340,31 @@ class SliderBuilder(WebsiteSale):
                 (not r.date_start or r.date_start <= datetime.datetime.today()) and (
                 not r.date_end or r.date_end > datetime.datetime.today())))
         if applied_on == 'product':
-            return pl_items.mapped('product_tmpl_id').filtered(
-                lambda r: r.sale_ok and r.website_published and r.website_id.id in (
-                False, request.website.id) and r.type in ['product', 'consu'])[:limit]
+            price_list = request.website.get_current_pricelist()
+            pl_items = price_list.item_ids.filtered(lambda r: ((not r.date_start or r.date_start <= datetime.datetime.today()) and (
+                        not r.date_end or r.date_end > datetime.datetime.today())))
+            if pl_items.filtered(lambda r: r.applied_on in ['3_global']):
+                domain = request.website.sale_product_domain()
+                domain += ['|', ('website_id', '=', None), ('website_id', '=', request.website.id),
+                           ('website_published', '=', True), ('public_categ_ids', 'in', category_ids),
+                           ('type', 'in', ['product', 'consu'])]
+                return request.env['product.template'].sudo().search(domain, limit=limit)
+            else:
+                products_ids = []
+                for line in pl_items:
+                    if line.applied_on in ['1_product']:
+                        products_ids.extend(line.product_tmpl_id.ids)
+                    elif line.applied_on in ['0_product_variant']:
+                        products_ids.extend(line.product_id.product_tmpl_id.ids)
+                    elif line.applied_on in ['2_product_category']:
+                        domain = request.website.sale_product_domain()
+                        domain += ['|', ('website_id', '=', None), ('website_id', '=', request.website.id),
+                                   ('website_published', '=', True), ('categ_id', 'child_of', line.categ_id.id),
+                                   ('type', 'in', ['product', 'consu'])]
+                        data = request.env['product.template'].sudo().search(domain)
+                        products_ids.extend(data.ids)
+                products_ids = list(set(products_ids))
+                return request.env['product.template'].sudo().search([('id', 'in', products_ids)], limit=limit)
         elif category_ids and applied_on == 'category' and discount_policy == 'discounts':
             return pl_items.mapped('product_tmpl_id').filtered(
                 lambda r: r.sale_ok and r.website_published and r.website_id.id in (

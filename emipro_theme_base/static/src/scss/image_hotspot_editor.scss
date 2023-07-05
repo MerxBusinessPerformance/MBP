@@ -113,7 +113,6 @@
             .product-configure-ui-section,
             .hotspot_preview_section {
                 border-left: 1px solid #ededed;
-//                 height: 63vh;
                 overflow-y: auto;
                 width: 100%;
                 .title-main {
@@ -436,9 +435,6 @@
     position:absolute;
     &:hover {
         cursor:pointer;
-//         img {
-//             height: 30px;
-//         }
     }
     @include media-breakpoint-down(lg){
         width: 22px;
@@ -482,7 +478,6 @@
 
     .hotspot_add_to_cart_btn {
         display: inline-block;
-        /*color:theme-color('primary');*/
         margin-top: 5px;
         padding: 0.25rem 0.75rem;
 

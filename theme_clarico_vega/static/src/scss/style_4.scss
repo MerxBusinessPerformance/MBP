@@ -171,7 +171,7 @@
                     padding: 6px;
                     img {
                         width: auto;
-                        height: auto;
+                        height: 100%;
                         margin: 0 auto;
                     }
                 }
@@ -203,7 +203,6 @@
 /*================= 02. Product page offer timer ===============*/
 .rounded_digit_product
 {
-	/*@include border(1px,19,solid);*/
 	margin-right: 0px;
 	width: 50px;
 	vertical-align: middle;
@@ -222,7 +221,6 @@
 	{
 		font-size:0.75rem;
 		color: nth($f_color, 19);
-		/*background-color:nth($f_color,19);*/
 		padding: 0px 5px 4px;
 	}
 }
@@ -230,8 +228,6 @@
 {
 	display: none;
 	margin-bottom: 0;
-	/* @include style(4,19);
-	line-height: unset; */
 	font-size: 1rem;
     padding:0;
     line-height: normal;
@@ -255,21 +251,6 @@
 		}
 	}
 }
-/* .timer_data {
-	display: inline-block;
-	@include position(absolute,0px,null,null,22px);
-	background: #b7b6b6;  *//* Static color *//*
-	color: nth($f_color, 5);
-	max-width: 275px;
-	width: 100%;
-    text-align: center;
-    .timer_input{
-        .te_offer_timer_msg_div{
-            border: 1px solid #d2d2d2;
-            padding: 0 5px;
-        }
-    }
-} */
 .te_time_main_div {
 	@include position(relative);
 }

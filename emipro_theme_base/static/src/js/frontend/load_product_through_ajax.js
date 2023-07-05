@@ -10,11 +10,16 @@ odoo.define('emipro_theme_base.load_product_through_ajax', function(require) {
     var StickyFilter = new publicWidget.registry.StickyFilter();
     var productDetail = new publicWidget.registry.productDetail();
     var priceSlider = new publicWidget.registry.price_slider();
+    var AjaxColorPaneAttr = new publicWidget.registry.AjaxColorPane();
     var quickFilter = new publicWidget.registry.QuickFilter;
+    var ProductCategoriesLinks = new publicWidget.registry.ProductCategoriesLinks;
     var core = require('web.core');
     var _t = core._t;
 
     publicWidget.registry.WebsiteSale.include({
+        _changeAttribute: function(event) {
+            this._super.apply(this, arguments);
+        },
         _onChangeAttribute: function(event) {
             /* This function is inherit for check the filter is through ajax or page load
              And If user change the input of price slider then it's stop this action */
@@ -56,12 +61,6 @@ odoo.define('emipro_theme_base.load_product_through_ajax', function(require) {
                 }
             }
         },
-        /*_onClickAdd: function (ev) {
-            this._super.apply(this, arguments);
-            setTimeout(function(){
-                $('.modal').find('footer').find('button').addClass('te_theme_button');
-            }, 700);
-        },*/
         _updateProductImage: function($productContainer, displayImage, productId, productTemplateId, newCarousel, isCombinationPossible) {
             /* This method is used for update the product images while open a quick view model */
             var $carousel = $productContainer.find('#mainSlider');
@@ -93,6 +92,8 @@ odoo.define('emipro_theme_base.load_product_through_ajax', function(require) {
                     $(".te_ajax_cart_content").find(".img_section img.variant_image").attr("src", temp_img_src);
                 }
             }
+            $('.css_attribute_color').parents('li').removeClass('active_li')
+            $('.css_attribute_color.active').parent('li').addClass('active_li')
             /* Attribute value tooltip */
             $(function() {
                 $('[data-toggle="tooltip"]').tooltip({
@@ -123,10 +124,9 @@ odoo.define('emipro_theme_base.load_product_through_ajax', function(require) {
          */
         _onChangeCombination: function(ev, $parent, combination) {
             this._super.apply(this, arguments);
+            $(".js_sku_div").html('N/A');
             if (combination.sku_details) {
                 $(".js_sku_div").html(combination.sku_details);
-            } else {
-                $(".js_sku_div").html('N/A');
             }
         },
     });
@@ -156,7 +156,7 @@ odoo.define('emipro_theme_base.load_product_through_ajax', function(require) {
                 if (through_ajax == 'True') {
                     this.sendAjaxToFilter(event);
                 }
-            } else {
+            }else {
                 $("form.js_attributes input,form.js_attributes select").closest("form").submit();
             }
 
@@ -167,7 +167,7 @@ odoo.define('emipro_theme_base.load_product_through_ajax', function(require) {
             var url = window.location.pathname;
             var frm = $('.js_attributes')
 
-            var url_prm = frm.serialize()
+            var url_prm = frm.serialize();
 
             url = url + "?" + url_prm;
             window.history.pushState({}, "", url);
@@ -187,11 +187,20 @@ odoo.define('emipro_theme_base.load_product_through_ajax', function(require) {
                     data_replace = $(data).find('.load_more_next_page');
                     $(".load_more_next_page").replaceWith(data_replace);
                     ThemeEvent.onShowClearVariant();
-                    ThemeEvent.onSelectAttribute();
                     ThemeEvent._onslide();
+                    $('.products_categories [data-link-href]').click(function(ev) {
+                        ProductCategoriesLinks._openLink(ev);
+                    });
                     StickyFilter._stickyFilter();
                     priceSlider.start();
                     quickFilter.start();
+
+                    $('.te_cv_sp').mouseenter(function(event) {
+                        AjaxColorPaneAttr._onMouseEnterColorHover(event);
+                    });
+                    $('.te_cv_sp').mouseleave(function(event) {
+                        AjaxColorPaneAttr._onMouseEnterColorHoverOut(event);
+                    });
                     $("html, body").animate({
                         scrollTop: 0
                     }, 1000);
@@ -219,6 +228,9 @@ odoo.define('emipro_theme_base.load_product_through_ajax', function(require) {
                                     attr_value = attr_value.replace(/(^\s+|[^a-zA-Z0-9 ]+|\s+$)/g, "");
                                     attr_value = attr_value.replace(/\s+/g, "-");
                                 }
+                            }
+                            if (!attr_value) {
+                                attr_value = self.parent("label").hasClass("css_attribute_color") ? self.parent("label").siblings(".te_color-name").html() : self.siblings("span").html();
                             }
                             $('.te_view_all_filter_div .te_view_all_filter_inner').find('.te_clear_attr_a.' + attr_value).trigger('click');
                         }
@@ -270,7 +282,7 @@ odoo.define('emipro_theme_base.load_product_through_ajax', function(require) {
                 $(curr_divselect).remove();
             });
             _.each(curr_divinput, function(event) {
-                $(curr_divinput).removeAttr("checked");
+                $(curr_divinput).val('')
             });
             this.filterData(event);
         },

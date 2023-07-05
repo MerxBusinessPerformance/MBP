@@ -31,7 +31,7 @@
                             </td>
                             <t t-set="check_stock" t-value="website.option_out_of_stock and wish.product_id.type=='product' and (not wish.product_id.allow_out_of_stock_order) and (wish.product_id.sudo().qty_available &lt; 1)"/>
                             <td class="wish_product_img">
-                                <a t-att-href="'/shop/product/%s' % slug(wish.product_id.product_tmpl_id)" class="position-relative">
+                                <a t-att-href="wish.product_id.website_url" class="position-relative">
                                     <img t-attf-src="/web/image/product.product/#{wish.product_id.id}/image_128"
                                          t-attf-class="img img-fluid #{'sold-out' if check_stock else ''}" style="margin:auto;" alt="Product image"/>
                                     <div class="te-out-of-stock-lbl" t-if="check_stock">
@@ -41,7 +41,7 @@
                             </td>
                             <td class="wish_product_name_and_price">
                                 <div t-attf-class="te_wish_name mb8 #{'te_2_line' if (website.number_of_product_line == '2') else 'te_3_line' if (website.number_of_product_line == '3') else ''}">
-                                    <a t-att-href="'/shop/product/%s' % slug(wish.product_id.product_tmpl_id)">
+                                    <a t-att-href="wish.product_id.website_url">
                                         <t t-esc="wish.product_id.display_name"/>
                                     </a>
                                 </div>
@@ -78,26 +78,8 @@
             </table>
         </xpath>
     </template>
-    <template id="product_add_to_wishlist_ept" name='Add to wishlist in product page'
-              inherit_id="website_sale_wishlist.product_add_to_wishlist">
+    <template id="product_add_to_wishlist_ept_product" inherit_id="website_sale_wishlist.product_add_to_wishlist">
         <xpath expr="//button[hasclass('o_add_wishlist_dyn')]" position="replace">
-            <button t-if="product_variant" type="button" role="button"
-                    class="btn btn-link mt16 o_add_wishlist_dyn te_theme_button"
-                    t-att-disabled='in_wish or None' t-att-data-product-template-id="product.id"
-                    t-att-data-product-product-id="product_variant.id" data-action="o_wishlist">
-                <span class="fa fa-heart" role="img" aria-label="Add to wishlist"/>
-            </button>
         </xpath>
     </template>
-
-    <!--    Remove Temparary Out of Stock -->
-    <!--<record id="theme_clarico_vega.hide_unavailable_text_wishlist_ept" model="ir.ui.view">
-        <field name="name">hide_unavailable_text_wishlist_ept</field>
-        <field name="inherit_id" search="[('key', '=', 'website_sale_stock_wishlist.product_wishlist')]"/>
-        <field name="type">qweb</field>
-        <field name="key">theme_clarico_vega.hide_unavailable_text_wishlist_ept</field>
-        <field name="arch" type="xml">
-            <xpath expr="//small[@t-if='wish.product_id.product_tmpl_id._is_sold_out()']" position="replace"/>
-        </field>
-    </record>-->
 </odoo>

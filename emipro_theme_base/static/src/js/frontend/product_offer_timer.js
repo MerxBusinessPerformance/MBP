@@ -39,8 +39,8 @@ odoo.define('emipro_theme_base.product_offer_timer', function(require) {
                 var difference = combination.list_price - combination.price;
                 var discount = difference * 100 / combination.list_price;
                 if (discount > 0) {
-                    $(".js_product .te_discount_before .oe_currency_value").html(difference.toFixed(2));
-                    $(".js_product .te_discount .te_percentage .percent_val").html(discount.toFixed(2));
+                    $(".js_product .te_discount_before .oe_currency_value").html(difference.toFixed(0));
+                    $(".js_product .te_discount .te_percentage .percent_val").html(discount.toFixed(0));
                     $(".js_product .te_discount, .js_product .te_percentage").show()
                 }
             }
@@ -58,7 +58,7 @@ odoo.define('emipro_theme_base.product_offer_timer', function(require) {
                 var $price = $parent.find(".oe_price:first .oe_currency_value");
                 var $default_price = $parent.find(".oe_default_price:first .oe_currency_value");
                 var difference = parseFloat(combination.list_price) - parseFloat(combination.price);
-                var discount = difference * 100 / combination.list_price;
+                var discount = parseInt((difference * 100 / combination.list_price).toFixed(0));
                 var $optional_price = $parent.find(".oe_optional:first .oe_currency_value");
                 var $percent_val = $parent.find(".te_discount .percent_val");
                 $price.text(self._priceToStr(combination.price));
@@ -118,16 +118,22 @@ odoo.define('emipro_theme_base.product_offer_timer', function(require) {
             var count_start_date = parseInt($(".start_date").val());
             var count_end_date = parseInt($(".end_date").val());
             var current_date_time = parseInt($(".current_date").val());
-            var current_date = current_date_time
+
             $("#timer_portion_content_ept").addClass("d-none");
             timer = setInterval(function() {
 
-                if (count_start_date <= current_date && count_end_date >= current_date) {
-                    var duration = count_end_date - current_date;
+                if (count_start_date <= current_date_time && count_end_date >= current_date_time) {
+                    var duration = count_end_date - current_date_time;
                     product_offer = true;
                 } else {
                     product_offer = false;
                 }
+
+                var seconds = "00";
+                var days = "00";
+                var minutes = "00";
+                var hours = "00";
+
                 if (duration > 0) {
                     var days = Math.floor(duration / (1000 * 60 * 60 * 24));
                     var hours = Math.floor((duration % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -146,25 +152,18 @@ odoo.define('emipro_theme_base.product_offer_timer', function(require) {
                     if ((minutes + '').length == 1) {
                         minutes = "0" + minutes;
                     }
+
+                    if (product_offer == true) {
+                        $("#days").text(days);
+                        $("#hours").text(hours);
+                        $("#minutes").text(minutes);
+                        $("#seconds").text(seconds);
+                        $(".te_offer_timer_prod").css("display", "block");
+                        $("#timer_portion_content_ept").removeClass("d-none");
+                    }
                 }
 
-                // If the count down is over, write some text
-                if (duration <= 0) {
-                    clearInterval(timer);
-                    seconds = "00";
-                    days = "00";
-                    minutes = "00";
-                    hours = "00";
-                }
-                if (product_offer == true && duration > 0) {
-                    $("#days").text(days);
-                    $("#hours").text(hours);
-                    $("#minutes").text(minutes);
-                    $("#seconds").text(seconds);
-                    $(".te_offer_timer_prod").css("display", "block");
-                    $("#timer_portion_content_ept").removeClass("d-none");
-                }
-                current_date = current_date + 1000
+                current_date_time += 1000
             }, 1000);
         }
 
